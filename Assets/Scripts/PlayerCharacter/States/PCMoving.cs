@@ -28,11 +28,11 @@ public class PCMoving : PCState
 
     private Vector3 MovementInitialization()
     {
-        Camera mainCamera = _pcStateMachine.pcController.pcReferences.camera;
+        Camera camera = _pcStateMachine.pcController.pcReferences.camera;
         Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
-        Vector3 forward = mainCamera.transform.forward;
+        Vector3 forward = -camera.transform.forward;
         forward.y = 0f;
-        Vector3 right = mainCamera.transform.right;
+        Vector3 right = camera.transform.right;
         right.y = 0f;
         forward.Normalize();
         right.Normalize();
