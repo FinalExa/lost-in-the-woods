@@ -20,7 +20,7 @@ public class PCMoving : PCState
     }
     private void Movement()
     {
-        Rigidbody rigidbody = _pcStateMachine.pcController.pcReferences.rigidbody;
+        Rigidbody rigidbody = _pcStateMachine.pcController.pcReferences.rb;
         PCController pcController = _pcStateMachine.pcController;
         Vector3 movementWithDirection = MovementInitialization();
         rigidbody.velocity = movementWithDirection * pcController.actualSpeed;
@@ -28,7 +28,7 @@ public class PCMoving : PCState
 
     private Vector3 MovementInitialization()
     {
-        Camera camera = _pcStateMachine.pcController.pcReferences.camera;
+        Camera camera = _pcStateMachine.pcController.pcReferences.cam;
         Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
         Vector3 forward = -camera.transform.forward;
         forward.y = 0f;

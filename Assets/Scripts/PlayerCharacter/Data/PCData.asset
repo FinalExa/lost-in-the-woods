@@ -12,5 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c20795483de68394f8d94f28b6ea752b, type: 3}
   m_Name: PCData
   m_EditorClassIdentifier: 
+  maxHP: 100
+  maxLightRadius: 7.5
+  minLightRadius: 2
+  healthRegenMaxTimer: 2
+  healthRegenRatePerSecond: 10
+  comboHits:
+  - {fileID: 0}
+  comboHitsNumber: 0
   defaultMovementSpeed: 10
   currentMovementSpeed: 0

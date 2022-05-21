@@ -5,14 +5,17 @@ using UnityEngine;
 public class PCReferences : MonoBehaviour
 {
     public PCData pcData;
-    [HideInInspector] public Camera camera;
+    public Light playerLight;
+    [HideInInspector] public Camera cam;
     [HideInInspector] public Inputs inputs;
-    [HideInInspector] public Rigidbody rigidbody;
+    [HideInInspector] public Rigidbody rb;
+    [HideInInspector] public PCCombo pcCombo;
 
     private void Awake()
     {
-        camera = FindObjectOfType<Camera>();
+        cam = FindObjectOfType<Camera>();
         inputs = this.gameObject.GetComponent<Inputs>();
-        rigidbody = this.gameObject.GetComponent<Rigidbody>();
+        rb = this.gameObject.GetComponent<Rigidbody>();
+        pcCombo = this.gameObject.GetComponent<PCCombo>();
     }
 }
