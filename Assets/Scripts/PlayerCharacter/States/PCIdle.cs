@@ -3,7 +3,7 @@ public class PCIdle : PCState
     public PCIdle(PCStateMachine pcStateMachine) : base(pcStateMachine)
     {
     }
-    public override void StateUpdate()
+    public override void Update()
     {
         Transitions();
     }

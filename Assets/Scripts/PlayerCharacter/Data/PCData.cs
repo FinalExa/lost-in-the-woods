@@ -13,7 +13,7 @@ public class PCData : ScriptableObject
     [Header("Combat Section")]
     public PlayableDirector combo;
     public int comboHitsNumber;
-    public float delayBetweenHits;
+    public float comboDelayBetweenHits;
     public float comboEndCooldown;
     public float comboResetCooldown;
     [Header("Movement section")]

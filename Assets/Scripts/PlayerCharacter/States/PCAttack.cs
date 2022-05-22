@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class PCAttack : PCState
 {
-    private bool isOver = true;
+    private PCCombo combo;
     public PCAttack(PCStateMachine pcStateMachine) : base(pcStateMachine)
     {
     }
 
     public override void Start()
     {
-        _pcStateMachine.pcController.pcReferences.pcRotation.rotationEnabled = false;
-        isOver = true;
+        combo = _pcStateMachine.pcController.pcReferences.pcCombo;
+        combo.StartComboHit();
     }
 
-    public override void StateUpdate()
+    public override void Update()
     {
-        if (isOver) Transitions();
+        if (combo.comboHitOver) Transitions();
     }
 
     #region Transitions

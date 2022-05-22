@@ -14,7 +14,11 @@ public abstract class StateMachine : MonoBehaviour
     }
     private void Update()
     {
-        _state.StateUpdate();
+        _state.Update();
+    }
+    private void FixedUpdate()
+    {
+        _state.FixedUpdate();
     }
 }
 

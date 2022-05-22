@@ -5,7 +5,11 @@ public abstract class State
     {
         return;
     }
-    public virtual void StateUpdate()
+    public virtual void Update()
+    {
+        return;
+    }
+    public virtual void FixedUpdate()
     {
         return;
     }

@@ -18,7 +18,7 @@ public class PCRotation : MonoBehaviour
     }
     void Update()
     {
-        RotatePlayerToMousePosition();
+        if (rotationEnabled) RotatePlayerToMousePosition();
     }
     private float CalculateAngle(Vector3 player, Vector3 mouse)
     {

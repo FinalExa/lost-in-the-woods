@@ -4,7 +4,7 @@ public class PCMoving : PCState
     public PCMoving(PCStateMachine pcStateMachine) : base(pcStateMachine)
     {
     }
-    public override void StateUpdate()
+    public override void Update()
     {
         Movement();
         Transitions();
@@ -50,13 +50,21 @@ public class PCMoving : PCState
     #region ToIdleState
     private void GoToIdleState(Inputs inputs)
     {
-        if (inputs.MovementInput == Vector3.zero) _pcStateMachine.SetState(new PCIdle(_pcStateMachine));
+        if (inputs.MovementInput == Vector3.zero)
+        {
+            _pcStateMachine.SetState(new PCIdle(_pcStateMachine));
+            _pcStateMachine.pcController.pcReferences.rb.velocity = Vector3.zero;
+        }
     }
     #endregion
     #region ToAttackState
     private void GoToAttackState(Inputs inputs)
     {
-        if (inputs.LeftClickInput) _pcStateMachine.SetState(new PCAttack(_pcStateMachine));
+        if (inputs.LeftClickInput)
+        {
+            _pcStateMachine.SetState(new PCAttack(_pcStateMachine));
+            _pcStateMachine.pcController.pcReferences.rb.velocity = Vector3.zero;
+        }
     }
     #endregion
     #endregion
