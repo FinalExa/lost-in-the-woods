@@ -45,14 +45,18 @@ public class PCMoving : PCState
     {
         Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
         GoToIdleState(inputs);
+        GoToAttackState(inputs);
     }
     #region ToIdleState
     private void GoToIdleState(Inputs inputs)
     {
-        if (inputs.MovementInput == Vector3.zero)
-        {
-            _pcStateMachine.SetState(new PCIdle(_pcStateMachine));
-        }
+        if (inputs.MovementInput == Vector3.zero) _pcStateMachine.SetState(new PCIdle(_pcStateMachine));
+    }
+    #endregion
+    #region ToAttackState
+    private void GoToAttackState(Inputs inputs)
+    {
+        if (inputs.LeftClickInput) _pcStateMachine.SetState(new PCAttack(_pcStateMachine));
     }
     #endregion
     #endregion

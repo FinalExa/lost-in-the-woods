@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1497729465968357026}
   - component: {fileID: 3955977658792284816}
   - component: {fileID: 2722993487351551378}
+  - component: {fileID: 1417427966730999207}
   m_Layer: 0
   m_Name: PlayerWeapon
   m_TagString: Untagged
@@ -25,14 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3954883327910914549}
-  m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.65, z: 1}
   m_LocalScale: {x: 0.2, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8940398980789769128}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &3955977658792284816
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -94,14 +95,36 @@ PlayableDirector:
   m_GameObject: {fileID: 3954883327910914549}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 0}
+  m_PlayableAsset: {fileID: 11400000, guid: 69b6423d19a6e8044be06338f067b801, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings: []
+  m_SceneBindings:
+  - key: {fileID: -4265136192374341853, guid: 69b6423d19a6e8044be06338f067b801, type: 2}
+    value: {fileID: 1417427966730999207}
   m_ExposedReferences:
     m_References: []
+--- !u!95 &1417427966730999207
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3954883327910914549}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6044792306191080829
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,6 +229,7 @@ MonoBehaviour:
   inputs: {fileID: 0}
   rb: {fileID: 0}
   pcCombo: {fileID: 0}
+  pcRotation: {fileID: 0}
 --- !u!114 &723867546203750364
 MonoBehaviour:
   m_ObjectHideFlags: 0
