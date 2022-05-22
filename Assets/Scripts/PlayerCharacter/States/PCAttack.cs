@@ -12,7 +12,7 @@ public class PCAttack : PCState
     public override void Start()
     {
         combo = _pcStateMachine.pcController.pcReferences.pcCombo;
-        combo.StartComboHit();
+        combo.StartComboHitCheck();
     }
 
     public override void Update()

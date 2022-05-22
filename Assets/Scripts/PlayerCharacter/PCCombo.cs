@@ -11,9 +11,10 @@ public class PCCombo : MonoBehaviour
     [SerializeField] private PlayableDirector[] comboHits;
     [HideInInspector] public bool comboHitOver;
     [HideInInspector] public int currentComboProgress;
-    [HideInInspector] public float comboBetweenHitsDelayTimer;
+    [HideInInspector] public float comboDelayTimer;
     [HideInInspector] public float comboCancelTimer;
-    [HideInInspector] public float comboDelayAfterFinish;
+    [HideInInspector] public bool delayAfterHit;
+    private bool comboCancelDelay;
 
     private void Awake()
     {
@@ -25,30 +26,72 @@ public class PCCombo : MonoBehaviour
         ComboSetup();
     }
 
+    private void FixedUpdate()
+    {
+        if (delayAfterHit) DelayAfterHit();
+        if (comboCancelDelay) CountToCancelCombo();
+    }
+
     private void ComboSetup()
     {
         comboHitOver = false;
+        delayAfterHit = false;
         currentComboProgress = 0;
         comboHits[currentComboProgress].gameObject.SetActive(true);
-        comboBetweenHitsDelayTimer = pcReferences.pcData.comboDelayBetweenHits;
-        comboCancelTimer = pcReferences.pcData.comboResetCooldown;
-        comboDelayAfterFinish = pcReferences.pcData.comboEndCooldown;
+
+    }
+    public void StartComboHitCheck()
+    {
+        if (!delayAfterHit) StartComboHit();
     }
 
-    public void StartComboHit()
+    private void DelayAfterHit()
+    {
+        if (comboDelayTimer > 0) comboDelayTimer -= Time.fixedDeltaTime;
+        else
+        {
+            delayAfterHit = false;
+        }
+    }
+
+    private void StartComboHit()
     {
         comboHitOver = false;
+        if (comboCancelDelay) comboCancelDelay = false;
         pcReferences.pcRotation.rotationEnabled = false;
         comboHits[currentComboProgress].gameObject.tag = damagingTag;
         comboHits[currentComboProgress].Play();
+    }
+
+    private void CountToCancelCombo()
+    {
+        if (comboCancelTimer > 0) comboCancelTimer -= Time.fixedDeltaTime;
+        else
+        {
+            comboHits[currentComboProgress].gameObject.SetActive(false);
+            currentComboProgress = 0;
+            comboHits[currentComboProgress].gameObject.SetActive(true);
+            comboCancelDelay = false;
+        }
     }
 
     public void EndComboHit()
     {
         comboHits[currentComboProgress].gameObject.tag = notDamagingTag;
         comboHits[currentComboProgress].gameObject.SetActive(false);
-        if (currentComboProgress + 1 == comboHits.Length) currentComboProgress = 0;
-        else currentComboProgress++;
+        if (currentComboProgress + 1 == comboHits.Length)
+        {
+            currentComboProgress = 0;
+            comboDelayTimer = pcReferences.pcData.comboEndCooldown;
+        }
+        else
+        {
+            currentComboProgress++;
+            comboDelayTimer = pcReferences.pcData.comboDelayBetweenHits;
+            comboCancelTimer = pcReferences.pcData.comboResetCooldown;
+            comboCancelDelay = true;
+        }
+        delayAfterHit = true;
         comboHits[currentComboProgress].gameObject.SetActive(true);
         pcReferences.pcRotation.rotationEnabled = true;
         comboHitOver = true;

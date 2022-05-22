@@ -11,12 +11,9 @@ public class PCData : ScriptableObject
     public float healthRegenMaxTimer;
     public float healthRegenRatePerSecond;
     [Header("Combat Section")]
-    public PlayableDirector combo;
-    public int comboHitsNumber;
     public float comboDelayBetweenHits;
-    public float comboEndCooldown;
     public float comboResetCooldown;
+    public float comboEndCooldown;
     [Header("Movement section")]
     public float defaultMovementSpeed;
-    [HideInInspector] public float currentMovementSpeed;
 }

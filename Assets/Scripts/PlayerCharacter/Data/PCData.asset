@@ -17,8 +17,7 @@ MonoBehaviour:
   minLightRadius: 2
   healthRegenMaxTimer: 2
   healthRegenRatePerSecond: 10
-  comboHits:
-  - {fileID: 0}
-  comboHitsNumber: 0
+  comboDelayBetweenHits: 0.1
+  comboResetCooldown: 0.3
+  comboEndCooldown: 0.5
   defaultMovementSpeed: 10
-  currentMovementSpeed: 0
