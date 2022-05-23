@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Not_Damaging
   - Damaging
+  - Invulnerable
   layers:
   - Default
   - TransparentFX

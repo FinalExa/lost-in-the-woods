@@ -21,3 +21,8 @@ MonoBehaviour:
   comboResetCooldown: 0.3
   comboEndCooldown: 0.5
   defaultMovementSpeed: 10
+  defaultDirection: {x: 0, y: 0, z: 1}
+  invulnerabilityTag: Invulnerable
+  dodgeDuration: 0.2
+  dodgeDistance: 5
+  dodgeStopTime: 0.5

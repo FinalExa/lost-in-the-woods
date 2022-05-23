@@ -14,6 +14,12 @@ public class PCData : ScriptableObject
     public float comboDelayBetweenHits;
     public float comboResetCooldown;
     public float comboEndCooldown;
-    [Header("Movement section")]
+    [Header("Movement Section")]
     public float defaultMovementSpeed;
+    [Header("Dodge Section")]
+    public Vector3 defaultDirection;
+    public string invulnerabilityTag;
+    public float dodgeDuration;
+    public float dodgeDistance;
+    public float dodgeStopTime;
 }

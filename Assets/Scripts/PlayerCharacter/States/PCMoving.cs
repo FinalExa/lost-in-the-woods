@@ -1,6 +1,7 @@
 using UnityEngine;
 public class PCMoving : PCState
 {
+    private Vector3 lastDirection;
     public PCMoving(PCStateMachine pcStateMachine) : base(pcStateMachine)
     {
     }
@@ -23,6 +24,7 @@ public class PCMoving : PCState
         Rigidbody rigidbody = _pcStateMachine.pcController.pcReferences.rb;
         PCController pcController = _pcStateMachine.pcController;
         Vector3 movementWithDirection = MovementInitialization();
+        if (movementWithDirection != Vector3.zero) lastDirection = movementWithDirection;
         rigidbody.velocity = movementWithDirection * pcController.actualSpeed;
     }
 
@@ -46,6 +48,7 @@ public class PCMoving : PCState
         Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
         GoToIdleState(inputs);
         GoToAttackState(inputs);
+        GoToDodgeState(inputs);
     }
     #region ToIdleState
     private void GoToIdleState(Inputs inputs)
@@ -64,6 +67,15 @@ public class PCMoving : PCState
         {
             _pcStateMachine.SetState(new PCAttack(_pcStateMachine));
             _pcStateMachine.pcController.pcReferences.rb.velocity = Vector3.zero;
+        }
+    }
+    #endregion
+    #region ToDodgeState
+    private void GoToDodgeState(Inputs inputs)
+    {
+        if (inputs.DodgeInput)
+        {
+            _pcStateMachine.SetState(new PCDodge(_pcStateMachine, lastDirection));
         }
     }
     #endregion

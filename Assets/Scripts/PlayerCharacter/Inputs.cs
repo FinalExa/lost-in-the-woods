@@ -7,6 +7,7 @@ public class Inputs : MonoBehaviour
     public bool LeftClickInput { get; private set; }
     public bool RightClickInput { get; private set; }
     public Vector3 MovementInput { get; private set; }
+    public bool DodgeInput { get; private set; }
     private void Update()
     {
         GetInputs();
@@ -16,6 +17,7 @@ public class Inputs : MonoBehaviour
         GetLeftClickInput();
         GetRightClickInput();
         GetMovementInput();
+        GetDodgeInput();
     }
     void GetLeftClickInput()
     {
@@ -33,7 +35,11 @@ public class Inputs : MonoBehaviour
         float sideInput = Input.GetAxisRaw("Vertical");
         MovementInput = new Vector3(sideInput, 0, frontInput).normalized;
     }
-
+    void GetDodgeInput()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift) == true) DodgeInput = true;
+        else DodgeInput = false;
+    }
     public void StopAllInputs()
     {
         LeftClickInput = false;

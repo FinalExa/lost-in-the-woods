@@ -26,6 +26,7 @@ public class PCAttack : PCState
         Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
         GoToIdleState(inputs);
         GoToMovementState(inputs);
+        GoToDodgeState(inputs);
     }
     #region ToIdleState
     private void GoToIdleState(Inputs inputs)
@@ -37,6 +38,15 @@ public class PCAttack : PCState
     private void GoToMovementState(Inputs inputs)
     {
         if ((inputs.MovementInput != UnityEngine.Vector3.zero)) _pcStateMachine.SetState(new PCMoving(_pcStateMachine));
+    }
+    #endregion
+    #region ToDodgeState
+    private void GoToDodgeState(Inputs inputs)
+    {
+        if (inputs.DodgeInput)
+        {
+            _pcStateMachine.SetState(new PCDodge(_pcStateMachine, _pcStateMachine.pcController.pcReferences.pcData.defaultDirection));
+        }
     }
     #endregion
     #endregion

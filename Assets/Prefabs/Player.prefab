@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 7017273354593146841}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -666,9 +666,9 @@ MonoBehaviour:
   - {fileID: 1223587632481758475}
   comboHitOver: 0
   currentComboProgress: 0
-  comboBetweenHitsDelayTimer: 0
+  comboDelayTimer: 0
   comboCancelTimer: 0
-  comboDelayAfterFinish: 0
+  delayAfterHit: 0
 --- !u!114 &7276438619559263326
 MonoBehaviour:
   m_ObjectHideFlags: 0
