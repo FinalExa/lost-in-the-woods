@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 86a3cfa8d83ac954dbb9c44e91e3d57c, type: 2}
 --- !u!1 &164243404
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,8 +139,8 @@ GameObject:
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &164243405
 BoxCollider:
@@ -237,7 +237,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &1782057713
 BoxCollider:
@@ -326,7 +326,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5477770951886658404, guid: ec7d30ae3b80f584d8dace91ef3eaeb5, type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: Basher
       objectReference: {fileID: 0}
     - target: {fileID: 6395110103217412864, guid: ec7d30ae3b80f584d8dace91ef3eaeb5, type: 3}
       propertyPath: m_RootOrder
@@ -342,7 +342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6395110103217412864, guid: ec7d30ae3b80f584d8dace91ef3eaeb5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.91
+      value: -11.26
       objectReference: {fileID: 0}
     - target: {fileID: 6395110103217412864, guid: ec7d30ae3b80f584d8dace91ef3eaeb5, type: 3}
       propertyPath: m_LocalRotation.w
