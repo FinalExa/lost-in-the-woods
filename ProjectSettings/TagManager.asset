@@ -7,6 +7,8 @@ TagManager:
   - Not_Damaging
   - Damaging
   - Invulnerable
+  - Enemy_Not_Damaging
+  - Enemy_Damaging
   layers:
   - Default
   - TransparentFX

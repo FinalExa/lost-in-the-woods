@@ -24,7 +24,7 @@ public class BasherBT : BT_Tree
             }),
             new Selector(new List<Node>
             {
-                new TaskBasherAttack(basherController.basherReferences.basherData.attackChargeTime)
+                new TaskBasherAttack(basherController.basherReferences.basherData.attackChargeTime, basherController.basherReferences.damageHitBox, basherController.notDamagingTag, basherController.damagingTag, basherController.basherReferences.playerRef)
             })
         });
         return root;

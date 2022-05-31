@@ -23,11 +23,6 @@ public class PCController : MonoBehaviour
         pcReferences = this.gameObject.GetComponent<PCReferences>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P)) HealthAddValue(-30);
-    }
-
     private void FixedUpdate()
     {
         if (regenWaitBool) RegenWait();

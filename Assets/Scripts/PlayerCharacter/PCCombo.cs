@@ -6,8 +6,8 @@ using UnityEngine.Playables;
 public class PCCombo : MonoBehaviour
 {
     private PCReferences pcReferences;
-    [SerializeField] private string damagingTag;
-    [SerializeField] private string notDamagingTag;
+    public string damagingTag;
+    public string notDamagingTag;
     [SerializeField] private PlayableDirector[] comboHits;
     [HideInInspector] public bool comboHitOver;
     [HideInInspector] public int currentComboProgress;
@@ -48,10 +48,7 @@ public class PCCombo : MonoBehaviour
     private void DelayAfterHit()
     {
         if (comboDelayTimer > 0) comboDelayTimer -= Time.fixedDeltaTime;
-        else
-        {
-            delayAfterHit = false;
-        }
+        else delayAfterHit = false;
     }
 
     private void StartComboHit()

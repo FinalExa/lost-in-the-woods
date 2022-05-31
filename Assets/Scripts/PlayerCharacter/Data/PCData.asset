@@ -20,6 +20,7 @@ MonoBehaviour:
   comboDelayBetweenHits: 0.1
   comboResetCooldown: 0.3
   comboEndCooldown: 0.5
+  comboDamage: 50
   defaultMovementSpeed: 10
   defaultDirection: {x: 0, y: 0, z: 1}
   invulnerabilityTag: Invulnerable
