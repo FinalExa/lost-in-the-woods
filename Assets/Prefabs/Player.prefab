@@ -556,6 +556,7 @@ GameObject:
   - component: {fileID: 723867546203750364}
   - component: {fileID: 5618624451261787438}
   - component: {fileID: 4483060674965839135}
+  - component: {fileID: 784439062241479829}
   - component: {fileID: 7276438619559263326}
   - component: {fileID: 7489382080051731322}
   - component: {fileID: 7017273354593146841}
@@ -628,10 +629,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776671a0582f1504f874b067e1cfe956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitbox: {fileID: 784439062241479829}
+  actualHealth: 0
   curState: 
   pcReferences: {fileID: 0}
   actualSpeed: 0
-  actualHP: 0
 --- !u!114 &5618624451261787438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -669,6 +671,22 @@ MonoBehaviour:
   comboDelayTimer: 0
   comboCancelTimer: 0
   delayAfterHit: 0
+--- !u!114 &784439062241479829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7129377632901191479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f96fe3e6440cead47bd58f43b5118339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 723867546203750364}
+  damagingTag: Enemy_Damaging
+  notDamagingTag: Enemy_Not_Damaging
+  damageToDeal: 0
 --- !u!114 &7276438619559263326
 MonoBehaviour:
   m_ObjectHideFlags: 0

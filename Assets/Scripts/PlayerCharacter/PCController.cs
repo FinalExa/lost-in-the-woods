@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PCController : MonoBehaviour
+public class PCController : Controller
 {
     [HideInInspector] public string curState;
     [HideInInspector] public PCReferences pcReferences;
     [HideInInspector] public float actualSpeed;
-    [HideInInspector] public float actualHP;
     private bool regenWaitBool;
     private float regenWaitTimer;
     private bool regenBool;
 
     private void Start()
     {
-        actualHP = pcReferences.pcData.maxHP;
+        actualHealth = pcReferences.pcData.maxHP;
         regenWaitTimer = pcReferences.pcData.healthRegenMaxTimer;
+        hitbox.damageToDeal = pcReferences.pcData.comboDamage;
     }
 
     private void Awake()
@@ -29,17 +29,17 @@ public class PCController : MonoBehaviour
         if (regenBool) Regen();
     }
 
-    public void HealthAddValue(float valueToAdd)
+    public override void HealthAddValue(float valueToAdd)
     {
-        actualHP += valueToAdd;
-        actualHP = Mathf.Clamp(actualHP, 0, pcReferences.pcData.maxHP);
+        actualHealth += valueToAdd;
+        actualHealth = Mathf.Clamp(actualHealth, 0, pcReferences.pcData.maxHP);
         LightVisualUpdate();
         RegenCheck();
     }
 
     public void LightVisualUpdate()
     {
-        float hpPercentage = (100f * actualHP) / pcReferences.pcData.maxHP;
+        float hpPercentage = (100f * actualHealth) / pcReferences.pcData.maxHP;
         float lightValueDifference = pcReferences.pcData.maxLightRadius - pcReferences.pcData.minLightRadius;
         float lightValueToAdd = lightValueDifference * (hpPercentage / 100f);
         pcReferences.playerLight.range = pcReferences.pcData.minLightRadius + lightValueToAdd;
@@ -48,7 +48,7 @@ public class PCController : MonoBehaviour
 
     private void RegenCheck()
     {
-        if (actualHP < pcReferences.pcData.maxHP && !regenWaitBool)
+        if (actualHealth < pcReferences.pcData.maxHP && !regenWaitBool)
         {
             regenWaitBool = true;
             if (regenBool) regenBool = false;
@@ -69,9 +69,9 @@ public class PCController : MonoBehaviour
     private void Regen()
     {
         float valueToRegen = pcReferences.pcData.healthRegenRatePerSecond * Time.fixedDeltaTime;
-        actualHP += valueToRegen;
-        actualHP = Mathf.Clamp(actualHP, 0, pcReferences.pcData.maxHP);
+        actualHealth += valueToRegen;
+        actualHealth = Mathf.Clamp(actualHealth, 0, pcReferences.pcData.maxHP);
         LightVisualUpdate();
-        if (actualHP == pcReferences.pcData.maxHP) regenBool = false;
+        if (actualHealth == pcReferences.pcData.maxHP) regenBool = false;
     }
 }

@@ -52,9 +52,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 759e2d756e715924c93d4cfded553960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitbox: {fileID: 262269030275822029}
+  actualHealth: 0
   basherReferences: {fileID: 0}
+  resetAttack: 0
   notDamagingTag: Enemy_Not_Damaging
   damagingTag: Enemy_Damaging
+  attackOffset: 90
 --- !u!114 &5756719117911848841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,6 +101,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f96fe3e6440cead47bd58f43b5118339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 7782674094892107102}
+  damagingTag: Damaging
+  notDamagingTag: Not_Damaging
+  damageToDeal: 0
 --- !u!33 &8843700925371425898
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -240,7 +248,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7185486876266121471}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.5, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 0.1, z: 1.5}
   m_ConstrainProportionsScale: 0
@@ -276,7 +284,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 64a5cfc8231dfd3499abde60980d259e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

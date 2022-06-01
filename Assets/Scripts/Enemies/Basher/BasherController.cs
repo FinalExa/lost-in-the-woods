@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasherController : MonoBehaviour
+public class BasherController : Controller
 {
     [HideInInspector] public BasherReferences basherReferences;
     [HideInInspector] public bool resetAttack;
     public string notDamagingTag;
     public string damagingTag;
-    private float actualHealth;
+    public float attackOffset;
 
     private void Awake()
     {
@@ -20,11 +20,13 @@ public class BasherController : MonoBehaviour
         basherReferences.basherNavMesh.isStopped = true;
         basherReferences.basherNavMesh.speed = basherReferences.basherData.defaultMovementSpeed;
         actualHealth = basherReferences.basherData.maxHP;
+        hitbox.damageToDeal = basherReferences.basherData.attackDamage;
     }
 
-    public void TakeDamage(float damage)
+    public override void HealthAddValue(float value)
     {
-        actualHealth -= damage;
+        actualHealth += value;
+        print(actualHealth);
         if (actualHealth <= 0) this.gameObject.SetActive(false);
     }
 }

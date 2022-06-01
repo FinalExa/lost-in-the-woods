@@ -11,8 +11,9 @@ public class TaskBasherAttack : Node
     private GameObject _playerRef;
     private string _notDamagingTag;
     private string _damagingTag;
+    private float _offset;
 
-    public TaskBasherAttack(float attackChargeMaxTime, GameObject damageHitBox, string notDamagingTag, string damagingTag, GameObject playerRef)
+    public TaskBasherAttack(float attackChargeMaxTime, GameObject damageHitBox, string notDamagingTag, string damagingTag, GameObject playerRef, float offset)
     {
         _attackChargeMaxTime = attackChargeMaxTime;
         _attackChargeTimer = _attackChargeMaxTime;
@@ -20,6 +21,7 @@ public class TaskBasherAttack : Node
         _playerRef = playerRef;
         _notDamagingTag = notDamagingTag;
         _damagingTag = damagingTag;
+        _offset = offset;
     }
 
     public override NodeState Evaluate()
@@ -42,16 +44,14 @@ public class TaskBasherAttack : Node
 
     private void Attack()
     {
-        _damageHitBox.tag = _damagingTag;
         RotateParent();
-        _damageHitBox.SetActive(true);
+        _damageHitBox.tag = _damagingTag;
     }
 
     private void SetAttackDuringCharge()
     {
         if (_damageHitBox.tag == _damagingTag)
         {
-            _damageHitBox.SetActive(false);
             _damageHitBox.tag = _notDamagingTag;
         }
     }
@@ -59,7 +59,12 @@ public class TaskBasherAttack : Node
     private void RotateParent()
     {
         Transform parent = _damageHitBox.transform.parent.transform;
-        float angle = Vector3.Angle(parent.parent.position, _playerRef.transform.position);
-        parent.rotation = new Quaternion(parent.rotation.x, angle, parent.rotation.z, parent.rotation.w);
+        float angle = CalculateAngle(parent.position, _playerRef.transform.position);
+        parent.transform.rotation = Quaternion.Euler(new Vector3(parent.rotation.x, angle + _offset, parent.rotation.z));
+    }
+
+    private float CalculateAngle(Vector3 start, Vector3 end)
+    {
+        return Mathf.Atan2(end.x - start.x, end.z - start.z) * Mathf.Rad2Deg;
     }
 }
