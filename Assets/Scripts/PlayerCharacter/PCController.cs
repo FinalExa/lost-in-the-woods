@@ -15,7 +15,10 @@ public class PCController : Controller
     {
         actualHealth = pcReferences.pcData.maxHP;
         regenWaitTimer = pcReferences.pcData.healthRegenMaxTimer;
-        hitbox.damageToDeal = pcReferences.pcData.comboDamage;
+        foreach (Attack atk in pcReferences.attack)
+        {
+            atk.damageToDeal = pcReferences.pcData.comboDamage;
+        }
     }
 
     private void Awake()

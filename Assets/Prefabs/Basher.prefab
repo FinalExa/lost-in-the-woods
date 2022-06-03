@@ -86,6 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basherData: {fileID: 11400000, guid: f85a799ab1e09c8408e1b03539e6451d, type: 2}
   damageHitBox: {fileID: 7185486876266121471}
+  attack: {fileID: 1012701944427303832}
   basherNavMesh: {fileID: 0}
   playerRef: {fileID: 0}
   pcReferences: {fileID: 0}
@@ -104,7 +105,6 @@ MonoBehaviour:
   controller: {fileID: 7782674094892107102}
   damagingTag: Damaging
   notDamagingTag: Not_Damaging
-  damageToDeal: 0
 --- !u!33 &8843700925371425898
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -231,6 +231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1404810110771366711}
+  - component: {fileID: 1012701944427303832}
   - component: {fileID: 1251418710518827339}
   - component: {fileID: 4449773150733852582}
   - component: {fileID: 3628062980359202271}
@@ -256,6 +257,19 @@ Transform:
   m_Father: {fileID: 3703071539599798944}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1012701944427303832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7185486876266121471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f286fec20b69954b89f78f6f83f543f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToDeal: 0
 --- !u!33 &1251418710518827339
 MeshFilter:
   m_ObjectHideFlags: 0

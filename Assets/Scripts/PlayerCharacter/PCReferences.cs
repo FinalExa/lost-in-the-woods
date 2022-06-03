@@ -7,6 +7,7 @@ public class PCReferences : MonoBehaviour
 {
     public PCData pcData;
     public Light playerLight;
+    public Attack[] attack;
     [HideInInspector] public Camera cam;
     [HideInInspector] public Inputs inputs;
     [HideInInspector] public Rigidbody rb;

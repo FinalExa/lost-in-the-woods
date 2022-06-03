@@ -20,7 +20,7 @@ public class BasherController : Controller
         basherReferences.basherNavMesh.isStopped = true;
         basherReferences.basherNavMesh.speed = basherReferences.basherData.defaultMovementSpeed;
         actualHealth = basherReferences.basherData.maxHP;
-        hitbox.damageToDeal = basherReferences.basherData.attackDamage;
+        basherReferences.attack.damageToDeal = basherReferences.basherData.attackDamage;
     }
 
     public override void HealthAddValue(float value)

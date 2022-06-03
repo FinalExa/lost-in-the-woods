@@ -7,6 +7,7 @@ public class BasherReferences : MonoBehaviour
 {
     public BasherData basherData;
     public GameObject damageHitBox;
+    public Attack attack;
     [HideInInspector] public NavMeshAgent basherNavMesh;
     [HideInInspector] public GameObject playerRef;
     [HideInInspector] public PCReferences pcReferences;
