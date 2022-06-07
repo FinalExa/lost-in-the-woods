@@ -152,7 +152,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.20000005}
+  m_Size: {x: 1, y: 1.0000002, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8936859416712813457
 MonoBehaviour:
@@ -336,7 +336,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.20000005}
+  m_Size: {x: 1, y: 1.0000002, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1961596182604663236
 MonoBehaviour:
@@ -520,7 +520,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.20000005}
+  m_Size: {x: 1, y: 1.0000002, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6590214890003716944
 MonoBehaviour:
@@ -744,7 +744,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8760e162f3737034084f899a3f610de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PointToShoot: {fileID: 0}
   VectorPointToShoot: {x: 0, y: 0, z: 0}
   reticlePosition: {x: 0, y: 0, z: 0}
 --- !u!54 &7489382080051731322

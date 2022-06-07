@@ -5,62 +5,52 @@ using BehaviorTree;
 
 public class TaskBasherAttack : Node
 {
-    private float _attackChargeMaxTime;
-    private float _attackChargeTimer;
-    private GameObject _damageHitBox;
-    private GameObject _playerRef;
-    private string _notDamagingTag;
-    private string _damagingTag;
-    private float _offset;
+    private BasherController _basherController;
 
-    public TaskBasherAttack(float attackChargeMaxTime, GameObject damageHitBox, string notDamagingTag, string damagingTag, GameObject playerRef, float offset)
+    public TaskBasherAttack(BasherController basherController)
     {
-        _attackChargeMaxTime = attackChargeMaxTime;
-        _attackChargeTimer = _attackChargeMaxTime;
-        _damageHitBox = damageHitBox;
-        _playerRef = playerRef;
-        _notDamagingTag = notDamagingTag;
-        _damagingTag = damagingTag;
-        _offset = offset;
+        _basherController = basherController;
     }
 
     public override NodeState Evaluate()
     {
-        if (_attackChargeTimer > 0)
-        {
-            _attackChargeTimer -= Time.deltaTime;
-            SetAttackDuringCharge();
-        }
-        else
-        {
-            Attack();
-            _attackChargeTimer = _attackChargeMaxTime;
-            state = NodeState.SUCCESS;
-            return state;
-        }
+        ChargeAndAttack();
         state = NodeState.RUNNING;
         return state;
     }
 
+    private void ChargeAndAttack()
+    {
+        if (_basherController.attackTimer > 0)
+        {
+            if (_basherController.basherReferences.damageHitBox.activeSelf) _basherController.basherReferences.damageHitBox.SetActive(false);
+            _basherController.attackTimer -= Time.deltaTime;
+            //SetAttackDuringCharge();
+        }
+        else
+        {
+            Attack();
+            _basherController.ResetAttackTimer();
+        }
+    }
+
     private void Attack()
     {
+        _basherController.basherReferences.damageHitBox.tag = _basherController.damagingTag;
         RotateParent();
-        _damageHitBox.tag = _damagingTag;
+        _basherController.basherReferences.damageHitBox.SetActive(true);
     }
 
     private void SetAttackDuringCharge()
     {
-        if (_damageHitBox.tag == _damagingTag)
-        {
-            _damageHitBox.tag = _notDamagingTag;
-        }
+        if (_basherController.basherReferences.damageHitBox.tag == _basherController.damagingTag) _basherController.basherReferences.damageHitBox.tag = _basherController.notDamagingTag;
     }
 
     private void RotateParent()
     {
-        Transform parent = _damageHitBox.transform.parent.transform;
-        float angle = CalculateAngle(parent.position, _playerRef.transform.position);
-        parent.transform.rotation = Quaternion.Euler(new Vector3(parent.rotation.x, angle + _offset, parent.rotation.z));
+        Transform parent = _basherController.basherReferences.damageHitBox.transform.parent.transform;
+        float angle = CalculateAngle(parent.position, _basherController.basherReferences.playerRef.transform.position);
+        parent.transform.rotation = Quaternion.Euler(new Vector3(parent.rotation.x, angle + _basherController.attackOffset, parent.rotation.z));
     }
 
     private float CalculateAngle(Vector3 start, Vector3 end)

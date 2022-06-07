@@ -8,20 +8,6 @@ public class Hitbox : MonoBehaviour
     [SerializeField] private string damagingTag;
     [SerializeField] private string notDamagingTag;
     private bool lockDamage;
-    private Collider lastHit;
-
-    private void Update()
-    {
-        TrackOther();
-    }
-
-    private void TrackOther()
-    {
-        if (lockDamage)
-        {
-            if (lastHit.CompareTag(notDamagingTag)) lockDamage = false;
-        }
-    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -29,9 +15,18 @@ public class Hitbox : MonoBehaviour
         {
             Attack atk = other.GetComponent<Attack>();
             controller.HealthAddValue(-atk.damageToDeal);
-            print(controller.actualHealth);
             lockDamage = true;
-            lastHit = other;
+        }
+        if (other.CompareTag(notDamagingTag) && lockDamage)
+        {
+            lockDamage = false;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if ((other.CompareTag(damagingTag) || other.CompareTag(notDamagingTag)) && lockDamage)
+        {
+            lockDamage = false;
         }
     }
 }
