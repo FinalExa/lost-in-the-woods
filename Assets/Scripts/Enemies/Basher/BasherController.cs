@@ -8,8 +8,7 @@ public class BasherController : Controller
     [HideInInspector] public bool resetAttack;
     [HideInInspector] public float attackTimer;
     [HideInInspector] public float postAttackTimer;
-    public string notDamagingTag;
-    public string damagingTag;
+    public string whoToDamage;
     public float attackOffset;
     public float attackWait;
 
@@ -23,14 +22,14 @@ public class BasherController : Controller
         basherReferences.basherNavMesh.isStopped = true;
         basherReferences.basherNavMesh.speed = basherReferences.basherData.defaultMovementSpeed;
         actualHealth = basherReferences.basherData.maxHP;
-        basherReferences.attack.damageToDeal = basherReferences.basherData.attackDamage;
+        SetupAttack();
         ResetAttackTimer();
+        ResetPostAttackTimer();
     }
 
     public override void HealthAddValue(float value)
     {
         actualHealth += value;
-        print(actualHealth);
         if (actualHealth <= 0) this.gameObject.SetActive(false);
     }
 
@@ -41,5 +40,11 @@ public class BasherController : Controller
     public void ResetPostAttackTimer()
     {
         postAttackTimer = basherReferences.basherData.postAttackTime;
+    }
+
+    private void SetupAttack()
+    {
+        basherReferences.attack.damageToDeal = basherReferences.basherData.attackDamage;
+        basherReferences.attack.whoToDamage = whoToDamage;
     }
 }

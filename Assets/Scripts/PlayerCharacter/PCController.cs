@@ -7,6 +7,7 @@ public class PCController : Controller
     [HideInInspector] public string curState;
     [HideInInspector] public PCReferences pcReferences;
     [HideInInspector] public float actualSpeed;
+    [SerializeField] private string whoToDamage;
     private bool regenWaitBool;
     private float regenWaitTimer;
     private bool regenBool;
@@ -15,10 +16,7 @@ public class PCController : Controller
     {
         actualHealth = pcReferences.pcData.maxHP;
         regenWaitTimer = pcReferences.pcData.healthRegenMaxTimer;
-        foreach (Attack atk in pcReferences.attack)
-        {
-            atk.damageToDeal = pcReferences.pcData.comboDamage;
-        }
+        SetupAttacks();
     }
 
     private void Awake()
@@ -76,5 +74,14 @@ public class PCController : Controller
         actualHealth = Mathf.Clamp(actualHealth, 0, pcReferences.pcData.maxHP);
         LightVisualUpdate();
         if (actualHealth == pcReferences.pcData.maxHP) regenBool = false;
+    }
+
+    private void SetupAttacks()
+    {
+        foreach (Attack atk in pcReferences.attack)
+        {
+            atk.damageToDeal = pcReferences.pcData.comboDamage;
+            atk.whoToDamage = whoToDamage;
+        }
     }
 }

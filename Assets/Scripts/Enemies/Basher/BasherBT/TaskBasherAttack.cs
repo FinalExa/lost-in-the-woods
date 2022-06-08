@@ -44,7 +44,6 @@ public class TaskBasherAttack : Node
 
     private void Attack()
     {
-        _basherController.basherReferences.damageHitBox.tag = _basherController.damagingTag;
         postAttack = true;
         RotateParent();
         _basherController.basherReferences.damageHitBox.SetActive(true);

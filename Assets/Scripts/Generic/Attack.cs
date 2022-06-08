@@ -5,6 +5,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     [HideInInspector] public float damageToDeal;
+    [HideInInspector] public string whoToDamage;
     private bool lockDamage;
 
     private void OnEnable()
@@ -14,9 +15,9 @@ public class Attack : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && !lockDamage)
+        if (other.CompareTag(whoToDamage) && !lockDamage)
         {
-            PCController controller = other.GetComponent<PCController>();
+            Controller controller = other.GetComponent<Controller>();
             controller.HealthAddValue(-damageToDeal);
             lockDamage = true;
         }
