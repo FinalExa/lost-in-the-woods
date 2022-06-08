@@ -8,6 +8,7 @@ public class BasherData : ScriptableObject
     public float maxHP;
     [Header("Combat Section")]
     public float attackChargeTime;
+    public float postAttackTime;
     public float attackDamage;
     [Header("Movement Section")]
     public float defaultMovementSpeed;

@@ -56,9 +56,12 @@ MonoBehaviour:
   actualHealth: 0
   basherReferences: {fileID: 0}
   resetAttack: 0
+  attackTimer: 0
+  postAttackTimer: 0
   notDamagingTag: Enemy_Not_Damaging
   damagingTag: Enemy_Damaging
   attackOffset: 90
+  attackWait: 0
 --- !u!114 &5756719117911848841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,7 +240,7 @@ GameObject:
   - component: {fileID: 3628062980359202271}
   m_Layer: 0
   m_Name: DamageArea
-  m_TagString: Enemy_Not_Damaging
+  m_TagString: Enemy_Damaging
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

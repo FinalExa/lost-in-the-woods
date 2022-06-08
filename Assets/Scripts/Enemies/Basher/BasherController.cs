@@ -7,6 +7,7 @@ public class BasherController : Controller
     [HideInInspector] public BasherReferences basherReferences;
     [HideInInspector] public bool resetAttack;
     [HideInInspector] public float attackTimer;
+    [HideInInspector] public float postAttackTimer;
     public string notDamagingTag;
     public string damagingTag;
     public float attackOffset;
@@ -36,5 +37,9 @@ public class BasherController : Controller
     public void ResetAttackTimer()
     {
         attackTimer = basherReferences.basherData.attackChargeTime;
+    }
+    public void ResetPostAttackTimer()
+    {
+        postAttackTimer = basherReferences.basherData.postAttackTime;
     }
 }

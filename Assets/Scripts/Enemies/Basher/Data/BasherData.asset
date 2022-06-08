@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   attackChargeTime: 0.6
+  postAttackTime: 0.1
   attackDamage: 10
   defaultMovementSpeed: 4
   distanceFromPlayer: 4

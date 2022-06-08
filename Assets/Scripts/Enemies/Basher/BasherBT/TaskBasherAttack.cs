@@ -6,6 +6,7 @@ using BehaviorTree;
 public class TaskBasherAttack : Node
 {
     private BasherController _basherController;
+    private bool postAttack;
 
     public TaskBasherAttack(BasherController basherController)
     {
@@ -14,7 +15,8 @@ public class TaskBasherAttack : Node
 
     public override NodeState Evaluate()
     {
-        ChargeAndAttack();
+        if (!postAttack) ChargeAndAttack();
+        else StayStill();
         state = NodeState.RUNNING;
         return state;
     }
@@ -25,25 +27,27 @@ public class TaskBasherAttack : Node
         {
             if (_basherController.basherReferences.damageHitBox.activeSelf) _basherController.basherReferences.damageHitBox.SetActive(false);
             _basherController.attackTimer -= Time.deltaTime;
-            //SetAttackDuringCharge();
         }
         else
         {
-            Attack();
             _basherController.ResetAttackTimer();
+            _basherController.ResetPostAttackTimer();
+            Attack();
         }
+    }
+
+    private void StayStill()
+    {
+        if (_basherController.postAttackTimer > 0) _basherController.postAttackTimer -= Time.deltaTime;
+        else postAttack = false;
     }
 
     private void Attack()
     {
         _basherController.basherReferences.damageHitBox.tag = _basherController.damagingTag;
+        postAttack = true;
         RotateParent();
         _basherController.basherReferences.damageHitBox.SetActive(true);
-    }
-
-    private void SetAttackDuringCharge()
-    {
-        if (_basherController.basherReferences.damageHitBox.tag == _basherController.damagingTag) _basherController.basherReferences.damageHitBox.tag = _basherController.notDamagingTag;
     }
 
     private void RotateParent()
