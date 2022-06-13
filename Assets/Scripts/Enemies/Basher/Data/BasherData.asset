@@ -17,4 +17,4 @@ MonoBehaviour:
   postAttackTime: 0.1
   attackDamage: 10
   defaultMovementSpeed: 4
-  distanceFromPlayer: 4
+  distanceFromPlayer: 3

@@ -17,11 +17,8 @@ public class TaskGetCloseToPlayer : Node
 
     public override NodeState Evaluate()
     {
-        if (_thisAgent.isStopped)
-        {
-            _thisAgent.isStopped = false;
-            _thisAgent.SetDestination(_target.transform.position);
-        }
+        if (_thisAgent.isStopped) _thisAgent.isStopped = false;
+        _thisAgent.SetDestination(_target.transform.position);
         state = NodeState.RUNNING;
         return state;
     }

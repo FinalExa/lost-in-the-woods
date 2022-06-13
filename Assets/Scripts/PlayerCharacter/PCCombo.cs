@@ -6,8 +6,6 @@ using UnityEngine.Playables;
 public class PCCombo : MonoBehaviour
 {
     private PCReferences pcReferences;
-    public string damagingTag;
-    public string notDamagingTag;
     [SerializeField] private PlayableDirector[] comboHits;
     [HideInInspector] public bool comboHitOver;
     [HideInInspector] public int currentComboProgress;
@@ -56,7 +54,6 @@ public class PCCombo : MonoBehaviour
         comboHitOver = false;
         if (comboCancelDelay) comboCancelDelay = false;
         pcReferences.pcRotation.rotationEnabled = false;
-        comboHits[currentComboProgress].gameObject.tag = damagingTag;
         comboHits[currentComboProgress].Play();
     }
 
@@ -74,7 +71,6 @@ public class PCCombo : MonoBehaviour
 
     public void EndComboHit()
     {
-        comboHits[currentComboProgress].gameObject.tag = notDamagingTag;
         comboHits[currentComboProgress].gameObject.SetActive(false);
         if (currentComboProgress + 1 == comboHits.Length)
         {
