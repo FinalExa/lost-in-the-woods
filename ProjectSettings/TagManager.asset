@@ -4,9 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Not_Damaging
-  - Damaging
-  - Invulnerable
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -6,7 +6,6 @@ public class MousePos : MonoBehaviour
     public RaycastHit hit;
     public Ray ray;
     private Camera mainCamera;
-    public GameObject PointToShoot;
 
     public Vector3 VectorPointToShoot;
 
@@ -25,7 +24,6 @@ public class MousePos : MonoBehaviour
         if (mainCamera)
         {
             MouseRaycast();
-            if (PointToShoot != null) VectorPointToShoot = new Vector3(PointToShoot.transform.position.x, PointToShoot.transform.position.y, PointToShoot.transform.position.z);
         }
 
     }

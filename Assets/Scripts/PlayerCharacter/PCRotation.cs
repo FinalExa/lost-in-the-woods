@@ -24,13 +24,6 @@ public class PCRotation : MonoBehaviour
     {
         return Mathf.Atan2(mouse.x - player.x, mouse.z - player.z) * Mathf.Rad2Deg;
     }
-
-    public void RotateObjectToLaunch(Transform objectToLaunch, Vector3 endPosition)
-    {
-        objectToLaunch.localRotation = Quaternion.identity;
-        float angle = CalculateAngle(objectToLaunch.position, endPosition);
-        playerCharacterTransform.rotation = Quaternion.Euler(new Vector3(objectToLaunch.rotation.x, angle, playerCharacterTransform.rotation.z));
-    }
     public void RotatePlayerToMousePosition()
     {
         float angle = CalculateAngle(playerCharacterTransform.position, mousePos.ReticlePosition);
