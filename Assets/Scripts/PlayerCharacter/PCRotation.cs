@@ -26,7 +26,7 @@ public class PCRotation : MonoBehaviour
     }
     public void RotatePlayerToMousePosition()
     {
-        float angle = CalculateAngle(playerCharacterTransform.position, mousePos.ReticlePosition);
+        float angle = CalculateAngle(playerCharacterTransform.position, mousePos.Position);
         playerCharacterTransform.rotation = Quaternion.Euler(new Vector3(playerCharacterTransform.rotation.x, angle, playerCharacterTransform.rotation.z));
     }
 }

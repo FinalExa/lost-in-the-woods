@@ -6,13 +6,12 @@ public class MousePos : MonoBehaviour
     public RaycastHit hit;
     public Ray ray;
     private Camera mainCamera;
+    private int layerMask = 1 << 6;
 
-    public Vector3 VectorPointToShoot;
-
-    public Vector3 reticlePosition;
-    public Vector3 ReticlePosition
+    public Vector3 position;
+    public Vector3 Position
     {
-        get { return reticlePosition; }
+        get { return position; }
     }
 
     public void Awake()
@@ -32,9 +31,9 @@ public class MousePos : MonoBehaviour
         Ray screenRay = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(screenRay, out hit))
+        if (Physics.Raycast(screenRay, out hit, layerMask))
         {
-            reticlePosition = hit.point;
+            position = hit.point;
         }
     }
 }
