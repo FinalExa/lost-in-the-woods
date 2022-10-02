@@ -80,7 +80,7 @@ public class PCController : Controller
     {
         foreach (Attack atk in pcReferences.attack)
         {
-            atk.damageToDeal = pcReferences.pcData.comboDamage;
+            //atk.damageToDeal = pcReferences.pcData.comboDamage;
             atk.whoToDamage = whoToDamage;
         }
     }

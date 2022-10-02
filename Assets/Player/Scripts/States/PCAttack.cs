@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PCAttack : PCState
 {
-    private PCCombo combo;
+    private Combo combo;
     public PCAttack(PCStateMachine pcStateMachine) : base(pcStateMachine)
     {
     }

@@ -44,7 +44,7 @@ public class BasherController : Controller
 
     private void SetupAttack()
     {
-        basherReferences.attack.damageToDeal = basherReferences.basherData.attackDamage;
+        //basherReferences.attack.damageToDeal = basherReferences.basherData.attackDamage;
         basherReferences.attack.whoToDamage = whoToDamage;
     }
 }

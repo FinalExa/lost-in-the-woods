@@ -94,7 +94,7 @@ public class PCDodge : PCState
     #region ToAttackState
     private void GoToAttackState(Inputs inputs)
     {
-        if (inputs.LeftClickInput && !_pcStateMachine.pcController.pcReferences.pcCombo.delayAfterHit) _pcStateMachine.SetState(new PCAttack(_pcStateMachine));
+        if (inputs.LeftClickInput && !_pcStateMachine.pcController.pcReferences.pcCombo.comboDelay) _pcStateMachine.SetState(new PCAttack(_pcStateMachine));
     }
     #endregion
     #endregion
