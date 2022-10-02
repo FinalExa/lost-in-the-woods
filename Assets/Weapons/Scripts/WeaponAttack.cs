@@ -11,11 +11,9 @@ public class WeaponAttack
     [System.Serializable]
     public struct WeaponAttackHitboxSequence
     {
-        public GameObject hitbox;
         public WeaponAttackHitbox attackRef;
         public float activationDelayAfterStart;
         public float deactivationDelayAfterStart;
-        public bool appliesElement;
     }
     public WeaponAttackHitboxSequence[] weaponAttackHitboxSequence;
     public bool hasAnimation;

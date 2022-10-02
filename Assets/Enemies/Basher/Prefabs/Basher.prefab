@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7782674094892107102}
   - component: {fileID: 5756719117911848841}
   - component: {fileID: 1594575466511021445}
+  - component: {fileID: -57584891418013859}
   - component: {fileID: 8843700925371425898}
   - component: {fileID: 2008619505230026155}
   - component: {fileID: 7001282123244882244}
@@ -51,14 +52,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 759e2d756e715924c93d4cfded553960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actualHealth: 0
   basherReferences: {fileID: 0}
   resetAttack: 0
   attackTimer: 0
   postAttackTimer: 0
+  thisWeapon: {fileID: 0}
   whoToDamage: Player
   attackOffset: 90
-  attackWait: 0
 --- !u!114 &5756719117911848841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,6 +90,22 @@ MonoBehaviour:
   basherNavMesh: {fileID: 0}
   playerRef: {fileID: 0}
   pcReferences: {fileID: 0}
+  health: {fileID: 0}
+  combo: {fileID: 0}
+--- !u!114 &-57584891418013859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477770951886658404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a924607aa6f37f438a4afc12944d934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHP: 0
+  maxHP: 0
 --- !u!33 &8843700925371425898
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -254,7 +270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f286fec20b69954b89f78f6f83f543f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToDeal: 0
   whoToDamage: 
 --- !u!33 &1251418710518827339
 MeshFilter:

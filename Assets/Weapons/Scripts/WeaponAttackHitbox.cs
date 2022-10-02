@@ -7,9 +7,9 @@ public class WeaponAttackHitbox : Attack
     [HideInInspector] public Weapon thisWeapon;
     protected override void Damage()
     {
-        if (otherHealth != null && (otherCollider.CompareTag(whoToDamage) || otherCollider.CompareTag("Invulnerable")) && !thisWeapon.hitTargets.Contains(otherHealth))
+        if (otherHealth != null && (otherCollider.CompareTag(damageTag) || otherCollider.CompareTag("Invulnerable")) && !thisWeapon.hitTargets.Contains(otherHealth))
         {
-            if (otherCollider.CompareTag(whoToDamage)) otherHealth.HealthAddValue(-thisWeapon.currentDamage);
+            if (otherCollider.CompareTag(damageTag)) otherHealth.HealthAddValue(-thisWeapon.currentDamage);
             thisWeapon.hitTargets.Add(otherHealth);
         }
     }

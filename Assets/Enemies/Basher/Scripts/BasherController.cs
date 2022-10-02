@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasherController : Controller
+public class BasherController : MonoBehaviour
 {
     [HideInInspector] public BasherReferences basherReferences;
     [HideInInspector] public bool resetAttack;
     [HideInInspector] public float attackTimer;
     [HideInInspector] public float postAttackTimer;
+    [HideInInspector] public Weapon thisWeapon;
     public string whoToDamage;
     public float attackOffset;
-    public float attackWait;
 
     private void Awake()
     {
@@ -21,16 +21,10 @@ public class BasherController : Controller
     {
         basherReferences.basherNavMesh.isStopped = true;
         basherReferences.basherNavMesh.speed = basherReferences.basherData.defaultMovementSpeed;
-        actualHealth = basherReferences.basherData.maxHP;
-        SetupAttack();
+        basherReferences.health.SetHPStartup(basherReferences.basherData.maxHP);
+        SetupWeapon();
         ResetAttackTimer();
         ResetPostAttackTimer();
-    }
-
-    public override void HealthAddValue(float value)
-    {
-        actualHealth += value;
-        if (actualHealth <= 0) this.gameObject.SetActive(false);
     }
 
     public void ResetAttackTimer()
@@ -42,9 +36,9 @@ public class BasherController : Controller
         postAttackTimer = basherReferences.basherData.postAttackTime;
     }
 
-    private void SetupAttack()
+    private void SetupWeapon()
     {
-        //basherReferences.attack.damageToDeal = basherReferences.basherData.attackDamage;
-        basherReferences.attack.whoToDamage = whoToDamage;
+        thisWeapon = this.gameObject.GetComponentInChildren<Weapon>();
+        thisWeapon.damageTag = whoToDamage;
     }
 }

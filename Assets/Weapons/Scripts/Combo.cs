@@ -90,22 +90,9 @@ public class Combo : MonoBehaviour
     {
         foreach (WeaponAttack.WeaponAttackHitboxSequence hitboxToCheck in currentAttack.weaponAttackHitboxSequence)
         {
-            if (attackCount >= hitboxToCheck.activationDelayAfterStart)
-            {
-                hitboxToCheck.hitbox.SetActive(true);
-                Infusion(hitboxToCheck);
-            }
-            if (attackCount >= hitboxToCheck.deactivationDelayAfterStart)
-            {
-                hitboxToCheck.hitbox.SetActive(false);
-                hitboxToCheck.attackRef.canApplyElement = false;
-            }
+            if (attackCount >= hitboxToCheck.activationDelayAfterStart) hitboxToCheck.attackRef.gameObject.SetActive(true);
+            if (attackCount >= hitboxToCheck.deactivationDelayAfterStart) hitboxToCheck.attackRef.gameObject.SetActive(false);
         }
-    }
-
-    public virtual void Infusion(WeaponAttack.WeaponAttackHitboxSequence hitboxToCheck)
-    {
-        return;
     }
 
     private void CountToCancelCombo()

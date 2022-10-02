@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    [HideInInspector] public string whoToDamage;
-    [HideInInspector] public bool canApplyElement;
+    [HideInInspector] public string damageTag;
 
     protected Collider otherCollider;
     protected Health otherHealth;

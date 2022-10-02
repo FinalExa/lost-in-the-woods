@@ -23,12 +23,12 @@ public class Weapon : MonoBehaviour
         {
             for (int i = 0; i < weaponAttack.weaponAttackHitboxSequence.Length; i++)
             {
-                WeaponAttackHitbox attackToSet = weaponAttack.weaponAttackHitboxSequence[i].hitbox.GetComponent<WeaponAttackHitbox>();
+                WeaponAttackHitbox attackToSet = weaponAttack.weaponAttackHitboxSequence[i].attackRef.gameObject.GetComponent<WeaponAttackHitbox>();
                 weaponAttack.weaponAttackHitboxSequence[i].attackRef = attackToSet;
                 if (attackToSet != null)
                 {
                     attackToSet.thisWeapon = this;
-                    attackToSet.whoToDamage = damageTag;
+                    attackToSet.damageTag = damageTag;
                 }
             }
         }

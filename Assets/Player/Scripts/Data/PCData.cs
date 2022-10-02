@@ -10,11 +10,6 @@ public class PCData : ScriptableObject
     public float minLightRadius;
     public float healthRegenMaxTimer;
     public float healthRegenRatePerSecond;
-    [Header("Combat Section")]
-    public float comboDelayBetweenHits;
-    public float comboResetCooldown;
-    public float comboEndCooldown;
-    public float comboDamage;
     [Header("Movement Section")]
     public float defaultMovementSpeed;
     [Header("Dodge Section")]

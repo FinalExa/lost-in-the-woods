@@ -11,11 +11,15 @@ public class BasherReferences : MonoBehaviour
     [HideInInspector] public NavMeshAgent basherNavMesh;
     [HideInInspector] public GameObject playerRef;
     [HideInInspector] public PCReferences pcReferences;
+    [HideInInspector] public Health health;
+    [HideInInspector] public Combo combo;
 
     private void Awake()
     {
         basherNavMesh = this.gameObject.GetComponent<NavMeshAgent>();
         playerRef = FindObjectOfType<PCController>().gameObject;
         pcReferences = playerRef.GetComponent<PCReferences>();
+        health = this.gameObject.GetComponent<Health>();
+        combo = this.gameObject.GetComponent<Combo>();
     }
 }

@@ -7,13 +7,12 @@ public class PCReferences : MonoBehaviour
 {
     public PCData pcData;
     public Light playerLight;
-    public Attack[] attack;
     [HideInInspector] public Camera cam;
     [HideInInspector] public Inputs inputs;
     [HideInInspector] public Rigidbody rb;
     [HideInInspector] public Combo pcCombo;
     [HideInInspector] public PCRotation pcRotation;
-    [HideInInspector] public PlayableDirector combos;
+    [HideInInspector] public PCHealth pcHealth;
 
     private void Awake()
     {
@@ -22,5 +21,6 @@ public class PCReferences : MonoBehaviour
         rb = this.gameObject.GetComponent<Rigidbody>();
         pcCombo = this.gameObject.GetComponent<Combo>();
         pcRotation = FindObjectOfType<PCRotation>();
+        pcHealth = this.gameObject.GetComponent<PCHealth>();
     }
 }
