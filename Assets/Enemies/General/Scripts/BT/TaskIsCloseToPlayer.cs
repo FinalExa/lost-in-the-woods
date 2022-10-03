@@ -6,31 +6,26 @@ using BehaviorTree;
 
 public class TaskIsCloseToPlayer : Node
 {
-    private GameObject _thisGameObject;
-    private NavMeshAgent _thisAgent;
-    private GameObject _target;
-    private float _distanceFromPlayer;
-    private TestEnemyController _testEnemyController;
+    private NavMeshAgent nav;
+    private GameObject target;
+    private float distanceFromPlayer;
 
-    public TaskIsCloseToPlayer(TestEnemyController testEnemyController, GameObject thisGameObject, NavMeshAgent thisAgent, GameObject target, float distanceFromPlayer)
+    public TaskIsCloseToPlayer(NavMeshAgent _nav, GameObject _target, float _distanceFromPlayer)
     {
-        _testEnemyController = testEnemyController;
-        _thisGameObject = thisGameObject;
-        _thisAgent = thisAgent;
-        _target = target;
-        _distanceFromPlayer = distanceFromPlayer;
+        nav = _nav;
+        target = _target;
+        distanceFromPlayer = _distanceFromPlayer;
     }
 
     public override NodeState Evaluate()
     {
-        float distance = Vector3.Distance(_thisGameObject.transform.position, _target.transform.position);
-        if (distance <= _distanceFromPlayer)
+        float distance = Vector3.Distance(nav.gameObject.transform.position, target.transform.position);
+        if (distance <= distanceFromPlayer)
         {
-            _thisAgent.isStopped = true;
+            nav.isStopped = true;
             state = NodeState.SUCCESS;
             return state;
         }
-        _testEnemyController.ResetAttackTimer();
         state = NodeState.FAILURE;
         return state;
     }

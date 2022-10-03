@@ -5,11 +5,11 @@ using BehaviorTree;
 
 public class TestEnemyBT : BT_Tree
 {
-    [HideInInspector] public TestEnemyController testEnemyController;
+    [HideInInspector] public EnemyController enemyController;
 
     private void Awake()
     {
-        testEnemyController = this.gameObject.GetComponent<TestEnemyController>();
+        enemyController = this.gameObject.GetComponent<EnemyController>();
     }
 
     protected override Node SetupTree()
@@ -19,12 +19,12 @@ public class TestEnemyBT : BT_Tree
         {
             new Selector(new List<Node>
             {
-                new TaskIsCloseToPlayer(testEnemyController,this.gameObject,testEnemyController.testEnemyReferences.basherNavMesh, testEnemyController.testEnemyReferences.playerRef, testEnemyController.testEnemyReferences.basherData.distanceFromPlayer),
-                new TaskGetCloseToPlayer(testEnemyController.testEnemyReferences.basherNavMesh, testEnemyController.testEnemyReferences.playerRef),
+                new TaskIsCloseToPlayer(enemyController.thisNavMeshAgent, enemyController.playerTarget, enemyController.attackDistance),
+                new TaskMoveToPlayer(enemyController.thisNavMeshAgent, enemyController.playerTarget),
             }),
             new Selector(new List<Node>
             {
-                new TaskEnemyAttack(testEnemyController)
+                new TaskAttackPlayer(enemyController.enemyCombo)
             })
         });
         return root;
