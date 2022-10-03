@@ -10,11 +10,11 @@ public class TaskIsCloseToPlayer : Node
     private NavMeshAgent _thisAgent;
     private GameObject _target;
     private float _distanceFromPlayer;
-    private BasherController _basherController;
+    private TestEnemyController _testEnemyController;
 
-    public TaskIsCloseToPlayer(BasherController basherController, GameObject thisGameObject, NavMeshAgent thisAgent, GameObject target, float distanceFromPlayer)
+    public TaskIsCloseToPlayer(TestEnemyController testEnemyController, GameObject thisGameObject, NavMeshAgent thisAgent, GameObject target, float distanceFromPlayer)
     {
-        _basherController = basherController;
+        _testEnemyController = testEnemyController;
         _thisGameObject = thisGameObject;
         _thisAgent = thisAgent;
         _target = target;
@@ -30,7 +30,7 @@ public class TaskIsCloseToPlayer : Node
             state = NodeState.SUCCESS;
             return state;
         }
-        _basherController.ResetAttackTimer();
+        _testEnemyController.ResetAttackTimer();
         state = NodeState.FAILURE;
         return state;
     }

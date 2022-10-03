@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasherController : MonoBehaviour
+public class TestEnemyController : MonoBehaviour
 {
-    [HideInInspector] public BasherReferences basherReferences;
+    [HideInInspector] public TestEnemyReferences testEnemyReferences;
     [HideInInspector] public bool resetAttack;
     [HideInInspector] public float attackTimer;
     [HideInInspector] public float postAttackTimer;
@@ -14,14 +14,14 @@ public class BasherController : MonoBehaviour
 
     private void Awake()
     {
-        basherReferences = this.gameObject.GetComponent<BasherReferences>();
+        testEnemyReferences = this.gameObject.GetComponent<TestEnemyReferences>();
     }
 
     private void Start()
     {
-        basherReferences.basherNavMesh.isStopped = true;
-        basherReferences.basherNavMesh.speed = basherReferences.basherData.defaultMovementSpeed;
-        basherReferences.health.SetHPStartup(basherReferences.basherData.maxHP);
+        testEnemyReferences.basherNavMesh.isStopped = true;
+        testEnemyReferences.basherNavMesh.speed = testEnemyReferences.basherData.defaultMovementSpeed;
+        testEnemyReferences.health.SetHPStartup(testEnemyReferences.basherData.maxHP);
         SetupWeapon();
         ResetAttackTimer();
         ResetPostAttackTimer();
@@ -29,11 +29,11 @@ public class BasherController : MonoBehaviour
 
     public void ResetAttackTimer()
     {
-        attackTimer = basherReferences.basherData.attackChargeTime;
+        attackTimer = testEnemyReferences.basherData.attackChargeTime;
     }
     public void ResetPostAttackTimer()
     {
-        postAttackTimer = basherReferences.basherData.postAttackTime;
+        postAttackTimer = testEnemyReferences.basherData.postAttackTime;
     }
 
     private void SetupWeapon()

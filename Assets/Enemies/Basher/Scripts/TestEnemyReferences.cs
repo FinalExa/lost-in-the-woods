@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BasherReferences : MonoBehaviour
+public class TestEnemyReferences : MonoBehaviour
 {
     public BasherData basherData;
     public GameObject damageHitBox;
