@@ -23,21 +23,15 @@ public class PCMoving : PCState
     {
         Rigidbody rigidbody = _pcStateMachine.pcController.pcReferences.rb;
         PCController pcController = _pcStateMachine.pcController;
-        Vector3 movementWithDirection = MovementInitialization();
+        Vector3 movementWithDirection = MovementDirection(_pcStateMachine.pcController.pcReferences.cam, _pcStateMachine.pcController.pcReferences.inputs);
         if (movementWithDirection != Vector3.zero) lastDirection = movementWithDirection;
         rigidbody.velocity = movementWithDirection * pcController.actualSpeed;
     }
 
-    private Vector3 MovementInitialization()
+    private Vector3 MovementDirection(Camera camera, Inputs inputs)
     {
-        Camera camera = _pcStateMachine.pcController.pcReferences.cam;
-        Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
-        Vector3 forward = -camera.transform.forward;
-        forward.y = 0f;
-        Vector3 right = camera.transform.right;
-        right.y = 0f;
-        forward.Normalize();
-        right.Normalize();
+        Vector3 forward = new Vector3(-camera.transform.forward.x, 0f, -camera.transform.forward.z).normalized;
+        Vector3 right = new Vector3(camera.transform.right.x, 0f, camera.transform.right.z).normalized;
         return (inputs.MovementInput.x * forward) + (inputs.MovementInput.z * right);
     }
     #endregion

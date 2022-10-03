@@ -2,32 +2,43 @@ using UnityEngine;
 
 public class PCRotation : MonoBehaviour
 {
-    [SerializeField] private float rotationSpeed;
-    public bool rotationEnabled;
-    private MousePos mousePos;
-    private Transform playerCharacterTransform;
+    [SerializeField] private Rotation rotation;
+    private PCReferences pcReferences;
+    private Vector3 direction;
+    private Vector3 lastInput;
     void Awake()
     {
-        mousePos = FindObjectOfType<MousePos>();
-        playerCharacterTransform = this.gameObject.transform;
-
+        pcReferences = this.gameObject.GetComponentInParent<PCReferences>();
+    }
+    private void Update()
+    {
+        Rotation();
     }
     private void Start()
     {
-        rotationEnabled = true;
+        this.transform.eulerAngles = rotation.forward;
     }
-    void Update()
+    private Vector3 MovementDirection(Camera camera, Inputs inputs)
     {
-        if (rotationEnabled) RotatePlayerToMousePosition();
+        Vector3 forward = new Vector3(-camera.transform.forward.x, 0f, -camera.transform.forward.z).normalized;
+        Vector3 right = new Vector3(camera.transform.right.x, 0f, camera.transform.right.z).normalized;
+        return (inputs.MovementInput.x * forward) + (inputs.MovementInput.z * right);
     }
-    private float CalculateAngle(Vector3 player, Vector3 mouse)
+    private void Rotation()
     {
-        return Mathf.Atan2(mouse.x - player.x, mouse.z - player.z) * Mathf.Rad2Deg;
+        if ((lastInput == null || lastInput != pcReferences.inputs.MovementInput) && pcReferences.inputs.MovementInput != Vector3.zero)
+        {
+            lastInput = pcReferences.inputs.MovementInput;
+            direction = MovementDirection(pcReferences.cam, pcReferences.inputs);
+            SetRotation();
+        }
     }
-    public void RotatePlayerToMousePosition()
+    private void SetRotation()
     {
-        float angle = CalculateAngle(playerCharacterTransform.position, mousePos.Position);
-        playerCharacterTransform.rotation = Quaternion.Euler(new Vector3(playerCharacterTransform.rotation.x, angle, playerCharacterTransform.rotation.z));
+        if (direction.x > 0 && this.transform.eulerAngles != rotation.left) this.transform.eulerAngles = rotation.left;
+        else if (direction.x < 0 && this.transform.eulerAngles != rotation.right) this.transform.eulerAngles = rotation.right;
+        if (direction.z > 0 && this.transform.eulerAngles != rotation.forward) this.transform.eulerAngles = rotation.forward;
+        else if (direction.z < 0 && this.transform.eulerAngles != rotation.back) this.transform.eulerAngles = rotation.back;
     }
 }
 
