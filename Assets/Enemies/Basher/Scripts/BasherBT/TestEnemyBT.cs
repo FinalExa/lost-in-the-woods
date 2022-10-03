@@ -19,6 +19,10 @@ public class TestEnemyBT : BT_Tree
         {
             new Selector(new List<Node>
             {
+                new TaskEnemyIsInCombo(enemyController.enemyCombo)
+            }),
+            new Selector(new List<Node>
+            {
                 new TaskIsCloseToPlayer(enemyController.thisNavMeshAgent, enemyController.playerTarget, enemyController.attackDistance),
                 new TaskMoveToPlayer(enemyController.thisNavMeshAgent, enemyController.playerTarget),
             }),

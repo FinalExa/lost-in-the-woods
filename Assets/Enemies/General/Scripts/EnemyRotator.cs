@@ -19,10 +19,7 @@ public class EnemyRotator : MonoBehaviour
 
     private void ContinouslyRotate()
     {
-        if (!enemyController.enemyCombo.isInCombo)
-        {
-            Rotate();
-        }
+        if (!enemyController.enemyCombo.isInCombo) Rotate();
     }
 
     public void Rotate()
@@ -36,8 +33,8 @@ public class EnemyRotator : MonoBehaviour
 
     private void RotateHorizontally(Vector3 direction)
     {
-        if (direction.x < 0 && rotator.transform.eulerAngles != enemyController.rotation.right) rotator.transform.eulerAngles = enemyController.rotation.right;
-        else if (direction.x > 0 && rotator.transform.eulerAngles != enemyController.rotation.left) rotator.transform.eulerAngles = enemyController.rotation.left;
+        if (direction.x < 0 && rotator.transform.eulerAngles != enemyController.rotation.left) rotator.transform.eulerAngles = enemyController.rotation.left;
+        else if (direction.x > 0 && rotator.transform.eulerAngles != enemyController.rotation.right) rotator.transform.eulerAngles = enemyController.rotation.right;
     }
 
     private void RotateVertically(Vector3 direction)
