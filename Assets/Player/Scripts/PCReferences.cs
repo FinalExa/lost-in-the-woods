@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Playables;
 
 public class PCReferences : MonoBehaviour
 {
     public PCData pcData;
-    public Light playerLight;
     [HideInInspector] public Camera cam;
     [HideInInspector] public Inputs inputs;
     [HideInInspector] public Rigidbody rb;
     [HideInInspector] public Combo pcCombo;
     [HideInInspector] public PCRotation pcRotation;
     [HideInInspector] public PCHealth pcHealth;
+    [HideInInspector] public PCLight pcLight;
 
     private void Awake()
     {
@@ -22,5 +21,6 @@ public class PCReferences : MonoBehaviour
         pcCombo = this.gameObject.GetComponent<Combo>();
         pcRotation = FindObjectOfType<PCRotation>();
         pcHealth = this.gameObject.GetComponent<PCHealth>();
+        pcLight = this.gameObject.GetComponentInChildren<PCLight>();
     }
 }

@@ -8,37 +8,44 @@ public class Inputs : MonoBehaviour
     public bool RightClickInput { get; private set; }
     public Vector3 MovementInput { get; private set; }
     public bool DodgeInput { get; private set; }
+    public bool LanternInput { get; private set; }
     private void Update()
     {
         GetInputs();
     }
-    void GetInputs()
+    private void GetInputs()
     {
         GetLeftClickInput();
         GetRightClickInput();
         GetMovementInput();
         GetDodgeInput();
+        GetLanternInput();
     }
-    void GetLeftClickInput()
+    private void GetLeftClickInput()
     {
-        if (Input.GetButton("Fire1") == true) LeftClickInput = true;
+        if (Input.GetButton("Fire1")) LeftClickInput = true;
         else LeftClickInput = false;
     }
-    void GetRightClickInput()
+    private void GetRightClickInput()
     {
-        if (Input.GetButton("Fire2") == true) RightClickInput = true;
+        if (Input.GetButton("Fire2")) RightClickInput = true;
         else RightClickInput = false;
     }
-    void GetMovementInput()
+    private void GetMovementInput()
     {
         float frontInput = Input.GetAxisRaw("Horizontal");
         float sideInput = Input.GetAxisRaw("Vertical");
         MovementInput = new Vector3(sideInput, 0, frontInput).normalized;
     }
-    void GetDodgeInput()
+    private void GetDodgeInput()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) == true) DodgeInput = true;
+        if (Input.GetKeyDown(KeyCode.LeftShift)) DodgeInput = true;
         else DodgeInput = false;
+    }
+    private void GetLanternInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) LanternInput = true;
+        else LanternInput = false;
     }
     public void StopAllInputs()
     {

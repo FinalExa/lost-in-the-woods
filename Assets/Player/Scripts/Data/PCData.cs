@@ -4,15 +4,21 @@ using UnityEngine.Playables;
 [CreateAssetMenu(fileName = "PCData", menuName = "ScriptableObjects/PCData", order = 1)]
 public class PCData : ScriptableObject
 {
-    [Header("Health Section")]
+    [Header("Health")]
     public float maxHP;
-    public float maxLightRadius;
-    public float minLightRadius;
     public float healthRegenMaxTimer;
     public float healthRegenRatePerSecond;
-    [Header("Movement Section")]
+    [Header("Light")]
+    public float maxLightRadius;
+    public float minLightRadius;
+    public float enterLanternUpTimer;
+    public float exitLanternUpTimer;
+    public float lightUpMaxLightRadius;
+    public float lightUpMinLightRadius;
+    [Header("Movement")]
     public float defaultMovementSpeed;
-    [Header("Dodge Section")]
+    public float lightUpMovementSpeed;
+    [Header("Dodge")]
     public Vector3 defaultDirection;
     public string invulnerabilityTag;
     public float dodgeDuration;

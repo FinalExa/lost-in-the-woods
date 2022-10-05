@@ -74,6 +74,7 @@ public class PCDodge : PCState
         GoToIdleState(inputs);
         GoToMovementState(inputs);
         GoToAttackState(inputs);
+        GoToEnterLanternUpState(inputs);
     }
     #region ToIdleState
     private void GoToIdleState(Inputs inputs)
@@ -95,6 +96,12 @@ public class PCDodge : PCState
     private void GoToAttackState(Inputs inputs)
     {
         if (inputs.LeftClickInput && !_pcStateMachine.pcController.pcReferences.pcCombo.comboDelay) _pcStateMachine.SetState(new PCAttack(_pcStateMachine));
+    }
+    #endregion
+    #region ToEnterLanternUpState
+    private void GoToEnterLanternUpState(Inputs inputs)
+    {
+        if (inputs.LanternInput) _pcStateMachine.SetState(new PCEnterLanternUp(_pcStateMachine));
     }
     #endregion
     #endregion

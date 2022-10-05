@@ -30,19 +30,10 @@ public class PCHealth : Health
     {
         currentHP += healthToAdd;
         currentHP = Mathf.Clamp(currentHP, 0, maxHP);
-        LightVisualUpdate();
         RegenCheck();
         //THIS IS SUPER TEMP
         if (currentHP <= 0) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    public void LightVisualUpdate()
-    {
-        float hpPercentage = (100f * currentHP) / pcReferences.pcData.maxHP;
-        float lightValueDifference = pcReferences.pcData.maxLightRadius - pcReferences.pcData.minLightRadius;
-        float lightValueToAdd = lightValueDifference * (hpPercentage / 100f);
-        pcReferences.playerLight.range = pcReferences.pcData.minLightRadius + lightValueToAdd;
-    }
-
 
     private void RegenCheck()
     {
@@ -69,7 +60,6 @@ public class PCHealth : Health
         float valueToRegen = pcReferences.pcData.healthRegenRatePerSecond * Time.fixedDeltaTime;
         currentHP += valueToRegen;
         currentHP = Mathf.Clamp(currentHP, 0, pcReferences.pcData.maxHP);
-        LightVisualUpdate();
         if (currentHP == pcReferences.pcData.maxHP) regenBool = false;
     }
 }

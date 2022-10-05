@@ -43,6 +43,7 @@ public class PCMoving : PCState
         GoToIdleState(inputs);
         GoToAttackState(inputs);
         GoToDodgeState(inputs);
+        GoToEnterLanternUpState(inputs);
     }
     #region ToIdleState
     private void GoToIdleState(Inputs inputs)
@@ -70,6 +71,16 @@ public class PCMoving : PCState
         if (inputs.DodgeInput)
         {
             _pcStateMachine.SetState(new PCDodge(_pcStateMachine, lastDirection));
+        }
+    }
+    #endregion
+    #region ToEnterLanternUpState
+    private void GoToEnterLanternUpState(Inputs inputs)
+    {
+        if (inputs.LanternInput)
+        {
+            _pcStateMachine.SetState(new PCEnterLanternUp(_pcStateMachine));
+            _pcStateMachine.pcController.pcReferences.rb.velocity = Vector3.zero;
         }
     }
     #endregion
