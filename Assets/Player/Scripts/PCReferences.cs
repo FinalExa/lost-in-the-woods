@@ -21,6 +21,6 @@ public class PCReferences : MonoBehaviour
         pcCombo = this.gameObject.GetComponent<Combo>();
         pcRotation = FindObjectOfType<PCRotation>();
         pcHealth = this.gameObject.GetComponent<PCHealth>();
-        pcLight = this.gameObject.GetComponent<PCLight>();
+        pcLight = this.gameObject.GetComponentInChildren<PCLight>();
     }
 }
