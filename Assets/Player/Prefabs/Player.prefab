@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 4483060674965839135}
   - component: {fileID: 7276438619559263326}
   - component: {fileID: 3858997638449282005}
+  - component: {fileID: 7177418705532036212}
   - component: {fileID: 7489382080051731322}
   - component: {fileID: 7017273354593146841}
   m_Layer: 0
@@ -99,13 +100,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pcData: {fileID: 11400000, guid: 2337e969dbc55004d8d9d48208094455, type: 2}
-  playerLight: {fileID: 674761412199011106}
   cam: {fileID: 0}
   inputs: {fileID: 0}
   rb: {fileID: 0}
   pcCombo: {fileID: 0}
   pcRotation: {fileID: 0}
   pcHealth: {fileID: 0}
+  pcLight: {fileID: 0}
 --- !u!114 &723867546203750364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,6 +187,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 0
   maxHP: 0
+--- !u!114 &7177418705532036212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7129377632901191479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fdb6868392430d4a953477dd3dc1a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLight: {fileID: 674761412199011106}
+  lanternUp: 0
 --- !u!54 &7489382080051731322
 Rigidbody:
   m_ObjectHideFlags: 0
