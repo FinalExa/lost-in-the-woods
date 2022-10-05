@@ -17,10 +17,12 @@ MonoBehaviour:
   healthRegenRatePerSecond: 10
   maxLightRadius: 6
   minLightRadius: 1
+  enterLanternUpTimer: 0.5
+  exitLanternUpTimer: 0.5
   lightUpMaxLightRadius: 12
   lightUpMinLightRadius: 1
   defaultMovementSpeed: 10
-  lightUpMovementSpeed: 0
+  lightUpMovementSpeed: 5
   defaultDirection: {x: 0, y: 0, z: 1}
   invulnerabilityTag: Invulnerable
   dodgeDuration: 0.2

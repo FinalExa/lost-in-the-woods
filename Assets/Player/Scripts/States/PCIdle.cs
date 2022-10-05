@@ -1,3 +1,4 @@
+using UnityEngine;
 public class PCIdle : PCState
 {
     public PCIdle(PCStateMachine pcStateMachine) : base(pcStateMachine)
@@ -15,11 +16,12 @@ public class PCIdle : PCState
         GoToMovementState(inputs);
         GoToAttackState(inputs);
         GoToDodgeState(inputs);
+        GoToEnterLanternUpState(inputs);
     }
     #region ToMovementState
     private void GoToMovementState(Inputs inputs)
     {
-        if ((inputs.MovementInput != UnityEngine.Vector3.zero)) _pcStateMachine.SetState(new PCMoving(_pcStateMachine));
+        if ((inputs.MovementInput != Vector3.zero)) _pcStateMachine.SetState(new PCMoving(_pcStateMachine));
     }
     #endregion
     #region ToAttackState
@@ -35,6 +37,12 @@ public class PCIdle : PCState
         {
             _pcStateMachine.SetState(new PCDodge(_pcStateMachine, _pcStateMachine.pcController.pcReferences.pcData.defaultDirection));
         }
+    }
+    #endregion
+    #region ToEnterLanternUpState
+    private void GoToEnterLanternUpState(Inputs inputs)
+    {
+        if (inputs.LanternInput) _pcStateMachine.SetState(new PCEnterLanternUp(_pcStateMachine));
     }
     #endregion
     #endregion

@@ -2,22 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PCAttack : PCState
+public class PCExitLanternUp : PCState
 {
-    private Combo combo;
-    public PCAttack(PCStateMachine pcStateMachine) : base(pcStateMachine)
+    private float timer;
+    public PCExitLanternUp(PCStateMachine pcStateMachine) : base(pcStateMachine)
     {
     }
-
     public override void Start()
     {
-        combo = _pcStateMachine.pcController.pcReferences.pcCombo;
-        combo.StartComboHitCheck();
+        timer = _pcStateMachine.pcController.pcReferences.pcData.exitLanternUpTimer;
     }
 
-    public override void Update()
+    public override void FixedUpdate()
     {
-        if (combo.comboHitOver) Transitions();
+        ExitLanternUpTimer();
+    }
+
+    private void ExitLanternUpTimer()
+    {
+        if (timer > 0f) timer -= Time.fixedDeltaTime;
+        else
+        {
+            Debug.Log("exit");
+            _pcStateMachine.pcController.pcReferences.pcLight.lanternUp = false;
+            Transitions();
+        }
     }
 
     #region Transitions
@@ -26,6 +35,7 @@ public class PCAttack : PCState
         Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
         GoToIdleState(inputs);
         GoToMovementState(inputs);
+        GoToAttackState(inputs);
         GoToDodgeState(inputs);
         GoToEnterLanternUpState(inputs);
     }
@@ -38,16 +48,19 @@ public class PCAttack : PCState
     #region ToMovementState
     private void GoToMovementState(Inputs inputs)
     {
-        if ((inputs.MovementInput != UnityEngine.Vector3.zero)) _pcStateMachine.SetState(new PCMoving(_pcStateMachine));
+        if (inputs.MovementInput != Vector3.zero) _pcStateMachine.SetState(new PCMoving(_pcStateMachine));
+    }
+    #endregion
+    #region ToAttackState
+    private void GoToAttackState(Inputs inputs)
+    {
+        if (inputs.LeftClickInput) _pcStateMachine.SetState(new PCAttack(_pcStateMachine));
     }
     #endregion
     #region ToDodgeState
     private void GoToDodgeState(Inputs inputs)
     {
-        if (inputs.DodgeInput)
-        {
-            _pcStateMachine.SetState(new PCDodge(_pcStateMachine, _pcStateMachine.pcController.pcReferences.pcData.defaultDirection));
-        }
+        if (inputs.DodgeInput) _pcStateMachine.SetState(new PCDodge(_pcStateMachine, _pcStateMachine.pcController.pcReferences.pcData.defaultDirection));
     }
     #endregion
     #region ToEnterLanternUpState

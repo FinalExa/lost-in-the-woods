@@ -11,6 +11,8 @@ public class PCData : ScriptableObject
     [Header("Light")]
     public float maxLightRadius;
     public float minLightRadius;
+    public float enterLanternUpTimer;
+    public float exitLanternUpTimer;
     public float lightUpMaxLightRadius;
     public float lightUpMinLightRadius;
     [Header("Movement")]
