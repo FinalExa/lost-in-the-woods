@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: PCData
   m_EditorClassIdentifier: 
   maxHP: 100
-  healthRegenMaxTimer: 2
-  healthRegenRatePerSecond: 10
+  healthRegenMaxTimer: 5
+  healthRegenRatePerSecond: 20
   maxLightRadius: 6
   minLightRadius: 1
-  enterLanternUpTimer: 0.5
+  enterLanternUpTimer: 0
   exitLanternUpTimer: 0.5
   lightUpMaxLightRadius: 12
   lightUpMinLightRadius: 1
-  defaultMovementSpeed: 10
+  defaultMovementSpeed: 7
   lightUpMovementSpeed: 5
   defaultDirection: {x: 0, y: 0, z: 1}
   invulnerabilityTag: Invulnerable
   dodgeDuration: 0.2
-  dodgeDistance: 5
+  dodgeDistance: 3.5
   dodgeStopTime: 0.5
