@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 512457919144187963}
   m_Layer: 0
   m_Name: Player Light
-  m_TagString: Untagged
+  m_TagString: PlayerLight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

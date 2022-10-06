@@ -11,6 +11,7 @@ public class PCExitLanternUp : PCState
     public override void Start()
     {
         timer = _pcStateMachine.pcController.pcReferences.pcData.exitLanternUpTimer;
+        _pcStateMachine.pcController.pcReferences.rb.velocity = Vector3.zero;
     }
 
     public override void FixedUpdate()
@@ -23,7 +24,6 @@ public class PCExitLanternUp : PCState
         if (timer > 0f) timer -= Time.fixedDeltaTime;
         else
         {
-            Debug.Log("exit");
             _pcStateMachine.pcController.pcReferences.pcLight.lanternUp = false;
             Transitions();
         }

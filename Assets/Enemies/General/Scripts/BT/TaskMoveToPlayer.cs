@@ -6,19 +6,18 @@ using BehaviorTree;
 
 public class TaskMoveToPlayer : Node
 {
-    private NavMeshAgent nav;
-    private GameObject target;
+    private EnemyController _enemyController;
 
-    public TaskMoveToPlayer(NavMeshAgent _nav, GameObject _target)
+    public TaskMoveToPlayer(EnemyController enemyController)
     {
-        nav = _nav;
-        target = _target;
+        _enemyController = enemyController;
     }
 
     public override NodeState Evaluate()
     {
-        if (nav.isStopped) nav.isStopped = false;
-        nav.SetDestination(target.transform.position);
+        _enemyController.thisNavMeshAgent.speed = _enemyController.defaultSpeed;
+        if (_enemyController.thisNavMeshAgent.isStopped) _enemyController.thisNavMeshAgent.isStopped = false;
+        _enemyController.thisNavMeshAgent.SetDestination(_enemyController.playerTarget.transform.position);
         state = NodeState.RUNNING;
         return state;
     }

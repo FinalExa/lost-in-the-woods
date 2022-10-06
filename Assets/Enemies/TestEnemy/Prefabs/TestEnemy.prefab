@@ -55,7 +55,11 @@ MonoBehaviour:
   enemyWeapon: {fileID: 2335395111253565638}
   rotation: {fileID: 11400000, guid: 3a0ecedcd75d65b498584f6fa7373c60, type: 2}
   isAlerted: 0
+  isInsideLight: 0
+  defaultSpeed: 3.5
+  lightUpSpeed: 2
   attackDistance: 3
+  lightUpDistance: 6
   playerTarget: {fileID: 0}
   enemyRotator: {fileID: 0}
   enemyCombo: {fileID: 0}

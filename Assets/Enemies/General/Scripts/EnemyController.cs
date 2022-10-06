@@ -9,7 +9,11 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Weapon enemyWeapon;
     public Rotation rotation;
     public bool isAlerted;
+    public bool isInsideLight;
+    public float defaultSpeed;
+    public float lightUpSpeed;
     public float attackDistance;
+    public float lightUpDistance;
     [HideInInspector] public GameObject playerTarget;
     [HideInInspector] public EnemyRotator enemyRotator;
     [HideInInspector] public EnemyCombo enemyCombo;
@@ -19,12 +23,20 @@ public class EnemyController : MonoBehaviour
         playerTarget = FindObjectOfType<PCController>().gameObject;
         enemyRotator = this.gameObject.GetComponent<EnemyRotator>();
         enemyCombo = this.gameObject.GetComponent<EnemyCombo>();
-        thisNavMeshAgent = this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
+        thisNavMeshAgent = this.gameObject.GetComponent<NavMeshAgent>();
     }
     private void Start()
     {
         isAlerted = true;
         enemyWeapon.damageTag = whoToDamage;
         enemyCombo.SetWeapon(enemyWeapon);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("PlayerLight")) isInsideLight = true;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("PlayerLight")) isInsideLight = false;
     }
 }
