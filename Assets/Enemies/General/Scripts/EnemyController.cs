@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour
     [HideInInspector] public EnemyRotator enemyRotator;
     [HideInInspector] public EnemyCombo enemyCombo;
     [HideInInspector] public NavMeshAgent thisNavMeshAgent;
+    int lightLayerMask;
     private void Awake()
     {
         playerTarget = FindObjectOfType<PCController>().gameObject;
@@ -27,16 +28,20 @@ public class EnemyController : MonoBehaviour
     }
     private void Start()
     {
+        lightLayerMask = LayerMask.GetMask("PlayerLight");
         isAlerted = true;
         enemyWeapon.damageTag = whoToDamage;
         enemyCombo.SetWeapon(enemyWeapon);
     }
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        if (other.CompareTag("PlayerLight")) isInsideLight = true;
+        CheckForLight();
     }
-    private void OnTriggerExit(Collider other)
+
+    private void CheckForLight()
     {
-        if (other.CompareTag("PlayerLight")) isInsideLight = false;
+        Collider[] lightSearch = Physics.OverlapBox(this.transform.position, transform.localScale, transform.rotation, lightLayerMask);
+        if (lightSearch.Length > 0) isInsideLight = true;
+        else isInsideLight = false;
     }
 }
