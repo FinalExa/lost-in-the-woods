@@ -23,7 +23,6 @@ public class PCEnterLanternUp : PCState
         if (timer > 0f) timer -= Time.fixedDeltaTime;
         else
         {
-            Debug.Log("enter");
             _pcStateMachine.pcController.pcReferences.pcLight.lanternUp = true;
             Transitions();
         }
