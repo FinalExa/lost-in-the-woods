@@ -13,7 +13,7 @@ public class TaskEnemyIsInCombo : Node
 
     public override NodeState Evaluate()
     {
-        if (!enemyCombo.isInCombo) return NodeState.SUCCESS;
-        else return NodeState.FAILURE;
+        if (enemyCombo.isInCombo) return NodeState.FAILURE;
+        else return NodeState.SUCCESS;
     }
 }

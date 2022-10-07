@@ -15,9 +15,10 @@ public class TaskIsInsideLight : Node
     {
         if (_enemyController.isInsideLight)
         {
-            _enemyController.thisNavMeshAgent.isStopped = true;
-            return NodeState.SUCCESS;
+            state = NodeState.FAILURE;
+            return state;
         }
-        else return NodeState.FAILURE;
+        state = NodeState.SUCCESS;
+        return state;
     }
 }

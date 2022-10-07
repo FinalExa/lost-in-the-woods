@@ -19,10 +19,8 @@ public class TaskMoveToPlayerInsideLight : Node
             if (_enemyController.thisNavMeshAgent.isStopped) _enemyController.thisNavMeshAgent.isStopped = false;
             _enemyController.thisNavMeshAgent.SetDestination(_enemyController.playerTarget.transform.position);
         }
-        else
-        {
-
-        }
-        return NodeState.RUNNING;
+        else _enemyController.thisNavMeshAgent.isStopped = true;
+        state = NodeState.RUNNING;
+        return state;
     }
 }

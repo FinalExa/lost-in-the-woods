@@ -59,7 +59,7 @@ MonoBehaviour:
   defaultSpeed: 3.5
   lightUpSpeed: 2
   attackDistance: 3
-  lightUpDistance: 6
+  lightUpDistance: 4
   playerTarget: {fileID: 0}
   enemyRotator: {fileID: 0}
   enemyCombo: {fileID: 0}
@@ -332,7 +332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6089379293536037342, guid: 7065d176beefb154a9e74bdef152c08c, type: 3}
       propertyPath: m_Name
-      value: BasherWeapon
+      value: TestEnemyWeapon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7065d176beefb154a9e74bdef152c08c, type: 3}
