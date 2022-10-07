@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
     public float lightUpSpeed;
     public float attackDistance;
     public float lightUpDistance;
+    public float lightUpDistanceTolerance;
     [HideInInspector] public GameObject playerTarget;
     [HideInInspector] public EnemyRotator enemyRotator;
     [HideInInspector] public EnemyCombo enemyCombo;

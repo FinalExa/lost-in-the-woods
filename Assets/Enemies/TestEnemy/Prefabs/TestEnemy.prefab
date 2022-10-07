@@ -60,6 +60,7 @@ MonoBehaviour:
   lightUpSpeed: 2
   attackDistance: 3
   lightUpDistance: 4
+  lightUpDistanceTolerance: 0.5
   playerTarget: {fileID: 0}
   enemyRotator: {fileID: 0}
   enemyCombo: {fileID: 0}

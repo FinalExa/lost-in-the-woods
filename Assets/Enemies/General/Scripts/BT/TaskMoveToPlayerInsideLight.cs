@@ -13,11 +13,19 @@ public class TaskMoveToPlayerInsideLight : Node
 
     public override NodeState Evaluate()
     {
-        if (Vector3.Distance(_enemyController.transform.position, _enemyController.playerTarget.transform.position) >= _enemyController.lightUpDistance)
+        _enemyController.thisNavMeshAgent.speed = _enemyController.lightUpSpeed;
+        float distance = Vector3.Distance(_enemyController.transform.position, _enemyController.playerTarget.transform.position);
+        if (distance >= _enemyController.lightUpDistance + _enemyController.lightUpDistanceTolerance)
         {
-            _enemyController.thisNavMeshAgent.speed = _enemyController.lightUpSpeed;
             if (_enemyController.thisNavMeshAgent.isStopped) _enemyController.thisNavMeshAgent.isStopped = false;
             _enemyController.thisNavMeshAgent.SetDestination(_enemyController.playerTarget.transform.position);
+        }
+        else if (distance <= _enemyController.lightUpDistance - _enemyController.lightUpDistanceTolerance)
+        {
+            if (_enemyController.thisNavMeshAgent.isStopped) _enemyController.thisNavMeshAgent.isStopped = false;
+            Vector3 direction = _enemyController.playerTarget.gameObject.transform.position - _enemyController.gameObject.transform.position;
+            Vector3 destination = -direction * 10f;
+            _enemyController.thisNavMeshAgent.SetDestination(destination);
         }
         else _enemyController.thisNavMeshAgent.isStopped = true;
         state = NodeState.RUNNING;
