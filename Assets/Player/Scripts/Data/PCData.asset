@@ -18,13 +18,13 @@ MonoBehaviour:
   maxLightRadius: 6
   minLightRadius: 1
   enterLanternUpTimer: 0
-  exitLanternUpTimer: 0.5
+  exitLanternUpTimer: 0
   lightUpMaxLightRadius: 12
   lightUpMinLightRadius: 1
-  defaultMovementSpeed: 7
-  lightUpMovementSpeed: 5
+  defaultMovementSpeed: 5.7
+  lightUpMovementSpeed: 4
   defaultDirection: {x: 0, y: 0, z: 1}
   invulnerabilityTag: Invulnerable
-  dodgeDuration: 0.2
-  dodgeDistance: 3.5
-  dodgeStopTime: 0.5
+  dodgeDuration: 0.35
+  dodgeDistance: 5
+  dodgeStopTime: 0.7

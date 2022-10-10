@@ -56,10 +56,10 @@ MonoBehaviour:
   rotation: {fileID: 11400000, guid: 3a0ecedcd75d65b498584f6fa7373c60, type: 2}
   isAlerted: 0
   isInsideLight: 0
-  defaultSpeed: 3.5
-  lightUpSpeed: 2
+  defaultSpeed: 2.7
+  lightUpSpeed: 1.2
   attackDistance: 3
-  lightUpDistance: 4
+  lightUpDistance: 6
   lightUpDistanceTolerance: 0.5
   playerTarget: {fileID: 0}
   enemyRotator: {fileID: 0}
