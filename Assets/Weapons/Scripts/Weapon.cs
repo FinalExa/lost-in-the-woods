@@ -7,8 +7,8 @@ public class Weapon : MonoBehaviour
     public string weaponName;
     public float comboCancelTime;
     public float comboEndDelay;
-    public WeaponAttack[] weaponAttacks;
-    public List<Health> hitTargets;
+    public List<WeaponAttack> weaponAttacks;
+    [HideInInspector] public List<Health> hitTargets;
     [HideInInspector] public string damageTag;
     [HideInInspector] public float currentDamage;
 
@@ -19,6 +19,7 @@ public class Weapon : MonoBehaviour
 
     private void ReferencesSetup()
     {
+        hitTargets = new List<Health>();
         foreach (WeaponAttack weaponAttack in weaponAttacks)
         {
             for (int i = 0; i < weaponAttack.weaponAttackHitboxSequence.Length; i++)
@@ -33,4 +34,34 @@ public class Weapon : MonoBehaviour
             }
         }
     }
+
+    #region Auto Initialization
+    [ContextMenu("Initialize weapon attacks (destroys current list)")]
+    private void AutoBuild()
+    {
+        weaponAttacks.Clear();
+        for (int i = 0; i < this.transform.childCount; i++)
+        {
+            WeaponAttack attack = new WeaponAttack();
+            attack.attackObject = this.transform.GetChild(i).gameObject;
+            AutoSetAttackHitboxes(attack, attack.attackObject);
+            weaponAttacks.Add(attack);
+        }
+    }
+    private void AutoSetAttackHitboxes(WeaponAttack attack, GameObject attackObject)
+    {
+        List<WeaponAttack.WeaponAttackHitboxSequence> sequence = new List<WeaponAttack.WeaponAttackHitboxSequence>();
+        for (int i = 0; i < attackObject.transform.childCount; i++)
+        {
+            WeaponAttackHitbox attackHitbox = attackObject.transform.GetChild(i).gameObject.GetComponent<WeaponAttackHitbox>();
+            if (attackHitbox != null)
+            {
+                WeaponAttack.WeaponAttackHitboxSequence sequenceElement = new WeaponAttack.WeaponAttackHitboxSequence();
+                sequenceElement.attackRef = attackHitbox;
+                sequence.Add(sequenceElement);
+            }
+        }
+        if (sequence.Count > 0) attack.weaponAttackHitboxSequence = sequence.ToArray();
+    }
+    #endregion
 }
