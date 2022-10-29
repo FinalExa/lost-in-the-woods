@@ -110,7 +110,7 @@ public class Combo : MonoBehaviour
     private void EndComboHit()
     {
         currentWeapon.hitTargets.Clear();
-        if (currentComboProgress + 1 == currentWeapon.weaponAttacks.Length)
+        if (currentComboProgress + 1 == currentWeapon.weaponAttacks.Count)
         {
             currentComboProgress = 0;
             comboDelayTimer = currentWeapon.comboEndDelay;
