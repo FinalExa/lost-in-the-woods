@@ -6,15 +6,22 @@ public class EnemyCombo : Combo
 {
     private EnemyController enemyController;
     [HideInInspector] public bool isInCombo;
+    [HideInInspector] public Transform target;
     private void Awake()
     {
         enemyController = this.gameObject.GetComponent<EnemyController>();
+    }
+    protected override void Start()
+    {
+        base.Start();
+        target = enemyController.playerTarget.transform;
     }
 
     public override void FixedUpdate()
     {
         base.FixedUpdate();
         if (isInCombo) EnemyAutoCombo();
+        if (!isAttacking) Direction();
     }
 
     public void ActivateEnemyCombo()
@@ -31,5 +38,9 @@ public class EnemyCombo : Combo
     protected override void OnComboEnd()
     {
         isInCombo = false;
+    }
+    private void Direction()
+    {
+        lastDirection = (target.position - this.transform.position).normalized;
     }
 }
