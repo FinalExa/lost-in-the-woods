@@ -7,6 +7,7 @@ public class WeaponAttack
     public float damage;
     public float duration;
     public float afterDelay;
+    public float movementDistance;
     public GameObject attackObject;
     [System.Serializable]
     public struct WeaponAttackHitboxSequence

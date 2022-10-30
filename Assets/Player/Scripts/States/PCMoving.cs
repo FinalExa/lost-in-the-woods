@@ -24,7 +24,11 @@ public class PCMoving : PCState
         Rigidbody rigidbody = _pcStateMachine.pcController.pcReferences.rb;
         PCController pcController = _pcStateMachine.pcController;
         Vector3 movementWithDirection = MovementDirection(_pcStateMachine.pcController.pcReferences.cam, _pcStateMachine.pcController.pcReferences.inputs);
-        if (movementWithDirection != Vector3.zero) lastDirection = movementWithDirection;
+        if (movementWithDirection != Vector3.zero)
+        {
+            lastDirection = movementWithDirection;
+            pcController.pcReferences.pcCombo.lastDirection = movementWithDirection;
+        }
         rigidbody.velocity = movementWithDirection * pcController.actualSpeed;
     }
 

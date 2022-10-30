@@ -15,9 +15,11 @@ public class Combo : MonoBehaviour
     [HideInInspector] public float attackCount;
     [HideInInspector] public float comboDelayTimer;
     [HideInInspector] public float comboCancelTimer;
+    [HideInInspector] public Vector3 lastDirection;
     protected bool comboCancelDelay;
+    protected float movementSpeed;
 
-    private void Start()
+    protected virtual void Start()
     {
         ComboSetup();
     }
@@ -32,18 +34,19 @@ public class Combo : MonoBehaviour
     {
         if (currentWeapon != weaponToSet) currentWeapon = weaponToSet;
     }
-    private void ComboSetup()
+    protected void ComboSetup()
     {
         comboHitOver = true;
         comboDelay = false;
         currentComboProgress = 0;
+        lastDirection = new Vector3(0f, 0f, 1f);
     }
     public void StartComboHitCheck()
     {
         if (!comboDelay) StartComboHit();
     }
 
-    private void ComboDelay()
+    protected void ComboDelay()
     {
         if (comboDelayTimer > 0) comboDelayTimer -= Time.fixedDeltaTime;
         else
@@ -64,6 +67,7 @@ public class Combo : MonoBehaviour
         attackTimer = currentWeapon.weaponAttacks[currentComboProgress].duration;
         currentWeapon.weaponAttacks[currentComboProgress].attackObject.SetActive(true);
         currentWeapon.currentDamage = currentWeapon.weaponAttacks[currentComboProgress].damage;
+        if (currentWeapon.weaponAttacks[currentComboProgress].movementDistance != 0) movementSpeed = currentWeapon.weaponAttacks[currentComboProgress].movementDistance / currentWeapon.weaponAttacks[currentComboProgress].duration;
         attackCount = 0;
         isAttacking = true;
     }
@@ -75,6 +79,7 @@ public class Combo : MonoBehaviour
         {
             attackTimer -= Time.fixedDeltaTime;
             attackCount += Time.fixedDeltaTime;
+            AttackMovement(currentAttack);
             CheckActivatingHitboxes(currentAttack);
         }
         else
@@ -85,7 +90,14 @@ public class Combo : MonoBehaviour
             EndComboHit();
         }
     }
-
+    private void AttackMovement(WeaponAttack currentAttack)
+    {
+        if (currentAttack.movementDistance != 0)
+        {
+            float relativeSpeed = movementSpeed * Time.deltaTime;
+            this.transform.position += (lastDirection * relativeSpeed);
+        }
+    }
     private void CheckActivatingHitboxes(WeaponAttack currentAttack)
     {
         foreach (WeaponAttack.WeaponAttackHitboxSequence hitboxToCheck in currentAttack.weaponAttackHitboxSequence)
