@@ -33,7 +33,7 @@ public class PCMovingLanternUp : PCState
 
     private Vector3 MovementDirection(Camera camera, Inputs inputs)
     {
-        Vector3 forward = new Vector3(-camera.transform.forward.x, 0f, -camera.transform.forward.z).normalized;
+        Vector3 forward = new Vector3(camera.transform.forward.x, 0f, camera.transform.forward.z).normalized;
         Vector3 right = new Vector3(camera.transform.right.x, 0f, camera.transform.right.z).normalized;
         return (inputs.MovementInput.x * forward) + (inputs.MovementInput.z * right);
     }
