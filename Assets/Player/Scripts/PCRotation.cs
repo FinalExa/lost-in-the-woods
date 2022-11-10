@@ -37,8 +37,8 @@ public class PCRotation : MonoBehaviour
     {
         if (direction.x > 0 && this.transform.eulerAngles != rotation.left) this.transform.eulerAngles = rotation.left;
         else if (direction.x < 0 && this.transform.eulerAngles != rotation.right) this.transform.eulerAngles = rotation.right;
-        if (direction.z > 0 && this.transform.eulerAngles != rotation.forward) this.transform.eulerAngles = rotation.forward;
-        else if (direction.z < 0 && this.transform.eulerAngles != rotation.back) this.transform.eulerAngles = rotation.back;
+        if (direction.z > 0 && this.transform.eulerAngles != rotation.back) this.transform.eulerAngles = rotation.back;
+        else if (direction.z < 0 && this.transform.eulerAngles != rotation.forward) this.transform.eulerAngles = rotation.forward;
     }
 }
 
