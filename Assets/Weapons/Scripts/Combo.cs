@@ -100,15 +100,22 @@ public class Combo : MonoBehaviour
     }
     private void CheckActivatingHitboxes(WeaponAttack currentAttack)
     {
+        int count = 0;
         foreach (WeaponAttack.WeaponAttackHitboxSequence hitboxToCheck in currentAttack.weaponAttackHitboxSequence)
         {
-            if (attackCountTime >= hitboxToCheck.activationDelayAfterStart) hitboxToCheck.attackRef.gameObject.SetActive(true);
-            if (attackCountTime >= hitboxToCheck.deactivationDelayAfterStart) hitboxToCheck.attackRef.gameObject.SetActive(false);
-            if (hitboxToCheck.spawnsProjectile && attackCountTime >= hitboxToCheck.projectileLaunchTimeAfterStart)
+            if (attackCountTime >= hitboxToCheck.activationDelayAfterStart && attackCountTime < hitboxToCheck.deactivationDelayAfterStart) hitboxToCheck.attackRef.gameObject.SetActive(true);
+            if (attackCountTime >= hitboxToCheck.deactivationDelayAfterStart)
+            {
+                hitboxToCheck.attackRef.gameObject.SetActive(false);
+                currentAttack.ProjectileSetSpawnedStatus(false, count);
+            }
+            if (hitboxToCheck.spawnsProjectile && attackCountTime >= hitboxToCheck.projectileLaunchTimeAfterStart && !hitboxToCheck.spawnedProjectile)
             {
                 hitboxToCheck.projectile.direction = lastDirection.normalized;
                 hitboxToCheck.projectile.gameObject.SetActive(true);
+                currentAttack.ProjectileSetSpawnedStatus(true, count);
             }
+            count++;
         }
     }
 

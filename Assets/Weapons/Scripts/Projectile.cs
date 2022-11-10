@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour
     private float projectileTimer;
     private Rigidbody projectileRb;
     [HideInInspector] public Vector3 direction;
+    [HideInInspector] public string damageTag;
     private Transform originalParent;
 
     private void Awake()
@@ -35,12 +36,23 @@ public class Projectile : MonoBehaviour
             projectileTimer -= Time.fixedDeltaTime;
             projectileRb.velocity = direction * projectileSpeed;
         }
-        else
+        else EndProjectile();
+    }
+
+    private void EndProjectile()
+    {
+        projectileRb.velocity = Vector3.zero;
+        this.transform.parent = originalParent;
+        this.transform.localPosition = Vector3.zero;
+        this.gameObject.SetActive(false);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag(damageTag))
         {
-            projectileRb.velocity = Vector3.zero;
-            this.transform.parent = originalParent;
-            this.transform.localPosition = Vector3.zero;
-            this.gameObject.SetActive(false);
+            other.gameObject.GetComponent<Health>().HealthAddValue(-projectileDamage);
+            EndProjectile();
         }
     }
 }

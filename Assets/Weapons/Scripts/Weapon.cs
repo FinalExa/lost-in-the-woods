@@ -28,6 +28,7 @@ public class Weapon : MonoBehaviour
                 if (weaponAttack.weaponAttackHitboxSequence[i].spawnsProjectile)
                 {
                     Projectile projectile = weaponAttack.weaponAttackHitboxSequence[i].projectile;
+                    projectile.damageTag = damageTag;
                 }
                 weaponAttack.weaponAttackHitboxSequence[i].attackRef = attackToSet;
                 if (attackToSet != null)

@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 8886290199895488016}
   - component: {fileID: 4156505867278205312}
   - component: {fileID: -1719196378352943958}
+  - component: {fileID: 8913911206126437890}
   m_Layer: 0
   m_Name: TestEnemyProjectile
   m_TagString: Untagged
@@ -79,10 +80,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 2
-  projectileDamage: 0
+  projectileDamage: 10
   projectileLifetime: 1.5
   direction: {x: 0, y: 0, z: 0}
-  originalParent: {fileID: 0}
+  damageTag: 
 --- !u!54 &-1719196378352943958
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -99,6 +100,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!65 &8913911206126437890
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4985850856629122337}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7029619399693701072
 GameObject:
   m_ObjectHideFlags: 0

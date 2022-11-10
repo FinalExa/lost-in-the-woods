@@ -18,7 +18,13 @@ public class WeaponAttack
         public bool spawnsProjectile;
         public Projectile projectile;
         public float projectileLaunchTimeAfterStart;
+        [HideInInspector] public bool spawnedProjectile;
     }
     public WeaponAttackHitboxSequence[] weaponAttackHitboxSequence;
     public bool hasAnimation;
+
+    public void ProjectileSetSpawnedStatus(bool spawnedStatus, int index)
+    {
+        weaponAttackHitboxSequence[index].spawnedProjectile = spawnedStatus;
+    }
 }
