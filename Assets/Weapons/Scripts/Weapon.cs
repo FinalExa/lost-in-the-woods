@@ -25,6 +25,11 @@ public class Weapon : MonoBehaviour
             for (int i = 0; i < weaponAttack.weaponAttackHitboxSequence.Length; i++)
             {
                 WeaponAttackHitbox attackToSet = weaponAttack.weaponAttackHitboxSequence[i].attackRef.gameObject.GetComponent<WeaponAttackHitbox>();
+                if (weaponAttack.weaponAttackHitboxSequence[i].spawnsProjectile)
+                {
+                    Projectile projectile = weaponAttack.weaponAttackHitboxSequence[i].projectile;
+                    projectile.damageTag = damageTag;
+                }
                 weaponAttack.weaponAttackHitboxSequence[i].attackRef = attackToSet;
                 if (attackToSet != null)
                 {
@@ -58,6 +63,15 @@ public class Weapon : MonoBehaviour
             {
                 WeaponAttack.WeaponAttackHitboxSequence sequenceElement = new WeaponAttack.WeaponAttackHitboxSequence();
                 sequenceElement.attackRef = attackHitbox;
+                if (attackHitbox.gameObject.transform.childCount > 0)
+                {
+                    Projectile projectile = attackHitbox.gameObject.GetComponentInChildren<Projectile>();
+                    if (projectile != null)
+                    {
+                        sequenceElement.spawnsProjectile = true;
+                        sequenceElement.projectile = projectile;
+                    }
+                }
                 sequence.Add(sequenceElement);
             }
         }

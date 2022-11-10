@@ -12,10 +12,10 @@ public class Combo : MonoBehaviour
     [HideInInspector] public bool comboDelay;
     [HideInInspector] public bool comboEndDelay;
     [HideInInspector] public float attackTimer;
-    [HideInInspector] public float attackCount;
+    [HideInInspector] public float attackCountTime;
     [HideInInspector] public float comboDelayTimer;
     [HideInInspector] public float comboCancelTimer;
-    [HideInInspector] public Vector3 lastDirection;
+    [HideInInspector] public Vector3 lastDirection { get; set; }
     protected bool comboCancelDelay;
     protected float movementSpeed;
 
@@ -68,7 +68,7 @@ public class Combo : MonoBehaviour
         currentWeapon.weaponAttacks[currentComboProgress].attackObject.SetActive(true);
         currentWeapon.currentDamage = currentWeapon.weaponAttacks[currentComboProgress].damage;
         if (currentWeapon.weaponAttacks[currentComboProgress].movementDistance != 0) movementSpeed = currentWeapon.weaponAttacks[currentComboProgress].movementDistance / currentWeapon.weaponAttacks[currentComboProgress].duration;
-        attackCount = 0;
+        attackCountTime = 0;
         isAttacking = true;
     }
 
@@ -78,7 +78,7 @@ public class Combo : MonoBehaviour
         if (attackTimer > 0)
         {
             attackTimer -= Time.fixedDeltaTime;
-            attackCount += Time.fixedDeltaTime;
+            attackCountTime += Time.fixedDeltaTime;
             AttackMovement(currentAttack);
             CheckActivatingHitboxes(currentAttack);
         }
@@ -100,10 +100,22 @@ public class Combo : MonoBehaviour
     }
     private void CheckActivatingHitboxes(WeaponAttack currentAttack)
     {
+        int count = 0;
         foreach (WeaponAttack.WeaponAttackHitboxSequence hitboxToCheck in currentAttack.weaponAttackHitboxSequence)
         {
-            if (attackCount >= hitboxToCheck.activationDelayAfterStart) hitboxToCheck.attackRef.gameObject.SetActive(true);
-            if (attackCount >= hitboxToCheck.deactivationDelayAfterStart) hitboxToCheck.attackRef.gameObject.SetActive(false);
+            if (attackCountTime >= hitboxToCheck.activationDelayAfterStart && attackCountTime < hitboxToCheck.deactivationDelayAfterStart) hitboxToCheck.attackRef.gameObject.SetActive(true);
+            if (attackCountTime >= hitboxToCheck.deactivationDelayAfterStart)
+            {
+                hitboxToCheck.attackRef.gameObject.SetActive(false);
+                currentAttack.ProjectileSetSpawnedStatus(false, count);
+            }
+            if (hitboxToCheck.spawnsProjectile && attackCountTime >= hitboxToCheck.projectileLaunchTimeAfterStart && !hitboxToCheck.spawnedProjectile)
+            {
+                hitboxToCheck.projectile.direction = lastDirection.normalized;
+                hitboxToCheck.projectile.gameObject.SetActive(true);
+                currentAttack.ProjectileSetSpawnedStatus(true, count);
+            }
+            count++;
         }
     }
 
