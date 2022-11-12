@@ -8,6 +8,7 @@ public class PCLight : MonoBehaviour
     private float currentLightValue;
     private Light playerLight;
     private SphereCollider lightTrigger;
+    public List<EnemyController> enemies;
 
     [HideInInspector] public bool lanternUp;
 
@@ -19,6 +20,7 @@ public class PCLight : MonoBehaviour
     private void Start()
     {
         lightTrigger.enabled = false;
+        enemies = new List<EnemyController>();
     }
     private void FixedUpdate()
     {
@@ -38,7 +40,11 @@ public class PCLight : MonoBehaviour
             if (!lightTrigger.enabled) lightTrigger.enabled = true;
             lightTrigger.radius = currentLightValue / 2;
         }
-        else lightTrigger.enabled = false;
+        else
+        {
+            lightTrigger.enabled = false;
+            ClearLightList();
+        }
     }
     private float LanternModeCheck()
     {
@@ -46,5 +52,37 @@ public class PCLight : MonoBehaviour
         if (lanternUp) valueDiff = pcData.lightUpMaxLightRadius - pcData.lightUpMinLightRadius;
         else valueDiff = pcData.maxLightRadius - pcData.minLightRadius;
         return valueDiff;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            EnemyController controller = other.gameObject.GetComponent<EnemyController>();
+            if (!enemies.Contains(controller))
+            {
+                enemies.Add(controller);
+                controller.isInsideLight = true;
+            }
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            EnemyController controller = other.gameObject.GetComponent<EnemyController>();
+            if (enemies.Contains(controller))
+            {
+                enemies.Remove(controller);
+                controller.isInsideLight = false;
+            }
+        }
+    }
+
+    private void ClearLightList()
+    {
+        EnemyController[] enemiesArray = enemies.ToArray();
+        enemies.Clear();
+        foreach (EnemyController enemy in enemiesArray) enemy.isInsideLight = false;
     }
 }
