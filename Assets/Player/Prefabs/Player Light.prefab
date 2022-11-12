@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1974352340796789110}
   - component: {fileID: 5859107368745771640}
   - component: {fileID: 512457919144187963}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Player Light
   m_TagString: PlayerLight
   m_Icon: {fileID: 0}
@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fdb6868392430d4a953477dd3dc1a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pcData: {fileID: 11400000, guid: 2337e969dbc55004d8d9d48208094455, type: 2}
   lanternUp: 0
 --- !u!135 &512457919144187963
 SphereCollider:

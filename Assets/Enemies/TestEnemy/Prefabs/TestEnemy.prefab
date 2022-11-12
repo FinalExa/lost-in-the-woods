@@ -112,11 +112,11 @@ MonoBehaviour:
   comboDelay: 0
   comboEndDelay: 0
   attackTimer: 0
-  attackCount: 0
+  attackCountTime: 0
   comboDelayTimer: 0
   comboCancelTimer: 0
-  lastDirection: {x: 0, y: 0, z: 0}
   isInCombo: 0
+  target: {fileID: 0}
 --- !u!114 &249166922592196662
 MonoBehaviour:
   m_ObjectHideFlags: 0

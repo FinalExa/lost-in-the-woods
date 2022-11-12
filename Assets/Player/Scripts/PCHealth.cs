@@ -7,13 +7,15 @@ public class PCHealth : Health
 {
     private PCController pcController;
     private PCReferences pcReferences;
-    private bool regenWaitBool;
+    private PCLight pcLight;
+    private bool regenWait;
     private float regenWaitTimer;
-    private bool regenBool;
+    private bool regen;
     private void Awake()
     {
         pcController = this.gameObject.GetComponent<PCController>();
         pcReferences = this.gameObject.GetComponent<PCReferences>();
+        pcLight = this.gameObject.GetComponentInChildren<PCLight>();
     }
 
     private void Start()
@@ -21,45 +23,56 @@ public class PCHealth : Health
         SetHPStartup(pcReferences.pcData.maxHP);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (regenWaitBool) RegenWait();
-        if (regenBool) Regen();
+        RegenCheck();
+        RegenWait();
+        Regen();
     }
     public override void HealthAddValue(float healthToAdd)
     {
         currentHP += healthToAdd;
         currentHP = Mathf.Clamp(currentHP, 0, maxHP);
-        RegenCheck();
+        if (healthToAdd < 0)
+        {
+            regenWait = false;
+            regen = false;
+        }
+        pcLight.LightRadiusUpdate(currentHP);
         //THIS IS SUPER TEMP
         if (currentHP <= 0) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void RegenCheck()
     {
-        if (currentHP < pcReferences.pcData.maxHP && !regenWaitBool)
+        if (currentHP < pcReferences.pcData.maxHP && !regenWait && !regen)
         {
-            regenWaitBool = true;
-            if (regenBool) regenBool = false;
+            regenWait = true;
+            if (regen) regen = false;
             regenWaitTimer = pcReferences.pcData.healthRegenMaxTimer;
         }
     }
 
     private void RegenWait()
     {
-        if (regenWaitTimer > 0) regenWaitTimer -= Time.fixedDeltaTime;
-        else
+        if (regenWait)
         {
-            regenWaitBool = false;
-            regenBool = true;
+            if (regenWaitTimer > 0) regenWaitTimer -= Time.deltaTime;
+            else
+            {
+                regenWait = false;
+                regen = true;
+            }
         }
     }
 
     private void Regen()
     {
-        float valueToRegen = pcReferences.pcData.healthRegenRatePerSecond * Time.fixedDeltaTime;
-        currentHP += valueToRegen;
-        currentHP = Mathf.Clamp(currentHP, 0, pcReferences.pcData.maxHP);
-        if (currentHP == pcReferences.pcData.maxHP) regenBool = false;
+        if (regen)
+        {
+            float valueToRegen = pcReferences.pcData.healthRegenRatePerSecond * Time.deltaTime;
+            HealthAddValue(valueToRegen);
+            if (currentHP == pcReferences.pcData.maxHP) regen = false;
+        }
     }
 }

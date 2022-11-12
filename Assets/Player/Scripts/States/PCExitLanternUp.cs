@@ -14,17 +14,18 @@ public class PCExitLanternUp : PCState
         _pcStateMachine.pcController.pcReferences.rb.velocity = Vector3.zero;
     }
 
-    public override void FixedUpdate()
+    public override void Update()
     {
         ExitLanternUpTimer();
     }
 
     private void ExitLanternUpTimer()
     {
-        if (timer > 0f) timer -= Time.fixedDeltaTime;
+        if (timer > 0f) timer -= Time.deltaTime;
         else
         {
             _pcStateMachine.pcController.pcReferences.pcLight.lanternUp = false;
+            _pcStateMachine.pcController.pcReferences.pcLight.LightRadiusUpdate(_pcStateMachine.pcController.pcReferences.pcHealth.currentHP);
             Transitions();
         }
     }
@@ -33,11 +34,11 @@ public class PCExitLanternUp : PCState
     private void Transitions()
     {
         Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
-        GoToIdleState(inputs);
         GoToMovementState(inputs);
         GoToAttackState(inputs);
         GoToDodgeState(inputs);
         GoToEnterLanternUpState(inputs);
+        GoToIdleState(inputs);
     }
     #region ToIdleState
     private void GoToIdleState(Inputs inputs)
