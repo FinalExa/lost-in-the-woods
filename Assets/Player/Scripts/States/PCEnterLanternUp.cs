@@ -13,17 +13,18 @@ public class PCEnterLanternUp : PCState
         timer = _pcStateMachine.pcController.pcReferences.pcData.enterLanternUpTimer;
     }
 
-    public override void FixedUpdate()
+    public override void Update()
     {
         EnterLanternUpTimer();
     }
 
     private void EnterLanternUpTimer()
     {
-        if (timer > 0f) timer -= Time.fixedDeltaTime;
+        if (timer > 0f) timer -= Time.deltaTime;
         else
         {
             _pcStateMachine.pcController.pcReferences.pcLight.lanternUp = true;
+            _pcStateMachine.pcController.pcReferences.pcLight.LightRadiusUpdate(_pcStateMachine.pcController.pcReferences.pcHealth.currentHP);
             Transitions();
         }
     }
@@ -32,9 +33,9 @@ public class PCEnterLanternUp : PCState
     private void Transitions()
     {
         Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
-        GoToIdleLanternUpState(inputs);
         GoToMovementLanternUpState(inputs);
         GoToExitLanternUpState(inputs);
+        GoToIdleLanternUpState(inputs);
     }
     #region ToIdleLanternUpState
     private void GoToIdleLanternUpState(Inputs inputs)

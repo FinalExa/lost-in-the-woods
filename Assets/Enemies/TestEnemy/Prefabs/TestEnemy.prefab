@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7001282123244882244}
   - component: {fileID: 4992552886037869941}
   - component: {fileID: 4166100610456823755}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TestEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -112,11 +112,11 @@ MonoBehaviour:
   comboDelay: 0
   comboEndDelay: 0
   attackTimer: 0
-  attackCount: 0
+  attackCountTime: 0
   comboDelayTimer: 0
   comboCancelTimer: 0
-  lastDirection: {x: 0, y: 0, z: 0}
   isInCombo: 0
+  target: {fileID: 0}
 --- !u!114 &249166922592196662
 MonoBehaviour:
   m_ObjectHideFlags: 0
