@@ -158,8 +158,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_LookAt: {fileID: 7129377633981452069}
+  m_Follow: {fileID: 7129377633981452069}
   m_Lens:
     FieldOfView: 60.000004
     OrthographicSize: 8
@@ -838,3 +838,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c44e0394991c2c44597e45f504601056, type: 3}
+--- !u!4 &7129377633981452069 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7129377632901191473, guid: c44e0394991c2c44597e45f504601056, type: 3}
+  m_PrefabInstance: {fileID: 7129377633981452068}
+  m_PrefabAsset: {fileID: 0}
