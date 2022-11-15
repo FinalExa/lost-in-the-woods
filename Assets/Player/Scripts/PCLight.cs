@@ -63,6 +63,7 @@ public class PCLight : MonoBehaviour
             {
                 enemies.Add(controller);
                 controller.isInsideLight = true;
+                controller.LightStateChange();
             }
         }
     }
@@ -75,6 +76,7 @@ public class PCLight : MonoBehaviour
             {
                 enemies.Remove(controller);
                 controller.isInsideLight = false;
+                controller.LightStateChange();
             }
         }
     }

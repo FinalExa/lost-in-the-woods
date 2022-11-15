@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 4483060674965839135}
   - component: {fileID: 7276438619559263326}
   - component: {fileID: 3858997638449282005}
+  - component: {fileID: 8706434170628328547}
   - component: {fileID: 7489382080051731322}
   - component: {fileID: 7017273354593146841}
   m_Layer: 0
@@ -156,10 +157,9 @@ MonoBehaviour:
   comboDelay: 0
   comboEndDelay: 0
   attackTimer: 0
-  attackCount: 0
+  attackCountTime: 0
   comboDelayTimer: 0
   comboCancelTimer: 0
-  lastDirection: {x: 0, y: 0, z: 1}
 --- !u!114 &7276438619559263326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +187,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 0
   maxHP: 0
+--- !u!114 &8706434170628328547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7129377632901191479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7f787ccf609ce4a9001551dfd11649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heartbeatCooldown: 5
+  heartbeatDuration: 5
+  globalLightHeartbeatColor: {r: 1, g: 0.50980395, b: 0.9615445, a: 0}
 --- !u!54 &7489382080051731322
 Rigidbody:
   m_ObjectHideFlags: 0
