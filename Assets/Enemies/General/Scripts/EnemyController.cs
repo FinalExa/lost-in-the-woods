@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
     public float attackDistance;
     public float lightUpDistance;
     public float lightUpDistanceTolerance;
-    [HideInInspector] public int enemyLightState;
+    public int enemyLightState;
     [HideInInspector] public bool isInsideLight;
     [HideInInspector] public bool isInHeartbeatState;
     [HideInInspector] public GameObject playerTarget;
@@ -48,6 +48,5 @@ public class EnemyController : MonoBehaviour
         if (isInsideLight && !isInHeartbeatState) enemyLightState = 0;
         else if (isInHeartbeatState && !isInsideLight) enemyLightState = 2;
         else enemyLightState = 1;
-        print(enemyLightState);
     }
 }
