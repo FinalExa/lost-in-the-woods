@@ -26,10 +26,11 @@ public class Weapon : MonoBehaviour
             for (int i = 0; i < weaponAttack.weaponAttackHitboxSequence.Length; i++)
             {
                 WeaponAttackHitbox attackToSet = weaponAttack.weaponAttackHitboxSequence[i].attackRef.gameObject.GetComponent<WeaponAttackHitbox>();
-                if (weaponAttack.weaponAttackHitboxSequence[i].spawnsProjectile)
+                Projectile projectile = weaponAttack.weaponAttackHitboxSequence[i].projectile;
+                if (projectile != null)
                 {
-                    Projectile projectile = weaponAttack.weaponAttackHitboxSequence[i].projectile;
-                    projectile.possibleTargets = possibleTargets;
+                    if (weaponAttack.weaponAttackHitboxSequence[i].spawnsProjectile) projectile.possibleTargets = possibleTargets;
+                    projectile.gameObject.SetActive(false);
                 }
                 weaponAttack.weaponAttackHitboxSequence[i].attackRef = attackToSet;
                 if (attackToSet != null)

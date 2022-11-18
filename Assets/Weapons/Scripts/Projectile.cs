@@ -52,7 +52,7 @@ public class Projectile : MonoBehaviour
         AttackReceived attackReceived = other.gameObject.GetComponent<AttackReceived>();
         if (attackReceived != null)
         {
-            attackReceived.AttackReceivedOperation(possibleTargets, -projectileDamage);
+            attackReceived.AttackReceivedOperation(possibleTargets, projectileDamage);
             EndProjectile();
         }
     }
