@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponAttackHitbox : Attack
 {
     [HideInInspector] public Weapon thisWeapon;
+    [HideInInspector] public WeaponAttack.WeaponAttackType weaponAttackType;
     protected override void Damage()
     {
         if (!thisWeapon.hitTargets.Contains(attackReceived))

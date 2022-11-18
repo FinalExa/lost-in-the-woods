@@ -37,6 +37,7 @@ public class Weapon : MonoBehaviour
                 {
                     attackToSet.thisWeapon = this;
                     attackToSet.possibleTargets = possibleTargets;
+                    attackToSet.weaponAttackType = weaponAttack.weaponAttackType;
                 }
             }
         }
