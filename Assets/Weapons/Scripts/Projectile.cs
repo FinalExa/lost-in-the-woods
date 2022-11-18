@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
     private float projectileTimer;
     private Rigidbody projectileRb;
     [HideInInspector] public Vector3 direction;
-    [HideInInspector] public string damageTag;
+    [HideInInspector] public List<AttackReceivedData.GameTargets> possibleTargets;
     private Transform originalParent;
 
     private void Awake()
@@ -47,11 +47,12 @@ public class Projectile : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag(damageTag))
+        AttackReceived attackReceived = other.gameObject.GetComponent<AttackReceived>();
+        if (attackReceived != null)
         {
-            other.gameObject.GetComponent<Health>().HealthAddValue(-projectileDamage);
+            attackReceived.AttackReceivedOperation(possibleTargets, -projectileDamage);
             EndProjectile();
         }
     }

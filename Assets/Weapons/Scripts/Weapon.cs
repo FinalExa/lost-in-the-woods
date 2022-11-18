@@ -7,10 +7,11 @@ public class Weapon : MonoBehaviour
     public string weaponName;
     public float comboCancelTime;
     public float comboEndDelay;
+    public List<AttackReceivedData.GameTargets> possibleTargets;
     public List<WeaponAttack> weaponAttacks;
     [HideInInspector] public List<AttackReceived> hitTargets;
-    [HideInInspector] public string damageTag;
     [HideInInspector] public float currentDamage;
+
 
     private void Start()
     {
@@ -28,13 +29,13 @@ public class Weapon : MonoBehaviour
                 if (weaponAttack.weaponAttackHitboxSequence[i].spawnsProjectile)
                 {
                     Projectile projectile = weaponAttack.weaponAttackHitboxSequence[i].projectile;
-                    projectile.damageTag = damageTag;
+                    projectile.possibleTargets = possibleTargets;
                 }
                 weaponAttack.weaponAttackHitboxSequence[i].attackRef = attackToSet;
                 if (attackToSet != null)
                 {
                     attackToSet.thisWeapon = this;
-                    attackToSet.damageTag = damageTag;
+                    attackToSet.possibleTargets = possibleTargets;
                 }
             }
         }

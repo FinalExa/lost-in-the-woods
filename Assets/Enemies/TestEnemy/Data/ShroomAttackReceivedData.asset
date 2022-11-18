@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6932d238299d99d46b5cd5716e5d10cd, type: 3}
   m_Name: ShroomAttackReceivedData
   m_EditorClassIdentifier: 
+  targetType: 1
   ignoresDamage: 0

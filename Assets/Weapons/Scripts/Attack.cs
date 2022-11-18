@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    [HideInInspector] public string damageTag;
+    [HideInInspector] public List<AttackReceivedData.GameTargets> possibleTargets;
 
     protected AttackReceived attackReceived;
 

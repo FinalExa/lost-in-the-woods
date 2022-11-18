@@ -12,8 +12,11 @@ public class AttackReceived : MonoBehaviour
         health = this.gameObject.GetComponent<Health>();
     }
 
-    public void AttackReceivedOperation(float damage)
+    public void AttackReceivedOperation(List<AttackReceivedData.GameTargets> receivedTargets, float damage)
     {
-        if (!attackReceivedData.ignoresDamage) health.HealthAddValue(-damage);
+        if (receivedTargets.Contains(attackReceivedData.targetType))
+        {
+            if (!attackReceivedData.ignoresDamage) health.HealthAddValue(-damage);
+        }
     }
 }
