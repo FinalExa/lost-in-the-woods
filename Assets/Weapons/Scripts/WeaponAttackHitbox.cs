@@ -7,10 +7,10 @@ public class WeaponAttackHitbox : Attack
     [HideInInspector] public Weapon thisWeapon;
     protected override void Damage()
     {
-        if (otherHealth != null && otherCollider.CompareTag(damageTag) && !thisWeapon.hitTargets.Contains(otherHealth))
+        if (attackReceived.gameObject.CompareTag(damageTag) && !thisWeapon.hitTargets.Contains(attackReceived))
         {
-            if (otherCollider.CompareTag(damageTag)) otherHealth.HealthAddValue(-thisWeapon.currentDamage);
-            thisWeapon.hitTargets.Add(otherHealth);
+            attackReceived.AttackReceivedOperation(thisWeapon.currentDamage);
+            thisWeapon.hitTargets.Add(attackReceived);
         }
     }
 }

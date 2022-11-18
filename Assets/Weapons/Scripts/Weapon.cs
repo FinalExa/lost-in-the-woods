@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
     public float comboCancelTime;
     public float comboEndDelay;
     public List<WeaponAttack> weaponAttacks;
-    [HideInInspector] public List<Health> hitTargets;
+    [HideInInspector] public List<AttackReceived> hitTargets;
     [HideInInspector] public string damageTag;
     [HideInInspector] public float currentDamage;
 
@@ -19,7 +19,7 @@ public class Weapon : MonoBehaviour
 
     private void ReferencesSetup()
     {
-        hitTargets = new List<Health>();
+        hitTargets = new List<AttackReceived>();
         foreach (WeaponAttack weaponAttack in weaponAttacks)
         {
             for (int i = 0; i < weaponAttack.weaponAttackHitboxSequence.Length; i++)

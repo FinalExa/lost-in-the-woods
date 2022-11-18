@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PCHealth : Health
 {
-    private PCController pcController;
     private PCReferences pcReferences;
     private PCLight pcLight;
     private bool regenWait;
@@ -13,7 +12,6 @@ public class PCHealth : Health
     private bool regen;
     private void Awake()
     {
-        pcController = this.gameObject.GetComponent<PCController>();
         pcReferences = this.gameObject.GetComponent<PCReferences>();
         pcLight = this.gameObject.GetComponentInChildren<PCLight>();
     }
@@ -74,5 +72,11 @@ public class PCHealth : Health
             HealthAddValue(valueToRegen);
             if (currentHP == pcReferences.pcData.maxHP) regen = false;
         }
+    }
+
+    public override void SetHPStartup(float givenMaxHP)
+    {
+        base.SetHPStartup(givenMaxHP);
+        pcLight.LightRadiusUpdate(currentHP);
     }
 }

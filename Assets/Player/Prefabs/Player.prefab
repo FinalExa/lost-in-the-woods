@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 723867546203750364}
   - component: {fileID: 5618624451261787438}
   - component: {fileID: 4483060674965839135}
-  - component: {fileID: 7276438619559263326}
+  - component: {fileID: 7621549938335928225}
   - component: {fileID: 3858997638449282005}
   - component: {fileID: 8706434170628328547}
   - component: {fileID: 7489382080051731322}
@@ -160,7 +160,7 @@ MonoBehaviour:
   attackCountTime: 0
   comboDelayTimer: 0
   comboCancelTimer: 0
---- !u!114 &7276438619559263326
+--- !u!114 &7621549938335928225
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,10 +169,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7129377632901191479}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8760e162f3737034084f899a3f610de1, type: 3}
+  m_Script: {fileID: 11500000, guid: aedb3eb057b16d146897207048a286c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 0, y: 0, z: 0}
+  attackReceivedData: {fileID: 11400000, guid: ce4bb690480416243bca405326cb22ef, type: 2}
 --- !u!114 &3858997638449282005
 MonoBehaviour:
   m_ObjectHideFlags: 0
