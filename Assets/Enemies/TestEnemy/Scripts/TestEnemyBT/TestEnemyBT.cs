@@ -27,7 +27,7 @@ public class TestEnemyBT : BT_Tree
             }),
             new Selector(new List<Node>
             {
-                new TaskIsCloseToPlayer(enemyController.thisNavMeshAgent, enemyController.playerTarget, enemyController.attackDistance),
+                new TaskIsCloseToPlayer(enemyController.thisNavMeshAgent, enemyController.playerTarget, enemyController.enemyData.normalDistanceFromPlayer),
                 new TaskMoveToPlayer(enemyController),
             }),
             new Selector(new List<Node>

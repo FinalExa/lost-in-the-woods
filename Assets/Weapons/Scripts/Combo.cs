@@ -22,7 +22,7 @@ public class Combo : MonoBehaviour
     {
         ComboSetup();
     }
-    public virtual void FixedUpdate()
+    public virtual void Update()
     {
         if (isAttacking) Attacking();
         if (comboDelay) ComboDelay();
@@ -37,8 +37,8 @@ public class Combo : MonoBehaviour
     {
         comboHitOver = true;
         comboDelay = false;
-        currentComboProgress = 0;
         lastDirection = new Vector3(0f, 0f, 1f);
+        currentComboProgress = 0;
     }
     public void StartComboHitCheck()
     {
@@ -47,7 +47,7 @@ public class Combo : MonoBehaviour
 
     protected void ComboDelay()
     {
-        if (comboDelayTimer > 0) comboDelayTimer -= Time.fixedDeltaTime;
+        if (comboDelayTimer > 0) comboDelayTimer -= Time.deltaTime;
         else
         {
             comboDelay = false;
@@ -76,8 +76,8 @@ public class Combo : MonoBehaviour
         WeaponAttack currentAttack = currentWeapon.weaponAttacks[currentComboProgress];
         if (attackTimer > 0)
         {
-            attackTimer -= Time.fixedDeltaTime;
-            attackCountTime += Time.fixedDeltaTime;
+            attackTimer -= Time.deltaTime;
+            attackCountTime += Time.deltaTime;
             AttackMovement(currentAttack);
             CheckActivatingHitboxes(currentAttack);
         }
@@ -120,7 +120,7 @@ public class Combo : MonoBehaviour
 
     private void CountToCancelCombo()
     {
-        if (comboCancelTimer > 0) comboCancelTimer -= Time.fixedDeltaTime;
+        if (comboCancelTimer > 0) comboCancelTimer -= Time.deltaTime;
         else
         {
             currentWeapon.weaponAttacks[currentComboProgress].attackObject.SetActive(false);

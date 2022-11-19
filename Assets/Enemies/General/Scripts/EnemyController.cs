@@ -5,35 +5,29 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private string whoToDamage;
-    [SerializeField] private Weapon enemyWeapon;
     public Rotation rotation;
-    public bool isAlerted;
-    public float defaultSpeed;
-    public float lightUpSpeed;
-    public float attackDistance;
-    public float lightUpDistance;
-    public float lightUpDistanceTolerance;
-    public int enemyLightState;
+    public EnemyData enemyData;
+    public enum EnemyLightState { CALM, NORMAL, BERSERK }
+    public EnemyLightState enemyLightState;
+    [HideInInspector] public Weapon currentWeapon;
+    [HideInInspector] public bool isAlerted;
     [HideInInspector] public bool isInsideLight;
     [HideInInspector] public bool isInHeartbeatState;
     [HideInInspector] public GameObject playerTarget;
-    [HideInInspector] public EnemyRotator enemyRotator;
     [HideInInspector] public EnemyCombo enemyCombo;
     [HideInInspector] public NavMeshAgent thisNavMeshAgent;
+
     private void Awake()
     {
         playerTarget = FindObjectOfType<PCController>().gameObject;
-        enemyRotator = this.gameObject.GetComponent<EnemyRotator>();
         enemyCombo = this.gameObject.GetComponent<EnemyCombo>();
         thisNavMeshAgent = this.gameObject.GetComponent<NavMeshAgent>();
     }
     private void Start()
     {
-        enemyLightState = 1;
         Heartbeat.heartbeatSwitch += EnemyHeartbeatState;
+        enemyLightState = EnemyLightState.NORMAL;
         isAlerted = true;
-        enemyCombo.SetWeapon(enemyWeapon);
     }
 
     private void EnemyHeartbeatState(bool heartbeatState)
@@ -44,8 +38,8 @@ public class EnemyController : MonoBehaviour
 
     public void LightStateChange()
     {
-        if (isInsideLight && !isInHeartbeatState) enemyLightState = 0;
-        else if (isInHeartbeatState && !isInsideLight) enemyLightState = 2;
-        else enemyLightState = 1;
+        if (isInsideLight && !isInHeartbeatState) enemyLightState = EnemyLightState.CALM;
+        else if (isInHeartbeatState && !isInsideLight) enemyLightState = EnemyLightState.BERSERK;
+        else enemyLightState = EnemyLightState.NORMAL;
     }
 }

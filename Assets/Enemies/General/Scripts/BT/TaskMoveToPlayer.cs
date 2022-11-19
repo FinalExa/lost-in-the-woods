@@ -15,7 +15,7 @@ public class TaskMoveToPlayer : Node
 
     public override NodeState Evaluate()
     {
-        _enemyController.thisNavMeshAgent.speed = _enemyController.defaultSpeed;
+        _enemyController.thisNavMeshAgent.speed = _enemyController.enemyData.normalMovementSpeed;
         if (_enemyController.thisNavMeshAgent.isStopped) _enemyController.thisNavMeshAgent.isStopped = false;
         _enemyController.thisNavMeshAgent.SetDestination(_enemyController.playerTarget.transform.position);
         state = NodeState.RUNNING;

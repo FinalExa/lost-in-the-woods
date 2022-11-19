@@ -12,7 +12,7 @@ public class EnemyRotator : MonoBehaviour
         enemyController = this.gameObject.GetComponent<EnemyController>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         ContinouslyRotate();
     }

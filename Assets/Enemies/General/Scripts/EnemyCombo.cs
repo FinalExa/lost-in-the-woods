@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class EnemyCombo : Combo
 {
-    private EnemyController enemyController;
+    private EnemyRotator enemyRotator;
     [HideInInspector] public bool isInCombo;
     [HideInInspector] public Transform target;
     private void Awake()
     {
-        enemyController = this.gameObject.GetComponent<EnemyController>();
+        enemyRotator = this.gameObject.GetComponent<EnemyRotator>();
     }
     protected override void Start()
     {
         base.Start();
-        target = enemyController.playerTarget.transform;
+        target = this.gameObject.GetComponent<EnemyController>().playerTarget.transform;
     }
 
-    public override void FixedUpdate()
+    public override void Update()
     {
-        base.FixedUpdate();
+        base.Update();
         if (isInCombo) EnemyAutoCombo();
         if (!isAttacking) Direction();
     }
@@ -27,7 +27,7 @@ public class EnemyCombo : Combo
     public void ActivateEnemyCombo()
     {
         isInCombo = true;
-        enemyController.enemyRotator.Rotate();
+        enemyRotator.Rotate();
     }
 
     private void EnemyAutoCombo()
@@ -39,6 +39,7 @@ public class EnemyCombo : Combo
     {
         isInCombo = false;
     }
+
     private void Direction()
     {
         lastDirection = (target.position - this.transform.position).normalized;
