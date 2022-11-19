@@ -6,6 +6,6 @@ using UnityEngine;
 public class WitchEnemyData : EnemyData
 {
     [Header("Back Leap Section")]
-    public float leapDistance;
-    public float leapTime;
+    public float leapTolerance;
+    public float leapSpeed;
 }

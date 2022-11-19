@@ -13,15 +13,13 @@ public class TaskIsAbleToLeapBack : Node
 
     public override NodeState Evaluate()
     {
-        if (!witchBT.canLeap && witchBT.enemyController.attackDone)
+        if (witchBT.enemyController.attackDone)
         {
-            Debug.Log("got here");
-            witchBT.canLeap = true;
-            RaycastHit hit;
-            Vector3 hitDirection = -(witchBT.enemyController.playerTarget.transform.position - witchBT.enemyController.gameObject.transform.position).normalized;
-            if (Physics.Raycast(witchBT.gameObject.transform.position, hitDirection, out hit, witchBT.witchEnemyData.leapDistance))
+            if (!witchBT.canLeap)
             {
-                Debug.Log(hit.distance);
+                Vector3 hitDirection = (witchBT.backLeap.transform.position - witchBT.enemyController.gameObject.transform.position);
+                if (Physics.Raycast(witchBT.gameObject.transform.position, hitDirection, out RaycastHit hit)) witchBT.leapDestination = hit.point;
+                witchBT.canLeap = true;
             }
             return NodeState.FAILURE;
         }

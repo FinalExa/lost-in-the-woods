@@ -198,9 +198,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7f787ccf609ce4a9001551dfd11649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartbeatCooldown: 5
+  heartbeatCooldown: 100
   heartbeatDuration: 5
-  globalLightHeartbeatColor: {r: 1, g: 0.50980395, b: 0.9615445, a: 0}
+  globalLightHeartbeatColor: {r: 1, g: 0, b: 0, a: 0}
 --- !u!54 &7489382080051731322
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -282,7 +282,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0931932f260cf5a449a0aa1105fff808, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -378,7 +378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1866957015435648526, guid: fdf730e50a19781459db1e3376eac985, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1866957015435648526, guid: fdf730e50a19781459db1e3376eac985, type: 3}
       propertyPath: m_LocalPosition.z
