@@ -33,7 +33,6 @@ public class EnemyController : MonoBehaviour
         enemyLightState = 1;
         Heartbeat.heartbeatSwitch += EnemyHeartbeatState;
         isAlerted = true;
-        enemyWeapon.damageTag = whoToDamage;
         enemyCombo.SetWeapon(enemyWeapon);
     }
 

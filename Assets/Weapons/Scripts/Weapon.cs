@@ -7,10 +7,11 @@ public class Weapon : MonoBehaviour
     public string weaponName;
     public float comboCancelTime;
     public float comboEndDelay;
+    public List<AttackReceivedData.GameTargets> possibleTargets;
     public List<WeaponAttack> weaponAttacks;
-    [HideInInspector] public List<Health> hitTargets;
-    [HideInInspector] public string damageTag;
+    [HideInInspector] public List<AttackReceived> hitTargets;
     [HideInInspector] public float currentDamage;
+
 
     private void Start()
     {
@@ -19,22 +20,24 @@ public class Weapon : MonoBehaviour
 
     private void ReferencesSetup()
     {
-        hitTargets = new List<Health>();
+        hitTargets = new List<AttackReceived>();
         foreach (WeaponAttack weaponAttack in weaponAttacks)
         {
             for (int i = 0; i < weaponAttack.weaponAttackHitboxSequence.Length; i++)
             {
                 WeaponAttackHitbox attackToSet = weaponAttack.weaponAttackHitboxSequence[i].attackRef.gameObject.GetComponent<WeaponAttackHitbox>();
-                if (weaponAttack.weaponAttackHitboxSequence[i].spawnsProjectile)
+                Projectile projectile = weaponAttack.weaponAttackHitboxSequence[i].projectile;
+                if (projectile != null)
                 {
-                    Projectile projectile = weaponAttack.weaponAttackHitboxSequence[i].projectile;
-                    projectile.damageTag = damageTag;
+                    if (weaponAttack.weaponAttackHitboxSequence[i].spawnsProjectile) projectile.possibleTargets = possibleTargets;
+                    projectile.gameObject.SetActive(false);
                 }
                 weaponAttack.weaponAttackHitboxSequence[i].attackRef = attackToSet;
                 if (attackToSet != null)
                 {
                     attackToSet.thisWeapon = this;
-                    attackToSet.damageTag = damageTag;
+                    attackToSet.possibleTargets = possibleTargets;
+                    attackToSet.weaponAttackType = weaponAttack.weaponAttackType;
                 }
             }
         }

@@ -82,6 +82,7 @@ MonoBehaviour:
   weaponName: Test Enemy Weapon
   comboCancelTime: 5
   comboEndDelay: 1
+  possibleTargets: 00000000
   weaponAttacks:
   - damage: 10
     duration: 1
@@ -112,7 +113,6 @@ MonoBehaviour:
       spawnedProjectile: 0
     hasAnimation: 0
   hitTargets: []
-  damageTag: 
   currentDamage: 0
 --- !u!1001 &4345714288778979016
 PrefabInstance:

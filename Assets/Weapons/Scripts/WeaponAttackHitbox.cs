@@ -5,12 +5,13 @@ using UnityEngine;
 public class WeaponAttackHitbox : Attack
 {
     [HideInInspector] public Weapon thisWeapon;
+    [HideInInspector] public WeaponAttack.WeaponAttackType weaponAttackType;
     protected override void Damage()
     {
-        if (otherHealth != null && otherCollider.CompareTag(damageTag) && !thisWeapon.hitTargets.Contains(otherHealth))
+        if (!thisWeapon.hitTargets.Contains(attackReceived))
         {
-            if (otherCollider.CompareTag(damageTag)) otherHealth.HealthAddValue(-thisWeapon.currentDamage);
-            thisWeapon.hitTargets.Add(otherHealth);
+            attackReceived.AttackReceivedOperation(possibleTargets, thisWeapon.currentDamage);
+            thisWeapon.hitTargets.Add(attackReceived);
         }
     }
 }

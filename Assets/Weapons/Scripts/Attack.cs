@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    [HideInInspector] public string damageTag;
+    [HideInInspector] public List<AttackReceivedData.GameTargets> possibleTargets;
 
-    protected Collider otherCollider;
-    protected Health otherHealth;
+    protected AttackReceived attackReceived;
 
     private void OnTriggerEnter(Collider other)
     {
         GetOtherReferences(other);
-        Damage();
+        if (attackReceived != null) Damage();
     }
 
     protected virtual void GetOtherReferences(Collider other)
     {
-        otherCollider = other;
-        otherHealth = other.gameObject.GetComponent<Health>();
+        attackReceived = other.gameObject.GetComponent<AttackReceived>();
     }
     protected virtual void Damage()
     {
