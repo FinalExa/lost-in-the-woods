@@ -17,6 +17,7 @@ public class TaskIsInNormalState : Node
     {
         if (_enemyController.enemyLightState == EnemyController.EnemyLightState.NORMAL)
         {
+            _enemyController.CheckForSwitchState();
             if (_enemyController.enemyData.hasNormalWeapon) _enemyWeaponSwitcher.SetEnemyWeaponByState();
             state = NodeState.FAILURE;
             return state;

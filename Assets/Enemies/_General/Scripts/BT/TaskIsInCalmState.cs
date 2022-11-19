@@ -17,6 +17,7 @@ public class TaskIsInCalmState : Node
     {
         if (_enemyController.enemyLightState == EnemyController.EnemyLightState.CALM)
         {
+            _enemyController.CheckForSwitchState();
             if (_enemyController.enemyData.hasCalmWeapon) _enemyWeaponSwitcher.SetEnemyWeaponByState();
             state = NodeState.FAILURE;
             return state;

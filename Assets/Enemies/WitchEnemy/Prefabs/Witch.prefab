@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6395110103217412864}
-  - component: {fileID: 7782674094892107102}
+  - component: {fileID: -4239859516942222771}
   - component: {fileID: 5814908281921240197}
   - component: {fileID: 3939637572597450188}
   - component: {fileID: -57584891418013859}
@@ -42,7 +42,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7782674094892107102
+--- !u!114 &-4239859516942222771
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,6 +64,8 @@ MonoBehaviour:
   playerTarget: {fileID: 0}
   enemyCombo: {fileID: 0}
   thisNavMeshAgent: {fileID: 0}
+  previousLightState: 0
+  attackDone: 0
 --- !u!114 &5814908281921240197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,6 +80,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyController: {fileID: 0}
   enemyWeaponSwitcher: {fileID: 0}
+  canLeap: 0
+  leapDestination: {x: 0, y: 0, z: 0}
+  witchEnemyData: {fileID: 11400000, guid: 9fcc030e7b79edf4995d96865652c5f8, type: 2}
 --- !u!114 &3939637572597450188
 MonoBehaviour:
   m_ObjectHideFlags: 0

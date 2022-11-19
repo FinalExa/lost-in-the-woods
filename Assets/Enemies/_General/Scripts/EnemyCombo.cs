@@ -5,11 +5,13 @@ using UnityEngine;
 public class EnemyCombo : Combo
 {
     private EnemyRotator enemyRotator;
+    private EnemyController enemyController;
     [HideInInspector] public bool isInCombo;
     [HideInInspector] public Transform target;
     private void Awake()
     {
         enemyRotator = this.gameObject.GetComponent<EnemyRotator>();
+        enemyController = this.gameObject.GetComponent<EnemyController>();
     }
     protected override void Start()
     {
@@ -38,6 +40,7 @@ public class EnemyCombo : Combo
     protected override void OnComboEnd()
     {
         isInCombo = false;
+        enemyController.attackDone = true;
     }
 
     private void Direction()

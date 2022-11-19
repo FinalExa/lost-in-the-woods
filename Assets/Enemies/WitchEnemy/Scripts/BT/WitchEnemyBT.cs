@@ -7,6 +7,9 @@ public class WitchEnemyBT : BT_Tree
 {
     [HideInInspector] public EnemyController enemyController;
     [HideInInspector] public EnemyWeaponSwitcher enemyWeaponSwitcher;
+    [HideInInspector] public bool canLeap;
+    [HideInInspector] public Vector3 leapDestination;
+    public WitchEnemyData witchEnemyData;
 
     private void Awake()
     {
@@ -37,14 +40,18 @@ public class WitchEnemyBT : BT_Tree
             }),
             new Selector(new List<Node>
             {
-                new TaskIsInCalmState(enemyController, enemyWeaponSwitcher),
-                new TaskShroomCalmMovement(enemyController)
+                new TaskIsInCalmState(enemyController, enemyWeaponSwitcher)
             }),
             new Selector (new List<Node>
             {
                 new TaskIsInNormalState(enemyController, enemyWeaponSwitcher),
                 new Sequence (new List<Node>
                 {
+                    new Selector(new List<Node>
+                    {
+                        new TaskIsAbleToLeapBack(this),
+                        new TaskLeapBack()
+                    }),
                     new Selector(new List<Node>
                     {
                         new TaskIsCloseToPlayer(enemyController, enemyController.enemyData.normalDistanceFromPlayer),

@@ -16,6 +16,8 @@ public class EnemyController : MonoBehaviour
     [HideInInspector] public GameObject playerTarget;
     [HideInInspector] public EnemyCombo enemyCombo;
     [HideInInspector] public NavMeshAgent thisNavMeshAgent;
+    [HideInInspector] public EnemyLightState previousLightState;
+    public bool attackDone;
 
     private void Awake()
     {
@@ -23,10 +25,11 @@ public class EnemyController : MonoBehaviour
         enemyCombo = this.gameObject.GetComponent<EnemyCombo>();
         thisNavMeshAgent = this.gameObject.GetComponent<NavMeshAgent>();
     }
-    private void Start()
+    protected virtual void Start()
     {
         Heartbeat.heartbeatSwitch += EnemyHeartbeatState;
         enemyLightState = EnemyLightState.NORMAL;
+        previousLightState = enemyLightState;
         isAlerted = true;
     }
 
@@ -36,10 +39,19 @@ public class EnemyController : MonoBehaviour
         LightStateChange();
     }
 
-    public void LightStateChange()
+    public virtual void LightStateChange()
     {
         if (isInsideLight && !isInHeartbeatState) enemyLightState = EnemyLightState.CALM;
         else if (isInHeartbeatState && !isInsideLight) enemyLightState = EnemyLightState.BERSERK;
         else enemyLightState = EnemyLightState.NORMAL;
+    }
+
+    public void CheckForSwitchState()
+    {
+        if (enemyLightState != previousLightState)
+        {
+            previousLightState = enemyLightState;
+            attackDone = false;
+        }
     }
 }
