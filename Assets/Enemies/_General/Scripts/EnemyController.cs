@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
     public Rotation rotation;
     public EnemyData enemyData;
     public enum EnemyLightState { CALM, NORMAL, BERSERK }
-    public EnemyLightState enemyLightState;
+    [HideInInspector] public EnemyLightState enemyLightState;
     [HideInInspector] public Weapon currentWeapon;
     [HideInInspector] public bool isAlerted;
     [HideInInspector] public bool isInsideLight;

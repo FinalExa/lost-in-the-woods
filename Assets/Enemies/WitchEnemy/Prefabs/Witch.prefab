@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6395110103217412864}
   - component: {fileID: 7782674094892107102}
-  - component: {fileID: 5756719117911848841}
+  - component: {fileID: 5814908281921240197}
   - component: {fileID: 3939637572597450188}
   - component: {fileID: -57584891418013859}
   - component: {fileID: 8690117516297040685}
@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 4992552886037869941}
   - component: {fileID: 4166100610456823755}
   m_Layer: 0
-  m_Name: Shroom
+  m_Name: Witch
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotation: {fileID: 11400000, guid: 3a0ecedcd75d65b498584f6fa7373c60, type: 2}
-  enemyData: {fileID: 11400000, guid: 14a46999efb777f4fb90daf41364ab76, type: 2}
+  enemyData: {fileID: 11400000, guid: 9fcc030e7b79edf4995d96865652c5f8, type: 2}
   enemyLightState: 0
   currentWeapon: {fileID: 0}
   isAlerted: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
   playerTarget: {fileID: 0}
   enemyCombo: {fileID: 0}
   thisNavMeshAgent: {fileID: 0}
---- !u!114 &5756719117911848841
+--- !u!114 &5814908281921240197
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5477770951886658404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 171e6725cadfbbf438c00d98035fb2f2, type: 3}
+  m_Script: {fileID: 11500000, guid: ca04cdcff96f2cf4981ee59580f583b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyController: {fileID: 0}
@@ -106,9 +106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff3df3a6aa79914eb3f6608e3c9b9b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHP: 0
-  maxHP: 0
-  enemyData: {fileID: 11400000, guid: 14a46999efb777f4fb90daf41364ab76, type: 2}
+  currentHP: 100
+  maxHP: 100
+  enemyData: {fileID: 11400000, guid: 9fcc030e7b79edf4995d96865652c5f8, type: 2}
 --- !u!114 &8690117516297040685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aedb3eb057b16d146897207048a286c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackReceivedData: {fileID: 11400000, guid: 82a9e16bc8f47d24db417bbf56b2a633, type: 2}
+  attackReceivedData: {fileID: 11400000, guid: d6debf920a4219a4e9465de943a0f0ac, type: 2}
 --- !u!65 &7001282123244882244
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &4992552886037869941
 NavMeshAgent:
@@ -181,7 +181,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5477770951886658404}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.75
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -190,7 +190,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1
+  m_Height: 1.5
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -347,7 +347,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 55d9a5e5eb63789448c3c43fc5eca070, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d4ee2417deffe734bb4ca59c0cf27832, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

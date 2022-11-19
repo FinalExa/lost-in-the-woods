@@ -6,7 +6,13 @@ public class PCIdle : PCState
     }
     public override void Update()
     {
+        IdleSpeedStop();
         Transitions();
+    }
+
+    private void IdleSpeedStop()
+    {
+        if (_pcStateMachine.pcController.pcReferences.rb.velocity != Vector3.zero) _pcStateMachine.pcController.pcReferences.rb.velocity = Vector3.zero;
     }
 
     #region Transitions

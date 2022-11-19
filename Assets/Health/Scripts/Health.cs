@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public abstract class Health : MonoBehaviour
 {
-    public float currentHP;
-    public float maxHP;
+    [HideInInspector] public float currentHP;
+    [HideInInspector] public float maxHP;
 
     public virtual void SetHPStartup(float givenMaxHP)
     {

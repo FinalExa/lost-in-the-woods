@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnemyData", menuName = "ScriptableObjects/EnemyData", order = 3)]
 public class EnemyData : ScriptableObject
 {
+    [Header("General")]
+    public float maxHP;
     [Header("Normal state")]
     public float normalMovementSpeed;
     public float normalDistanceFromPlayer;
