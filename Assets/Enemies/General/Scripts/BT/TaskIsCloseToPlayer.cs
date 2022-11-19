@@ -10,11 +10,11 @@ public class TaskIsCloseToPlayer : Node
     private GameObject target;
     private float distanceFromPlayer;
 
-    public TaskIsCloseToPlayer(NavMeshAgent _nav, GameObject _target, float _distanceFromPlayer)
+    public TaskIsCloseToPlayer(EnemyController _enemyController, float distance)
     {
-        nav = _nav;
-        target = _target;
-        distanceFromPlayer = _distanceFromPlayer;
+        nav = _enemyController.thisNavMeshAgent;
+        target = _enemyController.playerTarget;
+        distanceFromPlayer = distance;
     }
 
     public override NodeState Evaluate()

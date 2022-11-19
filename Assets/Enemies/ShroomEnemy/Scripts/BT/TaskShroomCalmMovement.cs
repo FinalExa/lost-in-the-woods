@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 
-public class TaskMoveToPlayerInsideLight : Node
+public class TaskShroomCalmMovement : Node
 {
     private EnemyController _enemyController;
-    public TaskMoveToPlayerInsideLight(EnemyController enemyController)
+    public TaskShroomCalmMovement(EnemyController enemyController)
     {
         _enemyController = enemyController;
     }

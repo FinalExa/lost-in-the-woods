@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 4992552886037869941}
   - component: {fileID: 4166100610456823755}
   m_Layer: 0
-  m_Name: TestEnemy
+  m_Name: Shroom
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

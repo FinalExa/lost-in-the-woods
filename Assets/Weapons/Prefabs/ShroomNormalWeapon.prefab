@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 5681984492148024441}
   - component: {fileID: 4222045236405462924}
   m_Layer: 0
-  m_Name: TestEnemyWeapon
+  m_Name: ShroomNormalWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81dec813fad57f74ab47ded6ae72d8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Test Enemy Weapon
+  weaponName: Shroom Normal Weapon
   comboCancelTime: 5
   comboEndDelay: 1
   possibleTargets: 00000000
@@ -89,6 +89,7 @@ MonoBehaviour:
     afterDelay: 0
     movementDistance: 0
     attackObject: {fileID: 1083629791230123650}
+    weaponAttackType: 0
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 7016281881931003761}
       activationDelayAfterStart: 0

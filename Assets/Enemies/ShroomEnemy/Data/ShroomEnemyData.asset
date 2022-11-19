@@ -22,8 +22,8 @@ MonoBehaviour:
   calmDistanceTolerance: 0.5
   hasCalmWeapon: 0
   calmWeapon: {fileID: 0}
-  berserkMovementSpeed: 0
-  berserkDistanceFromPlayer: 0
+  berserkMovementSpeed: 4
+  berserkDistanceFromPlayer: 6
   berserDistanceTolerance: 0
-  hasBerserkWeapon: 0
-  berserkWeapon: {fileID: 0}
+  hasBerserkWeapon: 1
+  berserkWeapon: {fileID: 4222045236405462924, guid: 2dca576d5c5ed2c4d898553d0b172db8, type: 3}

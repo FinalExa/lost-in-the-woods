@@ -79,11 +79,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828dee074f8daa5479965a06e126a5ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 2
+  projectileSpeed: 4
   projectileDamage: 10
-  projectileLifetime: 1.5
+  projectileLifetime: 4
   direction: {x: 0, y: 0, z: 0}
-  damageTag: 
+  possibleTargets: 
 --- !u!54 &-1719196378352943958
 Rigidbody:
   m_ObjectHideFlags: 0

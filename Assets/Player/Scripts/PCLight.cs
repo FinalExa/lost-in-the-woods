@@ -22,7 +22,7 @@ public class PCLight : MonoBehaviour
         lightTrigger.enabled = false;
         enemies = new List<EnemyController>();
     }
-    private void FixedUpdate()
+    private void Update()
     {
         LightTriggerSet();
     }
@@ -40,7 +40,7 @@ public class PCLight : MonoBehaviour
             if (!lightTrigger.enabled) lightTrigger.enabled = true;
             lightTrigger.radius = currentLightValue / 2;
         }
-        else
+        else if (lightTrigger.enabled)
         {
             lightTrigger.enabled = false;
             ClearLightList();
@@ -71,12 +71,11 @@ public class PCLight : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            EnemyController controller = other.gameObject.GetComponent<EnemyController>();
-            if (enemies.Contains(controller))
+            EnemyController enemy = other.gameObject.GetComponent<EnemyController>();
+            if (enemies.Contains(enemy))
             {
-                enemies.Remove(controller);
-                controller.isInsideLight = false;
-                controller.LightStateChange();
+                enemies.Remove(enemy);
+                EnemyExitLight(enemy);
             }
         }
     }
@@ -85,6 +84,12 @@ public class PCLight : MonoBehaviour
     {
         EnemyController[] enemiesArray = enemies.ToArray();
         enemies.Clear();
-        foreach (EnemyController enemy in enemiesArray) enemy.isInsideLight = false;
+        foreach (EnemyController enemy in enemiesArray) EnemyExitLight(enemy);
+    }
+
+    private void EnemyExitLight(EnemyController enemy)
+    {
+        enemy.isInsideLight = false;
+        enemy.LightStateChange();
     }
 }
