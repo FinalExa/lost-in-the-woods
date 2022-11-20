@@ -7,20 +7,17 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float projectileDamage;
     [SerializeField] private float projectileLifetime;
+    public List<AttackReceivedData.GameTargets> possibleTargets;
     private float projectileTimer;
     private Rigidbody projectileRb;
     [HideInInspector] public Vector3 direction;
-    [HideInInspector] public List<AttackReceivedData.GameTargets> possibleTargets;
-    private Transform originalParent;
 
     private void Awake()
     {
         projectileRb = this.gameObject.GetComponent<Rigidbody>();
     }
-    private void OnEnable()
+    private void Start()
     {
-        originalParent = this.transform.parent;
-        this.transform.parent = null;
         projectileTimer = projectileLifetime;
     }
 
@@ -41,10 +38,7 @@ public class Projectile : MonoBehaviour
 
     private void EndProjectile()
     {
-        projectileRb.velocity = Vector3.zero;
-        this.transform.parent = originalParent;
-        this.transform.localPosition = Vector3.zero;
-        this.gameObject.SetActive(false);
+        GameObject.Destroy(this.gameObject);
     }
 
     private void OnTriggerEnter(Collider other)

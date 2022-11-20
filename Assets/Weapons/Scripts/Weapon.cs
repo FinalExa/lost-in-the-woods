@@ -26,18 +26,13 @@ public class Weapon : MonoBehaviour
             for (int i = 0; i < weaponAttack.weaponAttackHitboxSequence.Length; i++)
             {
                 WeaponAttackHitbox attackToSet = weaponAttack.weaponAttackHitboxSequence[i].attackRef.gameObject.GetComponent<WeaponAttackHitbox>();
-                Projectile projectile = weaponAttack.weaponAttackHitboxSequence[i].projectile;
-                if (projectile != null)
-                {
-                    if (weaponAttack.weaponAttackHitboxSequence[i].spawnsProjectile) projectile.possibleTargets = possibleTargets;
-                    projectile.gameObject.SetActive(false);
-                }
                 weaponAttack.weaponAttackHitboxSequence[i].attackRef = attackToSet;
                 if (attackToSet != null)
                 {
                     attackToSet.thisWeapon = this;
                     attackToSet.possibleTargets = possibleTargets;
                     attackToSet.weaponAttackType = weaponAttack.weaponAttackType;
+                    if (attackToSet.gameObject.activeSelf) attackToSet.gameObject.SetActive(false);
                 }
             }
         }
@@ -66,15 +61,6 @@ public class Weapon : MonoBehaviour
             {
                 WeaponAttack.WeaponAttackHitboxSequence sequenceElement = new WeaponAttack.WeaponAttackHitboxSequence();
                 sequenceElement.attackRef = attackHitbox;
-                if (attackHitbox.gameObject.transform.childCount > 0)
-                {
-                    Projectile projectile = attackHitbox.gameObject.GetComponentInChildren<Projectile>();
-                    if (projectile != null)
-                    {
-                        sequenceElement.spawnsProjectile = true;
-                        sequenceElement.projectile = projectile;
-                    }
-                }
                 sequence.Add(sequenceElement);
             }
         }

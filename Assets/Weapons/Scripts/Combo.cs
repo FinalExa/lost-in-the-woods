@@ -17,12 +17,13 @@ public class Combo : MonoBehaviour
     [HideInInspector] public Vector3 lastDirection { get; set; }
     protected bool comboCancelDelay;
     protected float movementSpeed;
+    protected bool enteredProjectileSpawn;
 
     protected virtual void Start()
     {
         ComboSetup();
     }
-    public virtual void FixedUpdate()
+    public virtual void Update()
     {
         if (isAttacking) Attacking();
         if (comboDelay) ComboDelay();
@@ -37,8 +38,8 @@ public class Combo : MonoBehaviour
     {
         comboHitOver = true;
         comboDelay = false;
-        currentComboProgress = 0;
         lastDirection = new Vector3(0f, 0f, 1f);
+        currentComboProgress = 0;
     }
     public void StartComboHitCheck()
     {
@@ -47,7 +48,7 @@ public class Combo : MonoBehaviour
 
     protected void ComboDelay()
     {
-        if (comboDelayTimer > 0) comboDelayTimer -= Time.fixedDeltaTime;
+        if (comboDelayTimer > 0) comboDelayTimer -= Time.deltaTime;
         else
         {
             comboDelay = false;
@@ -76,8 +77,8 @@ public class Combo : MonoBehaviour
         WeaponAttack currentAttack = currentWeapon.weaponAttacks[currentComboProgress];
         if (attackTimer > 0)
         {
-            attackTimer -= Time.fixedDeltaTime;
-            attackCountTime += Time.fixedDeltaTime;
+            attackTimer -= Time.deltaTime;
+            attackCountTime += Time.deltaTime;
             AttackMovement(currentAttack);
             CheckActivatingHitboxes(currentAttack);
         }
@@ -103,16 +104,16 @@ public class Combo : MonoBehaviour
         foreach (WeaponAttack.WeaponAttackHitboxSequence hitboxToCheck in currentAttack.weaponAttackHitboxSequence)
         {
             if (attackCountTime >= hitboxToCheck.activationDelayAfterStart && attackCountTime < hitboxToCheck.deactivationDelayAfterStart) hitboxToCheck.attackRef.gameObject.SetActive(true);
+            if (hitboxToCheck.weaponAttackHitboxProjectile.spawnsProjectile && attackCountTime >= hitboxToCheck.weaponAttackHitboxProjectile.projectileLaunchTimeAfterStart && attackCountTime < hitboxToCheck.deactivationDelayAfterStart && !enteredProjectileSpawn)
+            {
+                Projectile projectile = Instantiate(hitboxToCheck.weaponAttackHitboxProjectile.projectile, hitboxToCheck.attackRef.transform.position, hitboxToCheck.attackRef.transform.rotation);
+                projectile.direction = lastDirection;
+                enteredProjectileSpawn = true;
+            }
             if (attackCountTime >= hitboxToCheck.deactivationDelayAfterStart)
             {
                 hitboxToCheck.attackRef.gameObject.SetActive(false);
-                currentAttack.ProjectileSetSpawnedStatus(false, count);
-            }
-            if (hitboxToCheck.spawnsProjectile && attackCountTime >= hitboxToCheck.projectileLaunchTimeAfterStart && !hitboxToCheck.spawnedProjectile)
-            {
-                hitboxToCheck.projectile.direction = lastDirection.normalized;
-                hitboxToCheck.projectile.gameObject.SetActive(true);
-                currentAttack.ProjectileSetSpawnedStatus(true, count);
+                enteredProjectileSpawn = false;
             }
             count++;
         }
@@ -120,7 +121,7 @@ public class Combo : MonoBehaviour
 
     private void CountToCancelCombo()
     {
-        if (comboCancelTimer > 0) comboCancelTimer -= Time.fixedDeltaTime;
+        if (comboCancelTimer > 0) comboCancelTimer -= Time.deltaTime;
         else
         {
             currentWeapon.weaponAttacks[currentComboProgress].attackObject.SetActive(false);
