@@ -17,7 +17,7 @@ public class EnemyController : MonoBehaviour
     [HideInInspector] public EnemyCombo enemyCombo;
     [HideInInspector] public NavMeshAgent thisNavMeshAgent;
     [HideInInspector] public EnemyLightState previousLightState;
-    public bool attackDone;
+    [HideInInspector] public bool attackDone;
 
     private void Awake()
     {

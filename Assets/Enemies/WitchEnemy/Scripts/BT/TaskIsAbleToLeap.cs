@@ -5,24 +5,25 @@ using BehaviorTree;
 
 public class TaskIsAbleToLeapBack : Node
 {
-    WitchEnemyBT witchBT;
-    public TaskIsAbleToLeapBack(WitchEnemyBT tree)
+    WitchEnemyController _witchEnemyController;
+    public TaskIsAbleToLeapBack(WitchEnemyController witchEnemyController)
     {
-        witchBT = tree;
+        _witchEnemyController = witchEnemyController;
     }
 
     public override NodeState Evaluate()
     {
-        if (witchBT.enemyController.attackDone)
+        if (_witchEnemyController.attackDone)
         {
-            if (!witchBT.canLeap)
-            {
-                Vector3 hitDirection = (witchBT.backLeap.transform.position - witchBT.enemyController.gameObject.transform.position);
-                if (Physics.Raycast(witchBT.gameObject.transform.position, hitDirection, out RaycastHit hit)) witchBT.leapDestination = hit.point;
-                witchBT.canLeap = true;
-            }
+            if (!_witchEnemyController.canLeap) SetUpLeap();
             return NodeState.FAILURE;
         }
         else return NodeState.SUCCESS;
+    }
+
+    private void SetUpLeap()
+    {
+        _witchEnemyController.DecideLeapObject();
+        _witchEnemyController.canLeap = true;
     }
 }

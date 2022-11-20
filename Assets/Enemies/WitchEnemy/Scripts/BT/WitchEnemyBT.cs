@@ -5,18 +5,13 @@ using BehaviorTree;
 
 public class WitchEnemyBT : BT_Tree
 {
-    [HideInInspector] public EnemyController enemyController;
+    [HideInInspector] public WitchEnemyController enemyController;
     [HideInInspector] public EnemyWeaponSwitcher enemyWeaponSwitcher;
-    [HideInInspector] public bool canLeap;
-    [HideInInspector] public Vector3 leapDestination;
-    public GameObject backLeap;
-    public GameObject rightLeap;
-    public GameObject leftLeap;
-    public WitchEnemyData witchEnemyData;
+
 
     private void Awake()
     {
-        enemyController = this.gameObject.GetComponent<EnemyController>();
+        enemyController = this.gameObject.GetComponent<WitchEnemyController>();
         enemyWeaponSwitcher = this.gameObject.GetComponent<EnemyWeaponSwitcher>();
     }
 
@@ -35,8 +30,8 @@ public class WitchEnemyBT : BT_Tree
                 {
                     new Selector(new List<Node>
                     {
-                        new TaskIsAbleToLeapBack(this),
-                        new TaskLeapBack(this)
+                        new TaskIsAbleToLeapBack(enemyController),
+                        new TaskLeap(enemyController)
                     }),
                     new Selector(new List<Node>
                     {
@@ -59,8 +54,8 @@ public class WitchEnemyBT : BT_Tree
                 {
                     new Selector(new List<Node>
                     {
-                        new TaskIsAbleToLeapBack(this),
-                        new TaskLeapBack(this)
+                        new TaskIsAbleToLeapBack(enemyController),
+                        new TaskLeap(enemyController)
                     }),
                     new Selector(new List<Node>
                     {

@@ -198,8 +198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7f787ccf609ce4a9001551dfd11649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartbeatCooldown: 100
-  heartbeatDuration: 5
+  heartbeatCooldown: 5
+  heartbeatDuration: 15
   globalLightHeartbeatColor: {r: 1, g: 0, b: 0, a: 0}
 --- !u!54 &7489382080051731322
 Rigidbody:

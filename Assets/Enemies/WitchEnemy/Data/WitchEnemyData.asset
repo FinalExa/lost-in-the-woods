@@ -23,10 +23,10 @@ MonoBehaviour:
   calmDistanceTolerance: 0
   hasCalmWeapon: 1
   calmWeapon: {fileID: 4222045236405462924, guid: 7065d176beefb154a9e74bdef152c08c, type: 3}
-  berserkMovementSpeed: 0
-  berserkDistanceFromPlayer: 0
-  berserDistanceTolerance: 0
-  hasBerserkWeapon: 0
-  berserkWeapon: {fileID: 0}
+  berserkMovementSpeed: 10
+  berserkDistanceFromPlayer: 10
+  berserDistanceTolerance: 2
+  hasBerserkWeapon: 1
+  berserkWeapon: {fileID: 4222045236405462924, guid: 7065d176beefb154a9e74bdef152c08c, type: 3}
   leapTolerance: 5
   leapSpeed: 20
