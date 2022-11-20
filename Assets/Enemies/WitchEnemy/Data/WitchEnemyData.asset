@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: WitchEnemyData
   m_EditorClassIdentifier: 
   maxHP: 200
-  normalMovementSpeed: 4
+  normalMovementSpeed: 7
   normalDistanceFromPlayer: 2.5
   normalDistanceTolerance: 0
   hasNormalWeapon: 1
-  normalWeapon: {fileID: 4222045236405462924, guid: 7065d176beefb154a9e74bdef152c08c, type: 3}
+  normalWeapon: {fileID: 4222045236405462924, guid: c19aad884a580714899e6e2c38161964, type: 3}
   calmMovementSpeed: 0
   calmDistanceFromPlayer: 0
   calmDistanceTolerance: 0

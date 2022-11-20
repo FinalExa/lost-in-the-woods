@@ -23,7 +23,7 @@ public class EnemyCombo : Combo
     {
         base.Update();
         if (isInCombo) EnemyAutoCombo();
-        if (!isAttacking) Direction();
+        else if (!isAttacking) Direction();
     }
 
     public void ActivateEnemyCombo()
