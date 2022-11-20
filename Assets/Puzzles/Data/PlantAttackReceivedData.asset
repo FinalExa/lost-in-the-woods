@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6932d238299d99d46b5cd5716e5d10cd, type: 3}
-  m_Name: DoorAttackReceivedData
+  m_Name: PlantAttackReceivedData
   m_EditorClassIdentifier: 
-  targetType: 3
+  targetType: 2
   ignoresDamage: 1

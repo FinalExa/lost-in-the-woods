@@ -9,6 +9,7 @@ TagManager:
   - PlayerLight
   - GlobalLight
   - Ground
+  - Hole
   layers:
   - Default
   - TransparentFX

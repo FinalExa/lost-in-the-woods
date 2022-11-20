@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a85e3fe686b974fbb85406426b7efc, type: 3}
   m_Name: ShroomEnemyData
   m_EditorClassIdentifier: 
+  enemyName: Shroom
   maxHP: 100
   normalMovementSpeed: 2.7
   normalDistanceFromPlayer: 3

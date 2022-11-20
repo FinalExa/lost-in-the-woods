@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6395110103217412864}
-  - component: {fileID: 7782674094892107102}
+  - component: {fileID: 6933037668611795616}
   - component: {fileID: 5756719117911848841}
   - component: {fileID: 3939637572597450188}
   - component: {fileID: -57584891418013859}
@@ -42,7 +42,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7782674094892107102
+--- !u!114 &6933037668611795616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5477770951886658404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 759e2d756e715924c93d4cfded553960, type: 3}
+  m_Script: {fileID: 11500000, guid: 0678db7ecace8b2499fe35f3162f1673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rotation: {fileID: 11400000, guid: 3a0ecedcd75d65b498584f6fa7373c60, type: 2}
@@ -66,6 +66,7 @@ MonoBehaviour:
   thisNavMeshAgent: {fileID: 0}
   previousLightState: 0
   attackDone: 0
+  isVulnerable: 1
 --- !u!114 &5756719117911848841
 MonoBehaviour:
   m_ObjectHideFlags: 0

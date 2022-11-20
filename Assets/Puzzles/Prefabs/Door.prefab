@@ -18,7 +18,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &9213618596310211811
 Transform:
@@ -61,11 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17b331db98df9143ae63583c3486477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionOptions:
-  - attackType: 3
-    isDestroyed: 1
-    isTransformed: 0
-    transformedRef: {fileID: 0}
+  attackTypeInteractions: []
+  enemyInteractions: []
 --- !u!65 &8634596674577080557
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -108,7 +105,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &7953866992932305141
 Transform:
@@ -189,7 +186,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &8214064172803431104
 Transform:

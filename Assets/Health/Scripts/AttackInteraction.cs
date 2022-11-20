@@ -47,7 +47,7 @@ public class AttackInteraction : MonoBehaviour
         if (options.isDestroyed) GameObject.Destroy(this.gameObject);
         else if (options.isTransformed)
         {
-            Instantiate(options.transformedRef, this.gameObject.transform.parent);
+            Instantiate(options.transformedRef, this.gameObject.transform.position, this.gameObject.transform.rotation, this.gameObject.transform.parent);
             GameObject.Destroy(this.gameObject);
         }
     }
