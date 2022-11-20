@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: -1719196378352943958}
   - component: {fileID: 8913911206126437890}
   m_Layer: 0
-  m_Name: TestEnemyProjectile
+  m_Name: ShroomBerserkProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,8 +82,8 @@ MonoBehaviour:
   projectileSpeed: 4
   projectileDamage: 10
   projectileLifetime: 4
-  direction: {x: 0, y: 0, z: 0}
-  possibleTargets: 
+  possibleTargets: 00000000
+  direction: {x: 0.68050873, y: -0.014183186, z: 0.7326027}
 --- !u!54 &-1719196378352943958
 Rigidbody:
   m_ObjectHideFlags: 0
