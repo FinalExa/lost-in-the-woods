@@ -38,6 +38,7 @@ public class Weapon : MonoBehaviour
                     attackToSet.thisWeapon = this;
                     attackToSet.possibleTargets = possibleTargets;
                     attackToSet.weaponAttackType = weaponAttack.weaponAttackType;
+                    if (attackToSet.gameObject.activeSelf) attackToSet.gameObject.SetActive(false);
                 }
             }
         }
