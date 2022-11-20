@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleTargets: 
   thisWeapon: {fileID: 0}
-  weaponAttackType: 0
+  weaponAttackTypes: 
 --- !u!65 &-8451753809263468850
 BoxCollider:
   m_ObjectHideFlags: 0
