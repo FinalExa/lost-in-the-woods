@@ -107,7 +107,7 @@ public class Combo : MonoBehaviour
             if (hitboxToCheck.weaponAttackHitboxProjectile.spawnsProjectile && attackCountTime >= hitboxToCheck.weaponAttackHitboxProjectile.projectileLaunchTimeAfterStart && attackCountTime < hitboxToCheck.deactivationDelayAfterStart && !enteredProjectileSpawn)
             {
                 Projectile projectile = Instantiate(hitboxToCheck.weaponAttackHitboxProjectile.projectile, hitboxToCheck.attackRef.transform.position, hitboxToCheck.attackRef.transform.rotation);
-                projectile.direction = lastDirection.normalized;
+                projectile.direction = lastDirection;
                 enteredProjectileSpawn = true;
             }
             if (attackCountTime >= hitboxToCheck.deactivationDelayAfterStart)
