@@ -8,6 +8,7 @@ TagManager:
   - Invulnerable
   - PlayerLight
   - GlobalLight
+  - Ground
   layers:
   - Default
   - TransparentFX

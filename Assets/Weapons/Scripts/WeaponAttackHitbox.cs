@@ -10,7 +10,7 @@ public class WeaponAttackHitbox : Attack
     {
         if (!thisWeapon.hitTargets.Contains(attackReceived))
         {
-            attackReceived.AttackReceivedOperation(possibleTargets, thisWeapon.currentDamage);
+            attackReceived.AttackReceivedOperation(possibleTargets, thisWeapon.currentDamage, weaponAttackType);
             thisWeapon.hitTargets.Add(attackReceived);
         }
     }
