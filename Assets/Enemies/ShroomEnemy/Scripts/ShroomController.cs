@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShroomController : EnemyController
 {
-    public bool isVulnerable;
+    [HideInInspector] public bool isVulnerable;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,5 +13,12 @@ public class ShroomController : EnemyController
             other.gameObject.GetComponent<AttackInteraction>().CheckIfEnemyIsTheSame(enemyData.enemyName);
             this.gameObject.SetActive(false);
         }
+    }
+
+    public override void LightStateChange()
+    {
+        base.LightStateChange();
+        if (enemyLightState == EnemyLightState.NORMAL) isVulnerable = false;
+        else isVulnerable = true;
     }
 }
