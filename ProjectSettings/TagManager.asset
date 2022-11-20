@@ -8,11 +8,13 @@ TagManager:
   - Invulnerable
   - PlayerLight
   - GlobalLight
+  - Ground
+  - Hole
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player Light
   - Water
   - UI
   - Ground

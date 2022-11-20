@@ -9,8 +9,8 @@ public class WeaponAttack
     public float afterDelay;
     public float movementDistance;
     public GameObject attackObject;
-    public enum WeaponAttackType { GENERIC, PLAYER, WATER }
-    public WeaponAttackType weaponAttackType;
+    public enum WeaponAttackType { GENERIC, PLAYER, WATER, DOOR }
+    public List<WeaponAttackType> weaponAttackTypes;
     [System.Serializable]
     public struct WeaponAttackHitboxSequence
     {

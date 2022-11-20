@@ -154,7 +154,7 @@ MonoBehaviour:
     afterDelay: 0
     movementDistance: 0
     attackObject: {fileID: 1083629791230123650}
-    weaponAttackType: 0
+    weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 6654631832715134272}
       activationDelayAfterStart: 0
@@ -163,7 +163,6 @@ MonoBehaviour:
         spawnsProjectile: 0
         projectile: {fileID: 0}
         projectileLaunchTimeAfterStart: 0
-        spawnedProjectile: 0
     - attackRef: {fileID: 4364370029918331853}
       activationDelayAfterStart: 1.41
       deactivationDelayAfterStart: 1.49
@@ -171,14 +170,13 @@ MonoBehaviour:
         spawnsProjectile: 0
         projectile: {fileID: 0}
         projectileLaunchTimeAfterStart: 0
-        spawnedProjectile: 0
     hasAnimation: 0
   - damage: 20
     duration: 1
     afterDelay: 0
     movementDistance: 15
     attackObject: {fileID: 1349951445937875719}
-    weaponAttackType: 0
+    weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 89369581386872112}
       activationDelayAfterStart: 0
@@ -187,14 +185,13 @@ MonoBehaviour:
         spawnsProjectile: 0
         projectile: {fileID: 0}
         projectileLaunchTimeAfterStart: 0
-        spawnedProjectile: 0
     hasAnimation: 0
   - damage: 10
     duration: 0.5
     afterDelay: 0
     movementDistance: 2
     attackObject: {fileID: 4473720335808703301}
-    weaponAttackType: 0
+    weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 3805721757383102869}
       activationDelayAfterStart: 0
@@ -203,7 +200,6 @@ MonoBehaviour:
         spawnsProjectile: 1
         projectile: {fileID: 4156505867278205312, guid: 660c68e138b85404494a2770e8d22301, type: 3}
         projectileLaunchTimeAfterStart: 0.15
-        spawnedProjectile: 0
     hasAnimation: 0
   hitTargets: []
   currentDamage: 0

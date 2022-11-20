@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     [Header("General")]
+    public string enemyName;
     public float maxHP;
     [Header("Normal state")]
     public float normalMovementSpeed;

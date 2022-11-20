@@ -18,6 +18,7 @@ public class Combo : MonoBehaviour
     protected bool comboCancelDelay;
     protected float movementSpeed;
     protected bool enteredProjectileSpawn;
+    protected bool colliding;
 
     protected virtual void Start()
     {
@@ -92,7 +93,7 @@ public class Combo : MonoBehaviour
     }
     private void AttackMovement(WeaponAttack currentAttack)
     {
-        if (currentAttack.movementDistance != 0)
+        if (currentAttack.movementDistance != 0 && !colliding)
         {
             float relativeSpeed = movementSpeed * Time.deltaTime;
             this.transform.position += (lastDirection * relativeSpeed);
@@ -153,5 +154,15 @@ public class Combo : MonoBehaviour
     protected virtual void OnComboEnd()
     {
         return;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!collision.gameObject.CompareTag("Ground")) colliding = true;
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (!collision.gameObject.CompareTag("Ground")) colliding = false;
     }
 }

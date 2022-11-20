@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float projectileDamage;
     [SerializeField] private float projectileLifetime;
     public List<AttackReceivedData.GameTargets> possibleTargets;
+    public List<WeaponAttack.WeaponAttackType> attackTypes;
     private float projectileTimer;
     private Rigidbody projectileRb;
     [HideInInspector] public Vector3 direction;
@@ -46,7 +47,7 @@ public class Projectile : MonoBehaviour
         AttackReceived attackReceived = other.gameObject.GetComponent<AttackReceived>();
         if (attackReceived != null)
         {
-            attackReceived.AttackReceivedOperation(possibleTargets, projectileDamage);
+            attackReceived.AttackReceivedOperation(possibleTargets, projectileDamage, attackTypes);
             EndProjectile();
         }
     }
