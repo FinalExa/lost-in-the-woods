@@ -131,7 +131,7 @@ MonoBehaviour:
     afterDelay: 0
     movementDistance: 0
     attackObject: {fileID: 1083629791230123650}
-    weaponAttackType: 0
+    weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 6654631832715134272}
       activationDelayAfterStart: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
     afterDelay: 0.1
     movementDistance: 1
     attackObject: {fileID: 1349951445937875719}
-    weaponAttackType: 0
+    weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 89369581386872112}
       activationDelayAfterStart: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
     afterDelay: 0.1
     movementDistance: 1
     attackObject: {fileID: 7359365170921667884}
-    weaponAttackType: 0
+    weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 7883805944324575788}
       activationDelayAfterStart: 0
@@ -267,7 +267,7 @@ MonoBehaviour:
     afterDelay: 0.1
     movementDistance: 1
     attackObject: {fileID: 7013241079892500528}
-    weaponAttackType: 0
+    weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 3834173184739019600}
       activationDelayAfterStart: 0
@@ -317,7 +317,7 @@ MonoBehaviour:
     afterDelay: 0.1
     movementDistance: 1
     attackObject: {fileID: 8218973252585090097}
-    weaponAttackType: 0
+    weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 2353933429635900272}
       activationDelayAfterStart: 0

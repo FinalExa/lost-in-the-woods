@@ -158,77 +158,80 @@ MonoBehaviour:
     afterDelay: 0.1
     movementDistance: 0
     attackObject: {fileID: 1083629791230123650}
+    weaponAttackTypes: 01000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 859736369464844710}
       activationDelayAfterStart: 0
       deactivationDelayAfterStart: 0.2
-      spawnsProjectile: 0
-      projectile: {fileID: 0}
-      projectileLaunchTimeAfterStart: 0
-      spawnedProjectile: 0
+      weaponAttackHitboxProjectile:
+        spawnsProjectile: 0
+        projectile: {fileID: 0}
+        projectileLaunchTimeAfterStart: 0
     - attackRef: {fileID: 6526309348032195427}
       activationDelayAfterStart: 0.2
       deactivationDelayAfterStart: 0.35
-      spawnsProjectile: 0
-      projectile: {fileID: 0}
-      projectileLaunchTimeAfterStart: 0
-      spawnedProjectile: 0
+      weaponAttackHitboxProjectile:
+        spawnsProjectile: 0
+        projectile: {fileID: 0}
+        projectileLaunchTimeAfterStart: 0
     - attackRef: {fileID: 8325479208159613690}
       activationDelayAfterStart: 0.35
       deactivationDelayAfterStart: 0.49
-      spawnsProjectile: 0
-      projectile: {fileID: 0}
-      projectileLaunchTimeAfterStart: 0
-      spawnedProjectile: 0
+      weaponAttackHitboxProjectile:
+        spawnsProjectile: 0
+        projectile: {fileID: 0}
+        projectileLaunchTimeAfterStart: 0
     hasAnimation: 0
   - damage: 10
     duration: 0.5
     afterDelay: 0.1
     movementDistance: 0
     attackObject: {fileID: 1349951445937875719}
+    weaponAttackTypes: 01000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 4658391373233835051}
       activationDelayAfterStart: 0
       deactivationDelayAfterStart: 0.2
-      spawnsProjectile: 0
-      projectile: {fileID: 0}
-      projectileLaunchTimeAfterStart: 0
-      spawnedProjectile: 0
+      weaponAttackHitboxProjectile:
+        spawnsProjectile: 0
+        projectile: {fileID: 0}
+        projectileLaunchTimeAfterStart: 0
     - attackRef: {fileID: 5247614352713155819}
       activationDelayAfterStart: 0.2
       deactivationDelayAfterStart: 0.35
-      spawnsProjectile: 0
-      projectile: {fileID: 0}
-      projectileLaunchTimeAfterStart: 0
-      spawnedProjectile: 0
+      weaponAttackHitboxProjectile:
+        spawnsProjectile: 0
+        projectile: {fileID: 0}
+        projectileLaunchTimeAfterStart: 0
     - attackRef: {fileID: 3198442819149500785}
       activationDelayAfterStart: 0.35
       deactivationDelayAfterStart: 0.49
-      spawnsProjectile: 0
-      projectile: {fileID: 0}
-      projectileLaunchTimeAfterStart: 0
-      spawnedProjectile: 0
+      weaponAttackHitboxProjectile:
+        spawnsProjectile: 0
+        projectile: {fileID: 0}
+        projectileLaunchTimeAfterStart: 0
     hasAnimation: 0
   - damage: 20
     duration: 0.3
     afterDelay: 0
     movementDistance: 0
     attackObject: {fileID: 408014969534981321}
+    weaponAttackTypes: 01000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 4642985723796131842}
       activationDelayAfterStart: 0
       deactivationDelayAfterStart: 0.15
-      spawnsProjectile: 0
-      projectile: {fileID: 0}
-      projectileLaunchTimeAfterStart: 0
-      spawnedProjectile: 0
+      weaponAttackHitboxProjectile:
+        spawnsProjectile: 0
+        projectile: {fileID: 0}
+        projectileLaunchTimeAfterStart: 0
     - attackRef: {fileID: 3453954900141080744}
       activationDelayAfterStart: 0.15
       deactivationDelayAfterStart: 0.29
-      spawnsProjectile: 0
-      projectile: {fileID: 0}
-      projectileLaunchTimeAfterStart: 0
-      spawnedProjectile: 0
+      weaponAttackHitboxProjectile:
+        spawnsProjectile: 0
+        projectile: {fileID: 0}
+        projectileLaunchTimeAfterStart: 0
     hasAnimation: 0
   hitTargets: []
   currentDamage: 0

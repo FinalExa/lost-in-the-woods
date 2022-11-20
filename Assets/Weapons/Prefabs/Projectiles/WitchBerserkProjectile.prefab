@@ -83,6 +83,7 @@ MonoBehaviour:
   projectileDamage: 10
   projectileLifetime: 4
   possibleTargets: 00000000
+  attackTypes: 00000000
   direction: {x: 0.68050873, y: -0.014183186, z: 0.7326027}
 --- !u!54 &-1719196378352943958
 Rigidbody:

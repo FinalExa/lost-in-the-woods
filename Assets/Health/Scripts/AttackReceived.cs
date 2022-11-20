@@ -14,12 +14,12 @@ public class AttackReceived : MonoBehaviour
         attackInteraction = this.gameObject.GetComponent<AttackInteraction>();
     }
 
-    public void AttackReceivedOperation(List<AttackReceivedData.GameTargets> receivedTargets, float damage, WeaponAttack.WeaponAttackType weaponAttackType)
+    public void AttackReceivedOperation(List<AttackReceivedData.GameTargets> receivedTargets, float damage, List<WeaponAttack.WeaponAttackType> weaponAttackTypes)
     {
-        print(weaponAttackType);
         if (receivedTargets.Contains(attackReceivedData.targetType))
         {
             if (!attackReceivedData.ignoresDamage && health != null) health.HealthAddValue(-damage);
         }
+        if (attackInteraction != null) attackInteraction.CheckIfAttackTypeIsTheSame(weaponAttackTypes);
     }
 }
