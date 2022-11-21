@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour
     public string weaponName;
     public float comboCancelTime;
     public float comboEndDelay;
-    public List<AttackReceivedData.GameTargets> possibleTargets;
+    public List<AttackReceived.GameTargets> possibleTargets;
     public List<WeaponAttack> weaponAttacks;
     [HideInInspector] public List<AttackReceived> hitTargets;
     [HideInInspector] public float currentDamage;

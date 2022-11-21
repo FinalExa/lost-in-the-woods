@@ -50,7 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aedb3eb057b16d146897207048a286c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackReceivedData: {fileID: 11400000, guid: c8d0c41e3707a1d41a709a920d42d130, type: 2}
+  thisType: 3
+  ignoresDamage: 1
 --- !u!114 &-8843055901898260623
 MonoBehaviour:
   m_ObjectHideFlags: 0

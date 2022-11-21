@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float projectileDamage;
     [SerializeField] private float projectileLifetime;
-    public List<AttackReceivedData.GameTargets> possibleTargets;
+    public List<AttackReceived.GameTargets> possibleTargets;
     public List<WeaponAttack.WeaponAttackType> attackTypes;
     private float projectileTimer;
     private Rigidbody projectileRb;

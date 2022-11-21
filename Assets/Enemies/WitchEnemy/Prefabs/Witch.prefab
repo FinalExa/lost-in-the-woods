@@ -256,7 +256,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aedb3eb057b16d146897207048a286c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackReceivedData: {fileID: 11400000, guid: d6debf920a4219a4e9465de943a0f0ac, type: 2}
+  thisType: 1
+  ignoresDamage: 0
 --- !u!65 &7001282123244882244
 BoxCollider:
   m_ObjectHideFlags: 0
