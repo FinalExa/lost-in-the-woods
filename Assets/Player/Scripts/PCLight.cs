@@ -8,8 +8,7 @@ public class PCLight : MonoBehaviour
     private float currentLightValue;
     private Light playerLight;
     private SphereCollider lightTrigger;
-    public List<EnemyController> enemies;
-
+    [HideInInspector]public List<EnemyController> enemies;
     [HideInInspector] public bool lanternUp;
 
     private void Awake()
