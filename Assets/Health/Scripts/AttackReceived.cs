@@ -6,7 +6,9 @@ public class AttackReceived : MonoBehaviour
 {
     private Health health;
     private AttackInteraction attackInteraction;
-    [SerializeField] private AttackReceivedData attackReceivedData;
+    public enum GameTargets { PLAYER, ENEMY, PUZZLE_ELEMENT, ENVIRONMENT }
+    [SerializeField] private GameTargets thisType;
+    [SerializeField] private bool ignoresDamage;
 
     private void Awake()
     {
@@ -14,11 +16,11 @@ public class AttackReceived : MonoBehaviour
         attackInteraction = this.gameObject.GetComponent<AttackInteraction>();
     }
 
-    public void AttackReceivedOperation(List<AttackReceivedData.GameTargets> receivedTargets, float damage, List<WeaponAttack.WeaponAttackType> weaponAttackTypes)
+    public void AttackReceivedOperation(List<GameTargets> receivedTargets, float damage, List<WeaponAttack.WeaponAttackType> weaponAttackTypes)
     {
-        if (receivedTargets.Contains(attackReceivedData.targetType))
+        if (receivedTargets.Contains(thisType))
         {
-            if (!attackReceivedData.ignoresDamage && health != null) health.HealthAddValue(-damage);
+            if (!ignoresDamage && health != null) health.HealthAddValue(-damage);
         }
         if (attackInteraction != null) attackInteraction.CheckIfAttackTypeIsTheSame(weaponAttackTypes);
     }
