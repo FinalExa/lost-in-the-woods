@@ -5,10 +5,12 @@ using UnityEngine;
 public class PCLight : MonoBehaviour
 {
     [SerializeField] private PCData pcData;
+    [SerializeField] private GameObject lightSprite;
+    private Vector3 lightRange;
     private float currentLightValue;
     private Light playerLight;
     private SphereCollider lightTrigger;
-    [HideInInspector]public List<EnemyController> enemies;
+    [HideInInspector] public List<EnemyController> enemies;
     [HideInInspector] public bool lanternUp;
 
     private void Awake()
@@ -18,6 +20,7 @@ public class PCLight : MonoBehaviour
     }
     private void Start()
     {
+        lightRange = new Vector3(1f, 1f, 0f);
         lightTrigger.enabled = false;
         enemies = new List<EnemyController>();
     }
@@ -34,6 +37,7 @@ public class PCLight : MonoBehaviour
     }
     private void LightTriggerSet()
     {
+        if (lightSprite.transform.localScale != lightRange * currentLightValue) lightSprite.transform.localScale = lightRange * currentLightValue;
         if (lanternUp)
         {
             if (!lightTrigger.enabled) lightTrigger.enabled = true;
