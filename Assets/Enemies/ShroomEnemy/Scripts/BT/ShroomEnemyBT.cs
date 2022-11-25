@@ -20,7 +20,7 @@ public class ShroomEnemyBT : BT_Tree
         {
             new Selector(new List<Node>
             {
-                new TaskEnemyIsInCombo(enemyController.enemyCombo)
+                new TaskEnemyIsNotLocked(enemyController)
             }),
             new Selector(new List<Node>
             {

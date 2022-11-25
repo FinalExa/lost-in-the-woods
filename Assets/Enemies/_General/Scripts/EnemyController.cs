@@ -30,7 +30,6 @@ public class EnemyController : MonoBehaviour
         Heartbeat.heartbeatSwitch += EnemyHeartbeatState;
         enemyLightState = EnemyLightState.NORMAL;
         previousLightState = enemyLightState;
-        isAlerted = true;
     }
 
     private void EnemyHeartbeatState(bool heartbeatState)
