@@ -49,9 +49,10 @@ GameObject:
   - component: {fileID: 7621549938335928225}
   - component: {fileID: 3858997638449282005}
   - component: {fileID: 8706434170628328547}
+  - component: {fileID: 1353845484741870925}
   - component: {fileID: 7489382080051731322}
   - component: {fileID: 7017273354593146841}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -171,7 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aedb3eb057b16d146897207048a286c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackReceivedData: {fileID: 11400000, guid: ce4bb690480416243bca405326cb22ef, type: 2}
+  thisType: 0
+  ignoresDamage: 0
 --- !u!114 &3858997638449282005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,9 +200,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7f787ccf609ce4a9001551dfd11649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartbeatCooldown: 2
+  heartbeatCooldown: 30
   heartbeatDuration: 15
   globalLightHeartbeatColor: {r: 1, g: 0, b: 0, a: 0}
+--- !u!114 &1353845484741870925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7129377632901191479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35915a99355af747b64b8ca5721b60b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &7489382080051731322
 Rigidbody:
   m_ObjectHideFlags: 0
