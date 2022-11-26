@@ -18,6 +18,8 @@ public class EnemyController : MonoBehaviour
     [HideInInspector] public NavMeshAgent thisNavMeshAgent;
     [HideInInspector] public EnemyLightState previousLightState;
     [HideInInspector] public bool attackDone;
+    [HideInInspector] public Spawner spawnerRef;
+    [HideInInspector] public Spawner.EnemiesToRespawn spawnerEnemyInfo;
 
     private void Awake()
     {

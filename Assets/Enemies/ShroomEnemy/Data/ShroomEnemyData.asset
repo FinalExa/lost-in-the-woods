@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShroomEnemyData
   m_EditorClassIdentifier: 
   enemyName: Shroom
-  maxHP: 100
+  maxHP: 20
   normalMovementSpeed: 2.7
   normalDistanceFromPlayer: 3
   normalDistanceTolerance: 0

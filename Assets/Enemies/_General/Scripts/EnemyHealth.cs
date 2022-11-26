@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class EnemyHealth : Health
 {
-    [SerializeField] private EnemyData enemyData;
+    private EnemyController enemyController;
 
-    private void Start()
+    private void Awake()
     {
-        SetHPStartup(enemyData.maxHP);
+        enemyController = this.gameObject.GetComponent<EnemyController>();
+    }
+
+    private void OnEnable()
+    {
+        SetHPStartup(enemyController.enemyData.maxHP);
+    }
+
+    public override void OnDeath()
+    {
+        enemyController.spawnerRef.SetEnemyDead(enemyController.spawnerEnemyInfo);
     }
 }
