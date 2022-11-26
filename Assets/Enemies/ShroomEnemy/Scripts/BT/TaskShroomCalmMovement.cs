@@ -5,10 +5,10 @@ using BehaviorTree;
 
 public class TaskShroomCalmMovement : Node
 {
-    private EnemyController _enemyController;
+    private ShroomController _enemyController;
     public TaskShroomCalmMovement(EnemyController enemyController)
     {
-        _enemyController = enemyController;
+        _enemyController = (ShroomController)enemyController;
     }
 
     public override NodeState Evaluate()
@@ -23,9 +23,8 @@ public class TaskShroomCalmMovement : Node
         else if (distance <= _enemyController.enemyData.calmDistanceFromPlayer - _enemyController.enemyData.calmDistanceTolerance)
         {
             if (_enemyController.thisNavMeshAgent.isStopped) _enemyController.thisNavMeshAgent.isStopped = false;
-            Vector3 direction = _enemyController.playerTarget.gameObject.transform.position - _enemyController.gameObject.transform.position;
-            Vector3 destination = -direction * 10f;
-            _enemyController.thisNavMeshAgent.SetDestination(destination);
+            Vector3 direction = _enemyController.backTrigger.transform.position - _enemyController.gameObject.transform.position;
+            if (Physics.Raycast(_enemyController.transform.position, direction, out RaycastHit hit)) _enemyController.thisNavMeshAgent.SetDestination(hit.point);
         }
         else _enemyController.thisNavMeshAgent.isStopped = true;
         state = NodeState.RUNNING;

@@ -50,7 +50,6 @@ public class EnemyAggro : MonoBehaviour
             playerInAggroCollider = false;
             aggroCollider.enabled = false;
         }
-        else print("not seen");
     }
 
     private void CountDistanceFromPlayer()

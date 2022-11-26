@@ -17,6 +17,11 @@ public abstract class Health : MonoBehaviour
     {
         currentHP += healthToAdd;
         currentHP = Mathf.Clamp(currentHP, 0, maxHP);
-        if (currentHP <= 0) this.gameObject.SetActive(false);
+        if (currentHP <= 0) OnDeath();
+    }
+
+    public virtual void OnDeath()
+    {
+        this.gameObject.SetActive(false);
     }
 }
