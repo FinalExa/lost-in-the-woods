@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class ShroomController : EnemyController
 {
-    private ShroomTrigger shroomTrigger;
+    private ShroomCollisions shroomCollisions;
     public GameObject backTrigger;
 
     protected override void Awake()
     {
         base.Awake();
-        shroomTrigger = this.gameObject.GetComponent<ShroomTrigger>();
+        shroomCollisions = this.gameObject.GetComponent<ShroomCollisions>();
     }
     public override void LightStateUpdate()
     {
-        if (affectedByLight.lightState == AffectedByLight.LightState.NORMAL) shroomTrigger.isVulnerable = false;
-        else shroomTrigger.isVulnerable = true;
+        if (affectedByLight.lightState == AffectedByLight.LightState.NORMAL) shroomCollisions.isVulnerable = false;
+        else shroomCollisions.isVulnerable = true;
     }
 }

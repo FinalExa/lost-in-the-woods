@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShroomTrigger : MonoBehaviour
+public class ShroomCollisions : MonoBehaviour
 {
     [SerializeField] private EnemyData enemyData;
     public bool isVulnerable;
