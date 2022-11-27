@@ -15,7 +15,7 @@ public class TaskIsInNormalState : Node
 
     public override NodeState Evaluate()
     {
-        if (_enemyController.enemyLightState == EnemyController.EnemyLightState.NORMAL)
+        if (_enemyController.affectedByLight.lightState == AffectedByLight.LightState.NORMAL)
         {
             _enemyController.CheckForSwitchState();
             if (_enemyController.enemyData.hasNormalWeapon) _enemyWeaponSwitcher.SetEnemyWeaponByState();

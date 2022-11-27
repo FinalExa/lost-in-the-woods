@@ -7,52 +7,29 @@ public class EnemyController : MonoBehaviour
 {
     public Rotation rotation;
     public EnemyData enemyData;
-    public enum EnemyLightState { CALM, NORMAL, BERSERK }
-    [HideInInspector] public EnemyLightState enemyLightState;
     [HideInInspector] public Weapon currentWeapon;
     [HideInInspector] public bool isAlerted;
-    [HideInInspector] public bool isInsideLight;
-    [HideInInspector] public bool isInHeartbeatState;
     [HideInInspector] public GameObject playerTarget;
     [HideInInspector] public EnemyCombo enemyCombo;
     [HideInInspector] public NavMeshAgent thisNavMeshAgent;
-    [HideInInspector] public EnemyLightState previousLightState;
     [HideInInspector] public bool attackDone;
     [HideInInspector] public Spawner spawnerRef;
     [HideInInspector] public Spawner.EnemiesToRespawn spawnerEnemyInfo;
+    [HideInInspector] public AffectedByLight affectedByLight;
 
     protected virtual void Awake()
     {
         playerTarget = FindObjectOfType<PCController>().gameObject;
         enemyCombo = this.gameObject.GetComponent<EnemyCombo>();
         thisNavMeshAgent = this.gameObject.GetComponent<NavMeshAgent>();
+        affectedByLight = this.gameObject.GetComponent<AffectedByLight>();
     }
-    protected virtual void Start()
+    public virtual void LightStateUpdate()
     {
-        Heartbeat.heartbeatSwitch += EnemyHeartbeatState;
-        enemyLightState = EnemyLightState.NORMAL;
-        previousLightState = enemyLightState;
+        return;
     }
-
-    private void EnemyHeartbeatState(bool heartbeatState)
-    {
-        isInHeartbeatState = heartbeatState;
-        LightStateChange();
-    }
-
-    public virtual void LightStateChange()
-    {
-        if (isInsideLight && !isInHeartbeatState) enemyLightState = EnemyLightState.CALM;
-        else if (isInHeartbeatState && !isInsideLight) enemyLightState = EnemyLightState.BERSERK;
-        else enemyLightState = EnemyLightState.NORMAL;
-    }
-
     public void CheckForSwitchState()
     {
-        if (enemyLightState != previousLightState)
-        {
-            previousLightState = enemyLightState;
-            attackDone = false;
-        }
+        if (affectedByLight.CheckForSwitchState()) attackDone = false;
     }
 }

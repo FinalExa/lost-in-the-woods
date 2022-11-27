@@ -11,16 +11,15 @@ public class WitchEnemyController : EnemyController
     public GameObject rightLeap;
     public GameObject leftLeap;
 
-    protected override void Start()
+    protected void Start()
     {
-        base.Start();
         witchEnemyData = (WitchEnemyData)enemyData;
     }
 
     public void DecideLeapObject()
     {
-        if (enemyLightState == EnemyLightState.NORMAL) leapDestination = CalculateLeapPoint(backLeap);
-        else if (enemyLightState == EnemyLightState.BERSERK) DistanceBetweenSideLeaps();
+        if (affectedByLight.lightState == AffectedByLight.LightState.NORMAL) leapDestination = CalculateLeapPoint(backLeap);
+        else if (affectedByLight.lightState == AffectedByLight.LightState.BERSERK) DistanceBetweenSideLeaps();
     }
 
     private void DistanceBetweenSideLeaps()

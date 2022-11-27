@@ -43,15 +43,15 @@ public class EnemyWeaponSwitcher : MonoBehaviour
 
     public void SetEnemyWeaponByState()
     {
-        switch (enemyController.enemyLightState)
+        switch (enemyController.affectedByLight.lightState)
         {
-            case EnemyController.EnemyLightState.NORMAL:
+            case AffectedByLight.LightState.NORMAL:
                 if (enemyController.enemyData.hasNormalWeapon) SetEnemyWeapon(normalStateWeapon);
                 break;
-            case EnemyController.EnemyLightState.CALM:
+            case AffectedByLight.LightState.CALM:
                 if (enemyController.enemyData.hasCalmWeapon) SetEnemyWeapon(calmStateWeapon);
                 break;
-            case EnemyController.EnemyLightState.BERSERK:
+            case AffectedByLight.LightState.BERSERK:
                 if (enemyController.enemyData.hasBerserkWeapon) SetEnemyWeapon(berserkStateWeapon);
                 break;
         }
