@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyHealth : Health
 {
-    private EnemyController enemyController;
-    private AttackInteraction attackInteraction;
-    private bool deathDone;
+    protected EnemyController enemyController;
+    protected AttackInteraction attackInteraction;
+    protected bool deathDone;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         enemyController = this.gameObject.GetComponent<EnemyController>();
         attackInteraction = this.gameObject.GetComponent<AttackInteraction>();
@@ -22,15 +22,20 @@ public class EnemyHealth : Health
 
     public override void OnDeath()
     {
-        if (!deathDone)
-        {
-            enemyController.spawnerRef.SetEnemyDead(enemyController.spawnerEnemyInfo);
-            if (attackInteraction != null) attackInteraction.OnDeathInteraction();
-        }
+        SetEnemyDead();
+        OnDeathInteraction();
+    }
+    private void SetEnemyDead()
+    {
+        if (!deathDone) enemyController.spawnerRef.SetEnemyDead(enemyController.spawnerEnemyInfo);
+    }
+    protected virtual void OnDeathInteraction()
+    {
+        if (!deathDone && attackInteraction != null) attackInteraction.OnDeathInteraction();
     }
 
     private void OnDisable()
     {
-        OnDeath();
+        SetEnemyDead();
     }
 }

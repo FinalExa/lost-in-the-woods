@@ -47,17 +47,36 @@ public class AttackInteraction : MonoBehaviour
     {
         if (onDeathEnabled) Interact(onDeathInteraction);
     }
+    public void OnDeathInteraction(float lifeTime)
+    {
+        if (onDeathEnabled) Interact(onDeathInteraction, lifeTime);
+    }
 
     private void Interact(Options options)
     {
         if (options.isDestroyed) DestroyOrTurnOff();
-        else if (options.isTransformed)
-        {
-            Instantiate(options.transformedRef, this.gameObject.transform.position, this.gameObject.transform.rotation, this.gameObject.transform.parent);
-            DestroyOrTurnOff();
-        }
+        else if (options.isTransformed) Transform(options);
+    }
+    private void Interact(Options options, float lifeTime)
+    {
+        if (options.isDestroyed) DestroyOrTurnOff();
+        else if (options.isTransformed) Transform(options, lifeTime);
     }
 
+    private GameObject Transform(Options options)
+    {
+        GameObject objectRef = Instantiate(options.transformedRef, this.gameObject.transform.position, this.gameObject.transform.rotation, this.gameObject.transform.parent);
+        DestroyOrTurnOff();
+        return objectRef;
+    }
+    private GameObject Transform(Options options, float lifeTime)
+    {
+        GameObject objectRef = Instantiate(options.transformedRef, this.gameObject.transform.position, this.gameObject.transform.rotation, this.gameObject.transform.parent);
+        Lifetime lifetimeRef = objectRef.GetComponent<Lifetime>();
+        if (lifetimeRef != null) lifetimeRef.SetTimer(lifeTime);
+        DestroyOrTurnOff();
+        return objectRef;
+    }
 
     private void DestroyOrTurnOff()
     {

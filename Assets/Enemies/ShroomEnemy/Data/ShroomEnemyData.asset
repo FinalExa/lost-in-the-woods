@@ -19,7 +19,7 @@ MonoBehaviour:
   normalDistanceTolerance: 0
   hasNormalWeapon: 1
   normalWeapon: {fileID: 4222045236405462924, guid: 7065d176beefb154a9e74bdef152c08c, type: 3}
-  calmMovementSpeed: 10
+  calmMovementSpeed: 1.2
   calmDistanceFromPlayer: 6
   calmDistanceTolerance: 0.5
   hasCalmWeapon: 0

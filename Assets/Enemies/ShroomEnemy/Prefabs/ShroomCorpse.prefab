@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 809524107923366734}
   - component: {fileID: 5498709914088524314}
   - component: {fileID: 5778670220416763614}
+  - component: {fileID: -2079898755190083751}
   m_Layer: 0
   m_Name: ShroomCorpse
   m_TagString: Untagged
@@ -78,6 +79,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 14a46999efb777f4fb90daf41364ab76, type: 2}
   isVulnerable: 1
+--- !u!114 &-2079898755190083751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809524107923366733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4586bdf3b23468f4bbaf7e28330affec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5594138154642329595
 GameObject:
   m_ObjectHideFlags: 0
