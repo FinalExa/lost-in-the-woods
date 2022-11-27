@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 
-public class WitchEnemyBT : BT_Tree
+public class WitchEnemyBT : EnemyBT
 {
-    [HideInInspector] public WitchEnemyController enemyController;
-    [HideInInspector] public EnemyWeaponSwitcher enemyWeaponSwitcher;
+    [HideInInspector] public WitchEnemyController witchEnemyController;
 
-
-    private void Awake()
+    protected override void Awake()
     {
-        enemyController = this.gameObject.GetComponent<WitchEnemyController>();
-        enemyWeaponSwitcher = this.gameObject.GetComponent<EnemyWeaponSwitcher>();
+        base.Awake();
+        witchEnemyController = this.gameObject.GetComponent<WitchEnemyController>();
     }
 
     protected override Node SetupTree()
@@ -21,7 +19,7 @@ public class WitchEnemyBT : BT_Tree
         {
             new Sequence(new List<Node>
             {
-                new TaskLeap(enemyController),
+                new TaskLeap(witchEnemyController),
                 new TaskEnemyIsNotLocked(enemyController)
             }),
             new Selector(new List<Node>
@@ -29,7 +27,7 @@ public class WitchEnemyBT : BT_Tree
                 new TaskIsInBerserkState(enemyController, enemyWeaponSwitcher),
                 new Sequence (new List<Node>
                 {
-                    new TaskIsAbleToLeapBack(enemyController),
+                    new TaskIsAbleToLeapBack(witchEnemyController),
                     new Selector(new List<Node>
                     {
                         new TaskIsCloseToPlayer(enemyController, enemyController.enemyData.berserkDistanceFromPlayer),
@@ -49,7 +47,7 @@ public class WitchEnemyBT : BT_Tree
                 new TaskIsInNormalState(enemyController, enemyWeaponSwitcher),
                 new Sequence (new List<Node>
                 {
-                    new TaskIsAbleToLeapBack(enemyController),
+                    new TaskIsAbleToLeapBack(witchEnemyController),
                     new Selector(new List<Node>
                     {
                         new TaskIsCloseToPlayer(enemyController, enemyController.enemyData.normalDistanceFromPlayer),

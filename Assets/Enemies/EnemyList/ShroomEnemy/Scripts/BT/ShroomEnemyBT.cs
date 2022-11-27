@@ -3,17 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 
-public class ShroomEnemyBT : BT_Tree
+public class ShroomEnemyBT : EnemyBT
 {
-    [HideInInspector] public EnemyController enemyController;
-    [HideInInspector] public EnemyWeaponSwitcher enemyWeaponSwitcher;
-
-    private void Awake()
-    {
-        enemyController = this.gameObject.GetComponent<EnemyController>();
-        enemyWeaponSwitcher = this.gameObject.GetComponent<EnemyWeaponSwitcher>();
-    }
-
     protected override Node SetupTree()
     {
         Node root = new Sequence(new List<Node>
