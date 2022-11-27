@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27a85e3fe686b974fbb85406426b7efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 880b9706056bfe340aebdc561b025c0e, type: 3}
   m_Name: BrambleEnemyData
   m_EditorClassIdentifier: 
   enemyName: Bramble
@@ -31,3 +31,6 @@ MonoBehaviour:
   berserkWeapon: {fileID: 4222045236405462924, guid: 7065d176beefb154a9e74bdef152c08c, type: 3}
   firstAggroDistance: 10
   stopAggroDistance: 20
+  unretractedScaleSize: 5
+  onHitRetractTime: 5
+  onLightRetractTime: 10

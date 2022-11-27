@@ -9,10 +9,8 @@ public class BrambleEnemyBT : EnemyBT
     {
         Node root = new Sequence(new List<Node>
         {
-            new Selector(new List<Node>
-            {
-                new TaskEnemyIsNotLocked(enemyController)
-            }),
+            new TaskBrambleIsNotRetracted(enemyController),
+            new TaskEnemyIsNotLocked(enemyController),
             new Selector(new List<Node>
             {
                 new TaskIsInBerserkState(enemyController, enemyWeaponSwitcher),
@@ -24,7 +22,9 @@ public class BrambleEnemyBT : EnemyBT
             }),
             new Selector(new List<Node>
             {
-                new TaskIsInCalmState(enemyController, enemyWeaponSwitcher)
+                new TaskIsInCalmState(enemyController, enemyWeaponSwitcher),
+                new TaskBrambleIsCoveredByLight(enemyController)
+
             }),
             new Selector (new List<Node>
             {
