@@ -19,8 +19,9 @@ public class WitchEnemyBT : BT_Tree
     {
         Node root = new Sequence(new List<Node>
         {
-            new Selector(new List<Node>
+            new Sequence(new List<Node>
             {
+                new TaskLeap(enemyController),
                 new TaskEnemyIsNotLocked(enemyController)
             }),
             new Selector(new List<Node>
@@ -28,11 +29,7 @@ public class WitchEnemyBT : BT_Tree
                 new TaskIsInBerserkState(enemyController, enemyWeaponSwitcher),
                 new Sequence (new List<Node>
                 {
-                    new Selector(new List<Node>
-                    {
-                        new TaskIsAbleToLeapBack(enemyController),
-                        new TaskLeap(enemyController)
-                    }),
+                    new TaskIsAbleToLeapBack(enemyController),
                     new Selector(new List<Node>
                     {
                         new TaskIsCloseToPlayer(enemyController, enemyController.enemyData.berserkDistanceFromPlayer),
@@ -52,11 +49,7 @@ public class WitchEnemyBT : BT_Tree
                 new TaskIsInNormalState(enemyController, enemyWeaponSwitcher),
                 new Sequence (new List<Node>
                 {
-                    new Selector(new List<Node>
-                    {
-                        new TaskIsAbleToLeapBack(enemyController),
-                        new TaskLeap(enemyController)
-                    }),
+                    new TaskIsAbleToLeapBack(enemyController),
                     new Selector(new List<Node>
                     {
                         new TaskIsCloseToPlayer(enemyController, enemyController.enemyData.normalDistanceFromPlayer),
