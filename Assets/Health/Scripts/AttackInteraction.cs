@@ -22,6 +22,7 @@ public class AttackInteraction : MonoBehaviour
         public bool isDestroyed;
         public bool isTransformed;
         public GameObject transformedRef;
+        public bool sendsSignalToSelf;
     }
     [SerializeField] private bool turnsOff;
     [SerializeField] private AttackTypeInteraction[] attackTypeInteractions;
@@ -56,11 +57,13 @@ public class AttackInteraction : MonoBehaviour
     {
         if (options.isDestroyed) DestroyOrTurnOff();
         else if (options.isTransformed) Transform(options);
+        else if (options.sendsSignalToSelf) SendSignalToSelf();
     }
     private void Interact(Options options, float lifeTime)
     {
         if (options.isDestroyed) DestroyOrTurnOff();
         else if (options.isTransformed) Transform(options, lifeTime);
+        else if (options.sendsSignalToSelf) SendSignalToSelf();
     }
 
     private GameObject Transform(Options options)
@@ -76,6 +79,12 @@ public class AttackInteraction : MonoBehaviour
         if (lifetimeRef != null) lifetimeRef.SetTimer(lifeTime);
         DestroyOrTurnOff();
         return objectRef;
+    }
+
+    private void SendSignalToSelf()
+    {
+        ISendSignalToSelf sendSignalToSelf = this.gameObject.GetComponent<ISendSignalToSelf>();
+        if (sendSignalToSelf != null) sendSignalToSelf.OnSignalReceived();
     }
 
     private void DestroyOrTurnOff()
