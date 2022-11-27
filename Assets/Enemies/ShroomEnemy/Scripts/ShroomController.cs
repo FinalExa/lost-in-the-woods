@@ -12,10 +12,9 @@ public class ShroomController : EnemyController
         base.Awake();
         shroomTrigger = this.gameObject.GetComponent<ShroomTrigger>();
     }
-    public override void LightStateChange()
+    public override void LightStateUpdate()
     {
-        base.LightStateChange();
-        if (enemyLightState == EnemyLightState.NORMAL) shroomTrigger.isVulnerable = false;
+        if (affectedByLight.lightState == AffectedByLight.LightState.NORMAL) shroomTrigger.isVulnerable = false;
         else shroomTrigger.isVulnerable = true;
     }
 }

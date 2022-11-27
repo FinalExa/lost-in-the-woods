@@ -10,7 +10,7 @@ public class PCLight : MonoBehaviour
     private float currentLightValue;
     private Light playerLight;
     private SphereCollider lightTrigger;
-    [HideInInspector] public List<EnemyController> enemies;
+    [HideInInspector] public List<AffectedByLight> entitiesAffectedByLight;
     [HideInInspector] public bool lanternUp;
 
     private void Awake()
@@ -22,7 +22,7 @@ public class PCLight : MonoBehaviour
     {
         lightRange = new Vector3(1f, 1f, 0f);
         lightTrigger.enabled = false;
-        enemies = new List<EnemyController>();
+        entitiesAffectedByLight = new List<AffectedByLight>();
     }
     private void Update()
     {
@@ -61,12 +61,12 @@ public class PCLight : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            EnemyController controller = other.gameObject.GetComponent<EnemyController>();
-            if (!enemies.Contains(controller))
+            AffectedByLight affectedByLight = other.gameObject.GetComponent<AffectedByLight>();
+            if (!entitiesAffectedByLight.Contains(affectedByLight))
             {
-                enemies.Add(controller);
-                controller.isInsideLight = true;
-                controller.LightStateChange();
+                entitiesAffectedByLight.Add(affectedByLight);
+                affectedByLight.isInsideLight = true;
+                affectedByLight.LightStateChange();
             }
         }
     }
@@ -75,24 +75,24 @@ public class PCLight : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             EnemyController enemy = other.gameObject.GetComponent<EnemyController>();
-            if (enemies.Contains(enemy))
+            if (entitiesAffectedByLight.Contains(enemy.affectedByLight))
             {
-                enemies.Remove(enemy);
-                EnemyExitLight(enemy);
+                entitiesAffectedByLight.Remove(enemy.affectedByLight);
+                EntityExitLight(enemy.affectedByLight);
             }
         }
     }
 
     private void ClearLightList()
     {
-        EnemyController[] enemiesArray = enemies.ToArray();
-        enemies.Clear();
-        foreach (EnemyController enemy in enemiesArray) EnemyExitLight(enemy);
+        AffectedByLight[] affectedByLightArray = entitiesAffectedByLight.ToArray();
+        entitiesAffectedByLight.Clear();
+        foreach (AffectedByLight affectedByLight in affectedByLightArray) EntityExitLight(affectedByLight);
     }
 
-    private void EnemyExitLight(EnemyController enemy)
+    private void EntityExitLight(AffectedByLight affectedByLight)
     {
-        enemy.isInsideLight = false;
-        enemy.LightStateChange();
+        affectedByLight.isInsideLight = false;
+        affectedByLight.LightStateChange();
     }
 }

@@ -15,7 +15,7 @@ public class TaskIsInCalmState : Node
 
     public override NodeState Evaluate()
     {
-        if (_enemyController.enemyLightState == EnemyController.EnemyLightState.CALM)
+        if (_enemyController.affectedByLight.lightState == AffectedByLight.LightState.CALM)
         {
             _enemyController.CheckForSwitchState();
             if (_enemyController.enemyData.hasCalmWeapon) _enemyWeaponSwitcher.SetEnemyWeaponByState();

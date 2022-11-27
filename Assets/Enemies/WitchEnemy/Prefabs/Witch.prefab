@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 8690117516297040685}
   - component: {fileID: 249166922592196662}
   - component: {fileID: 1079639170565201830}
+  - component: {fileID: -651315431605669601}
   - component: {fileID: 7001282123244882244}
   - component: {fileID: 4992552886037869941}
   - component: {fileID: 4166100610456823755}
@@ -147,21 +148,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {fileID: 11400000, guid: 3a0ecedcd75d65b498584f6fa7373c60, type: 2}
   enemyData: {fileID: 11400000, guid: 9fcc030e7b79edf4995d96865652c5f8, type: 2}
-  enemyLightState: 0
   currentWeapon: {fileID: 0}
   isAlerted: 0
-  isInsideLight: 0
-  isInHeartbeatState: 0
   playerTarget: {fileID: 0}
   enemyCombo: {fileID: 0}
   thisNavMeshAgent: {fileID: 0}
-  previousLightState: 0
   attackDone: 0
   spawnerRef: {fileID: 0}
   spawnerEnemyInfo:
     enemy: {fileID: 0}
     maxTimer: 0
     deathTimer: 0
+  affectedByLight: {fileID: 0}
   witchEnemyData: {fileID: 0}
   canLeap: 0
   leapDestination: {x: 0, y: 0, z: 0}
@@ -263,6 +261,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisType: 1
   ignoresDamage: 0
+--- !u!114 &-651315431605669601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477770951886658404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3d0318c4f0032b49bde6a78c25e1cc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightState: 0
+  previousLightState: 0
+  isInsideLight: 0
+  isInHeartbeatState: 0
 --- !u!65 &7001282123244882244
 BoxCollider:
   m_ObjectHideFlags: 0

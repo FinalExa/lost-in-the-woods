@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8690117516297040685}
   - component: {fileID: 249166922592196662}
   - component: {fileID: 1079639170565201830}
+  - component: {fileID: -3714416512890541913}
   m_Layer: 0
   m_Name: EnemyTemplate
   m_TagString: Enemy
@@ -107,16 +108,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {fileID: 0}
   enemyData: {fileID: 0}
-  enemyLightState: 0
   currentWeapon: {fileID: 0}
   isAlerted: 0
-  isInsideLight: 0
-  isInHeartbeatState: 0
   playerTarget: {fileID: 0}
   enemyCombo: {fileID: 0}
   thisNavMeshAgent: {fileID: 0}
-  previousLightState: 0
   attackDone: 0
+  spawnerRef: {fileID: 0}
+  spawnerEnemyInfo:
+    enemy: {fileID: 0}
+    maxTimer: 0
+    deathTimer: 0
+  affectedByLight: {fileID: 0}
 --- !u!114 &3939637572597450188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +150,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 0
   maxHP: 0
-  enemyData: {fileID: 0}
 --- !u!114 &8690117516297040685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +201,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisType: 1
   ignoresDamage: 0
+--- !u!114 &-3714416512890541913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477770951886658404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3d0318c4f0032b49bde6a78c25e1cc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightState: 0
+  previousLightState: 0
+  isInsideLight: 0
+  isInHeartbeatState: 0
 --- !u!1 &6982585701272724667
 GameObject:
   m_ObjectHideFlags: 0
