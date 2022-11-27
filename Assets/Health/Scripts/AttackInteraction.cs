@@ -23,9 +23,11 @@ public class AttackInteraction : MonoBehaviour
         public bool isTransformed;
         public GameObject transformedRef;
     }
+    [SerializeField] private bool turnsOff;
     [SerializeField] private AttackTypeInteraction[] attackTypeInteractions;
     [SerializeField] private EnemyInteraction[] enemyInteractions;
-
+    [SerializeField] private bool onDeathEnabled;
+    [SerializeField] private Options onDeathInteraction;
     public void CheckIfAttackTypeIsTheSame(List<WeaponAttack.WeaponAttackType> attackTypes)
     {
         foreach (AttackTypeInteraction attackTypeInteraction in attackTypeInteractions)
@@ -41,14 +43,44 @@ public class AttackInteraction : MonoBehaviour
             if (enemyInteraction.enemyName == enemyName) Interact(enemyInteraction.options);
         }
     }
+    public void OnDeathInteraction()
+    {
+        if (onDeathEnabled) Interact(onDeathInteraction);
+    }
+    public void OnDeathInteraction(float lifeTime)
+    {
+        if (onDeathEnabled) Interact(onDeathInteraction, lifeTime);
+    }
 
     private void Interact(Options options)
     {
-        if (options.isDestroyed) GameObject.Destroy(this.gameObject);
-        else if (options.isTransformed)
-        {
-            Instantiate(options.transformedRef, this.gameObject.transform.position, this.gameObject.transform.rotation, this.gameObject.transform.parent);
-            GameObject.Destroy(this.gameObject);
-        }
+        if (options.isDestroyed) DestroyOrTurnOff();
+        else if (options.isTransformed) Transform(options);
+    }
+    private void Interact(Options options, float lifeTime)
+    {
+        if (options.isDestroyed) DestroyOrTurnOff();
+        else if (options.isTransformed) Transform(options, lifeTime);
+    }
+
+    private GameObject Transform(Options options)
+    {
+        GameObject objectRef = Instantiate(options.transformedRef, this.gameObject.transform.position, this.gameObject.transform.rotation, this.gameObject.transform.parent);
+        DestroyOrTurnOff();
+        return objectRef;
+    }
+    private GameObject Transform(Options options, float lifeTime)
+    {
+        GameObject objectRef = Instantiate(options.transformedRef, this.gameObject.transform.position, this.gameObject.transform.rotation, this.gameObject.transform.parent);
+        Lifetime lifetimeRef = objectRef.GetComponent<Lifetime>();
+        if (lifetimeRef != null) lifetimeRef.SetTimer(lifeTime);
+        DestroyOrTurnOff();
+        return objectRef;
+    }
+
+    private void DestroyOrTurnOff()
+    {
+        if (!turnsOff) GameObject.Destroy(this.gameObject);
+        else this.gameObject.SetActive(false);
     }
 }

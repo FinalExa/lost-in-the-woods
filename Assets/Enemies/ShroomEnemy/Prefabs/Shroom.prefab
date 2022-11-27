@@ -57,10 +57,12 @@ GameObject:
   - component: {fileID: 1051971502567804650}
   - component: {fileID: 6031758856537235096}
   - component: {fileID: 3939637572597450188}
-  - component: {fileID: -57584891418013859}
+  - component: {fileID: -5641984116718413269}
   - component: {fileID: 8690117516297040685}
   - component: {fileID: 249166922592196662}
   - component: {fileID: 1079639170565201830}
+  - component: {fileID: 1499536932708734254}
+  - component: {fileID: -6993187980858220411}
   - component: {fileID: 7001282123244882244}
   - component: {fileID: 4166100610456823755}
   - component: {fileID: 4992552886037869941}
@@ -117,7 +119,6 @@ MonoBehaviour:
     enemy: {fileID: 0}
     maxTimer: 0
     deathTimer: 0
-  isVulnerable: 0
   backTrigger: {fileID: 6678532261102327}
 --- !u!114 &6031758856537235096
 MonoBehaviour:
@@ -149,7 +150,7 @@ MonoBehaviour:
   calmStateWeapon: {fileID: 0}
   berserkStateWeapon: {fileID: 0}
   enemyWeaponsSlot: {fileID: 7032387455319947333}
---- !u!114 &-57584891418013859
+--- !u!114 &-5641984116718413269
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,7 +159,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5477770951886658404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ff3df3a6aa79914eb3f6608e3c9b9b4, type: 3}
+  m_Script: {fileID: 11500000, guid: aa23a5622f5b38644b05547417c2bdb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentHP: 0
@@ -214,6 +215,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisType: 1
   ignoresDamage: 0
+--- !u!114 &1499536932708734254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477770951886658404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17b331db98df9143ae63583c3486477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnsOff: 1
+  attackTypeInteractions: []
+  enemyInteractions: []
+  onDeathEnabled: 1
+  onDeathInteraction:
+    isDestroyed: 0
+    isTransformed: 1
+    transformedRef: {fileID: 809524107923366733, guid: e756edc1778626d4b96a6f7b6332a7c7, type: 3}
+--- !u!114 &-6993187980858220411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477770951886658404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923399b6e7d278d418ab3d66f38780f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 14a46999efb777f4fb90daf41364ab76, type: 2}
+  isVulnerable: 0
 --- !u!65 &7001282123244882244
 BoxCollider:
   m_ObjectHideFlags: 0
