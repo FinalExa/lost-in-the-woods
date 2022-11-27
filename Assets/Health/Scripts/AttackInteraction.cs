@@ -23,9 +23,11 @@ public class AttackInteraction : MonoBehaviour
         public bool isTransformed;
         public GameObject transformedRef;
     }
+    [SerializeField] private bool turnsOff;
     [SerializeField] private AttackTypeInteraction[] attackTypeInteractions;
     [SerializeField] private EnemyInteraction[] enemyInteractions;
-
+    [SerializeField] private bool onDeathEnabled;
+    [SerializeField] private Options onDeathInteraction;
     public void CheckIfAttackTypeIsTheSame(List<WeaponAttack.WeaponAttackType> attackTypes)
     {
         foreach (AttackTypeInteraction attackTypeInteraction in attackTypeInteractions)
@@ -41,14 +43,25 @@ public class AttackInteraction : MonoBehaviour
             if (enemyInteraction.enemyName == enemyName) Interact(enemyInteraction.options);
         }
     }
+    public void OnDeathInteraction()
+    {
+        if (onDeathEnabled) Interact(onDeathInteraction);
+    }
 
     private void Interact(Options options)
     {
-        if (options.isDestroyed) GameObject.Destroy(this.gameObject);
+        if (options.isDestroyed) DestroyOrTurnOff();
         else if (options.isTransformed)
         {
             Instantiate(options.transformedRef, this.gameObject.transform.position, this.gameObject.transform.rotation, this.gameObject.transform.parent);
-            GameObject.Destroy(this.gameObject);
+            DestroyOrTurnOff();
         }
+    }
+
+
+    private void DestroyOrTurnOff()
+    {
+        if (!turnsOff) GameObject.Destroy(this.gameObject);
+        else this.gameObject.SetActive(false);
     }
 }

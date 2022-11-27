@@ -53,6 +53,7 @@ public class Spawner : MonoBehaviour
             EnemiesToRespawn enemyToRespawn = CreateEnemyToRespawn(enemyRef, enemyToSpawn.deathCooldown);
             enemyRef.spawnerRef = this;
             enemyRef.spawnerEnemyInfo = enemyToRespawn;
+            enemyRef.isAlerted = false;
             if (enemyToSpawn.startsSpawned)
             {
                 if (enemyToSpawn.firstSpawnPosition != null) enemyToSpawn.enemy.transform.position = enemyToSpawn.firstSpawnPosition.transform.position;

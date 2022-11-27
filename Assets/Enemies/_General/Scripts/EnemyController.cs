@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
     [HideInInspector] public Spawner spawnerRef;
     [HideInInspector] public Spawner.EnemiesToRespawn spawnerEnemyInfo;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         playerTarget = FindObjectOfType<PCController>().gameObject;
         enemyCombo = this.gameObject.GetComponent<EnemyCombo>();

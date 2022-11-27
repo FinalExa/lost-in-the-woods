@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class ShroomController : EnemyController
 {
-    [HideInInspector] public bool isVulnerable;
+    private ShroomTrigger shroomTrigger;
     public GameObject backTrigger;
 
-    private void OnTriggerEnter(Collider other)
+    protected override void Awake()
     {
-        if (isVulnerable && other.CompareTag("Hole"))
-        {
-            other.gameObject.GetComponent<AttackInteraction>().CheckIfEnemyIsTheSame(enemyData.enemyName);
-            this.gameObject.GetComponent<EnemyHealth>().OnDeath();
-        }
+        base.Awake();
+        shroomTrigger = this.gameObject.GetComponent<ShroomTrigger>();
     }
-
     public override void LightStateChange()
     {
         base.LightStateChange();
-        if (enemyLightState == EnemyLightState.NORMAL) isVulnerable = false;
-        else isVulnerable = true;
+        if (enemyLightState == EnemyLightState.NORMAL) shroomTrigger.isVulnerable = false;
+        else shroomTrigger.isVulnerable = true;
     }
 }

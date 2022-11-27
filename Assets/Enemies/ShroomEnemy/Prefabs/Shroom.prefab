@@ -61,6 +61,8 @@ GameObject:
   - component: {fileID: 8690117516297040685}
   - component: {fileID: 249166922592196662}
   - component: {fileID: 1079639170565201830}
+  - component: {fileID: 1499536932708734254}
+  - component: {fileID: -6993187980858220411}
   - component: {fileID: 7001282123244882244}
   - component: {fileID: 4166100610456823755}
   - component: {fileID: 4992552886037869941}
@@ -117,7 +119,6 @@ MonoBehaviour:
     enemy: {fileID: 0}
     maxTimer: 0
     deathTimer: 0
-  isVulnerable: 0
   backTrigger: {fileID: 6678532261102327}
 --- !u!114 &6031758856537235096
 MonoBehaviour:
@@ -214,6 +215,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisType: 1
   ignoresDamage: 0
+--- !u!114 &1499536932708734254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477770951886658404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17b331db98df9143ae63583c3486477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnsOff: 1
+  attackTypeInteractions: []
+  enemyInteractions: []
+  onDeathEnabled: 1
+  onDeathInteraction:
+    isDestroyed: 0
+    isTransformed: 1
+    transformedRef: {fileID: 809524107923366733, guid: e756edc1778626d4b96a6f7b6332a7c7, type: 3}
+--- !u!114 &-6993187980858220411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477770951886658404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923399b6e7d278d418ab3d66f38780f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 14a46999efb777f4fb90daf41364ab76, type: 2}
+  isVulnerable: 0
 --- !u!65 &7001282123244882244
 BoxCollider:
   m_ObjectHideFlags: 0
