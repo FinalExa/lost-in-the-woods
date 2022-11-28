@@ -7,6 +7,8 @@ public class BrambleData : EnemyData
 {
     [Header("Retract cooldown")]
     public float unretractedScaleSize;
+    public float unretractedGrowthRatePerSecond;
+    public float onHitRetractReduction;
     public float onHitRetractTime;
     public float onLightRetractTime;
 }
