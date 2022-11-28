@@ -8,6 +8,7 @@ public class EnemyAggro : MonoBehaviour
     private SphereCollider aggroCollider;
     private bool playerInAggroCollider;
     private Transform playerTransform;
+    [SerializeField] private LayerMask aggroLayer;
     private int playerLayer;
 
     private void Awake()
@@ -44,7 +45,7 @@ public class EnemyAggro : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 direction = playerTransform.position - enemyController.transform.position;
-        if (Physics.Raycast(enemyController.transform.position, direction, out hit) && hit.collider.CompareTag("Player"))
+        if (Physics.Raycast(enemyController.transform.position, direction, out hit, Mathf.Infinity, aggroLayer) && hit.collider.CompareTag("Player"))
         {
             enemyController.isAlerted = true;
             playerInAggroCollider = false;
