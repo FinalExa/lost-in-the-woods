@@ -29,8 +29,8 @@ MonoBehaviour:
   berserDistanceTolerance: 0
   hasBerserkWeapon: 1
   berserkWeapon: {fileID: 4222045236405462924, guid: 7065d176beefb154a9e74bdef152c08c, type: 3}
-  firstAggroDistance: 10
-  stopAggroDistance: 20
+  firstAggroDistance: 20
+  stopAggroDistance: 40
   unretractedScaleSize: 5
   onHitRetractTime: 5
   onLightRetractTime: 10
