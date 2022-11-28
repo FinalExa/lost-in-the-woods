@@ -22,6 +22,9 @@ public class AttackInteraction : MonoBehaviour
         public bool isDestroyed;
         public bool isTransformed;
         public GameObject transformedRef;
+        public bool rotates;
+        public GameObject objectToRotate;
+        public float rotateValue;
         public bool sendsSignalToSelf;
     }
     [SerializeField] private bool turnsOff;
@@ -56,14 +59,16 @@ public class AttackInteraction : MonoBehaviour
     private void Interact(Options options)
     {
         if (options.isDestroyed) DestroyOrTurnOff();
-        else if (options.isTransformed) Transform(options);
+        else if (options.isTransformed && options.transformedRef != null) Transform(options);
         else if (options.sendsSignalToSelf) SendSignalToSelf();
+        else if (options.rotates && options.objectToRotate != null) RotateObject(options);
     }
     private void Interact(Options options, float lifeTime)
     {
         if (options.isDestroyed) DestroyOrTurnOff();
-        else if (options.isTransformed) Transform(options, lifeTime);
+        else if (options.isTransformed && options.transformedRef != null) Transform(options, lifeTime);
         else if (options.sendsSignalToSelf) SendSignalToSelf();
+        else if (options.rotates && options.objectToRotate != null) RotateObject(options);
     }
 
     private GameObject Transform(Options options)
@@ -79,6 +84,13 @@ public class AttackInteraction : MonoBehaviour
         if (lifetimeRef != null) lifetimeRef.SetTimer(lifeTime);
         DestroyOrTurnOff();
         return objectRef;
+    }
+
+    private void RotateObject(Options options)
+    {
+        Quaternion rotation = options.objectToRotate.transform.localRotation;
+        rotation.eulerAngles = new Vector3(90f, rotation.y + options.rotateValue, 0f);
+        options.objectToRotate.transform.SetLocalPositionAndRotation(options.objectToRotate.transform.localPosition, rotation);
     }
 
     private void SendSignalToSelf()
