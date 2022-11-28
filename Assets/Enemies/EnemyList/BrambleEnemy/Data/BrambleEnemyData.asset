@@ -32,5 +32,7 @@ MonoBehaviour:
   firstAggroDistance: 20
   stopAggroDistance: 40
   unretractedScaleSize: 5
+  unretractedGrowthRatePerSecond: 1
+  onHitRetractReduction: 2
   onHitRetractTime: 5
   onLightRetractTime: 10

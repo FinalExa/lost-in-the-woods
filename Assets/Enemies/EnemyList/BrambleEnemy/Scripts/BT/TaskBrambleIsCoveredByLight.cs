@@ -13,7 +13,7 @@ public class TaskBrambleIsCoveredByLight : Node
 
     public override NodeState Evaluate()
     {
-        enemyController.RetractSet(enemyController.brambleData.onLightRetractTime);
+        enemyController.RetractionUpdate(-enemyController.brambleData.unretractedScaleSize);
         return NodeState.RUNNING;
     }
 }
