@@ -10,7 +10,7 @@ public class PCLight : MonoBehaviour
     private float currentLightValue;
     private Light playerLight;
     private SphereCollider lightTrigger;
-    [HideInInspector] public List<AffectedByLight> entitiesAffectedByLight;
+    public List<AffectedByLight> entitiesAffectedByLight;
     [HideInInspector] public bool lanternUp;
 
     private void Awake()
@@ -59,9 +59,9 @@ public class PCLight : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        AffectedByLight affectedByLight = other.gameObject.GetComponent<AffectedByLight>();
+        if (affectedByLight != null)
         {
-            AffectedByLight affectedByLight = other.gameObject.GetComponent<AffectedByLight>();
             if (!entitiesAffectedByLight.Contains(affectedByLight))
             {
                 entitiesAffectedByLight.Add(affectedByLight);
@@ -72,13 +72,13 @@ public class PCLight : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        AffectedByLight affectedByLight = other.gameObject.GetComponent<AffectedByLight>();
+        if (affectedByLight != null)
         {
-            EnemyController enemy = other.gameObject.GetComponent<EnemyController>();
-            if (entitiesAffectedByLight.Contains(enemy.affectedByLight))
+            if (entitiesAffectedByLight.Contains(affectedByLight))
             {
-                entitiesAffectedByLight.Remove(enemy.affectedByLight);
-                EntityExitLight(enemy.affectedByLight);
+                entitiesAffectedByLight.Remove(affectedByLight);
+                EntityExitLight(affectedByLight);
             }
         }
     }

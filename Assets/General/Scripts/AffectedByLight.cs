@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class AffectedByLight : MonoBehaviour
     [HideInInspector] public bool isInsideLight;
     [HideInInspector] public bool isInHeartbeatState;
     [HideInInspector] public EnemyController enemyController;
+    public static Action<AffectedByLight, LightState> lightStateChangedSignal;
 
     private void Awake()
     {
@@ -33,6 +35,7 @@ public class AffectedByLight : MonoBehaviour
         else if (isInHeartbeatState && !isInsideLight) lightState = LightState.BERSERK;
         else lightState = LightState.NORMAL;
         if (enemyController != null) enemyController.LightStateUpdate();
+        lightStateChangedSignal(this, lightState);
     }
 
     public bool CheckForSwitchState()
