@@ -132,13 +132,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17b331db98df9143ae63583c3486477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnsOff: 0
   attackTypeInteractions: []
-  enemyInteractions:
-  - enemyName: Shroom
+  namedInteractions:
+  - name: Shroom
     options:
       isDestroyed: 0
       isTransformed: 1
       transformedRef: {fileID: 9205835231336190723, guid: d139de3dad10e0b4e80d53ebcdff097c, type: 3}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      sendsSignalToSelf: 0
+  onDeathEnabled: 0
+  onDeathInteraction:
+    isDestroyed: 0
+    isTransformed: 0
+    transformedRef: {fileID: 0}
+    canSetObjectActiveStatus: 0
+    objectActiveStatus: 0
+    objectToSetActiveStatus: {fileID: 0}
+    rotates: 0
+    objectToRotate: {fileID: 0}
+    rotateValue: 0
+    sendsSignalToSelf: 0
+  lightInteraction:
+    hasLightInteraction: 0
+    affectedByLightRef: {fileID: 0}
+    normalOptions:
+      isDestroyed: 0
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      sendsSignalToSelf: 0
+    calmOptions:
+      isDestroyed: 0
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      sendsSignalToSelf: 0
+    berserkOptions:
+      isDestroyed: 0
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      sendsSignalToSelf: 0
 --- !u!65 &7469769978296397409
 BoxCollider:
   m_ObjectHideFlags: 0

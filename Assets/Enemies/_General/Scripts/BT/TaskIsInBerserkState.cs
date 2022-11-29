@@ -15,7 +15,7 @@ public class TaskIsInBerserkState : Node
 
     public override NodeState Evaluate()
     {
-        if (_enemyController.enemyLightState == EnemyController.EnemyLightState.BERSERK)
+        if (_enemyController.affectedByLight.lightState == AffectedByLight.LightState.BERSERK)
         {
             _enemyController.CheckForSwitchState();
             if (_enemyController.enemyData.hasBerserkWeapon) _enemyWeaponSwitcher.SetEnemyWeaponByState();

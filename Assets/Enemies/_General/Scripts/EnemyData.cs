@@ -26,4 +26,7 @@ public class EnemyData : ScriptableObject
     public float berserDistanceTolerance;
     public bool hasBerserkWeapon;
     public Weapon berserkWeapon;
+    [Header("Aggro")]
+    public float firstAggroDistance;
+    public float stopAggroDistance;
 }

@@ -4,10 +4,42 @@ using UnityEngine;
 
 public class EnemyHealth : Health
 {
-    [SerializeField] private EnemyData enemyData;
+    protected EnemyController enemyController;
+    protected AttackInteraction attackInteraction;
+    protected bool deathDone;
 
-    private void Start()
+    protected virtual void Awake()
     {
-        SetHPStartup(enemyData.maxHP);
+        enemyController = this.gameObject.GetComponent<EnemyController>();
+        attackInteraction = this.gameObject.GetComponent<AttackInteraction>();
+    }
+
+    private void OnEnable()
+    {
+        SetHPStartup(enemyController.enemyData.maxHP);
+        deathDone = false;
+    }
+
+    public override void OnDeath()
+    {
+        SetEnemyDead();
+        OnDeathInteraction();
+    }
+    private void SetEnemyDead()
+    {
+        if (!deathDone)
+        {
+            if (enemyController.spawnerRef != null) enemyController.spawnerRef.SetEnemyDead(enemyController.spawnerEnemyInfo);
+            else this.gameObject.SetActive(false);
+        }
+    }
+    protected virtual void OnDeathInteraction()
+    {
+        if (!deathDone && attackInteraction != null) attackInteraction.OnDeathInteraction();
+    }
+
+    private void OnDisable()
+    {
+        SetEnemyDead();
     }
 }

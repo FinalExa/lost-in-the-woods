@@ -10,6 +10,8 @@ TagManager:
   - GlobalLight
   - Ground
   - Hole
+  - EnemyAggroRange
+  - MirrorLightInteractable
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Player
   - 
   - 
   - 
