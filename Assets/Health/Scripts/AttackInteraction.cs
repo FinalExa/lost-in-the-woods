@@ -88,9 +88,7 @@ public class AttackInteraction : MonoBehaviour
 
     private void RotateObject(Options options)
     {
-        Quaternion rotation = options.objectToRotate.transform.localRotation;
-        rotation.eulerAngles = new Vector3(90f, rotation.y + options.rotateValue, 0f);
-        options.objectToRotate.transform.SetLocalPositionAndRotation(options.objectToRotate.transform.localPosition, rotation);
+        options.objectToRotate.transform.Rotate(0f, 0f, -options.rotateValue);
     }
 
     private void SendSignalToSelf()
