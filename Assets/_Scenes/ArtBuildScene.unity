@@ -20,12 +20,12 @@ RenderSettings:
   m_FogDensity: 0.1
   m_LinearFogStart: 0
   m_LinearFogEnd: 50
-  m_AmbientSkyColor: {r: 0.10619437, g: 0.15502591, b: 0.3584906, a: 1}
+  m_AmbientSkyColor: {r: 0.040542297, g: 0.05856109, b: 0.13514099, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 3
-  m_SubtractiveShadowColor: {r: 1, g: 0, b: 0.0650506, a: 1}
+  m_SubtractiveShadowColor: {r: 0, g: 0, b: 0, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: b0ec2c3df2857cb40a9e73c4f14877d7, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!1 &28586531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1359,8 +1359,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.72075474, g: 1, b: 0.88045126, a: 1}
-  m_Intensity: 0.3
+  m_Color: {r: 0.72156864, g: 1, b: 0.88235295, a: 1}
+  m_Intensity: 0.05
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2453,10 +2453,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 674761412199011106, guid: c44e0394991c2c44597e45f504601056, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 2147483647
-      objectReference: {fileID: 0}
     - target: {fileID: 2616388034451592459, guid: c44e0394991c2c44597e45f504601056, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2509,9 +2505,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7142553837643217951, guid: c44e0394991c2c44597e45f504601056, type: 3}
-      propertyPath: m_Layer
-      value: 7
+    - target: {fileID: 8706434170628328547, guid: c44e0394991c2c44597e45f504601056, type: 3}
+      propertyPath: testScene
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706434170628328547, guid: c44e0394991c2c44597e45f504601056, type: 3}
+      propertyPath: heartbeatCooldown
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706434170628328547, guid: c44e0394991c2c44597e45f504601056, type: 3}
+      propertyPath: heartbeatDuration
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8717672636991933783, guid: c44e0394991c2c44597e45f504601056, type: 3}
       propertyPath: m_Sprite

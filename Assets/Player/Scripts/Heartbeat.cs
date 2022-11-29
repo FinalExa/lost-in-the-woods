@@ -9,10 +9,11 @@ public class Heartbeat : MonoBehaviour
     [SerializeField] private float heartbeatDuration;
     private float heartbeatTimer;
     private bool inHeartbeat;
-    public static Action<bool> heartbeatSwitch;
     private Light globalLight;
     private Color globalLightBaseColor;
     [SerializeField] private Color globalLightHeartbeatColor;
+    [SerializeField] private bool testScene;
+    public static Action<bool> heartbeatSwitch;
 
     private void Awake()
     {
@@ -41,7 +42,7 @@ public class Heartbeat : MonoBehaviour
         else
         {
             SetHeartbeatTimer(!inHeartbeat);
-            heartbeatSwitch(inHeartbeat);
+            if (!testScene) heartbeatSwitch(inHeartbeat);
         }
     }
 

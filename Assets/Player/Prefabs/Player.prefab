@@ -203,6 +203,7 @@ MonoBehaviour:
   heartbeatCooldown: 30
   heartbeatDuration: 15
   globalLightHeartbeatColor: {r: 1, g: 0, b: 0, a: 0}
+  testScene: 0
 --- !u!114 &1353845484741870925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +297,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0931932f260cf5a449a0aa1105fff808, type: 2}
+  - {fileID: 2100000, guid: cbb10bbaecb74064a96c393b4ba4f1bb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
