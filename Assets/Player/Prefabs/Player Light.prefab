@@ -197,6 +197,8 @@ MonoBehaviour:
   lightSprite: {fileID: 3923816278585104223}
   entitiesAffectedByLight: []
   lanternUp: 0
+  hasLanternSwitchSound: 1
+  lanternSwitchSound: BruhLantern
 --- !u!135 &512457919144187963
 SphereCollider:
   m_ObjectHideFlags: 0
