@@ -75,6 +75,8 @@ MonoBehaviour:
   isRetracted: 0
   brambleData: {fileID: 0}
   spriteColliderObject: {fileID: 7200053106513421008}
+  playsSoundFullyRetracted: 1
+  soundFullyRetracted: BruhInteraction
 --- !u!114 &2722995872011041464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +121,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 0
   maxHP: 0
+  hasDeathSound: 1
+  deathSound: BruhDeath
+  hasOnHitSound: 1
+  onHitSound: BruhOnHit
 --- !u!114 &8690117516297040685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,14 +212,72 @@ MonoBehaviour:
       isDestroyed: 0
       isTransformed: 0
       transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
       sendsSignalToSelf: 1
-  enemyInteractions: []
+      playsSoundOnInteraction: 0
+      soundToPlay: 
+  namedInteractions: []
   onDeathEnabled: 0
   onDeathInteraction:
     isDestroyed: 0
     isTransformed: 0
     transformedRef: {fileID: 0}
+    canSetObjectActiveStatus: 0
+    objectActiveStatus: 0
+    objectToSetActiveStatus: {fileID: 0}
+    rotates: 0
+    objectToRotate: {fileID: 0}
+    rotateValue: 0
     sendsSignalToSelf: 0
+    playsSoundOnInteraction: 0
+    soundToPlay: 
+  lightInteraction:
+    hasLightInteraction: 0
+    affectedByLightRef: {fileID: 0}
+    normalOptions:
+      isDestroyed: 0
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      sendsSignalToSelf: 0
+      playsSoundOnInteraction: 0
+      soundToPlay: 
+    calmOptions:
+      isDestroyed: 0
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      sendsSignalToSelf: 0
+      playsSoundOnInteraction: 0
+      soundToPlay: 
+    berserkOptions:
+      isDestroyed: 0
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      sendsSignalToSelf: 0
+      playsSoundOnInteraction: 0
+      soundToPlay: 
 --- !u!65 &7001282123244882244
 BoxCollider:
   m_ObjectHideFlags: 0

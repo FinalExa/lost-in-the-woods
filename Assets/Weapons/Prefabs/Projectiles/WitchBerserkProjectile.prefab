@@ -85,6 +85,8 @@ MonoBehaviour:
   possibleTargets: 00000000
   attackTypes: 00000000
   direction: {x: 0.68050873, y: -0.014183186, z: 0.7326027}
+  playsSound: 1
+  soundToPlay: BruhOnHit
 --- !u!54 &-1719196378352943958
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -162,6 +162,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 0
   maxHP: 0
+  hasDeathSound: 1
+  deathSound: BruhDeath
+  hasOnHitSound: 1
+  onHitSound: BruhOnHit
 --- !u!114 &8690117516297040685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,12 +231,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnsOff: 1
   attackTypeInteractions: []
-  enemyInteractions: []
+  namedInteractions: []
   onDeathEnabled: 1
   onDeathInteraction:
     isDestroyed: 0
     isTransformed: 1
     transformedRef: {fileID: 809524107923366733, guid: e756edc1778626d4b96a6f7b6332a7c7, type: 3}
+    canSetObjectActiveStatus: 0
+    objectActiveStatus: 0
+    objectToSetActiveStatus: {fileID: 0}
+    rotates: 0
+    objectToRotate: {fileID: 0}
+    rotateValue: 0
+    sendsSignalToSelf: 0
+  lightInteraction:
+    hasLightInteraction: 0
+    affectedByLightRef: {fileID: 0}
+    normalOptions:
+      isDestroyed: 0
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      sendsSignalToSelf: 0
+    calmOptions:
+      isDestroyed: 0
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      sendsSignalToSelf: 0
+    berserkOptions:
+      isDestroyed: 0
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      sendsSignalToSelf: 0
 --- !u!114 &-6993187980858220411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +310,7 @@ MonoBehaviour:
   previousLightState: 0
   isInsideLight: 0
   isInHeartbeatState: 0
+  enemyController: {fileID: 0}
 --- !u!65 &7001282123244882244
 BoxCollider:
   m_ObjectHideFlags: 0

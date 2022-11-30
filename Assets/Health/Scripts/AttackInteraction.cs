@@ -43,6 +43,9 @@ public class AttackInteraction : MonoBehaviour
         public float rotateValue;
         [Header("For special functionalities, touch only if you script")]
         public bool sendsSignalToSelf;
+        [Header("Sound to play")]
+        public bool playsSoundOnInteraction;
+        public string soundToPlay;
     }
     [SerializeField] private bool turnsOff;
     [SerializeField] private AttackTypeInteraction[] attackTypeInteractions;
@@ -103,6 +106,7 @@ public class AttackInteraction : MonoBehaviour
 
     private void Interact(Options options)
     {
+        PlaySound(options);
         if (options.isDestroyed) DestroyOrTurnOff();
         else if (options.isTransformed && options.transformedRef != null) Transform(options);
         else if (options.sendsSignalToSelf) SendSignalToSelf();
@@ -147,10 +151,13 @@ public class AttackInteraction : MonoBehaviour
         ISendSignalToSelf sendSignalToSelf = this.gameObject.GetComponent<ISendSignalToSelf>();
         if (sendSignalToSelf != null) sendSignalToSelf.OnSignalReceived();
     }
-
     private void DestroyOrTurnOff()
     {
         if (!turnsOff) GameObject.Destroy(this.gameObject);
         else this.gameObject.SetActive(false);
+    }
+    private void PlaySound(Options options)
+    {
+        if (options.playsSoundOnInteraction) AudioManager.Instance.PlaySound(options.soundToPlay);
     }
 }

@@ -180,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyController: {fileID: 0}
   enemyWeaponSwitcher: {fileID: 0}
+  witchEnemyController: {fileID: 0}
 --- !u!114 &3939637572597450188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +211,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 100
   maxHP: 100
+  hasDeathSound: 1
+  deathSound: BruhDeath
+  hasOnHitSound: 1
+  onHitSound: BruhOnHit
 --- !u!114 &8690117516297040685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,6 +282,7 @@ MonoBehaviour:
   previousLightState: 0
   isInsideLight: 0
   isInHeartbeatState: 0
+  enemyController: {fileID: 0}
 --- !u!65 &7001282123244882244
 BoxCollider:
   m_ObjectHideFlags: 0

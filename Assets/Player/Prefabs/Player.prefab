@@ -188,6 +188,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 0
   maxHP: 0
+  hasDeathSound: 1
+  deathSound: BruhDeath
+  hasOnHitSound: 1
+  onHitSound: BruhOnHit
 --- !u!114 &8706434170628328547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,10 +204,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7f787ccf609ce4a9001551dfd11649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartbeatCooldown: 30
+  heartbeatCooldown: 10
   heartbeatDuration: 15
   globalLightHeartbeatColor: {r: 1, g: 0, b: 0, a: 0}
   testScene: 0
+  hasAnticipationSound: 1
+  anticipationTime: 5
+  anticipationSound: BruhDeath
+  hasHeartbeatSound: 1
+  heartbeatSound: BruhHeartbeat
 --- !u!114 &1353845484741870925
 MonoBehaviour:
   m_ObjectHideFlags: 0

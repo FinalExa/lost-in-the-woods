@@ -52,3 +52,38 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     mixer: {fileID: 0}
+  - clipName: BruhDeath
+    clip: {fileID: 8300000, guid: f79a0a2299f949343bc9a4916894b1bb, type: 3}
+    volume: 0.1
+    pitch: 0.1
+    loop: 0
+    playOnAwake: 0
+    mixer: {fileID: 0}
+  - clipName: BruhOnHit
+    clip: {fileID: 8300000, guid: f79a0a2299f949343bc9a4916894b1bb, type: 3}
+    volume: 0.1
+    pitch: 1.9
+    loop: 0
+    playOnAwake: 0
+    mixer: {fileID: 0}
+  - clipName: BruhAggro
+    clip: {fileID: 8300000, guid: f79a0a2299f949343bc9a4916894b1bb, type: 3}
+    volume: 0.1
+    pitch: 1.4
+    loop: 0
+    playOnAwake: 0
+    mixer: {fileID: 0}
+  - clipName: BruhInteraction
+    clip: {fileID: 8300000, guid: f79a0a2299f949343bc9a4916894b1bb, type: 3}
+    volume: 0.1
+    pitch: 0.7
+    loop: 0
+    playOnAwake: 0
+    mixer: {fileID: 0}
+  - clipName: BruhHeartbeat
+    clip: {fileID: 8300000, guid: f79a0a2299f949343bc9a4916894b1bb, type: 3}
+    volume: 0.1
+    pitch: 0.15
+    loop: 0
+    playOnAwake: 0
+    mixer: {fileID: 0}

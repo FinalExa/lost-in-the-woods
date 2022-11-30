@@ -14,6 +14,11 @@ public class Heartbeat : MonoBehaviour
     [SerializeField] private Color globalLightHeartbeatColor;
     [SerializeField] private bool testScene;
     public static Action<bool> heartbeatSwitch;
+    [SerializeField] private bool hasAnticipationSound;
+    [SerializeField] private float anticipationTime;
+    [SerializeField] private string anticipationSound;
+    [SerializeField] private bool hasHeartbeatSound;
+    [SerializeField] private string heartbeatSound;
 
     private void Awake()
     {
@@ -38,6 +43,7 @@ public class Heartbeat : MonoBehaviour
     }
     private void HeartbeatTimer()
     {
+        if (hasAnticipationSound && heartbeatTimer <= anticipationTime && !AudioManager.Instance.IsPlaying(anticipationSound)) AudioManager.Instance.PlaySound(anticipationSound);
         if (heartbeatTimer > 0) heartbeatTimer -= Time.deltaTime;
         else
         {
@@ -57,6 +63,7 @@ public class Heartbeat : MonoBehaviour
         {
             heartbeatTimer = heartbeatDuration;
             globalLight.color = globalLightHeartbeatColor;
+            if (hasHeartbeatSound) AudioManager.Instance.PlaySound(heartbeatSound);
         }
     }
 }

@@ -29,16 +29,22 @@ public class PCHealth : Health
     }
     public override void HealthAddValue(float healthToAdd)
     {
-        currentHP += healthToAdd;
-        currentHP = Mathf.Clamp(currentHP, 0, maxHP);
-        if (healthToAdd < 0)
-        {
-            regenWait = false;
-            regen = false;
-        }
+        base.HealthAddValue(healthToAdd);
         pcLight.LightRadiusUpdate(currentHP);
-        //THIS IS SUPER TEMP
-        if (currentHP <= 0) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public override void OnDeath()
+    {
+        //TEMPORARY
+        PlayDeathSound();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public override void OnHitReceived()
+    {
+        PlayOnHitSound();
+        regenWait = false;
+        regen = false;
     }
 
     private void RegenCheck()

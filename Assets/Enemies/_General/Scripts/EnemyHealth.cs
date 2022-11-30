@@ -22,6 +22,7 @@ public class EnemyHealth : Health
 
     public override void OnDeath()
     {
+        PlayDeathSound();
         SetEnemyDead();
         OnDeathInteraction();
     }

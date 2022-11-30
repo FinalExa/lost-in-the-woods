@@ -12,6 +12,8 @@ public class BrambleController : EnemyController, ISendSignalToSelf
     private Vector3 expandedBoxColliderSize;
     private Vector3 currentColliderSize;
     private float retractTimer;
+    [SerializeField] private bool playsSoundFullyRetracted;
+    [SerializeField] private string soundFullyRetracted;
 
     protected override void Awake()
     {
@@ -46,6 +48,7 @@ public class BrambleController : EnemyController, ISendSignalToSelf
             spriteColliderObject.SetActive(false);
             retractTimer = timer;
             isRetracted = true;
+            if (playsSoundFullyRetracted) AudioManager.Instance.PlaySound(soundFullyRetracted);
         }
     }
 
