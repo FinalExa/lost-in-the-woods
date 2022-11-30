@@ -143,7 +143,7 @@ MonoBehaviour:
     afterDelay: 0
     movementDistance: 0
     attackObject: {fileID: 1349951445937875719}
-    weaponAttackTypes: 
+    weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 89369581386872112}
       activationDelayAfterStart: 0
