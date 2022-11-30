@@ -71,6 +71,7 @@ public class Combo : MonoBehaviour
         if (currentWeapon.weaponAttacks[currentComboProgress].movementDistance != 0) movementSpeed = currentWeapon.weaponAttacks[currentComboProgress].movementDistance / currentWeapon.weaponAttacks[currentComboProgress].duration;
         attackCountTime = 0;
         isAttacking = true;
+        if (currentWeapon.weaponAttacks[currentComboProgress].playsSound) AudioManager.Instance.PlaySound(currentWeapon.weaponAttacks[currentComboProgress].soundToPlay);
     }
 
     private void Attacking()

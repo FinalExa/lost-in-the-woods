@@ -28,4 +28,6 @@ public class WeaponAttack
     }
     public WeaponAttackHitboxSequence[] weaponAttackHitboxSequence;
     public bool hasAnimation;
+    public bool playsSound;
+    public string soundToPlay;
 }
