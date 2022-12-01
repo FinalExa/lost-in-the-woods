@@ -11,8 +11,9 @@ public class WitchEnemyController : EnemyController
     public GameObject rightLeap;
     public GameObject leftLeap;
 
-    protected void Start()
+    protected override void Start()
     {
+        base.Start();
         witchEnemyData = (WitchEnemyData)enemyData;
     }
 

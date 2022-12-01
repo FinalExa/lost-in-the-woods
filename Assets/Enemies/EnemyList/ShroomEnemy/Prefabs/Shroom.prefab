@@ -105,6 +105,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {fileID: 11400000, guid: 3a0ecedcd75d65b498584f6fa7373c60, type: 2}
   enemyData: {fileID: 11400000, guid: 14a46999efb777f4fb90daf41364ab76, type: 2}
+  spriteRendererRef: {fileID: 5968671515912607088}
+  spriteBaseColor: {r: 0, g: 0, b: 0, a: 0}
   currentWeapon: {fileID: 0}
   isAlerted: 0
   playerTarget: {fileID: 0}
@@ -166,6 +168,9 @@ MonoBehaviour:
   deathSound: BruhDeath
   hasOnHitSound: 1
   onHitSound: BruhOnHit
+  hasOnHitSpriteColorChange: 1
+  spriteColorChangeDuration: 0.3
+  onHitSpriteColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &8690117516297040685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +249,8 @@ MonoBehaviour:
     objectToRotate: {fileID: 0}
     rotateValue: 0
     sendsSignalToSelf: 0
+    playsSoundOnInteraction: 0
+    soundToPlay: 
   lightInteraction:
     hasLightInteraction: 0
     affectedByLightRef: {fileID: 0}
@@ -258,6 +265,8 @@ MonoBehaviour:
       objectToRotate: {fileID: 0}
       rotateValue: 0
       sendsSignalToSelf: 0
+      playsSoundOnInteraction: 0
+      soundToPlay: 
     calmOptions:
       isDestroyed: 0
       isTransformed: 0
@@ -269,6 +278,8 @@ MonoBehaviour:
       objectToRotate: {fileID: 0}
       rotateValue: 0
       sendsSignalToSelf: 0
+      playsSoundOnInteraction: 0
+      soundToPlay: 
     berserkOptions:
       isDestroyed: 0
       isTransformed: 0
@@ -280,6 +291,8 @@ MonoBehaviour:
       objectToRotate: {fileID: 0}
       rotateValue: 0
       sendsSignalToSelf: 0
+      playsSoundOnInteraction: 0
+      soundToPlay: 
 --- !u!114 &-6993187980858220411
 MonoBehaviour:
   m_ObjectHideFlags: 0

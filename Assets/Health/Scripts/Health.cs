@@ -6,10 +6,17 @@ public abstract class Health : MonoBehaviour
 {
     [HideInInspector] public float currentHP;
     [HideInInspector] public float maxHP;
-    [SerializeField] private bool hasDeathSound;
-    [SerializeField] private string deathSound;
-    [SerializeField] private bool hasOnHitSound;
-    [SerializeField] private string onHitSound;
+    [SerializeField] protected bool hasDeathSound;
+    [SerializeField] protected string deathSound;
+    [SerializeField] protected bool hasOnHitSound;
+    [SerializeField] protected string onHitSound;
+    [SerializeField] protected bool hasOnHitSpriteColorChange;
+    [SerializeField] protected float spriteColorChangeDuration;
+    [SerializeField] protected Color onHitSpriteColor;
+    protected bool spritehasChangedColor;
+    protected float spriteColorChangeTimer;
+    protected SpriteRenderer spriteRef;
+    protected Color spriteRefBaseColor;
 
     public virtual void SetHPStartup(float givenMaxHP)
     {
@@ -25,6 +32,11 @@ public abstract class Health : MonoBehaviour
         else if (healthToAdd < 0) OnHitReceived();
     }
 
+    protected virtual void Update()
+    {
+        if (hasOnHitSpriteColorChange && spritehasChangedColor) SpriteColorTimer();
+    }
+
     public virtual void OnDeath()
     {
         PlayDeathSound();
@@ -38,11 +50,37 @@ public abstract class Health : MonoBehaviour
 
     public virtual void OnHitReceived()
     {
-        return;
+        SetSpriteColorChange();
     }
 
     protected void PlayOnHitSound()
     {
         if (hasOnHitSound) AudioManager.Instance.PlaySound(onHitSound);
+    }
+
+    protected virtual void SetSpriteRenderer()
+    {
+        return;
+    }
+
+    protected void SetSpriteColorChange()
+    {
+        if (spriteRef == null) SetSpriteRenderer();
+        if (hasOnHitSpriteColorChange && spriteRef != null)
+        {
+            spriteRef.color = onHitSpriteColor;
+            spriteColorChangeTimer = spriteColorChangeDuration;
+            spritehasChangedColor = true;
+        }
+    }
+
+    protected void SpriteColorTimer()
+    {
+        if (spriteColorChangeTimer > 0) spriteColorChangeTimer -= Time.deltaTime;
+        else
+        {
+            spriteRef.color = spriteRefBaseColor;
+            spritehasChangedColor = false;
+        }
     }
 }

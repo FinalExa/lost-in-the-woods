@@ -34,6 +34,7 @@ public class PCDodge : PCState
         dodgeTimer = pcData.dodgeDuration;
         dodgeSpeed = pcData.dodgeDistance / pcData.dodgeDuration;
         startDodge = true;
+        _pcStateMachine.pcController.pcReferences.spriteRenderer.color = _pcStateMachine.pcController.pcReferences.pcData.dodgeColor;
     }
 
     private void Dodge()
@@ -56,6 +57,7 @@ public class PCDodge : PCState
         _pcStateMachine.gameObject.tag = playerTag;
         dodgeTimer = _pcStateMachine.pcController.pcReferences.pcData.dodgeStopTime;
         wait = true;
+        _pcStateMachine.pcController.pcReferences.spriteRenderer.color = _pcStateMachine.pcController.pcReferences.spriteStartColor;
     }
 
     private void DodgeEndWait()

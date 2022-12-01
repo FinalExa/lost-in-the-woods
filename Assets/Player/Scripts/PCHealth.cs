@@ -21,8 +21,9 @@ public class PCHealth : Health
         SetHPStartup(pcReferences.pcData.maxHP);
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         RegenCheck();
         RegenWait();
         Regen();
@@ -42,6 +43,7 @@ public class PCHealth : Health
 
     public override void OnHitReceived()
     {
+        base.OnHitReceived();
         PlayOnHitSound();
         regenWait = false;
         regen = false;
@@ -84,5 +86,11 @@ public class PCHealth : Health
     {
         base.SetHPStartup(givenMaxHP);
         pcLight.LightRadiusUpdate(currentHP);
+    }
+
+    protected override void SetSpriteRenderer()
+    {
+        spriteRef = pcReferences.spriteRenderer;
+        spriteRefBaseColor = pcReferences.spriteStartColor;
     }
 }

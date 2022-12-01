@@ -11,14 +11,14 @@ public class Attack : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GetOtherReferences(other);
-        if (attackReceived != null) Damage();
+        if (attackReceived != null) Damage(other.tag);
     }
 
     protected virtual void GetOtherReferences(Collider other)
     {
         attackReceived = other.gameObject.GetComponent<AttackReceived>();
     }
-    protected virtual void Damage()
+    protected virtual void Damage(string receivedTag)
     {
         return;
     }

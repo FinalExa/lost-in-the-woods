@@ -108,6 +108,8 @@ MonoBehaviour:
   pcRotation: {fileID: 0}
   pcHealth: {fileID: 0}
   pcLight: {fileID: 0}
+  spriteRenderer: {fileID: 8717672636991933783}
+  spriteStartColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &723867546203750364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +194,9 @@ MonoBehaviour:
   deathSound: BruhDeath
   hasOnHitSound: 1
   onHitSound: BruhOnHit
+  hasOnHitSpriteColorChange: 1
+  spriteColorChangeDuration: 0.3
+  onHitSpriteColor: {r: 1, g: 0.9128059, b: 0, a: 1}
 --- !u!114 &8706434170628328547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heartbeatCooldown: 10
   heartbeatDuration: 15
-  globalLightHeartbeatColor: {r: 1, g: 0, b: 0, a: 0}
+  globalLightHeartbeatColor: {r: 1, g: 0, b: 0, a: 1}
   testScene: 0
   hasAnticipationSound: 1
   anticipationTime: 5
