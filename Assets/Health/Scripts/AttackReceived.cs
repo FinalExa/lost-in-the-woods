@@ -20,8 +20,18 @@ public class AttackReceived : MonoBehaviour
     {
         if (receivedTargets.Contains(thisType))
         {
-            if (!ignoresDamage && health != null && !invulnerable) health.HealthAddValue(-damage);
+            if (!ignoresDamage) DealDamage(invulnerable, damage);
+            else if (health != null)
+            {
+                health.SetSpriteColorChange();
+                health.PlayOnHitSound();
+            }
         }
         if (attackInteraction != null) attackInteraction.CheckIfAttackTypeIsTheSame(weaponAttackTypes);
+    }
+
+    private void DealDamage(bool invulnerable, float damage)
+    {
+        if (health != null && !invulnerable) health.HealthAddValue(-damage);
     }
 }

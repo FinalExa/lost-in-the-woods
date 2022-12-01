@@ -56,10 +56,7 @@ public class AttackInteraction : MonoBehaviour
 
     private void Start()
     {
-        if (lightInteraction.hasLightInteraction && lightInteraction.affectedByLightRef != null)
-        {
-            AffectedByLight.lightStateChangedSignal += ExecuteLightInteraction;
-        }
+        AffectedByLight.lightStateChangedSignal += ExecuteLightInteraction;
     }
     public void CheckIfAttackTypeIsTheSame(List<WeaponAttack.WeaponAttackType> attackTypes)
     {
@@ -138,7 +135,7 @@ public class AttackInteraction : MonoBehaviour
     }
     private void SetObjectActiveStatus(Options options)
     {
-        options.objectToSetActiveStatus.SetActive(options.objectActiveStatus);
+        if (options.objectToSetActiveStatus != null) options.objectToSetActiveStatus.SetActive(options.objectActiveStatus);
     }
 
     private void RotateObject(Options options)

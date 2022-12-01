@@ -129,7 +129,7 @@ MonoBehaviour:
   onHitSound: BruhOnHit
   hasOnHitSpriteColorChange: 1
   spriteColorChangeDuration: 0.3
-  onHitSpriteColor: {r: 1, g: 0, b: 0, a: 1}
+  onHitSpriteColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!114 &8690117516297040685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,8 +572,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7f9b62eeb15b9ae48846e1343e970e17, type: 3}
-  m_Color: {r: 1, g: 0.7008203, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 55d9a5e5eb63789448c3c43fc5eca070, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

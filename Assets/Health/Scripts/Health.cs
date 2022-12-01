@@ -53,7 +53,7 @@ public abstract class Health : MonoBehaviour
         SetSpriteColorChange();
     }
 
-    protected void PlayOnHitSound()
+    public void PlayOnHitSound()
     {
         if (hasOnHitSound) AudioManager.Instance.PlaySound(onHitSound);
     }
@@ -63,7 +63,7 @@ public abstract class Health : MonoBehaviour
         return;
     }
 
-    protected void SetSpriteColorChange()
+    public void SetSpriteColorChange()
     {
         if (spriteRef == null) SetSpriteRenderer();
         if (hasOnHitSpriteColorChange && spriteRef != null)

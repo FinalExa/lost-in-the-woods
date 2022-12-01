@@ -170,7 +170,7 @@ MonoBehaviour:
   onHitSound: BruhOnHit
   hasOnHitSpriteColorChange: 1
   spriteColorChangeDuration: 0.3
-  onHitSpriteColor: {r: 1, g: 0, b: 0, a: 1}
+  onHitSpriteColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!114 &8690117516297040685
 MonoBehaviour:
   m_ObjectHideFlags: 0
