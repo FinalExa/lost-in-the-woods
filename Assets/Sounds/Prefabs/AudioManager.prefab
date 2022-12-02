@@ -47,85 +47,99 @@ MonoBehaviour:
   sounds:
   - clipName: PCAttack1
     clip: {fileID: 8300000, guid: a78081cb1badaf048b78b1ecca3a0898, type: 3}
-    volume: 0.1
+    volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
-    mixer: {fileID: 0}
+    mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
   - clipName: PCAttack2
     clip: {fileID: 8300000, guid: 244fb2fca14b3e24cb7b754c21cf1979, type: 3}
-    volume: 0.1
+    volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
-    mixer: {fileID: 0}
+    mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
   - clipName: PCAttack3
     clip: {fileID: 8300000, guid: dc16683ddfc54994f839e63788e94d05, type: 3}
-    volume: 0.1
+    volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
-    mixer: {fileID: 0}
+    mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
   - clipName: EnemyDeath
     clip: {fileID: 8300000, guid: 62e6665eae50acd4ea9aefae6930823a, type: 3}
-    volume: 0.1
+    volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
-    mixer: {fileID: 0}
+    mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
   - clipName: EnemyAggro
     clip: {fileID: 8300000, guid: 62e6665eae50acd4ea9aefae6930823a, type: 3}
-    volume: 0.5
+    volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
-    mixer: {fileID: 0}
+    mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
   - clipName: EnemyOnHit
     clip: {fileID: 8300000, guid: 2bcaa44bc2e9bd84ea7e9d9ea1f96f19, type: 3}
-    volume: 0.1
+    volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
     mixer: {fileID: 0}
   - clipName: PCLanternLowered
     clip: {fileID: 8300000, guid: 2f9b4b72e1f641d4eab4c757b012588f, type: 3}
-    volume: 0.1
+    volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
-    mixer: {fileID: 0}
+    mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
   - clipName: PCLanternRise
     clip: {fileID: 8300000, guid: 9ac335f1e4eed7145990f017f460eb30, type: 3}
-    volume: 0.1
+    volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
-    mixer: {fileID: 0}
+    mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
   - clipName: PCOnHit
     clip: {fileID: 8300000, guid: b0088bc667f21f9418a4831c8f67434b, type: 3}
-    volume: 0.1
+    volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
-    mixer: {fileID: 0}
+    mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
   - clipName: PuzzleDestruction
     clip: {fileID: 8300000, guid: 147304a8edea43941b7a819ae14ee2ae, type: 3}
-    volume: 0.1
+    volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
     mixer: {fileID: 0}
   - clipName: PuzzleLightInteraction
     clip: {fileID: 8300000, guid: ff96959b80658d441a5133cb1c4a6144, type: 3}
-    volume: 0.1
+    volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
-    mixer: {fileID: 0}
+    mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
   - clipName: PuzzleTransformation
     clip: {fileID: 8300000, guid: b48a6df31c4f8034f87eb59cb62d4c51, type: 3}
-    volume: 0.1
+    volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
-    mixer: {fileID: 0}
+    mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
+  - clipName: Ambience
+    clip: {fileID: 8300000, guid: 2a3104900353e0a45b1a07fd5d3db0a4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
+  - clipName: Heartbeat
+    clip: {fileID: 8300000, guid: 1fca4af82acbb6247aad72d1db170d5e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}

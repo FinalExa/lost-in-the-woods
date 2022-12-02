@@ -2259,30 +2259,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2741400668350166239, guid: 87a8d1503fdfb5345a4afb38589ccaa1, type: 3}
-      propertyPath: sounds.Array.size
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 2741400668350166239, guid: 87a8d1503fdfb5345a4afb38589ccaa1, type: 3}
-      propertyPath: sounds.Array.data[12].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 2a3104900353e0a45b1a07fd5d3db0a4, type: 3}
-    - target: {fileID: 2741400668350166239, guid: 87a8d1503fdfb5345a4afb38589ccaa1, type: 3}
-      propertyPath: sounds.Array.data[12].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2741400668350166239, guid: 87a8d1503fdfb5345a4afb38589ccaa1, type: 3}
-      propertyPath: sounds.Array.data[12].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2741400668350166239, guid: 87a8d1503fdfb5345a4afb38589ccaa1, type: 3}
-      propertyPath: sounds.Array.data[12].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2741400668350166239, guid: 87a8d1503fdfb5345a4afb38589ccaa1, type: 3}
-      propertyPath: sounds.Array.data[12].clipName
-      value: Ambience
-      objectReference: {fileID: 0}
-    - target: {fileID: 2741400668350166239, guid: 87a8d1503fdfb5345a4afb38589ccaa1, type: 3}
       propertyPath: sounds.Array.data[12].playOnAwake
       value: 1
       objectReference: {fileID: 0}
@@ -2472,7 +2448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8706434170628328547, guid: c44e0394991c2c44597e45f504601056, type: 3}
       propertyPath: heartbeatCooldown
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8706434170628328547, guid: c44e0394991c2c44597e45f504601056, type: 3}
       propertyPath: heartbeatDuration

@@ -218,8 +218,8 @@ MonoBehaviour:
   hasAnticipationSound: 0
   anticipationTime: 5
   anticipationSound: 
-  hasHeartbeatSound: 0
-  heartbeatSound: 
+  hasHeartbeatSound: 1
+  heartbeatSound: Heartbeat
 --- !u!114 &1353845484741870925
 MonoBehaviour:
   m_ObjectHideFlags: 0
