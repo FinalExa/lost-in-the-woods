@@ -176,6 +176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisType: 0
   ignoresDamage: 0
+  hasCameraShakeOnHit: 1
+  cameraShakeOnHitDuration: 1
 --- !u!114 &3858997638449282005
 MonoBehaviour:
   m_ObjectHideFlags: 0

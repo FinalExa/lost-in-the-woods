@@ -9,11 +9,16 @@ public class AttackReceived : MonoBehaviour
     public enum GameTargets { PLAYER, ENEMY, PUZZLE_ELEMENT, ENVIRONMENT }
     [SerializeField] private GameTargets thisType;
     [SerializeField] private bool ignoresDamage;
+    [SerializeField] private bool hasCameraShakeOnHit;
+    [SerializeField] private float cameraShakeOnHitDuration;
+
+    private CinemachineCameraShaker cinemachineCameraShaker;
 
     private void Awake()
     {
         health = this.gameObject.GetComponent<Health>();
         attackInteraction = this.gameObject.GetComponent<AttackInteraction>();
+        cinemachineCameraShaker = FindObjectOfType<CinemachineCameraShaker>();
     }
 
     public void AttackReceivedOperation(List<GameTargets> receivedTargets, float damage, List<WeaponAttack.WeaponAttackType> weaponAttackTypes, bool invulnerable)
@@ -26,6 +31,7 @@ public class AttackReceived : MonoBehaviour
                 health.SetSpriteColorChange();
                 health.PlayOnHitSound();
             }
+            if (hasCameraShakeOnHit) cinemachineCameraShaker.ShakeCamera(cameraShakeOnHitDuration);
         }
         if (attackInteraction != null) attackInteraction.CheckIfAttackTypeIsTheSame(weaponAttackTypes);
     }
