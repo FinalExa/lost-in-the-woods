@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
             GameObject soundObj = new GameObject("Sound_" + i + sounds[i].clipName);
             soundObj.transform.SetParent(this.transform);
             sounds[i].SetSource(soundObj.AddComponent<AudioSource>());
+            if (sounds[i].playOnAwake) PlaySound(sounds[i].clipName);
         }
     }
 
