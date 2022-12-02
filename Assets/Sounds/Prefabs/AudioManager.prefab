@@ -136,3 +136,10 @@ MonoBehaviour:
     loop: 1
     playOnAwake: 0
     mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
+  - clipName: Heartbeat
+    clip: {fileID: 8300000, guid: 1fca4af82acbb6247aad72d1db170d5e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
