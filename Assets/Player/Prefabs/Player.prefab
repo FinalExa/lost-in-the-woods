@@ -108,6 +108,8 @@ MonoBehaviour:
   pcRotation: {fileID: 0}
   pcHealth: {fileID: 0}
   pcLight: {fileID: 0}
+  spriteRenderer: {fileID: 8717672636991933783}
+  spriteStartColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &723867546203750364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisType: 0
   ignoresDamage: 0
+  hasCameraShakeOnHit: 1
+  cameraShakeOnHitDuration: 1
 --- !u!114 &3858997638449282005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +192,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 0
   maxHP: 0
+  hasDeathSound: 1
+  deathSound: BruhDeath
+  hasOnHitSound: 1
+  onHitSound: BruhOnHit
+  hasOnHitSpriteColorChange: 1
+  spriteColorChangeDuration: 0.3
+  onHitSpriteColor: {r: 1, g: 0.9128059, b: 0, a: 1}
 --- !u!114 &8706434170628328547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,10 +211,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7f787ccf609ce4a9001551dfd11649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartbeatCooldown: 30
+  heartbeatCooldown: 10
   heartbeatDuration: 15
-  globalLightHeartbeatColor: {r: 1, g: 0, b: 0, a: 0}
+  globalLightHeartbeatColor: {r: 1, g: 0, b: 0, a: 1}
   testScene: 0
+  hasAnticipationSound: 1
+  anticipationTime: 5
+  anticipationSound: BruhDeath
+  hasHeartbeatSound: 1
+  heartbeatSound: BruhHeartbeat
 --- !u!114 &1353845484741870925
 MonoBehaviour:
   m_ObjectHideFlags: 0

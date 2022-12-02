@@ -28,3 +28,4 @@ MonoBehaviour:
   dodgeDuration: 0.35
   dodgeDistance: 5
   dodgeStopTime: 0.7
+  dodgeColor: {r: 0.033018887, g: 0.59128296, b: 1, a: 1}

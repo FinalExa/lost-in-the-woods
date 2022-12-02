@@ -148,6 +148,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {fileID: 11400000, guid: 3a0ecedcd75d65b498584f6fa7373c60, type: 2}
   enemyData: {fileID: 11400000, guid: 9fcc030e7b79edf4995d96865652c5f8, type: 2}
+  spriteRendererRef: {fileID: 5968671515912607088}
+  spriteBaseColor: {r: 0, g: 0, b: 0, a: 0}
   currentWeapon: {fileID: 0}
   isAlerted: 0
   playerTarget: {fileID: 0}
@@ -180,6 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyController: {fileID: 0}
   enemyWeaponSwitcher: {fileID: 0}
+  witchEnemyController: {fileID: 0}
 --- !u!114 &3939637572597450188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +213,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 100
   maxHP: 100
+  hasDeathSound: 1
+  deathSound: BruhDeath
+  hasOnHitSound: 1
+  onHitSound: BruhOnHit
+  hasOnHitSpriteColorChange: 1
+  spriteColorChangeDuration: 0.3
+  onHitSpriteColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!114 &8690117516297040685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,6 +287,7 @@ MonoBehaviour:
   previousLightState: 0
   isInsideLight: 0
   isInHeartbeatState: 0
+  enemyController: {fileID: 0}
 --- !u!65 &7001282123244882244
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -468,7 +479,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d4ee2417deffe734bb4ca59c0cf27832, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 55d9a5e5eb63789448c3c43fc5eca070, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

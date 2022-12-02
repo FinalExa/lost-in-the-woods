@@ -22,6 +22,7 @@ public class EnemyHealth : Health
 
     public override void OnDeath()
     {
+        PlayDeathSound();
         SetEnemyDead();
         OnDeathInteraction();
     }
@@ -33,6 +34,7 @@ public class EnemyHealth : Health
             else this.gameObject.SetActive(false);
         }
     }
+
     protected virtual void OnDeathInteraction()
     {
         if (!deathDone && attackInteraction != null) attackInteraction.OnDeathInteraction();
@@ -41,5 +43,11 @@ public class EnemyHealth : Health
     private void OnDisable()
     {
         SetEnemyDead();
+    }
+
+    protected override void SetSpriteRenderer()
+    {
+        spriteRef = enemyController.spriteRendererRef;
+        spriteRefBaseColor = enemyController.spriteBaseColor;
     }
 }

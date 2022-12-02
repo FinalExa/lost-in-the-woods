@@ -48,6 +48,8 @@ MonoBehaviour:
   aggroLayer:
     serializedVersion: 2
     m_Bits: 247
+  hasAggroSound: 1
+  aggroSound: BruhAggro
 --- !u!135 &86333846612274888
 SphereCollider:
   m_ObjectHideFlags: 0

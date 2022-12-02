@@ -10,6 +10,8 @@ public class EnemyAggro : MonoBehaviour
     private Transform playerTransform;
     [SerializeField] private LayerMask aggroLayer;
     private int playerLayer;
+    [SerializeField] private bool hasAggroSound;
+    [SerializeField] private string aggroSound;
 
     private void Awake()
     {
@@ -50,7 +52,13 @@ public class EnemyAggro : MonoBehaviour
             enemyController.isAlerted = true;
             playerInAggroCollider = false;
             aggroCollider.enabled = false;
+            PlayAggroSound();
         }
+    }
+
+    private void PlayAggroSound()
+    {
+        if (hasAggroSound) AudioManager.Instance.PlaySound(aggroSound);
     }
 
     private void CountDistanceFromPlayer()

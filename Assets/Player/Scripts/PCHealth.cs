@@ -21,24 +21,32 @@ public class PCHealth : Health
         SetHPStartup(pcReferences.pcData.maxHP);
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         RegenCheck();
         RegenWait();
         Regen();
     }
     public override void HealthAddValue(float healthToAdd)
     {
-        currentHP += healthToAdd;
-        currentHP = Mathf.Clamp(currentHP, 0, maxHP);
-        if (healthToAdd < 0)
-        {
-            regenWait = false;
-            regen = false;
-        }
+        base.HealthAddValue(healthToAdd);
         pcLight.LightRadiusUpdate(currentHP);
-        //THIS IS SUPER TEMP
-        if (currentHP <= 0) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public override void OnDeath()
+    {
+        //TEMPORARY
+        PlayDeathSound();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public override void OnHitReceived()
+    {
+        base.OnHitReceived();
+        PlayOnHitSound();
+        regenWait = false;
+        regen = false;
     }
 
     private void RegenCheck()
@@ -78,5 +86,11 @@ public class PCHealth : Health
     {
         base.SetHPStartup(givenMaxHP);
         pcLight.LightRadiusUpdate(currentHP);
+    }
+
+    protected override void SetSpriteRenderer()
+    {
+        spriteRef = pcReferences.spriteRenderer;
+        spriteRefBaseColor = pcReferences.spriteStartColor;
     }
 }

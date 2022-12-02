@@ -12,6 +12,8 @@ public class PCLight : MonoBehaviour
     private SphereCollider lightTrigger;
     public List<AffectedByLight> entitiesAffectedByLight;
     [HideInInspector] public bool lanternUp;
+    [SerializeField] private bool hasLanternSwitchSound;
+    [SerializeField] private string lanternSwitchSound;
 
     private void Awake()
     {
@@ -55,6 +57,11 @@ public class PCLight : MonoBehaviour
         if (lanternUp) valueDiff = pcData.lightUpMaxLightRadius - pcData.lightUpMinLightRadius;
         else valueDiff = pcData.maxLightRadius - pcData.minLightRadius;
         return valueDiff;
+    }
+
+    public void PlayLanternSound()
+    {
+        if (hasLanternSwitchSound) AudioManager.Instance.PlaySound(lanternSwitchSound);
     }
 
     private void OnTriggerEnter(Collider other)

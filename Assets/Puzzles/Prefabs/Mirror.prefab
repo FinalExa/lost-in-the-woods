@@ -95,6 +95,8 @@ MonoBehaviour:
       objectToRotate: {fileID: 4014776902879149190}
       rotateValue: 90
       sendsSignalToSelf: 0
+      playsSoundOnInteraction: 0
+      soundToPlay: 
   namedInteractions: []
   onDeathEnabled: 0
   onDeathInteraction:
@@ -108,10 +110,11 @@ MonoBehaviour:
     objectToRotate: {fileID: 0}
     rotateValue: 0
     sendsSignalToSelf: 0
+    playsSoundOnInteraction: 0
+    soundToPlay: 
   lightInteraction:
     hasLightInteraction: 1
     affectedByLightRef: {fileID: -6269373168636999820}
-    currentLightState: 0
     normalOptions:
       isDestroyed: 0
       isTransformed: 0
@@ -123,6 +126,8 @@ MonoBehaviour:
       objectToRotate: {fileID: 0}
       rotateValue: 0
       sendsSignalToSelf: 0
+      playsSoundOnInteraction: 0
+      soundToPlay: 
     calmOptions:
       isDestroyed: 0
       isTransformed: 0
@@ -134,6 +139,8 @@ MonoBehaviour:
       objectToRotate: {fileID: 0}
       rotateValue: 0
       sendsSignalToSelf: 0
+      playsSoundOnInteraction: 1
+      soundToPlay: BruhInteraction
     berserkOptions:
       isDestroyed: 0
       isTransformed: 0
@@ -145,6 +152,8 @@ MonoBehaviour:
       objectToRotate: {fileID: 0}
       rotateValue: 0
       sendsSignalToSelf: 0
+      playsSoundOnInteraction: 0
+      soundToPlay: 
 --- !u!54 &4014776901287296293
 Rigidbody:
   m_ObjectHideFlags: 0

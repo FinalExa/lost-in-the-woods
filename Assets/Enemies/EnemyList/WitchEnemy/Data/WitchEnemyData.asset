@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WitchEnemyData
   m_EditorClassIdentifier: 
   enemyName: Witch
-  maxHP: 10
+  maxHP: 100
   normalMovementSpeed: 7
   normalDistanceFromPlayer: 2.5
   normalDistanceTolerance: 0

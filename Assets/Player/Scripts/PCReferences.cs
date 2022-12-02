@@ -12,6 +12,8 @@ public class PCReferences : MonoBehaviour
     [HideInInspector] public PCRotation pcRotation;
     [HideInInspector] public PCHealth pcHealth;
     [HideInInspector] public PCLight pcLight;
+    public SpriteRenderer spriteRenderer;
+    [HideInInspector] public Color spriteStartColor;
 
     private void Awake()
     {
@@ -22,5 +24,10 @@ public class PCReferences : MonoBehaviour
         pcRotation = FindObjectOfType<PCRotation>();
         pcHealth = this.gameObject.GetComponent<PCHealth>();
         pcLight = this.gameObject.GetComponentInChildren<PCLight>();
+    }
+
+    private void Start()
+    {
+        spriteStartColor = spriteRenderer.color;
     }
 }
