@@ -45,52 +45,87 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - clipName: Bruh
-    clip: {fileID: 8300000, guid: f79a0a2299f949343bc9a4916894b1bb, type: 3}
+  - clipName: PCAttack1
+    clip: {fileID: 8300000, guid: a78081cb1badaf048b78b1ecca3a0898, type: 3}
     volume: 0.1
     pitch: 1
     loop: 0
     playOnAwake: 0
     mixer: {fileID: 0}
-  - clipName: BruhDeath
-    clip: {fileID: 8300000, guid: f79a0a2299f949343bc9a4916894b1bb, type: 3}
+  - clipName: PCAttack2
+    clip: {fileID: 8300000, guid: 244fb2fca14b3e24cb7b754c21cf1979, type: 3}
     volume: 0.1
-    pitch: 0.1
+    pitch: 1
     loop: 0
     playOnAwake: 0
     mixer: {fileID: 0}
-  - clipName: BruhOnHit
-    clip: {fileID: 8300000, guid: f79a0a2299f949343bc9a4916894b1bb, type: 3}
+  - clipName: PCAttack3
+    clip: {fileID: 8300000, guid: dc16683ddfc54994f839e63788e94d05, type: 3}
     volume: 0.1
-    pitch: 1.9
+    pitch: 1
     loop: 0
     playOnAwake: 0
     mixer: {fileID: 0}
-  - clipName: BruhAggro
-    clip: {fileID: 8300000, guid: f79a0a2299f949343bc9a4916894b1bb, type: 3}
+  - clipName: EnemyDeath
+    clip: {fileID: 8300000, guid: 62e6665eae50acd4ea9aefae6930823a, type: 3}
     volume: 0.1
-    pitch: 1.4
+    pitch: 1
     loop: 0
     playOnAwake: 0
     mixer: {fileID: 0}
-  - clipName: BruhInteraction
-    clip: {fileID: 8300000, guid: f79a0a2299f949343bc9a4916894b1bb, type: 3}
-    volume: 0.1
-    pitch: 0.7
+  - clipName: EnemyAggro
+    clip: {fileID: 8300000, guid: 62e6665eae50acd4ea9aefae6930823a, type: 3}
+    volume: 0.5
+    pitch: 1
     loop: 0
     playOnAwake: 0
     mixer: {fileID: 0}
-  - clipName: BruhHeartbeat
-    clip: {fileID: 8300000, guid: f79a0a2299f949343bc9a4916894b1bb, type: 3}
+  - clipName: EnemyOnHit
+    clip: {fileID: 8300000, guid: 2bcaa44bc2e9bd84ea7e9d9ea1f96f19, type: 3}
     volume: 0.1
-    pitch: 0.15
+    pitch: 1
     loop: 0
     playOnAwake: 0
     mixer: {fileID: 0}
-  - clipName: BruhLantern
-    clip: {fileID: 8300000, guid: f79a0a2299f949343bc9a4916894b1bb, type: 3}
+  - clipName: PCLanternLowered
+    clip: {fileID: 8300000, guid: 2f9b4b72e1f641d4eab4c757b012588f, type: 3}
     volume: 0.1
-    pitch: 0.85
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    mixer: {fileID: 0}
+  - clipName: PCLanternRise
+    clip: {fileID: 8300000, guid: 9ac335f1e4eed7145990f017f460eb30, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    mixer: {fileID: 0}
+  - clipName: PCOnHit
+    clip: {fileID: 8300000, guid: b0088bc667f21f9418a4831c8f67434b, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    mixer: {fileID: 0}
+  - clipName: PuzzleDestruction
+    clip: {fileID: 8300000, guid: 147304a8edea43941b7a819ae14ee2ae, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    mixer: {fileID: 0}
+  - clipName: PuzzleLightInteraction
+    clip: {fileID: 8300000, guid: ff96959b80658d441a5133cb1c4a6144, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    mixer: {fileID: 0}
+  - clipName: PuzzleTransformation
+    clip: {fileID: 8300000, guid: b48a6df31c4f8034f87eb59cb62d4c51, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     playOnAwake: 0
     mixer: {fileID: 0}

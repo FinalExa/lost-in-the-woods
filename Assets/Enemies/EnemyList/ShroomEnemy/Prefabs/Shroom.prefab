@@ -165,9 +165,9 @@ MonoBehaviour:
   currentHP: 0
   maxHP: 0
   hasDeathSound: 1
-  deathSound: BruhDeath
+  deathSound: EnemyDeath
   hasOnHitSound: 1
-  onHitSound: BruhOnHit
+  onHitSound: EnemyOnHit
   hasOnHitSpriteColorChange: 1
   spriteColorChangeDuration: 0.3
   onHitSpriteColor: {r: 0, g: 0, b: 1, a: 1}
@@ -222,6 +222,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisType: 1
   ignoresDamage: 0
+  hasCameraShakeOnHit: 0
+  cameraShakeOnHitDuration: 0
 --- !u!114 &1499536932708734254
 MonoBehaviour:
   m_ObjectHideFlags: 0
