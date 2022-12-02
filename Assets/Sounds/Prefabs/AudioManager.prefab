@@ -129,3 +129,10 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
+  - clipName: Ambience
+    clip: {fileID: 8300000, guid: 2a3104900353e0a45b1a07fd5d3db0a4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
