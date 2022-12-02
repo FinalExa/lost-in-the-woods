@@ -177,7 +177,7 @@ MonoBehaviour:
   thisType: 0
   ignoresDamage: 0
   hasCameraShakeOnHit: 1
-  cameraShakeOnHitDuration: 1
+  cameraShakeOnHitDuration: 0.3
 --- !u!114 &3858997638449282005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,10 +192,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 0
   maxHP: 0
-  hasDeathSound: 1
-  deathSound: BruhDeath
+  hasDeathSound: 0
+  deathSound: 
   hasOnHitSound: 1
-  onHitSound: BruhOnHit
+  onHitSound: PCOnHit
   hasOnHitSpriteColorChange: 1
   spriteColorChangeDuration: 0.3
   onHitSpriteColor: {r: 1, g: 0.9128059, b: 0, a: 1}
@@ -211,15 +211,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7f787ccf609ce4a9001551dfd11649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartbeatCooldown: 10
+  heartbeatCooldown: 5
   heartbeatDuration: 15
   globalLightHeartbeatColor: {r: 1, g: 0, b: 0, a: 1}
   testScene: 0
-  hasAnticipationSound: 1
+  hasAnticipationSound: 0
   anticipationTime: 5
-  anticipationSound: BruhDeath
-  hasHeartbeatSound: 1
-  heartbeatSound: BruhHeartbeat
+  anticipationSound: 
+  hasHeartbeatSound: 0
+  heartbeatSound: 
 --- !u!114 &1353845484741870925
 MonoBehaviour:
   m_ObjectHideFlags: 0

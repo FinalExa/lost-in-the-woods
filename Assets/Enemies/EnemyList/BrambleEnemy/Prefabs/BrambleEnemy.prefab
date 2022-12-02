@@ -77,8 +77,8 @@ MonoBehaviour:
   isRetracted: 0
   brambleData: {fileID: 0}
   spriteColliderObject: {fileID: 7200053106513421008}
-  playsSoundFullyRetracted: 1
-  soundFullyRetracted: BruhInteraction
+  playsSoundFullyRetracted: 0
+  soundFullyRetracted: 
 --- !u!114 &2722995872011041464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,9 +124,9 @@ MonoBehaviour:
   currentHP: 0
   maxHP: 0
   hasDeathSound: 1
-  deathSound: BruhDeath
+  deathSound: EnemyDeath
   hasOnHitSound: 1
-  onHitSound: BruhOnHit
+  onHitSound: EnemyOnHit
   hasOnHitSpriteColorChange: 1
   spriteColorChangeDuration: 0.3
   onHitSpriteColor: {r: 0, g: 0, b: 1, a: 1}
@@ -181,6 +181,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisType: 1
   ignoresDamage: 1
+  hasCameraShakeOnHit: 0
+  cameraShakeOnHitDuration: 0
 --- !u!114 &-3714416512890541913
 MonoBehaviour:
   m_ObjectHideFlags: 0

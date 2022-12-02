@@ -207,9 +207,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e351f771799864eacd55c4b64d75de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IdleAmplitude: 0.1
+  IdleAmplitude: 0
   IdleFrequency: 1
-  DefaultShakeAmplitude: 0.5
+  DefaultShakeAmplitude: 0.8
   DefaultShakeFrequency: 10
 --- !u!1 &46372793
 GameObject:
@@ -1313,7 +1313,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2254,10 +2254,6 @@ PrefabInstance:
     - target: {fileID: 7129377632901191479, guid: c44e0394991c2c44597e45f504601056, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8706434170628328547, guid: c44e0394991c2c44597e45f504601056, type: 3}
-      propertyPath: heartbeatCooldown
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c44e0394991c2c44597e45f504601056, type: 3}

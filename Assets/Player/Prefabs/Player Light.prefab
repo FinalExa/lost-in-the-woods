@@ -198,7 +198,7 @@ MonoBehaviour:
   entitiesAffectedByLight: []
   lanternUp: 0
   hasLanternSwitchSound: 1
-  lanternSwitchSound: BruhLantern
+  lanternSwitchSound: PCLanternRise
 --- !u!135 &512457919144187963
 SphereCollider:
   m_ObjectHideFlags: 0

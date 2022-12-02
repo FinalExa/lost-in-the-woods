@@ -69,6 +69,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisType: 2
   ignoresDamage: 1
+  hasCameraShakeOnHit: 0
+  cameraShakeOnHitDuration: 0
 --- !u!114 &4830499187636917438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +142,7 @@ MonoBehaviour:
       rotateValue: 0
       sendsSignalToSelf: 0
       playsSoundOnInteraction: 1
-      soundToPlay: BruhInteraction
+      soundToPlay: PuzzleLightInteraction
     berserkOptions:
       isDestroyed: 0
       isTransformed: 0

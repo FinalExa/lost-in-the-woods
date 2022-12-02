@@ -183,7 +183,7 @@ MonoBehaviour:
         projectileLaunchTimeAfterStart: 0
     hasAnimation: 0
     playsSound: 1
-    soundToPlay: Bruh
+    soundToPlay: PCAttack1
   - damage: 10
     duration: 0.5
     afterDelay: 0.1
@@ -214,7 +214,7 @@ MonoBehaviour:
         projectileLaunchTimeAfterStart: 0
     hasAnimation: 0
     playsSound: 1
-    soundToPlay: Bruh
+    soundToPlay: PCAttack2
   - damage: 20
     duration: 0.3
     afterDelay: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
         projectileLaunchTimeAfterStart: 0
     hasAnimation: 0
     playsSound: 1
-    soundToPlay: Bruh
+    soundToPlay: PCAttack3
   hitTargets: []
   currentDamage: 0
 --- !u!1001 &835839233154053561
