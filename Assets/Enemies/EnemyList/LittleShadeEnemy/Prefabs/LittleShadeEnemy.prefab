@@ -9,18 +9,19 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6395110103217412864}
-  - component: {fileID: 5442958727106480689}
+  - component: {fileID: 5341445938159073920}
   - component: {fileID: 3939637572597450188}
   - component: {fileID: -57584891418013859}
   - component: {fileID: 8690117516297040685}
   - component: {fileID: 249166922592196662}
   - component: {fileID: 1079639170565201830}
   - component: {fileID: -3714416512890541913}
+  - component: {fileID: 4838472884753948946}
   - component: {fileID: 7001282123244882244}
   - component: {fileID: 4992552886037869941}
   - component: {fileID: 4166100610456823755}
   m_Layer: 0
-  m_Name: EnemyTemplate
+  m_Name: LittleShadeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +35,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5477770951886658404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.53, y: 0, z: 1.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -43,7 +44,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5442958727106480689
+--- !u!114 &5341445938159073920
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,11 +53,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5477770951886658404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 759e2d756e715924c93d4cfded553960, type: 3}
+  m_Script: {fileID: 11500000, guid: 7159c0caf29705d41bbc54f8a432dd37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rotation: {fileID: 11400000, guid: 3a0ecedcd75d65b498584f6fa7373c60, type: 2}
-  enemyData: {fileID: 0}
+  enemyData: {fileID: 11400000, guid: e5ec325c6a806cf49b2731e9acd34b53, type: 2}
   spriteRendererRef: {fileID: 5968671515912607088}
   spriteBaseColor: {r: 0, g: 0, b: 0, a: 0}
   currentWeapon: {fileID: 0}
@@ -71,6 +72,8 @@ MonoBehaviour:
     maxTimer: 0
     deathTimer: 0
   affectedByLight: {fileID: 0}
+  isStunned: 0
+  littleShadeStunTimer: 3
 --- !u!114 &3939637572597450188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +181,109 @@ MonoBehaviour:
   isInsideLight: 0
   isInHeartbeatState: 0
   enemyController: {fileID: 0}
+--- !u!114 &4838472884753948946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477770951886658404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17b331db98df9143ae63583c3486477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnsOff: 0
+  attackTypeInteractions:
+  - attackType: 1
+    options:
+      isDestroyed: 0
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      movesThis: 1
+      spaceToMove: 3
+      movementTime: 0
+      sendsSignalToSelf: 0
+      playsSoundOnInteraction: 0
+      soundToPlay: 
+  namedInteractions: []
+  onDeathEnabled: 0
+  onDeathInteraction:
+    isDestroyed: 0
+    isTransformed: 0
+    transformedRef: {fileID: 0}
+    canSetObjectActiveStatus: 0
+    objectActiveStatus: 0
+    objectToSetActiveStatus: {fileID: 0}
+    rotates: 0
+    objectToRotate: {fileID: 0}
+    rotateValue: 0
+    movesThis: 0
+    spaceToMove: 0
+    movementTime: 0
+    sendsSignalToSelf: 0
+    playsSoundOnInteraction: 0
+    soundToPlay: 
+  lightInteraction:
+    hasLightInteraction: 1
+    affectedByLightRef: {fileID: -3714416512890541913}
+    normalRefreshes: 0
+    normalOptions:
+      isDestroyed: 0
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      movesThis: 0
+      spaceToMove: 0
+      movementTime: 0
+      sendsSignalToSelf: 0
+      playsSoundOnInteraction: 0
+      soundToPlay: 
+    calmRefreshes: 1
+    calmOptions:
+      isDestroyed: 0
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      movesThis: 0
+      spaceToMove: 0
+      movementTime: 0
+      sendsSignalToSelf: 1
+      playsSoundOnInteraction: 0
+      soundToPlay: 
+    berserkRefreshes: 0
+    berserkOptions:
+      isDestroyed: 0
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      movesThis: 0
+      spaceToMove: 0
+      movementTime: 0
+      sendsSignalToSelf: 0
+      playsSoundOnInteraction: 0
+      soundToPlay: 
 --- !u!65 &7001282123244882244
 BoxCollider:
   m_ObjectHideFlags: 0
