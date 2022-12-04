@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LittleShadeEnemyController : EnemyController, ISendSignalToSelf
+public class LittleShadeEnemyController : EnemyController, ISendSignalToSelf, IHaveSpecialConditions
 {
 
     [HideInInspector] public bool isStunned;
@@ -38,5 +38,10 @@ public class LittleShadeEnemyController : EnemyController, ISendSignalToSelf
     {
         isStunned = false;
         print("End");
+    }
+
+    public bool SpecialConditions()
+    {
+        return isStunned;
     }
 }

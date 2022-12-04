@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisType: 1
-  ignoresDamage: 0
+  ignoresDamage: 1
   hasCameraShakeOnHit: 0
   cameraShakeOnHitDuration: 0
 --- !u!114 &-3714416512890541913
@@ -210,6 +210,7 @@ MonoBehaviour:
       spaceToMove: 3
       movementTime: 0
       sendsSignalToSelf: 0
+      hasSpecialCondition: 1
       playsSoundOnInteraction: 0
       soundToPlay: 
   namedInteractions: []
@@ -228,6 +229,7 @@ MonoBehaviour:
     spaceToMove: 0
     movementTime: 0
     sendsSignalToSelf: 0
+    hasSpecialCondition: 0
     playsSoundOnInteraction: 0
     soundToPlay: 
   lightInteraction:
@@ -248,6 +250,7 @@ MonoBehaviour:
       spaceToMove: 0
       movementTime: 0
       sendsSignalToSelf: 0
+      hasSpecialCondition: 0
       playsSoundOnInteraction: 0
       soundToPlay: 
     calmRefreshes: 1
@@ -265,6 +268,7 @@ MonoBehaviour:
       spaceToMove: 0
       movementTime: 0
       sendsSignalToSelf: 1
+      hasSpecialCondition: 0
       playsSoundOnInteraction: 0
       soundToPlay: 
     berserkRefreshes: 0
@@ -282,6 +286,7 @@ MonoBehaviour:
       spaceToMove: 0
       movementTime: 0
       sendsSignalToSelf: 0
+      hasSpecialCondition: 0
       playsSoundOnInteraction: 0
       soundToPlay: 
 --- !u!65 &7001282123244882244

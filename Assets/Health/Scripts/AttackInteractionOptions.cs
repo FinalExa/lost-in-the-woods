@@ -8,30 +8,50 @@ public class AttackInteractionOptions
     public AttackInteraction attackInteraction;
     public void Interact(AttackInteraction.Options options, bool turnsOff)
     {
-        PlaySound(options);
-        if (options.isDestroyed) DestroyOrTurnOff(turnsOff);
-        else if (options.isTransformed && options.transformedRef != null) Transform(options, turnsOff);
-        else if (options.sendsSignalToSelf) SendSignalToSelf();
-        else if (options.canSetObjectActiveStatus) SetObjectActiveStatus(options);
-        else if (options.rotates && options.objectToRotate != null) RotateObject(options);
+        if (!options.hasSpecialCondition || SpecialConditionsCheck(options))
+        {
+            PlaySound(options);
+            if (options.isDestroyed) DestroyOrTurnOff(turnsOff);
+            else if (options.isTransformed && options.transformedRef != null) Transform(options, turnsOff);
+            else if (options.sendsSignalToSelf) SendSignalToSelf();
+            else if (options.canSetObjectActiveStatus) SetObjectActiveStatus(options);
+            else if (options.rotates && options.objectToRotate != null) RotateObject(options);
+        }
     }
     public void Interact(AttackInteraction.Options options, bool turnsOff, float lifeTime)
     {
-        if (options.isDestroyed) DestroyOrTurnOff(turnsOff);
-        else if (options.isTransformed && options.transformedRef != null) Transform(options, turnsOff, lifeTime);
-        else if (options.sendsSignalToSelf) SendSignalToSelf();
-        else if (options.canSetObjectActiveStatus) SetObjectActiveStatus(options);
-        else if (options.rotates && options.objectToRotate != null) RotateObject(options);
+        if (!options.hasSpecialCondition || SpecialConditionsCheck(options))
+        {
+            if (options.isDestroyed) DestroyOrTurnOff(turnsOff);
+            else if (options.isTransformed && options.transformedRef != null) Transform(options, turnsOff, lifeTime);
+            else if (options.sendsSignalToSelf) SendSignalToSelf();
+            else if (options.canSetObjectActiveStatus) SetObjectActiveStatus(options);
+            else if (options.rotates && options.objectToRotate != null) RotateObject(options);
+        }
     }
 
     public void Interact(AttackInteraction.Options options, bool turnsOff, Vector3 direction)
     {
-        if (options.isDestroyed) DestroyOrTurnOff(turnsOff);
-        else if (options.isTransformed && options.transformedRef != null) Transform(options, turnsOff);
-        else if (options.movesThis) MoveObject(options, direction);
-        else if (options.sendsSignalToSelf) SendSignalToSelf();
-        else if (options.canSetObjectActiveStatus) SetObjectActiveStatus(options);
-        else if (options.rotates && options.objectToRotate != null) RotateObject(options);
+        if (!options.hasSpecialCondition || SpecialConditionsCheck(options))
+        {
+            if (options.isDestroyed) DestroyOrTurnOff(turnsOff);
+            else if (options.isTransformed && options.transformedRef != null) Transform(options, turnsOff);
+            else if (options.movesThis) MoveObject(options, direction);
+            else if (options.sendsSignalToSelf) SendSignalToSelf();
+            else if (options.canSetObjectActiveStatus) SetObjectActiveStatus(options);
+            else if (options.rotates && options.objectToRotate != null) RotateObject(options);
+        }
+    }
+
+    private bool SpecialConditionsCheck(AttackInteraction.Options options)
+    {
+        bool check = false;
+        if (options.hasSpecialCondition)
+        {
+            IHaveSpecialConditions haveSpecialConditions = attackInteraction.GetComponent<IHaveSpecialConditions>();
+            if (haveSpecialConditions != null) check = haveSpecialConditions.SpecialConditions();
+        }
+        return check;
     }
 
     private GameObject Transform(AttackInteraction.Options options, bool turnsOff)
@@ -60,7 +80,7 @@ public class AttackInteractionOptions
 
     private void MoveObject(AttackInteraction.Options options, Vector3 direction)
     {
-        attackInteraction.gameObject.transform.position += direction * options.spaceToMove / 5f;
+        attackInteraction.gameObject.transform.Translate(direction * options.spaceToMove);
     }
 
     private void SendSignalToSelf()

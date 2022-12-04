@@ -50,6 +50,7 @@ public class AttackInteraction : MonoBehaviour
         public float movementTime;
         [Header("For special functionalities, touch only if you script")]
         public bool sendsSignalToSelf;
+        public bool hasSpecialCondition;
         [Header("Sound to play")]
         public bool playsSoundOnInteraction;
         public string soundToPlay;
