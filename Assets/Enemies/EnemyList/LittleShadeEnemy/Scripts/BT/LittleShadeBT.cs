@@ -28,8 +28,8 @@ public class LittleShadeBT : EnemyBT
                 {
                     new Selector(new List<Node>
                     {
-                        new TaskIsFarFromPlayer(enemyController,enemyController.enemyData.berserkDistanceFromPlayer),
-                        new TaskEscapeFromPlayer(enemyController, enemyController.enemyData.berserkMovementSpeed)
+                        new TaskIsFarFromPlayer(enemyController, enemyController.enemyData.berserkDistanceFromPlayer, enemyController.enemyData.berserkDistanceTolerance),
+                        new TaskEscapeFromPlayer(enemyController, enemyController.enemyData.berserkMovementSpeed, enemyController.enemyData.berserkDistanceFromPlayer, enemyController.enemyData.berserkDistanceTolerance)
                     }),
                     new TaskAttackPlayer(enemyController.enemyCombo)
                 })
@@ -46,8 +46,8 @@ public class LittleShadeBT : EnemyBT
                 {
                     new Selector(new List<Node>
                     {
-                        new TaskIsFarFromPlayer(enemyController,enemyController.enemyData.normalDistanceFromPlayer),
-                        new TaskEscapeFromPlayer(enemyController, enemyController.enemyData.normalMovementSpeed)
+                        new TaskIsFarFromPlayer(enemyController,enemyController.enemyData.normalDistanceFromPlayer, enemyController.enemyData.normalDistanceTolerance),
+                        new TaskEscapeFromPlayer(enemyController, enemyController.enemyData.normalMovementSpeed, enemyController.enemyData.normalDistanceFromPlayer, enemyController.enemyData.normalDistanceTolerance)
                     }),
                     new TaskAttackPlayer(enemyController.enemyCombo)
                 })
