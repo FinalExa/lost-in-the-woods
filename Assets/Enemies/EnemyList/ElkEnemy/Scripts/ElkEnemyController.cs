@@ -13,7 +13,7 @@ public class ElkEnemyController : EnemyController, ISendSignalToSelf
         EnemyStunned();
     }
 
-    public void OnSignalReceived()
+    public void OnSignalReceived(GameObject source)
     {
         EndStun();
     }

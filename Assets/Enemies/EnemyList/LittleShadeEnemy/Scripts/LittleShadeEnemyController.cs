@@ -27,7 +27,7 @@ public class LittleShadeEnemyController : EnemyController, ISendSignalToSelf, IH
         namedInteraction.enabled = false;
     }
 
-    public void OnSignalReceived()
+    public void OnSignalReceived(GameObject source)
     {
         SetStun();
     }

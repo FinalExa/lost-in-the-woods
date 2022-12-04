@@ -6,38 +6,27 @@ public class AttackInteractionOptions
 {
     public GameObject selfObject;
     public AttackInteraction attackInteraction;
-    public void Interact(AttackInteraction.Options options, bool turnsOff)
+    public void Interact(AttackInteraction.Options options, GameObject source, bool turnsOff)
     {
         if (!options.hasSpecialCondition || SpecialConditionsCheck(options))
         {
             PlaySound(options);
             if (options.isDestroyed) DestroyOrTurnOff(turnsOff);
             else if (options.isTransformed && options.transformedRef != null) Transform(options, turnsOff);
-            else if (options.sendsSignalToSelf) SendSignalToSelf();
+            else if (options.sendsSignalToSelf) SendSignalToSelf(source);
+            else if (options.movesThis) MoveObject(options, source.transform.position - selfObject.transform.position);
             else if (options.canSetObjectActiveStatus) SetObjectActiveStatus(options);
             else if (options.rotates && options.objectToRotate != null) RotateObject(options);
         }
     }
-    public void Interact(AttackInteraction.Options options, bool turnsOff, float lifeTime)
+    public void Interact(AttackInteraction.Options options, GameObject source, bool turnsOff, float lifeTime)
     {
         if (!options.hasSpecialCondition || SpecialConditionsCheck(options))
         {
             if (options.isDestroyed) DestroyOrTurnOff(turnsOff);
             else if (options.isTransformed && options.transformedRef != null) Transform(options, turnsOff, lifeTime);
-            else if (options.sendsSignalToSelf) SendSignalToSelf();
-            else if (options.canSetObjectActiveStatus) SetObjectActiveStatus(options);
-            else if (options.rotates && options.objectToRotate != null) RotateObject(options);
-        }
-    }
-
-    public void Interact(AttackInteraction.Options options, bool turnsOff, Vector3 direction)
-    {
-        if (!options.hasSpecialCondition || SpecialConditionsCheck(options))
-        {
-            if (options.isDestroyed) DestroyOrTurnOff(turnsOff);
-            else if (options.isTransformed && options.transformedRef != null) Transform(options, turnsOff);
-            else if (options.movesThis) MoveObject(options, direction);
-            else if (options.sendsSignalToSelf) SendSignalToSelf();
+            else if (options.sendsSignalToSelf) SendSignalToSelf(source);
+            else if (options.movesThis) MoveObject(options, source.transform.position - selfObject.transform.position);
             else if (options.canSetObjectActiveStatus) SetObjectActiveStatus(options);
             else if (options.rotates && options.objectToRotate != null) RotateObject(options);
         }
@@ -83,10 +72,10 @@ public class AttackInteractionOptions
         attackInteraction.gameObject.transform.Translate(direction * options.spaceToMove);
     }
 
-    private void SendSignalToSelf()
+    private void SendSignalToSelf(GameObject source)
     {
         ISendSignalToSelf sendSignalToSelf = selfObject.GetComponent<ISendSignalToSelf>();
-        if (sendSignalToSelf != null) sendSignalToSelf.OnSignalReceived();
+        if (sendSignalToSelf != null) sendSignalToSelf.OnSignalReceived(source);
     }
     private void DestroyOrTurnOff(bool turnsOff)
     {

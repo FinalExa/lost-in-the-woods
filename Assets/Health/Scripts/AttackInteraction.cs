@@ -81,23 +81,18 @@ public class AttackInteraction : MonoBehaviour
         {
             if (attackTypes.Contains(attackTypeInteraction.attackType))
             {
-                if (!attackTypeInteraction.options.movesThis) attackInteractionOptions.Interact(attackTypeInteraction.options, turnsOff);
-                else
-                {
-                    Vector3 direction = (this.gameObject.transform.position - source.transform.position);
-                    attackInteractionOptions.Interact(attackTypeInteraction.options, turnsOff, direction);
-                }
+                attackInteractionOptions.Interact(attackTypeInteraction.options, source, turnsOff);
             }
         }
     }
 
-    public string NamedInteractionExecute(string enemyName)
+    public string NamedInteractionExecute(string enemyName, GameObject source)
     {
         foreach (NamedInteraction namedInteraction in namedInteractions)
         {
             if (namedInteraction.name == enemyName)
             {
-                attackInteractionOptions.Interact(namedInteraction.options, turnsOff);
+                attackInteractionOptions.Interact(namedInteraction.options, source, turnsOff);
                 return enemyName;
             }
         }
@@ -105,11 +100,11 @@ public class AttackInteraction : MonoBehaviour
     }
     public void OnDeathInteraction()
     {
-        if (onDeathEnabled) attackInteractionOptions.Interact(onDeathInteraction, turnsOff);
+        if (onDeathEnabled) attackInteractionOptions.Interact(onDeathInteraction, this.gameObject, turnsOff);
     }
     public void OnDeathInteraction(float lifeTime)
     {
-        if (onDeathEnabled) attackInteractionOptions.Interact(onDeathInteraction, turnsOff, lifeTime);
+        if (onDeathEnabled) attackInteractionOptions.Interact(onDeathInteraction, this.gameObject, turnsOff, lifeTime);
     }
 
     private void ExecuteLightInteraction(AffectedByLight receivedRef, AffectedByLight.LightState receivedLightState)
@@ -119,13 +114,13 @@ public class AttackInteraction : MonoBehaviour
             switch (receivedLightState)
             {
                 case AffectedByLight.LightState.CALM:
-                    if (!lightInteraction.calmRefreshes) attackInteractionOptions.Interact(lightInteraction.calmOptions, turnsOff);
+                    if (!lightInteraction.calmRefreshes) attackInteractionOptions.Interact(lightInteraction.calmOptions, this.gameObject, turnsOff);
                     break;
                 case AffectedByLight.LightState.BERSERK:
-                    if (!lightInteraction.berserkRefreshes) attackInteractionOptions.Interact(lightInteraction.berserkOptions, turnsOff);
+                    if (!lightInteraction.berserkRefreshes) attackInteractionOptions.Interact(lightInteraction.berserkOptions, this.gameObject, turnsOff);
                     break;
                 case AffectedByLight.LightState.NORMAL:
-                    if (!lightInteraction.normalRefreshes) attackInteractionOptions.Interact(lightInteraction.normalOptions, turnsOff);
+                    if (!lightInteraction.normalRefreshes) attackInteractionOptions.Interact(lightInteraction.normalOptions, this.gameObject, turnsOff);
                     break;
             }
         }
@@ -137,13 +132,13 @@ public class AttackInteraction : MonoBehaviour
             switch (receivedLightState)
             {
                 case AffectedByLight.LightState.CALM:
-                    if (lightInteraction.calmRefreshes) attackInteractionOptions.Interact(lightInteraction.calmOptions, turnsOff);
+                    if (lightInteraction.calmRefreshes) attackInteractionOptions.Interact(lightInteraction.calmOptions, this.gameObject, turnsOff);
                     break;
                 case AffectedByLight.LightState.BERSERK:
-                    if (lightInteraction.berserkRefreshes) attackInteractionOptions.Interact(lightInteraction.berserkOptions, turnsOff);
+                    if (lightInteraction.berserkRefreshes) attackInteractionOptions.Interact(lightInteraction.berserkOptions, this.gameObject, turnsOff);
                     break;
                 case AffectedByLight.LightState.NORMAL:
-                    if (lightInteraction.normalRefreshes) attackInteractionOptions.Interact(lightInteraction.normalOptions, turnsOff);
+                    if (lightInteraction.normalRefreshes) attackInteractionOptions.Interact(lightInteraction.normalOptions, this.gameObject, turnsOff);
                     break;
             }
         }

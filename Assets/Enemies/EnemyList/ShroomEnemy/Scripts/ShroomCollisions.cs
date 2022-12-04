@@ -11,7 +11,7 @@ public class ShroomCollisions : MonoBehaviour
     {
         if (isVulnerable && other.CompareTag("Hole"))
         {
-            other.gameObject.GetComponent<AttackInteraction>().NamedInteractionExecute(enemyData.enemyName);
+            other.gameObject.GetComponent<AttackInteraction>().NamedInteractionExecute(enemyData.enemyName, this.gameObject);
             this.gameObject.SetActive(false);
         }
     }
