@@ -12,6 +12,7 @@ TagManager:
   - Hole
   - EnemyAggroRange
   - MirrorLightInteractable
+  - BigShade
   layers:
   - Default
   - TransparentFX

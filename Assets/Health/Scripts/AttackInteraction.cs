@@ -91,12 +91,17 @@ public class AttackInteraction : MonoBehaviour
         }
     }
 
-    public void NamedInteractionExecute(string enemyName)
+    public string NamedInteractionExecute(string enemyName)
     {
         foreach (NamedInteraction namedInteraction in namedInteractions)
         {
-            if (namedInteraction.name == enemyName) attackInteractionOptions.Interact(namedInteraction.options, turnsOff);
+            if (namedInteraction.name == enemyName)
+            {
+                attackInteractionOptions.Interact(namedInteraction.options, turnsOff);
+                return enemyName;
+            }
         }
+        return string.Empty;
     }
     public void OnDeathInteraction()
     {

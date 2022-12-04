@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6395110103217412864}
   - component: {fileID: 5341445938159073920}
+  - component: {fileID: 8730113041865061406}
   - component: {fileID: 3939637572597450188}
   - component: {fileID: -57584891418013859}
   - component: {fileID: 8690117516297040685}
@@ -17,6 +18,7 @@ GameObject:
   - component: {fileID: 1079639170565201830}
   - component: {fileID: -3714416512890541913}
   - component: {fileID: 4838472884753948946}
+  - component: {fileID: 5639283629155765799}
   - component: {fileID: 7001282123244882244}
   - component: {fileID: 4992552886037869941}
   - component: {fileID: 4166100610456823755}
@@ -74,6 +76,20 @@ MonoBehaviour:
   affectedByLight: {fileID: 0}
   isStunned: 0
   littleShadeStunTimer: 3
+--- !u!114 &8730113041865061406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477770951886658404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319e58085663c954c8ababa997017e42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyController: {fileID: 0}
+  enemyWeaponSwitcher: {fileID: 0}
 --- !u!114 &3939637572597450188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,6 +305,20 @@ MonoBehaviour:
       hasSpecialCondition: 0
       playsSoundOnInteraction: 0
       soundToPlay: 
+--- !u!114 &5639283629155765799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477770951886658404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0eca4a9e1534ba4f944878999c913a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisName: LittleShade
+  disableOnEnd: 1
 --- !u!65 &7001282123244882244
 BoxCollider:
   m_ObjectHideFlags: 0

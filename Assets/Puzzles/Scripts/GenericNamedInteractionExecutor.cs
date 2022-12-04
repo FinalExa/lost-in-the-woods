@@ -5,13 +5,16 @@ using UnityEngine;
 public class GenericNamedInteractionExecutor : MonoBehaviour
 {
     [SerializeField] private string thisName;
-    [SerializeField] private string effectiveTag;
+    [SerializeField] private bool disableOnEnd;
+    private string receivedString;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(effectiveTag))
+        AttackInteraction attackInteraction = other.GetComponent<AttackInteraction>();
+        if (attackInteraction != null)
         {
-            other.GetComponent<AttackInteraction>().NamedInteractionExecute(thisName);
+            receivedString = attackInteraction.NamedInteractionExecute(thisName);
+            if (receivedString == thisName && disableOnEnd) this.gameObject.SetActive(false);
         }
     }
 }

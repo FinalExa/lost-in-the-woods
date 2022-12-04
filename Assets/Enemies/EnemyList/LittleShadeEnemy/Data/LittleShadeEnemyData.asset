@@ -15,19 +15,19 @@ MonoBehaviour:
   enemyName: Little Shade
   maxHP: 50
   normalMovementSpeed: 5
-  normalDistanceFromPlayer: 0
+  normalDistanceFromPlayer: 10
   normalDistanceTolerance: 0
-  hasNormalWeapon: 0
-  normalWeapon: {fileID: 0}
+  hasNormalWeapon: 1
+  normalWeapon: {fileID: 4222045236405462924, guid: 8fdf72e8edc7ff4469e81b44eed12989, type: 3}
   calmMovementSpeed: 0
   calmDistanceFromPlayer: 0
   calmDistanceTolerance: 0
   hasCalmWeapon: 0
   calmWeapon: {fileID: 0}
-  berserkMovementSpeed: 0
-  berserkDistanceFromPlayer: 0
+  berserkMovementSpeed: 10
+  berserkDistanceFromPlayer: 15
   berserDistanceTolerance: 0
-  hasBerserkWeapon: 0
-  berserkWeapon: {fileID: 0}
-  firstAggroDistance: 0
-  stopAggroDistance: 0
+  hasBerserkWeapon: 1
+  berserkWeapon: {fileID: 4222045236405462924, guid: 8fdf72e8edc7ff4469e81b44eed12989, type: 3}
+  firstAggroDistance: 20
+  stopAggroDistance: 40

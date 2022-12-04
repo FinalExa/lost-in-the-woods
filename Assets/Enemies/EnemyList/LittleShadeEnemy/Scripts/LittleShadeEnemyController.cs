@@ -6,12 +6,25 @@ public class LittleShadeEnemyController : EnemyController, ISendSignalToSelf, IH
 {
 
     [HideInInspector] public bool isStunned;
+    private GenericNamedInteractionExecutor namedInteraction;
     public float littleShadeStunTimer;
     private float stunTimer;
 
     private void Update()
     {
         EnemyStunned();
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        namedInteraction = this.gameObject.GetComponent<GenericNamedInteractionExecutor>();
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        namedInteraction.enabled = false;
     }
 
     public void OnSignalReceived()
@@ -31,13 +44,14 @@ public class LittleShadeEnemyController : EnemyController, ISendSignalToSelf, IH
     private void SetStun()
     {
         isStunned = true;
+        namedInteraction.enabled = true;
         stunTimer = littleShadeStunTimer;
     }
 
     public void EndStun()
     {
         isStunned = false;
-        print("End");
+        namedInteraction.enabled = false;
     }
 
     public bool SpecialConditions()
