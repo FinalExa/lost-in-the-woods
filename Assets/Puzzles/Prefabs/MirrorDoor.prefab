@@ -52,6 +52,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisType: 3
   ignoresDamage: 1
+  hasCameraShakeOnHit: 0
+  cameraShakeOnHitDuration: 0
 --- !u!114 &-8843055901898260623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,19 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnsOff: 0
-  attackTypeInteractions:
-  - attackType: 3
-    options:
-      isDestroyed: 1
-      isTransformed: 0
-      transformedRef: {fileID: 0}
-      canSetObjectActiveStatus: 0
-      objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
-      rotates: 0
-      objectToRotate: {fileID: 0}
-      rotateValue: 0
-      sendsSignalToSelf: 0
+  attackTypeInteractions: []
   namedInteractions:
   - name: MirrorLight
     options:
@@ -90,7 +80,13 @@ MonoBehaviour:
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
+      movesThis: 0
+      spaceToMove: 0
+      movementTime: 0
       sendsSignalToSelf: 0
+      hasSpecialCondition: 0
+      playsSoundOnInteraction: 0
+      soundToPlay: 
   onDeathEnabled: 0
   onDeathInteraction:
     isDestroyed: 0
@@ -102,10 +98,17 @@ MonoBehaviour:
     rotates: 0
     objectToRotate: {fileID: 0}
     rotateValue: 0
+    movesThis: 0
+    spaceToMove: 0
+    movementTime: 0
     sendsSignalToSelf: 0
+    hasSpecialCondition: 0
+    playsSoundOnInteraction: 0
+    soundToPlay: 
   lightInteraction:
     hasLightInteraction: 0
     affectedByLightRef: {fileID: 0}
+    normalRefreshes: 0
     normalOptions:
       isDestroyed: 0
       isTransformed: 0
@@ -116,7 +119,14 @@ MonoBehaviour:
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
+      movesThis: 0
+      spaceToMove: 0
+      movementTime: 0
       sendsSignalToSelf: 0
+      hasSpecialCondition: 0
+      playsSoundOnInteraction: 0
+      soundToPlay: 
+    calmRefreshes: 0
     calmOptions:
       isDestroyed: 0
       isTransformed: 0
@@ -127,7 +137,14 @@ MonoBehaviour:
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
+      movesThis: 0
+      spaceToMove: 0
+      movementTime: 0
       sendsSignalToSelf: 0
+      hasSpecialCondition: 0
+      playsSoundOnInteraction: 0
+      soundToPlay: 
+    berserkRefreshes: 0
     berserkOptions:
       isDestroyed: 0
       isTransformed: 0
@@ -138,7 +155,13 @@ MonoBehaviour:
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
+      movesThis: 0
+      spaceToMove: 0
+      movementTime: 0
       sendsSignalToSelf: 0
+      hasSpecialCondition: 0
+      playsSoundOnInteraction: 0
+      soundToPlay: 
 --- !u!65 &8634596674577080557
 BoxCollider:
   m_ObjectHideFlags: 0

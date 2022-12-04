@@ -21,7 +21,7 @@ public class AttackReceived : MonoBehaviour
         cinemachineCameraShaker = FindObjectOfType<CinemachineCameraShaker>();
     }
 
-    public void AttackReceivedOperation(List<GameTargets> receivedTargets, float damage, List<WeaponAttack.WeaponAttackType> weaponAttackTypes, bool invulnerable)
+    public void AttackReceivedOperation(List<GameTargets> receivedTargets, float damage, List<WeaponAttack.WeaponAttackType> weaponAttackTypes, bool invulnerable, GameObject attacker)
     {
         if (receivedTargets.Contains(thisType))
         {
@@ -33,7 +33,7 @@ public class AttackReceived : MonoBehaviour
             }
             if (hasCameraShakeOnHit) cinemachineCameraShaker.ShakeCamera(cameraShakeOnHitDuration);
         }
-        if (attackInteraction != null) attackInteraction.CheckIfAttackTypeIsTheSame(weaponAttackTypes);
+        if (attackInteraction != null) attackInteraction.CheckIfAttackTypeIsTheSame(weaponAttackTypes, attacker);
     }
 
     private void DealDamage(bool invulnerable, float damage)

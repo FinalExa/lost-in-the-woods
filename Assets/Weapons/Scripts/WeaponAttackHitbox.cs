@@ -12,7 +12,7 @@ public class WeaponAttackHitbox : Attack
         if (receivedTag == "Invulnerable") invulnerable = true;
         if (!thisWeapon.hitTargets.Contains(attackReceived))
         {
-            attackReceived.AttackReceivedOperation(possibleTargets, thisWeapon.currentDamage, weaponAttackTypes, invulnerable);
+            attackReceived.AttackReceivedOperation(possibleTargets, thisWeapon.currentDamage, weaponAttackTypes, invulnerable, thisWeapon.gameObject);
             thisWeapon.hitTargets.Add(attackReceived);
         }
     }

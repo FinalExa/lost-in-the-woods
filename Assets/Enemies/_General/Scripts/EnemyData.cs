@@ -23,7 +23,7 @@ public class EnemyData : ScriptableObject
     [Header("Berserk state")]
     public float berserkMovementSpeed;
     public float berserkDistanceFromPlayer;
-    public float berserDistanceTolerance;
+    public float berserkDistanceTolerance;
     public bool hasBerserkWeapon;
     public Weapon berserkWeapon;
     [Header("Aggro")]

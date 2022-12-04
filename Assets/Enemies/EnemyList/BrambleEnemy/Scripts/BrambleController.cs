@@ -37,7 +37,7 @@ public class BrambleController : EnemyController, ISendSignalToSelf
         if (isRetracted) RetractTimer();
         else if (currentColliderSize != expandedBoxColliderSize) RetractionUpdate(brambleData.unretractedGrowthRatePerSecond * Time.deltaTime);
     }
-    public void OnSignalReceived()
+    public void OnSignalReceived(GameObject source)
     {
         if (!isRetracted) RetractionUpdate(-brambleData.onHitRetractReduction);
     }

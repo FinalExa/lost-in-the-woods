@@ -21,8 +21,11 @@ public class AttackInteraction : MonoBehaviour
     {
         public bool hasLightInteraction;
         public AffectedByLight affectedByLightRef;
+        public bool normalRefreshes;
         public Options normalOptions;
+        public bool calmRefreshes;
         public Options calmOptions;
+        public bool berserkRefreshes;
         public Options berserkOptions;
     }
     [System.Serializable]
@@ -41,8 +44,13 @@ public class AttackInteraction : MonoBehaviour
         public bool rotates;
         public GameObject objectToRotate;
         public float rotateValue;
+        [Header("Moves by a certain amount of space this gameObject towards direction for a certain amount of time")]
+        public bool movesThis;
+        public float spaceToMove;
+        public float movementTime;
         [Header("For special functionalities, touch only if you script")]
         public bool sendsSignalToSelf;
+        public bool hasSpecialCondition;
         [Header("Sound to play")]
         public bool playsSoundOnInteraction;
         public string soundToPlay;
@@ -53,33 +61,50 @@ public class AttackInteraction : MonoBehaviour
     [SerializeField] private bool onDeathEnabled;
     [SerializeField] private Options onDeathInteraction;
     [SerializeField] private LightInteraction lightInteraction;
+    private AttackInteractionOptions attackInteractionOptions;
 
     private void Start()
     {
         AffectedByLight.lightStateChangedSignal += ExecuteLightInteraction;
+        attackInteractionOptions = new AttackInteractionOptions();
+        attackInteractionOptions.selfObject = this.gameObject;
+        attackInteractionOptions.attackInteraction = this;
     }
-    public void CheckIfAttackTypeIsTheSame(List<WeaponAttack.WeaponAttackType> attackTypes)
+
+    private void Update()
+    {
+        if (lightInteraction.affectedByLightRef != null) ExecuteLightInteractionRefresh(lightInteraction.affectedByLightRef, lightInteraction.affectedByLightRef.lightState);
+    }
+    public void CheckIfAttackTypeIsTheSame(List<WeaponAttack.WeaponAttackType> attackTypes, GameObject source)
     {
         foreach (AttackTypeInteraction attackTypeInteraction in attackTypeInteractions)
         {
-            if (attackTypes.Contains(attackTypeInteraction.attackType)) Interact(attackTypeInteraction.options);
+            if (attackTypes.Contains(attackTypeInteraction.attackType))
+            {
+                attackInteractionOptions.Interact(attackTypeInteraction.options, source, turnsOff);
+            }
         }
     }
 
-    public void NamedInteractionExecute(string enemyName)
+    public string NamedInteractionExecute(string enemyName, GameObject source)
     {
         foreach (NamedInteraction namedInteraction in namedInteractions)
         {
-            if (namedInteraction.name == enemyName) Interact(namedInteraction.options);
+            if (namedInteraction.name == enemyName)
+            {
+                attackInteractionOptions.Interact(namedInteraction.options, source, turnsOff);
+                return enemyName;
+            }
         }
+        return string.Empty;
     }
     public void OnDeathInteraction()
     {
-        if (onDeathEnabled) Interact(onDeathInteraction);
+        if (onDeathEnabled) attackInteractionOptions.Interact(onDeathInteraction, this.gameObject, turnsOff);
     }
     public void OnDeathInteraction(float lifeTime)
     {
-        if (onDeathEnabled) Interact(onDeathInteraction, lifeTime);
+        if (onDeathEnabled) attackInteractionOptions.Interact(onDeathInteraction, this.gameObject, turnsOff, lifeTime);
     }
 
     private void ExecuteLightInteraction(AffectedByLight receivedRef, AffectedByLight.LightState receivedLightState)
@@ -89,72 +114,39 @@ public class AttackInteraction : MonoBehaviour
             switch (receivedLightState)
             {
                 case AffectedByLight.LightState.CALM:
-                    Interact(lightInteraction.calmOptions);
+                    if (!lightInteraction.calmRefreshes) attackInteractionOptions.Interact(lightInteraction.calmOptions, this.gameObject, turnsOff);
                     break;
                 case AffectedByLight.LightState.BERSERK:
-                    Interact(lightInteraction.berserkOptions);
+                    if (!lightInteraction.berserkRefreshes) attackInteractionOptions.Interact(lightInteraction.berserkOptions, this.gameObject, turnsOff);
                     break;
                 case AffectedByLight.LightState.NORMAL:
-                    Interact(lightInteraction.normalOptions);
+                    if (!lightInteraction.normalRefreshes) attackInteractionOptions.Interact(lightInteraction.normalOptions, this.gameObject, turnsOff);
+                    break;
+            }
+        }
+    }
+    private void ExecuteLightInteractionRefresh(AffectedByLight receivedRef, AffectedByLight.LightState receivedLightState)
+    {
+        if (lightInteraction.hasLightInteraction && receivedRef == lightInteraction.affectedByLightRef)
+        {
+            switch (receivedLightState)
+            {
+                case AffectedByLight.LightState.CALM:
+                    if (lightInteraction.calmRefreshes) attackInteractionOptions.Interact(lightInteraction.calmOptions, this.gameObject, turnsOff);
+                    break;
+                case AffectedByLight.LightState.BERSERK:
+                    if (lightInteraction.berserkRefreshes) attackInteractionOptions.Interact(lightInteraction.berserkOptions, this.gameObject, turnsOff);
+                    break;
+                case AffectedByLight.LightState.NORMAL:
+                    if (lightInteraction.normalRefreshes) attackInteractionOptions.Interact(lightInteraction.normalOptions, this.gameObject, turnsOff);
                     break;
             }
         }
     }
 
-    private void Interact(Options options)
-    {
-        PlaySound(options);
-        if (options.isDestroyed) DestroyOrTurnOff();
-        else if (options.isTransformed && options.transformedRef != null) Transform(options);
-        else if (options.sendsSignalToSelf) SendSignalToSelf();
-        else if (options.canSetObjectActiveStatus) SetObjectActiveStatus(options);
-        else if (options.rotates && options.objectToRotate != null) RotateObject(options);
-    }
-    private void Interact(Options options, float lifeTime)
-    {
-        if (options.isDestroyed) DestroyOrTurnOff();
-        else if (options.isTransformed && options.transformedRef != null) Transform(options, lifeTime);
-        else if (options.sendsSignalToSelf) SendSignalToSelf();
-        else if (options.canSetObjectActiveStatus) SetObjectActiveStatus(options);
-        else if (options.rotates && options.objectToRotate != null) RotateObject(options);
-    }
-
-    private GameObject Transform(Options options)
+    public GameObject InstantiateNew(Options options)
     {
         GameObject objectRef = Instantiate(options.transformedRef, this.gameObject.transform.position, this.gameObject.transform.rotation, this.gameObject.transform.parent);
-        DestroyOrTurnOff();
         return objectRef;
-    }
-    private GameObject Transform(Options options, float lifeTime)
-    {
-        GameObject objectRef = Instantiate(options.transformedRef, this.gameObject.transform.position, this.gameObject.transform.rotation, this.gameObject.transform.parent);
-        Lifetime lifetimeRef = objectRef.GetComponent<Lifetime>();
-        if (lifetimeRef != null) lifetimeRef.SetTimer(lifeTime);
-        DestroyOrTurnOff();
-        return objectRef;
-    }
-    private void SetObjectActiveStatus(Options options)
-    {
-        if (options.objectToSetActiveStatus != null) options.objectToSetActiveStatus.SetActive(options.objectActiveStatus);
-    }
-
-    private void RotateObject(Options options)
-    {
-        options.objectToRotate.transform.Rotate(0f, 0f, -options.rotateValue);
-    }
-
-    private void SendSignalToSelf()
-    {
-        ISendSignalToSelf sendSignalToSelf = this.gameObject.GetComponent<ISendSignalToSelf>();
-        if (sendSignalToSelf != null) sendSignalToSelf.OnSignalReceived();
-    }
-    private void DestroyOrTurnOff()
-    {
-        if (!turnsOff) GameObject.Destroy(this.gameObject);
-        else this.gameObject.SetActive(false);
-    }
-    private void PlaySound(Options options)
-    {
-        if (options.playsSoundOnInteraction) AudioManager.Instance.PlaySound(options.soundToPlay);
     }
 }
