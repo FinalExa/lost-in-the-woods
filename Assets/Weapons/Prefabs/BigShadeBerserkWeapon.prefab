@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 5681984492148024441}
   - component: {fileID: 4222045236405462924}
   m_Layer: 0
-  m_Name: BigShadeNormalWeapon
+  m_Name: BigShadeBerserkWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,7 +117,7 @@ MonoBehaviour:
   possibleTargets: 00000000
   weaponAttacks:
   - damage: 0
-    duration: 1
+    duration: 0.5
     afterDelay: 0
     movementDistance: 0
     attackObject: {fileID: 1083629791230123650}
@@ -125,14 +125,14 @@ MonoBehaviour:
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 3455886621140185002}
       activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.7
+      deactivationDelayAfterStart: 0.3
       weaponAttackHitboxProjectile:
         spawnsProjectile: 0
         projectile: {fileID: 0}
         projectileLaunchTimeAfterStart: 0
     - attackRef: {fileID: 3254695389529482790}
-      activationDelayAfterStart: 0.7
-      deactivationDelayAfterStart: 0.99
+      activationDelayAfterStart: 0.5
+      deactivationDelayAfterStart: 0.79
       weaponAttackHitboxProjectile:
         spawnsProjectile: 0
         projectile: {fileID: 0}
@@ -188,11 +188,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5269358908780119957, guid: 281800e47905d084bbadedf8ef1c7de2, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5269358908780119957, guid: 281800e47905d084bbadedf8ef1c7de2, type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5269358908780119957, guid: 281800e47905d084bbadedf8ef1c7de2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -273,11 +273,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5269358908780119957, guid: 281800e47905d084bbadedf8ef1c7de2, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5269358908780119957, guid: 281800e47905d084bbadedf8ef1c7de2, type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5269358908780119957, guid: 281800e47905d084bbadedf8ef1c7de2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -358,11 +358,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5269358908780119957, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5269358908780119957, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5269358908780119957, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
       propertyPath: m_LocalPosition.x

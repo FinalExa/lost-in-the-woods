@@ -18,7 +18,7 @@ MonoBehaviour:
   normalDistanceFromPlayer: 10
   normalDistanceTolerance: 3
   hasNormalWeapon: 1
-  normalWeapon: {fileID: 4222045236405462924, guid: 8fdf72e8edc7ff4469e81b44eed12989, type: 3}
+  normalWeapon: {fileID: 4222045236405462924, guid: 145b930153765954888197b9c421ce3d, type: 3}
   calmMovementSpeed: 0
   calmDistanceFromPlayer: 0
   calmDistanceTolerance: 0
@@ -28,6 +28,6 @@ MonoBehaviour:
   berserkDistanceFromPlayer: 15
   berserkDistanceTolerance: 3
   hasBerserkWeapon: 1
-  berserkWeapon: {fileID: 4222045236405462924, guid: 8fdf72e8edc7ff4469e81b44eed12989, type: 3}
+  berserkWeapon: {fileID: 4222045236405462924, guid: 6cd2b02c4e4146a4fbbe47ef2a87da41, type: 3}
   firstAggroDistance: 20
   stopAggroDistance: 40
