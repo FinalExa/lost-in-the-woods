@@ -13,7 +13,7 @@ public class BigShadeBT : EnemyBT
             new Selector(new List<Node>
             {
                 new TaskIsInBerserkState(enemyController,enemyWeaponSwitcher),
-                new TaskAttackPlayer(enemyController.enemyCombo)
+                new TaskAttackPlayer(enemyController)
             }),
             new Selector(new List<Node>
             {
@@ -22,7 +22,7 @@ public class BigShadeBT : EnemyBT
             new Selector(new List<Node>
             {
                 new TaskIsInNormalState(enemyController,enemyWeaponSwitcher),
-                new TaskAttackPlayer(enemyController.enemyCombo)
+                new TaskAttackPlayer(enemyController)
             })
         });
         return root;

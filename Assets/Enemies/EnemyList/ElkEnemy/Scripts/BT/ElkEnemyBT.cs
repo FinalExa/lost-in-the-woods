@@ -32,7 +32,7 @@ public class ElkEnemyBT : EnemyBT
                         new TaskIsCloseToPlayer(enemyController,enemyController.enemyData.berserkDistanceFromPlayer),
                         new TaskMoveToPlayer(enemyController, enemyController.enemyData.berserkMovementSpeed)
                     }),
-                    new TaskAttackPlayer(enemyController.enemyCombo)
+                    new TaskAttackPlayer(enemyController)
                 })
             }),
             new Selector(new List<Node>
@@ -51,7 +51,7 @@ public class ElkEnemyBT : EnemyBT
                         new TaskMoveToPlayer(enemyController, enemyController.enemyData.normalMovementSpeed)
                     }),
                     new TaskElkSetStun(elkEnemyController),
-                    new TaskAttackPlayer(enemyController.enemyCombo)
+                    new TaskAttackPlayer(enemyController)
                 })
             })
         });

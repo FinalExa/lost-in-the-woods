@@ -36,6 +36,11 @@ public class ElkEnemyController : EnemyController, ISendSignalToSelf
     public void EndStun(bool redirect)
     {
         isStunned = false;
-        if (redirect) print("Hello");
+        if (redirect)
+        {
+            Vector3 pointDirection = (this.transform.position - playerTarget.transform.position);
+            Vector3 endPoint = this.transform.position + pointDirection * 5f;
+            enemyCombo.ActivateEnemyCombo(endPoint);
+        }
     }
 }
