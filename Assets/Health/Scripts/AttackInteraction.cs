@@ -109,7 +109,7 @@ public class AttackInteraction : MonoBehaviour
 
     private void ExecuteLightInteraction(AffectedByLight receivedRef, AffectedByLight.LightState receivedLightState)
     {
-        if (lightInteraction.hasLightInteraction && receivedRef == lightInteraction.affectedByLightRef)
+        if (receivedRef != null && lightInteraction.hasLightInteraction && receivedRef == lightInteraction.affectedByLightRef)
         {
             switch (receivedLightState)
             {
@@ -127,7 +127,7 @@ public class AttackInteraction : MonoBehaviour
     }
     private void ExecuteLightInteractionRefresh(AffectedByLight receivedRef, AffectedByLight.LightState receivedLightState)
     {
-        if (lightInteraction.hasLightInteraction && receivedRef == lightInteraction.affectedByLightRef)
+        if (receivedRef != null && lightInteraction.hasLightInteraction && receivedRef == lightInteraction.affectedByLightRef)
         {
             switch (receivedLightState)
             {
