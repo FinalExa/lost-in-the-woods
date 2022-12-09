@@ -15,7 +15,7 @@ public class ElkEnemyController : EnemyController, ISendSignalToSelf
 
     public void OnSignalReceived(GameObject source)
     {
-        EndStun();
+        EndStun(true);
     }
 
     private void EnemyStunned()
@@ -23,7 +23,7 @@ public class ElkEnemyController : EnemyController, ISendSignalToSelf
         if (isStunned)
         {
             if (stunTimer > 0) stunTimer -= Time.deltaTime;
-            else EndStun();
+            else EndStun(false);
         }
     }
 
@@ -33,8 +33,14 @@ public class ElkEnemyController : EnemyController, ISendSignalToSelf
         stunTimer = stunMaxTimer;
     }
 
-    public void EndStun()
+    public void EndStun(bool redirect)
     {
         isStunned = false;
+        if (redirect)
+        {
+            Vector3 pointDirection = (this.transform.position - playerTarget.transform.position);
+            Vector3 endPoint = this.transform.position + pointDirection * 5f;
+            enemyCombo.ActivateEnemyCombo(endPoint);
+        }
     }
 }

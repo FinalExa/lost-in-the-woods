@@ -36,7 +36,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5477770951886658404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.04, y: 0, z: -9.45}
+  m_LocalPosition: {x: -10.53, y: 0, z: 10.139999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -272,7 +272,11 @@ MonoBehaviour:
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
+      movesThis: 0
+      spaceToMove: 0
+      movementTime: 0
       sendsSignalToSelf: 1
+      hasSpecialCondition: 0
       playsSoundOnInteraction: 0
       soundToPlay: 
   namedInteractions: []
@@ -287,12 +291,17 @@ MonoBehaviour:
     rotates: 0
     objectToRotate: {fileID: 0}
     rotateValue: 0
+    movesThis: 0
+    spaceToMove: 0
+    movementTime: 0
     sendsSignalToSelf: 0
+    hasSpecialCondition: 0
     playsSoundOnInteraction: 0
     soundToPlay: 
   lightInteraction:
     hasLightInteraction: 0
     affectedByLightRef: {fileID: 0}
+    normalRefreshes: 0
     normalOptions:
       isDestroyed: 0
       isTransformed: 0
@@ -303,9 +312,14 @@ MonoBehaviour:
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
+      movesThis: 0
+      spaceToMove: 0
+      movementTime: 0
       sendsSignalToSelf: 0
+      hasSpecialCondition: 0
       playsSoundOnInteraction: 0
       soundToPlay: 
+    calmRefreshes: 0
     calmOptions:
       isDestroyed: 0
       isTransformed: 0
@@ -316,9 +330,14 @@ MonoBehaviour:
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
+      movesThis: 0
+      spaceToMove: 0
+      movementTime: 0
       sendsSignalToSelf: 0
+      hasSpecialCondition: 0
       playsSoundOnInteraction: 0
       soundToPlay: 
+    berserkRefreshes: 0
     berserkOptions:
       isDestroyed: 0
       isTransformed: 0
@@ -329,7 +348,11 @@ MonoBehaviour:
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
+      movesThis: 0
+      spaceToMove: 0
+      movementTime: 0
       sendsSignalToSelf: 0
+      hasSpecialCondition: 0
       playsSoundOnInteraction: 0
       soundToPlay: 
 --- !u!1 &6982585701272724667

@@ -23,13 +23,14 @@ public class EnemyCombo : Combo
     {
         base.Update();
         if (isInCombo) EnemyAutoCombo();
-        else if (!isAttacking) Direction();
+        else if (!isAttacking) Direction(target.position);
     }
 
-    public void ActivateEnemyCombo()
+    public void ActivateEnemyCombo(Vector3 target)
     {
         isInCombo = true;
-        enemyRotator.Rotate();
+        enemyRotator.Rotate(target);
+        Direction(target);
     }
 
     private void EnemyAutoCombo()
@@ -43,8 +44,8 @@ public class EnemyCombo : Combo
         enemyController.attackDone = true;
     }
 
-    private void Direction()
+    public void Direction(Vector3 target)
     {
-        lastDirection = (target.position - this.transform.position).normalized;
+        lastDirection = (target - this.transform.position).normalized;
     }
 }

@@ -33,14 +33,14 @@ public class WitchEnemyBT : EnemyBT
                         new TaskIsCloseToPlayer(enemyController, enemyController.enemyData.berserkDistanceFromPlayer),
                         new TaskMoveToPlayer(enemyController, enemyController.enemyData.berserkMovementSpeed),
                     }),
-                    new TaskAttackPlayer(enemyController.enemyCombo)
+                    new TaskAttackPlayer(enemyController)
                 })
             }),
             new Selector(new List<Node>
             {
                 new TaskIsInCalmState(enemyController, enemyWeaponSwitcher),
                 new TaskStopMovement(enemyController),
-                new TaskAttackPlayer(enemyController.enemyCombo)
+                new TaskAttackPlayer(enemyController)
             }),
             new Selector (new List<Node>
             {
@@ -53,7 +53,7 @@ public class WitchEnemyBT : EnemyBT
                         new TaskIsCloseToPlayer(enemyController, enemyController.enemyData.normalDistanceFromPlayer),
                         new TaskMoveToPlayer(enemyController, enemyController.enemyData.normalMovementSpeed),
                     }),
-                    new TaskAttackPlayer(enemyController.enemyCombo)
+                    new TaskAttackPlayer(enemyController)
                 })
             })
         });

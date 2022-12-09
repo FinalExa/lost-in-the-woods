@@ -19,12 +19,12 @@ public class EnemyRotator : MonoBehaviour
 
     private void ContinouslyRotate()
     {
-        if (!enemyController.enemyCombo.isInCombo) Rotate();
+        if (!enemyController.enemyCombo.isInCombo) Rotate(enemyController.playerTarget.transform.position);
     }
 
-    public void Rotate()
+    public void Rotate(Vector3 target)
     {
-        Vector3 direction = (this.gameObject.transform.position - enemyController.playerTarget.transform.position).normalized;
+        Vector3 direction = (this.gameObject.transform.position - target).normalized;
         float xValue = 1f - Mathf.Abs(direction.x);
         float zValue = 1f - Mathf.Abs(direction.z);
         if (xValue < zValue) RotateHorizontally(direction);

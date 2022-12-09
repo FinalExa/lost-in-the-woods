@@ -17,7 +17,7 @@ public class BrambleEnemyBT : EnemyBT
                 new Sequence(new List<Node>
                 {
                     new TaskIsCloseToPlayer(enemyController, enemyController.enemyData.berserkDistanceFromPlayer),
-                    new TaskAttackPlayer(enemyController.enemyCombo)
+                    new TaskAttackPlayer(enemyController)
                 })
             }),
             new Selector(new List<Node>
@@ -32,7 +32,7 @@ public class BrambleEnemyBT : EnemyBT
                 new Sequence(new List<Node>
                 {
                     new TaskIsCloseToPlayer(enemyController, enemyController.enemyData.normalDistanceFromPlayer),
-                    new TaskAttackPlayer(enemyController.enemyCombo)
+                    new TaskAttackPlayer(enemyController)
                 })
             })
         });

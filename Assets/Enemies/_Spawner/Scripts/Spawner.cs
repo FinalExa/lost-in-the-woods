@@ -22,8 +22,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] private string zoneName;
     [SerializeField] private SpawnerEnemies[] enemiesToSpawnInThisZone;
     [SerializeField] private GameObject[] spawnPoints;
-    [SerializeField] private List<EnemiesToRespawn> activeEnemies;
-    [SerializeField] private List<EnemiesToRespawn> deadEnemies;
+    private List<EnemiesToRespawn> activeEnemies;
+    private List<EnemiesToRespawn> deadEnemies;
     private bool spawnerIsSet;
 
     private void Start()

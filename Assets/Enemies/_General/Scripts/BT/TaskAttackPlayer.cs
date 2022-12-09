@@ -5,16 +5,16 @@ using BehaviorTree;
 
 public class TaskAttackPlayer : Node
 {
-    private EnemyCombo enemyCombo;
+    private EnemyController enemyController;
 
-    public TaskAttackPlayer(EnemyCombo _enemyCombo)
+    public TaskAttackPlayer(EnemyController _enemyController)
     {
-        enemyCombo = _enemyCombo;
+        enemyController = _enemyController;
     }
 
     public override NodeState Evaluate()
     {
-        enemyCombo.ActivateEnemyCombo();
+        enemyController.enemyCombo.ActivateEnemyCombo(enemyController.playerTarget.transform.position);
         return NodeState.RUNNING;
     }
 }
