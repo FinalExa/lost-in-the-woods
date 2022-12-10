@@ -222,9 +222,9 @@ MonoBehaviour:
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
-      movesThis: 1
-      spaceToMove: -5
-      movementTime: 0
+      isMoved: 1
+      movementDistance: 5
+      movementTime: 0.3
       sendsSignalToSelf: 0
       hasSpecialCondition: 1
       playsSoundOnInteraction: 0
@@ -241,8 +241,8 @@ MonoBehaviour:
     rotates: 0
     objectToRotate: {fileID: 0}
     rotateValue: 0
-    movesThis: 0
-    spaceToMove: 0
+    isMoved: 0
+    movementDistance: 0
     movementTime: 0
     sendsSignalToSelf: 0
     hasSpecialCondition: 0
@@ -262,8 +262,8 @@ MonoBehaviour:
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
-      movesThis: 0
-      spaceToMove: 0
+      isMoved: 0
+      movementDistance: 0
       movementTime: 0
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
@@ -280,8 +280,8 @@ MonoBehaviour:
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
-      movesThis: 0
-      spaceToMove: 0
+      isMoved: 0
+      movementDistance: 0
       movementTime: 0
       sendsSignalToSelf: 1
       hasSpecialCondition: 0
@@ -298,8 +298,8 @@ MonoBehaviour:
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
-      movesThis: 0
-      spaceToMove: 0
+      isMoved: 0
+      movementDistance: 0
       movementTime: 0
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
