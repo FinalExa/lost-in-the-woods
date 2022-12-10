@@ -45,8 +45,8 @@ public class AttackInteraction : MonoBehaviour
         public GameObject objectToRotate;
         public float rotateValue;
         [Header("Moves by a certain amount of space this gameObject towards direction for a certain amount of time")]
-        public bool movesThis;
-        public float spaceToMove;
+        public bool isMoved;
+        public float movementDistance;
         public float movementTime;
         [Header("For special functionalities, touch only if you script")]
         public bool sendsSignalToSelf;
@@ -62,6 +62,10 @@ public class AttackInteraction : MonoBehaviour
     [SerializeField] private Options onDeathInteraction;
     [SerializeField] private LightInteraction lightInteraction;
     private AttackInteractionOptions attackInteractionOptions;
+    private bool forcedMovementActive;
+    private float forcedMovementDuration;
+    private float forcedMovementDistance;
+    private Vector3 forcedMovementDirection;
 
     private void Start()
     {
@@ -74,15 +78,13 @@ public class AttackInteraction : MonoBehaviour
     private void Update()
     {
         if (lightInteraction.affectedByLightRef != null) ExecuteLightInteractionRefresh(lightInteraction.affectedByLightRef, lightInteraction.affectedByLightRef.lightState);
+        if (forcedMovementActive) ForcedMovement();
     }
     public void CheckIfAttackTypeIsTheSame(List<WeaponAttack.WeaponAttackType> attackTypes, GameObject source)
     {
         foreach (AttackTypeInteraction attackTypeInteraction in attackTypeInteractions)
         {
-            if (attackTypes.Contains(attackTypeInteraction.attackType))
-            {
-                attackInteractionOptions.Interact(attackTypeInteraction.options, source, turnsOff);
-            }
+            if (attackTypes.Contains(attackTypeInteraction.attackType)) attackInteractionOptions.Interact(attackTypeInteraction.options, source, turnsOff);
         }
     }
 
@@ -148,5 +150,23 @@ public class AttackInteraction : MonoBehaviour
     {
         GameObject objectRef = Instantiate(options.transformedRef, this.gameObject.transform.position, this.gameObject.transform.rotation, this.gameObject.transform.parent);
         return objectRef;
+    }
+
+    public void StartForcedMovement(Vector3 direction, float distance, float duration)
+    {
+        forcedMovementDirection = direction;
+        forcedMovementDistance = distance;
+        forcedMovementDuration = duration;
+        forcedMovementActive = true;
+    }
+
+    private void ForcedMovement()
+    {
+        if (forcedMovementDuration > 0)
+        {
+            this.gameObject.transform.Translate(forcedMovementDirection * forcedMovementDistance * Time.deltaTime);
+            forcedMovementDuration -= Time.deltaTime;
+        }
+        else forcedMovementActive = false;
     }
 }

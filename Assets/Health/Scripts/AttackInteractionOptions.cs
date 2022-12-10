@@ -14,7 +14,7 @@ public class AttackInteractionOptions
             if (options.isDestroyed) DestroyOrTurnOff(turnsOff);
             else if (options.isTransformed && options.transformedRef != null) Transform(options, turnsOff);
             else if (options.sendsSignalToSelf) SendSignalToSelf(source);
-            else if (options.movesThis) MoveObject(options, source.transform.position - selfObject.transform.position);
+            else if (options.isMoved) MoveObject(options, source.transform.position - selfObject.transform.position);
             else if (options.canSetObjectActiveStatus) SetObjectActiveStatus(options);
             else if (options.rotates && options.objectToRotate != null) RotateObject(options);
         }
@@ -26,7 +26,7 @@ public class AttackInteractionOptions
             if (options.isDestroyed) DestroyOrTurnOff(turnsOff);
             else if (options.isTransformed && options.transformedRef != null) Transform(options, turnsOff, lifeTime);
             else if (options.sendsSignalToSelf) SendSignalToSelf(source);
-            else if (options.movesThis) MoveObject(options, source.transform.position - selfObject.transform.position);
+            else if (options.isMoved) MoveObject(options, source.transform.position - selfObject.transform.position);
             else if (options.canSetObjectActiveStatus) SetObjectActiveStatus(options);
             else if (options.rotates && options.objectToRotate != null) RotateObject(options);
         }
@@ -69,7 +69,7 @@ public class AttackInteractionOptions
 
     private void MoveObject(AttackInteraction.Options options, Vector3 direction)
     {
-        attackInteraction.gameObject.transform.Translate(direction * options.spaceToMove);
+        attackInteraction.StartForcedMovement(direction, -options.movementDistance, options.movementTime);
     }
 
     private void SendSignalToSelf(GameObject source)
