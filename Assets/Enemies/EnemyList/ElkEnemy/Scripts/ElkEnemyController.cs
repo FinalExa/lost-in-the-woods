@@ -6,6 +6,7 @@ public class ElkEnemyController : EnemyController, ISendSignalToSelf
 {
     [HideInInspector] public bool isStunned;
     public float elkStunTimer;
+    public float elkCalmStunTimer;
     private float stunTimer;
 
     private void Update()
@@ -16,7 +17,7 @@ public class ElkEnemyController : EnemyController, ISendSignalToSelf
     public void OnSignalReceived(GameObject source)
     {
         if (source != this.gameObject) EndStun(true);
-        else SetStun(elkStunTimer);
+        else SetStun(elkCalmStunTimer);
     }
 
     private void EnemyStunned()

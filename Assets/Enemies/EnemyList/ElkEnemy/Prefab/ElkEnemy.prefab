@@ -75,6 +75,7 @@ MonoBehaviour:
   affectedByLight: {fileID: 0}
   isStunned: 0
   elkStunTimer: 4.3
+  elkCalmStunTimer: 2
 --- !u!114 &-4292967957619163920
 MonoBehaviour:
   m_ObjectHideFlags: 0
