@@ -272,8 +272,8 @@ MonoBehaviour:
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
-      movesThis: 0
-      spaceToMove: 0
+      isMoved: 0
+      movementDistance: 0
       movementTime: 0
       sendsSignalToSelf: 1
       hasSpecialCondition: 0
@@ -291,16 +291,16 @@ MonoBehaviour:
     rotates: 0
     objectToRotate: {fileID: 0}
     rotateValue: 0
-    movesThis: 0
-    spaceToMove: 0
+    isMoved: 0
+    movementDistance: 0
     movementTime: 0
     sendsSignalToSelf: 0
     hasSpecialCondition: 0
     playsSoundOnInteraction: 0
     soundToPlay: 
   lightInteraction:
-    hasLightInteraction: 0
-    affectedByLightRef: {fileID: 0}
+    hasLightInteraction: 1
+    affectedByLightRef: {fileID: -3714416512890541913}
     normalRefreshes: 0
     normalOptions:
       isDestroyed: 0
@@ -312,14 +312,14 @@ MonoBehaviour:
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
-      movesThis: 0
-      spaceToMove: 0
+      isMoved: 0
+      movementDistance: 0
       movementTime: 0
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
       playsSoundOnInteraction: 0
       soundToPlay: 
-    calmRefreshes: 0
+    calmRefreshes: 1
     calmOptions:
       isDestroyed: 0
       isTransformed: 0
@@ -330,10 +330,10 @@ MonoBehaviour:
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
-      movesThis: 0
-      spaceToMove: 0
+      isMoved: 0
+      movementDistance: 0
       movementTime: 0
-      sendsSignalToSelf: 0
+      sendsSignalToSelf: 1
       hasSpecialCondition: 0
       playsSoundOnInteraction: 0
       soundToPlay: 
@@ -348,8 +348,8 @@ MonoBehaviour:
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
-      movesThis: 0
-      spaceToMove: 0
+      isMoved: 0
+      movementDistance: 0
       movementTime: 0
       sendsSignalToSelf: 0
       hasSpecialCondition: 0

@@ -15,7 +15,8 @@ public class ElkEnemyController : EnemyController, ISendSignalToSelf
 
     public void OnSignalReceived(GameObject source)
     {
-        EndStun(true);
+        if (source != this.gameObject) EndStun(true);
+        else SetStun(elkStunTimer);
     }
 
     private void EnemyStunned()
