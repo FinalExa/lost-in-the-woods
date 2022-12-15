@@ -27,7 +27,7 @@ public class Combo : MonoBehaviour
     {
         if (isAttacking) Attacking();
         if (comboDelay) ComboDelay();
-        if (comboCancelDelay) CountToCancelCombo();
+        if (comboCancelDelay && currentWeapon.comboCancelEnabled) CountToCancelCombo();
     }
 
     public void SetWeapon(Weapon weaponToSet)

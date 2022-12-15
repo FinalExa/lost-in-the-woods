@@ -5,8 +5,9 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public string weaponName;
-    public float comboCancelTime;
     public float comboEndDelay;
+    public bool comboCancelEnabled;
+    public float comboCancelTime;
     public List<AttackReceived.GameTargets> possibleTargets;
     public List<WeaponAttack> weaponAttacks;
     [HideInInspector] public List<AttackReceived> hitTargets;
