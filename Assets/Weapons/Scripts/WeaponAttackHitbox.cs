@@ -11,7 +11,7 @@ public class WeaponAttackHitbox : Attack
     {
         bool invulnerable = false;
         if (receivedTag == "Invulnerable") invulnerable = true;
-        DamagePossible(invulnerable);
+        if (thisWeapon!=null) DamagePossible(invulnerable);
     }
 
     private void DamagePossible(bool invulnerable)
