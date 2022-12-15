@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     public List<WeaponAttack> weaponAttacks;
     [HideInInspector] public List<AttackReceived> hitTargets;
     [HideInInspector] public float currentDamage;
+    [HideInInspector] public int currentWeaponAttackIndex;
 
 
     private void Start()
