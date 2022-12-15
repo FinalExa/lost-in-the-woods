@@ -393,9 +393,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {fileID: 11400000, guid: 3a0ecedcd75d65b498584f6fa7373c60, type: 2}
   isInGraphicsMode: 0
-  frontSprite: {fileID: 147246842, guid: 1f209ee9cbe81f64f8792c9fba89e4a1, type: 3}
-  backSprite: {fileID: 1553865154, guid: 1f209ee9cbe81f64f8792c9fba89e4a1, type: 3}
-  sideSprite: {fileID: -231090018, guid: 1f209ee9cbe81f64f8792c9fba89e4a1, type: 3}
+  frontSprite: {fileID: -1595382693, guid: 0c0d21bf47a4a464195a50e660919e1b, type: 3}
+  backSprite: {fileID: 1363088190, guid: 0c0d21bf47a4a464195a50e660919e1b, type: 3}
+  sideSprite: {fileID: -283613366, guid: 0c0d21bf47a4a464195a50e660919e1b, type: 3}
   spriteRef: {fileID: 8717672636991933783}
 --- !u!1001 &1313772443539866196
 PrefabInstance:
