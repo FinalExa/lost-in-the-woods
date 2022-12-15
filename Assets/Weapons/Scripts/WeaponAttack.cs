@@ -8,6 +8,7 @@ public class WeaponAttack
     public float duration;
     public float afterDelay;
     public float movementDistance;
+    public bool ignoresWalls;
     public GameObject attackObject;
     public enum WeaponAttackType { GENERIC, PLAYER, WATER, DOOR }
     public List<WeaponAttackType> weaponAttackTypes;
