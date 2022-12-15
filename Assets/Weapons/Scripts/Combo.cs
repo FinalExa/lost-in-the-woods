@@ -5,7 +5,6 @@ using UnityEngine;
 public class Combo : MonoBehaviour
 {
     [HideInInspector] public Weapon currentWeapon;
-    [HideInInspector] public int currentComboProgress;
     [HideInInspector] public bool isAttacking;
     [HideInInspector] public bool comboHitOver;
     [HideInInspector] public bool comboDelay;
@@ -28,19 +27,22 @@ public class Combo : MonoBehaviour
     {
         if (isAttacking) Attacking();
         if (comboDelay) ComboDelay();
-        if (comboCancelDelay) CountToCancelCombo();
+        if (comboCancelDelay && currentWeapon.comboCancelEnabled) CountToCancelCombo();
     }
 
     public void SetWeapon(Weapon weaponToSet)
     {
-        if (currentWeapon != weaponToSet) currentWeapon = weaponToSet;
+        if (currentWeapon != weaponToSet)
+        {
+            currentWeapon = weaponToSet;
+            currentWeapon.currentWeaponAttackIndex = 0;
+        }
     }
     protected void ComboSetup()
     {
         comboHitOver = true;
         comboDelay = false;
         lastDirection = new Vector3(0f, 0f, 1f);
-        currentComboProgress = 0;
     }
     public void StartComboHitCheck()
     {
@@ -65,18 +67,18 @@ public class Combo : MonoBehaviour
     {
         comboHitOver = false;
         comboCancelDelay = false;
-        attackTimer = currentWeapon.weaponAttacks[currentComboProgress].duration;
-        currentWeapon.weaponAttacks[currentComboProgress].attackObject.SetActive(true);
-        currentWeapon.currentDamage = currentWeapon.weaponAttacks[currentComboProgress].damage;
-        if (currentWeapon.weaponAttacks[currentComboProgress].movementDistance != 0) movementSpeed = currentWeapon.weaponAttacks[currentComboProgress].movementDistance / currentWeapon.weaponAttacks[currentComboProgress].duration;
+        attackTimer = currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].duration;
+        currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].attackObject.SetActive(true);
+        currentWeapon.currentDamage = currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].damage;
+        if (currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].movementDistance != 0) movementSpeed = currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].movementDistance / currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].duration;
         attackCountTime = 0;
         isAttacking = true;
-        if (currentWeapon.weaponAttacks[currentComboProgress].playsSound) AudioManager.Instance.PlaySound(currentWeapon.weaponAttacks[currentComboProgress].soundToPlay);
+        if (currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].playsSound) AudioManager.Instance.PlaySound(currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].soundToPlay);
     }
 
     private void Attacking()
     {
-        WeaponAttack currentAttack = currentWeapon.weaponAttacks[currentComboProgress];
+        WeaponAttack currentAttack = currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex];
         if (attackTimer > 0)
         {
             attackTimer -= Time.deltaTime;
@@ -126,9 +128,9 @@ public class Combo : MonoBehaviour
         if (comboCancelTimer > 0) comboCancelTimer -= Time.deltaTime;
         else
         {
-            currentWeapon.weaponAttacks[currentComboProgress].attackObject.SetActive(false);
-            currentComboProgress = 0;
-            currentWeapon.weaponAttacks[currentComboProgress].attackObject.SetActive(true);
+            currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].attackObject.SetActive(false);
+            currentWeapon.currentWeaponAttackIndex = 0;
+            currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].attackObject.SetActive(true);
             comboCancelDelay = false;
         }
     }
@@ -136,16 +138,16 @@ public class Combo : MonoBehaviour
     private void EndComboHit()
     {
         currentWeapon.hitTargets.Clear();
-        if (currentComboProgress + 1 == currentWeapon.weaponAttacks.Count)
+        if (currentWeapon.currentWeaponAttackIndex + 1 == currentWeapon.weaponAttacks.Count)
         {
-            currentComboProgress = 0;
+            currentWeapon.currentWeaponAttackIndex = 0;
             comboDelayTimer = currentWeapon.comboEndDelay;
             comboEndDelay = true;
         }
         else
         {
-            comboDelayTimer = currentWeapon.weaponAttacks[currentComboProgress].afterDelay;
-            currentComboProgress++;
+            comboDelayTimer = currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].afterDelay;
+            currentWeapon.currentWeaponAttackIndex++;
             comboCancelTimer = currentWeapon.comboCancelTime;
             comboCancelDelay = true;
         }

@@ -149,14 +149,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Player Weapon
-  comboCancelTime: 0.3
   comboEndDelay: 0.5
+  comboCancelEnabled: 1
+  comboCancelTime: 0.3
   possibleTargets: 0100000002000000
   weaponAttacks:
   - damage: 10
     duration: 0.5
     afterDelay: 0.1
     movementDistance: 0
+    ignoresWalls: 0
     attackObject: {fileID: 1083629791230123650}
     weaponAttackTypes: 01000000
     weaponAttackHitboxSequence:
@@ -188,6 +190,7 @@ MonoBehaviour:
     duration: 0.5
     afterDelay: 0.1
     movementDistance: 0
+    ignoresWalls: 0
     attackObject: {fileID: 1349951445937875719}
     weaponAttackTypes: 01000000
     weaponAttackHitboxSequence:
@@ -219,6 +222,7 @@ MonoBehaviour:
     duration: 0.3
     afterDelay: 0
     movementDistance: 0
+    ignoresWalls: 0
     attackObject: {fileID: 408014969534981321}
     weaponAttackTypes: 01000000
     weaponAttackHitboxSequence:
@@ -241,6 +245,7 @@ MonoBehaviour:
     soundToPlay: PCAttack3
   hitTargets: []
   currentDamage: 0
+  currentWeaponAttackIndex: 0
 --- !u!1001 &835839233154053561
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5269358908780119957}
   - component: {fileID: 33525169902638111}
   - component: {fileID: -8112838768348668354}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PreparationHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,6 +48,9 @@ MonoBehaviour:
   possibleTargets: 
   thisWeapon: {fileID: 0}
   weaponAttackTypes: 
+  hitLayer:
+    serializedVersion: 2
+    m_Bits: 255
 --- !u!212 &-8112838768348668354
 SpriteRenderer:
   m_ObjectHideFlags: 0
