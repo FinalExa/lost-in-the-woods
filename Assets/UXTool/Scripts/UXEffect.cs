@@ -11,15 +11,17 @@ public class UXEffect
     public bool hasSpriteColorChange;
     public SpriteColorChange spriteColorChange;
     public bool hasCameraShake;
+    public CameraShake cameraShake;
     [HideInInspector] public GameObject soundParent;
 
     public void UXEffectStartup()
     {
         if (hasSound) GetAudioSource();
         if (hasSpriteColorChange) spriteColorChange.GetSpriteBaseColor();
+        if (hasCameraShake) GetCameraShaker();
     }
 
-    public void GetAudioSource()
+    private void GetAudioSource()
     {
         GameObject parent = GameObject.FindGameObjectWithTag("SoundParent");
         if (parent != null) soundParent = parent;
@@ -33,5 +35,11 @@ public class UXEffect
         parent.name = "SoundParent";
         parent.tag = "SoundParent";
         return parent;
+    }
+
+    private void GetCameraShaker()
+    {
+        cameraShake.cinemachineCameraShakerRef = MonoBehaviour.FindObjectOfType<CinemachineCameraShaker>();
+        if (cameraShake.cinemachineCameraShakerRef) hasCameraShake = false;
     }
 }

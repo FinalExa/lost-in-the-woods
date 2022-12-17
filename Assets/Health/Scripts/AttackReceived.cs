@@ -9,16 +9,17 @@ public class AttackReceived : MonoBehaviour
     public enum GameTargets { PLAYER, ENEMY, PUZZLE_ELEMENT, ENVIRONMENT }
     [SerializeField] private GameTargets thisType;
     [SerializeField] private bool ignoresDamage;
-    [SerializeField] private bool hasCameraShakeOnHit;
-    [SerializeField] private float cameraShakeOnHitDuration;
-
-    private CinemachineCameraShaker cinemachineCameraShaker;
+    [SerializeField] private UXEffect uxOnAttackReceived;
 
     private void Awake()
     {
         health = this.gameObject.GetComponent<Health>();
         attackInteraction = this.gameObject.GetComponent<AttackInteraction>();
-        cinemachineCameraShaker = FindObjectOfType<CinemachineCameraShaker>();
+    }
+
+    private void Start()
+    {
+        uxOnAttackReceived.UXEffectStartup();
     }
 
     public void AttackReceivedOperation(List<GameTargets> receivedTargets, float damage, List<WeaponAttack.WeaponAttackType> weaponAttackTypes, bool invulnerable, GameObject attacker)
@@ -31,7 +32,7 @@ public class AttackReceived : MonoBehaviour
                 health.OnHitSetSpriteColorChange();
                 health.OnHitSound();
             }
-            if (hasCameraShakeOnHit) cinemachineCameraShaker.ShakeCamera(cameraShakeOnHitDuration);
+            if (uxOnAttackReceived.hasCameraShake) uxOnAttackReceived.cameraShake.StartCameraShake();
         }
         if (attackInteraction != null) attackInteraction.CheckIfAttackTypeIsTheSame(weaponAttackTypes, attacker);
     }

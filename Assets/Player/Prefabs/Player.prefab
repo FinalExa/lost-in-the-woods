@@ -123,6 +123,11 @@ MonoBehaviour:
       spritehasChangedColor: 0
       spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
     hasCameraShake: 0
+    cameraShake:
+      shakeAmplitude: 0
+      shakeFrequency: 0
+      shakeDuration: 0
+      cinemachineCameraShakerRef: {fileID: 0}
     soundParent: {fileID: 0}
   cam: {fileID: 0}
   inputs: {fileID: 0}
@@ -196,8 +201,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisType: 0
   ignoresDamage: 0
-  hasCameraShakeOnHit: 1
-  cameraShakeOnHitDuration: 0.3
+  uxOnAttackReceived:
+    hasSound: 0
+    sound:
+      clipName: 
+      clip: {fileID: 0}
+      priority: 128
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 1
+      loop: 0
+      playOnAwake: 0
+      mixer: {fileID: 0}
+    hasSpriteColorChange: 0
+    spriteColorChange:
+      onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+      spriteRef: {fileID: 0}
+      spriteColorChangeDuration: 0
+      spritehasChangedColor: 0
+      spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+    hasCameraShake: 1
+    cameraShake:
+      shakeAmplitude: 5
+      shakeFrequency: 10
+      shakeDuration: 1
+      cinemachineCameraShakerRef: {fileID: 0}
+    soundParent: {fileID: 0}
 --- !u!114 &3858997638449282005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,6 +265,11 @@ MonoBehaviour:
       spritehasChangedColor: 0
       spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
     hasCameraShake: 0
+    cameraShake:
+      shakeAmplitude: 0
+      shakeFrequency: 0
+      shakeDuration: 0
+      cinemachineCameraShakerRef: {fileID: 0}
     soundParent: {fileID: 0}
   uxOnHit:
     hasSound: 0
@@ -257,6 +293,11 @@ MonoBehaviour:
       spritehasChangedColor: 0
       spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
     hasCameraShake: 0
+    cameraShake:
+      shakeAmplitude: 0
+      shakeFrequency: 0
+      shakeDuration: 0
+      cinemachineCameraShakerRef: {fileID: 0}
     soundParent: {fileID: 0}
 --- !u!114 &8706434170628328547
 MonoBehaviour:
@@ -274,11 +315,63 @@ MonoBehaviour:
   heartbeatDuration: 15
   globalLightHeartbeatColor: {r: 1, g: 0, b: 0, a: 1}
   testScene: 0
-  hasAnticipationSound: 0
+  uxOnAnticipation:
+    hasSound: 0
+    sound:
+      clipName: 
+      clip: {fileID: 0}
+      priority: 128
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 1
+      loop: 0
+      playOnAwake: 0
+      mixer: {fileID: 0}
+    hasSpriteColorChange: 0
+    spriteColorChange:
+      onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+      spriteRef: {fileID: 0}
+      spriteColorChangeDuration: 0
+      spritehasChangedColor: 0
+      spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+    hasCameraShake: 0
+    cameraShake:
+      shakeAmplitude: 0
+      shakeFrequency: 0
+      shakeDuration: 0
+      cinemachineCameraShakerRef: {fileID: 0}
+    soundParent: {fileID: 0}
   anticipationTime: 5
-  anticipationSound: 
-  hasHeartbeatSound: 1
-  heartbeatSound: Heartbeat
+  uxOnHeartbeat:
+    hasSound: 0
+    sound:
+      clipName: 
+      clip: {fileID: 0}
+      priority: 128
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 1
+      loop: 0
+      playOnAwake: 0
+      mixer: {fileID: 0}
+    hasSpriteColorChange: 0
+    spriteColorChange:
+      onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+      spriteRef: {fileID: 0}
+      spriteColorChangeDuration: 0
+      spritehasChangedColor: 0
+      spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+    hasCameraShake: 0
+    cameraShake:
+      shakeAmplitude: 0
+      shakeFrequency: 0
+      shakeDuration: 0
+      cinemachineCameraShakerRef: {fileID: 0}
+    soundParent: {fileID: 0}
 --- !u!114 &1353845484741870925
 MonoBehaviour:
   m_ObjectHideFlags: 0

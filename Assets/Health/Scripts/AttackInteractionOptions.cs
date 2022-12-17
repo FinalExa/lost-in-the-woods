@@ -84,6 +84,6 @@ public class AttackInteractionOptions
     }
     private void PlaySound(AttackInteraction.Options options)
     {
-        if (options.playsSoundOnInteraction) AudioManager.Instance.PlaySound(options.soundToPlay);
+        if (options.uxOnInteraction.hasSound) options.uxOnInteraction.sound.PlayAudio();
     }
 }
