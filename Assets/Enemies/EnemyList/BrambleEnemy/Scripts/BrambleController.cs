@@ -20,9 +20,8 @@ public class BrambleController : EnemyController, ISendSignalToSelf
         base.Awake();
         boxCollider = this.gameObject.GetComponent<BoxCollider>();
     }
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
         brambleData = (BrambleData)enemyData;
         startBoxColliderSize = boxCollider.size;
         expandedBoxColliderSize = Vector3.one * brambleData.unretractedScaleSize;

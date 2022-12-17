@@ -5,6 +5,7 @@ using UnityEngine;
 public class PCReferences : MonoBehaviour
 {
     public PCData pcData;
+    public UXEffect uxOnDodge;
     [HideInInspector] public Camera cam;
     [HideInInspector] public Inputs inputs;
     [HideInInspector] public Rigidbody rb;
@@ -12,8 +13,6 @@ public class PCReferences : MonoBehaviour
     [HideInInspector] public PCRotation pcRotation;
     [HideInInspector] public PCHealth pcHealth;
     [HideInInspector] public PCLight pcLight;
-    public SpriteRenderer spriteRenderer;
-    [HideInInspector] public Color spriteStartColor;
 
     private void Awake()
     {
@@ -24,10 +23,5 @@ public class PCReferences : MonoBehaviour
         pcRotation = FindObjectOfType<PCRotation>();
         pcHealth = this.gameObject.GetComponent<PCHealth>();
         pcLight = this.gameObject.GetComponentInChildren<PCLight>();
-    }
-
-    private void Start()
-    {
-        spriteStartColor = spriteRenderer.color;
     }
 }

@@ -73,6 +73,7 @@ Transform:
   m_Children:
   - {fileID: 8940398980789769128}
   - {fileID: 852225485018700890}
+  - {fileID: 5862471726576036295}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -101,6 +102,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pcData: {fileID: 11400000, guid: 2337e969dbc55004d8d9d48208094455, type: 2}
+  uxOnDodge:
+    hasSound: 0
+    soundParent: {fileID: 0}
+    sound:
+      clipName: 
+      clip: {fileID: 0}
+      priority: 128
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 1
+      loop: 0
+      playOnAwake: 0
+      mixer: {fileID: 0}
+    hasSpriteColorChange: 0
+    spriteColorChange:
+      onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+      spriteRef: {fileID: 0}
+      spriteColorChangeDuration: 0
+      spritehasChangedColor: 0
+      spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+    hasCameraShake: 0
   cam: {fileID: 0}
   inputs: {fileID: 0}
   rb: {fileID: 0}
@@ -108,8 +132,6 @@ MonoBehaviour:
   pcRotation: {fileID: 0}
   pcHealth: {fileID: 0}
   pcLight: {fileID: 0}
-  spriteRenderer: {fileID: 8717672636991933783}
-  spriteStartColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &723867546203750364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,7 +175,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWeapon: {fileID: 0}
-  currentComboProgress: 0
   isAttacking: 0
   comboHitOver: 0
   comboDelay: 0
@@ -192,13 +213,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 0
   maxHP: 0
-  hasDeathSound: 0
-  deathSound: 
-  hasOnHitSound: 1
-  onHitSound: PCOnHit
-  hasOnHitSpriteColorChange: 1
-  spriteColorChangeDuration: 0.3
-  onHitSpriteColor: {r: 1, g: 0.9128059, b: 0, a: 1}
+  uxOnDeath:
+    hasSound: 0
+    soundParent: {fileID: 8066386546072459368}
+    sound:
+      clipName: 
+      clip: {fileID: 0}
+      priority: 128
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 1
+      loop: 0
+      playOnAwake: 0
+      mixer: {fileID: 0}
+    hasSpriteColorChange: 0
+    spriteColorChange:
+      onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+      spriteRef: {fileID: 0}
+      spriteColorChangeDuration: 0
+      spritehasChangedColor: 0
+      spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+    hasCameraShake: 0
+  uxOnHit:
+    hasSound: 0
+    soundParent: {fileID: 8066386546072459368}
+    sound:
+      clipName: 
+      clip: {fileID: 0}
+      priority: 128
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 1
+      loop: 0
+      playOnAwake: 0
+      mixer: {fileID: 0}
+    hasSpriteColorChange: 0
+    spriteColorChange:
+      onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+      spriteRef: {fileID: 0}
+      spriteColorChangeDuration: 0
+      spritehasChangedColor: 0
+      spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+    hasCameraShake: 0
 --- !u!114 &8706434170628328547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,6 +405,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &8066386546072459368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5862471726576036295}
+  m_Layer: 7
+  m_Name: SoundParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5862471726576036295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8066386546072459368}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7129377632901191473}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8306503299098071827
 GameObject:
   m_ObjectHideFlags: 0

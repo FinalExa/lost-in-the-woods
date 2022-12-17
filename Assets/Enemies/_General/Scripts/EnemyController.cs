@@ -7,8 +7,6 @@ public class EnemyController : MonoBehaviour
 {
     public Rotation rotation;
     public EnemyData enemyData;
-    public SpriteRenderer spriteRendererRef;
-    [HideInInspector] public Color spriteBaseColor;
     [HideInInspector] public Weapon currentWeapon;
     [HideInInspector] public bool isAlerted;
     [HideInInspector] public GameObject playerTarget;
@@ -25,10 +23,6 @@ public class EnemyController : MonoBehaviour
         enemyCombo = this.gameObject.GetComponent<EnemyCombo>();
         thisNavMeshAgent = this.gameObject.GetComponent<NavMeshAgent>();
         affectedByLight = this.gameObject.GetComponent<AffectedByLight>();
-    }
-    protected virtual void Start()
-    {
-        spriteBaseColor = spriteRendererRef.color;
     }
     public virtual void LightStateUpdate()
     {

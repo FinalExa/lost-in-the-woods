@@ -6,17 +6,15 @@ public abstract class Health : MonoBehaviour
 {
     [HideInInspector] public float currentHP;
     [HideInInspector] public float maxHP;
-    [SerializeField] protected bool hasDeathSound;
-    [SerializeField] protected string deathSound;
-    [SerializeField] protected bool hasOnHitSound;
-    [SerializeField] protected string onHitSound;
-    [SerializeField] protected bool hasOnHitSpriteColorChange;
-    [SerializeField] protected float spriteColorChangeDuration;
-    [SerializeField] protected Color onHitSpriteColor;
-    protected bool spritehasChangedColor;
-    protected float spriteColorChangeTimer;
-    protected SpriteRenderer spriteRef;
-    protected Color spriteRefBaseColor;
+    [SerializeField] protected UXEffect uxOnDeath;
+    [SerializeField] protected UXEffect uxOnHit;
+    protected float onHitColorChangeTimer;
+
+    protected virtual void Start()
+    {
+        uxOnDeath.UXEffectStartup();
+        uxOnHit.UXEffectStartup();
+    }
 
     public virtual void SetHPStartup(float givenMaxHP)
     {
@@ -34,53 +32,43 @@ public abstract class Health : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (hasOnHitSpriteColorChange && spritehasChangedColor) SpriteColorTimer();
+        if (uxOnHit.hasSpriteColorChange && uxOnHit.spriteColorChange.spritehasChangedColor) SpriteColorTimer();
     }
 
     public virtual void OnDeath()
     {
-        PlayDeathSound();
+        OnDeathSound();
         this.gameObject.SetActive(false);
     }
 
-    protected void PlayDeathSound()
+    public void OnHitSetSpriteColorChange()
     {
-        if (hasDeathSound) AudioManager.Instance.PlaySound(deathSound);
+        if (uxOnHit.spriteColorChange.spriteRef != null)
+        {
+            onHitColorChangeTimer = uxOnHit.spriteColorChange.spriteColorChangeDuration;
+            uxOnHit.spriteColorChange.SetSpriteColor();
+        }
     }
 
     public virtual void OnHitReceived()
     {
-        SetSpriteColorChange();
+        OnHitSetSpriteColorChange();
+        OnHitSound();
     }
 
-    public void PlayOnHitSound()
+    public void OnHitSound()
     {
-        if (hasOnHitSound) AudioManager.Instance.PlaySound(onHitSound);
+        if (uxOnHit.hasSound) uxOnHit.sound.PlayAudio();
     }
 
-    protected virtual void SetSpriteRenderer()
+    public void OnDeathSound()
     {
-        return;
-    }
-
-    public void SetSpriteColorChange()
-    {
-        if (spriteRef == null) SetSpriteRenderer();
-        if (hasOnHitSpriteColorChange && spriteRef != null)
-        {
-            spriteRef.color = onHitSpriteColor;
-            spriteColorChangeTimer = spriteColorChangeDuration;
-            spritehasChangedColor = true;
-        }
+        if (uxOnDeath.hasSound) uxOnDeath.sound.PlayAudio();
     }
 
     protected void SpriteColorTimer()
     {
-        if (spriteColorChangeTimer > 0) spriteColorChangeTimer -= Time.deltaTime;
-        else
-        {
-            spriteRef.color = spriteRefBaseColor;
-            spritehasChangedColor = false;
-        }
+        if (onHitColorChangeTimer > 0) onHitColorChangeTimer -= Time.deltaTime;
+        else uxOnHit.spriteColorChange.ResetSpriteColor();
     }
 }

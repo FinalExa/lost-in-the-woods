@@ -22,7 +22,7 @@ public class EnemyHealth : Health
 
     public override void OnDeath()
     {
-        PlayDeathSound();
+        if (uxOnDeath.hasSound) uxOnDeath.sound.PlayAudio();
         SetEnemyDead();
         OnDeathInteraction();
     }
@@ -43,11 +43,5 @@ public class EnemyHealth : Health
     private void OnDisable()
     {
         SetEnemyDead();
-    }
-
-    protected override void SetSpriteRenderer()
-    {
-        spriteRef = enemyController.spriteRendererRef;
-        spriteRefBaseColor = enemyController.spriteBaseColor;
     }
 }

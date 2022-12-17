@@ -28,8 +28,8 @@ public class AttackReceived : MonoBehaviour
             if (!ignoresDamage) DealDamage(invulnerable, damage);
             else if (health != null)
             {
-                health.SetSpriteColorChange();
-                health.PlayOnHitSound();
+                health.OnHitSetSpriteColorChange();
+                health.OnHitSound();
             }
             if (hasCameraShakeOnHit) cinemachineCameraShaker.ShakeCamera(cameraShakeOnHitDuration);
         }
