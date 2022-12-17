@@ -8,7 +8,6 @@ public abstract class Health : MonoBehaviour
     [HideInInspector] public float maxHP;
     [SerializeField] protected UXEffect uxOnDeath;
     [SerializeField] protected UXEffect uxOnHit;
-    protected float onHitColorChangeTimer;
 
     protected virtual void Start()
     {
@@ -30,11 +29,6 @@ public abstract class Health : MonoBehaviour
         else if (healthToAdd < 0) OnHitReceived();
     }
 
-    protected virtual void Update()
-    {
-        if (uxOnHit.hasSpriteColorChange && uxOnHit.spriteColorChange.spritehasChangedColor) SpriteColorTimer();
-    }
-
     public virtual void OnDeath()
     {
         OnDeathSound();
@@ -43,10 +37,10 @@ public abstract class Health : MonoBehaviour
 
     public void OnHitSetSpriteColorChange()
     {
-        if (uxOnHit.spriteColorChange.spriteRef != null)
+        if (uxOnHit.hasSpriteColorChange && uxOnHit.spriteColorChange.spriteRef != null)
         {
-            onHitColorChangeTimer = uxOnHit.spriteColorChange.spriteColorChangeDuration;
             uxOnHit.spriteColorChange.SetSpriteColor();
+            StartCoroutine(OnHitSpriteColorChangeExecute(uxOnHit.spriteColorChange.spriteColorChangeDuration));
         }
     }
 
@@ -66,9 +60,9 @@ public abstract class Health : MonoBehaviour
         if (uxOnDeath.hasSound) uxOnDeath.sound.PlayAudio();
     }
 
-    protected void SpriteColorTimer()
+    private IEnumerator OnHitSpriteColorChangeExecute(float timeToWait)
     {
-        if (onHitColorChangeTimer > 0) onHitColorChangeTimer -= Time.deltaTime;
-        else uxOnHit.spriteColorChange.ResetSpriteColor();
+        yield return new WaitForSeconds(timeToWait);
+        uxOnHit.spriteColorChange.ResetSpriteColor();
     }
 }

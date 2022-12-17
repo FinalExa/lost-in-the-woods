@@ -22,9 +22,8 @@ public class PCHealth : Health
         SetHPStartup(pcReferences.pcData.maxHP);
     }
 
-    protected override void Update()
+    private void Update()
     {
-        base.Update();
         RegenCheck();
         RegenWait();
         Regen();

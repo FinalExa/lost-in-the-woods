@@ -13,6 +13,7 @@ TagManager:
   - EnemyAggroRange
   - MirrorLightInteractable
   - BigShade
+  - SoundParent
   layers:
   - Default
   - TransparentFX

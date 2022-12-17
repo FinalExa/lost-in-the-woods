@@ -7,20 +7,31 @@ using UnityEngine;
 public class UXEffect
 {
     public bool hasSound;
-    public GameObject soundParent;
     public Sound sound;
     public bool hasSpriteColorChange;
     public SpriteColorChange spriteColorChange;
     public bool hasCameraShake;
+    [HideInInspector] public GameObject soundParent;
 
     public void UXEffectStartup()
     {
-        if (hasSound) CreateAudioSource();
+        if (hasSound) GetAudioSource();
         if (hasSpriteColorChange) spriteColorChange.GetSpriteBaseColor();
     }
 
-    public void CreateAudioSource()
+    public void GetAudioSource()
     {
-        if (soundParent != null) sound.SetSource(soundParent.AddComponent<AudioSource>());
+        GameObject parent = GameObject.FindGameObjectWithTag("SoundParent");
+        if (parent != null) soundParent = parent;
+        else soundParent = CreateSoundParent();
+        sound.SetSource(soundParent.AddComponent<AudioSource>());
+    }
+
+    private GameObject CreateSoundParent()
+    {
+        GameObject parent = new GameObject();
+        parent.name = "SoundParent";
+        parent.tag = "SoundParent";
+        return parent;
     }
 }

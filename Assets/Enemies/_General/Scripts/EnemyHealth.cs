@@ -22,12 +22,12 @@ public class EnemyHealth : Health
 
     public override void OnDeath()
     {
-        if (uxOnDeath.hasSound) uxOnDeath.sound.PlayAudio();
         SetEnemyDead();
         OnDeathInteraction();
     }
     private void SetEnemyDead()
     {
+        if (uxOnDeath.hasSound) uxOnDeath.sound.PlayAudio();
         if (!deathDone)
         {
             if (enemyController.spawnerRef != null) enemyController.spawnerRef.SetEnemyDead(enemyController.spawnerEnemyInfo);
