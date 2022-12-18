@@ -16,14 +16,14 @@ public class PCHealth : Health
         pcLight = this.gameObject.GetComponentInChildren<PCLight>();
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         SetHPStartup(pcReferences.pcData.maxHP);
     }
 
-    protected override void Update()
+    private void Update()
     {
-        base.Update();
         RegenCheck();
         RegenWait();
         Regen();
@@ -36,15 +36,14 @@ public class PCHealth : Health
 
     public override void OnDeath()
     {
+        if (uxOnDeath.hasSound) uxOnDeath.sound.PlayAudio();
         //TEMPORARY
-        PlayDeathSound();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public override void OnHitReceived()
     {
         base.OnHitReceived();
-        PlayOnHitSound();
         regenWait = false;
         regen = false;
     }
@@ -86,11 +85,5 @@ public class PCHealth : Health
     {
         base.SetHPStartup(givenMaxHP);
         pcLight.LightRadiusUpdate(currentHP);
-    }
-
-    protected override void SetSpriteRenderer()
-    {
-        spriteRef = pcReferences.spriteRenderer;
-        spriteRefBaseColor = pcReferences.spriteStartColor;
     }
 }

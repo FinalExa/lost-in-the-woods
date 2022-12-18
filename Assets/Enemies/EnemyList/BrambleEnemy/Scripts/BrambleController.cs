@@ -12,17 +12,15 @@ public class BrambleController : EnemyController, ISendSignalToSelf
     private Vector3 expandedBoxColliderSize;
     private Vector3 currentColliderSize;
     private float retractTimer;
-    [SerializeField] private bool playsSoundFullyRetracted;
-    [SerializeField] private string soundFullyRetracted;
+    [SerializeField] private UXEffect uxOnFullyRetracted;
 
     protected override void Awake()
     {
         base.Awake();
         boxCollider = this.gameObject.GetComponent<BoxCollider>();
     }
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
         brambleData = (BrambleData)enemyData;
         startBoxColliderSize = boxCollider.size;
         expandedBoxColliderSize = Vector3.one * brambleData.unretractedScaleSize;
@@ -49,7 +47,7 @@ public class BrambleController : EnemyController, ISendSignalToSelf
             spriteColliderObject.SetActive(false);
             retractTimer = timer;
             isRetracted = true;
-            if (playsSoundFullyRetracted) AudioManager.Instance.PlaySound(soundFullyRetracted);
+            if (uxOnFullyRetracted.hasSound) uxOnFullyRetracted.sound.PlayAudio();
         }
     }
 

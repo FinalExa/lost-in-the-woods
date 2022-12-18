@@ -12,8 +12,7 @@ public class Projectile : MonoBehaviour
     private float projectileTimer;
     private Rigidbody projectileRb;
     [HideInInspector] public Vector3 direction;
-    [SerializeField] private bool playsSound;
-    [SerializeField] private string soundToPlay;
+    [SerializeField] private UXEffect uxProjectile;
 
     private void Awake()
     {
@@ -22,7 +21,8 @@ public class Projectile : MonoBehaviour
     private void Start()
     {
         projectileTimer = projectileLifetime;
-        if (playsSound) AudioManager.Instance.PlaySound(soundToPlay);
+        uxProjectile.UXEffectStartup();
+        if (uxProjectile.hasSound) uxProjectile.sound.PlayAudio();
     }
 
     private void FixedUpdate()

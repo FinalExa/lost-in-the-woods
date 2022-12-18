@@ -72,8 +72,8 @@ public class Combo : MonoBehaviour
         currentWeapon.currentDamage = currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].damage;
         if (currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].movementDistance != 0) movementSpeed = currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].movementDistance / currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].duration;
         attackCountTime = 0;
+        if (currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].uxOnWeaponAttack.hasSound) currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].uxOnWeaponAttack.sound.PlayAudio();
         isAttacking = true;
-        if (currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].playsSound) AudioManager.Instance.PlaySound(currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].soundToPlay);
     }
 
     private void Attacking()

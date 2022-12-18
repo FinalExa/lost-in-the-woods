@@ -10,7 +10,7 @@ public class AttackInteractionOptions
     {
         if (!options.hasSpecialCondition || SpecialConditionsCheck(options))
         {
-            PlaySound(options);
+            UXEffectExecute(options);
             if (options.isDestroyed) DestroyOrTurnOff(turnsOff);
             else if (options.isTransformed && options.transformedRef != null) Transform(options, turnsOff);
             else if (options.sendsSignalToSelf) SendSignalToSelf(source);
@@ -82,8 +82,13 @@ public class AttackInteractionOptions
         if (!turnsOff) GameObject.Destroy(selfObject);
         else selfObject.SetActive(false);
     }
-    private void PlaySound(AttackInteraction.Options options)
+    private void UXEffectExecute(AttackInteraction.Options options)
     {
-        if (options.playsSoundOnInteraction) AudioManager.Instance.PlaySound(options.soundToPlay);
+        if (!options.uxOnInteractionInitialized)
+        {
+            options.uxOnInteraction.UXEffectStartup();
+            options.uxOnInteractionInitialized = true;
+        }
+        if (options.uxOnInteraction.hasSound) options.uxOnInteraction.sound.PlayAudio();
     }
 }

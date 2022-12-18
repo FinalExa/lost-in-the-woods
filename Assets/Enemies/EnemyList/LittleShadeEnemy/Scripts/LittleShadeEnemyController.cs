@@ -21,9 +21,8 @@ public class LittleShadeEnemyController : EnemyController, ISendSignalToSelf, IH
         namedInteraction = this.gameObject.GetComponent<GenericNamedInteractionExecutor>();
     }
 
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
         namedInteraction.enabled = false;
     }
 

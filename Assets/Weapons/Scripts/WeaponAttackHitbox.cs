@@ -32,7 +32,7 @@ public class WeaponAttackHitbox : Attack
         RaycastHit hit;
         if (Physics.Raycast(origin, direction, out hit, Mathf.Infinity, hitLayer))
         {
-            if (hit.collider.gameObject == attackReceived.gameObject) SetHit(invulnerable);
+            if (hit.collider.gameObject == attackReceived.gameObject) AttackIsReceived(invulnerable);
         }
     }
 

@@ -12,8 +12,7 @@ public class PCLight : MonoBehaviour
     private SphereCollider lightTrigger;
     public List<AffectedByLight> entitiesAffectedByLight;
     [HideInInspector] public bool lanternUp;
-    [SerializeField] private bool hasLanternSwitchSound;
-    [SerializeField] private string lanternSwitchSound;
+    [SerializeField] private UXEffect uxOnLanternSwitch;
 
     private void Awake()
     {
@@ -22,6 +21,7 @@ public class PCLight : MonoBehaviour
     }
     private void Start()
     {
+        uxOnLanternSwitch.UXEffectStartup();
         lightRange = new Vector3(1f, 1f, 0f);
         lightTrigger.enabled = false;
         entitiesAffectedByLight = new List<AffectedByLight>();
@@ -61,7 +61,7 @@ public class PCLight : MonoBehaviour
 
     public void PlayLanternSound()
     {
-        if (hasLanternSwitchSound) AudioManager.Instance.PlaySound(lanternSwitchSound);
+        if (uxOnLanternSwitch.hasSound) uxOnLanternSwitch.sound.PlayAudio();
     }
 
     private void OnTriggerEnter(Collider other)

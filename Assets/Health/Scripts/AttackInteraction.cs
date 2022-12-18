@@ -51,9 +51,9 @@ public class AttackInteraction : MonoBehaviour
         [Header("For special functionalities, touch only if you script")]
         public bool sendsSignalToSelf;
         public bool hasSpecialCondition;
-        [Header("Sound to play")]
-        public bool playsSoundOnInteraction;
-        public string soundToPlay;
+        [Header("UX Effects on Interaction")]
+        public UXEffect uxOnInteraction;
+        [HideInInspector] public bool uxOnInteractionInitialized;
     }
     [SerializeField] private bool turnsOff;
     [SerializeField] private AttackTypeInteraction[] attackTypeInteractions;
