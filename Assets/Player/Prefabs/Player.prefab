@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7f787ccf609ce4a9001551dfd11649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartbeatCooldown: 30
+  heartbeatCooldown: 5
   heartbeatDuration: 15
   globalLightHeartbeatColor: {r: 1, g: 0, b: 0, a: 1}
   testScene: 0
@@ -294,7 +294,7 @@ MonoBehaviour:
       stereoPan: 0
       spatialBlend: 0
       reverbZoneMix: 1
-      loop: 0
+      loop: 1
       playOnAwake: 0
       mixer: {fileID: 0}
     hasSpriteColorChange: 0
@@ -313,18 +313,45 @@ MonoBehaviour:
     soundParent: {fileID: 0}
   anticipationTime: 5
   uxOnHeartbeat:
-    hasSound: 0
+    hasSound: 1
     sound:
-      clip: {fileID: 0}
+      clip: {fileID: 8300000, guid: 1fca4af82acbb6247aad72d1db170d5e, type: 3}
       priority: 128
       volume: 1
       pitch: 1
       stereoPan: 0
       spatialBlend: 0
       reverbZoneMix: 1
-      loop: 0
+      loop: 1
       playOnAwake: 0
-      mixer: {fileID: 0}
+      mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
+    hasSpriteColorChange: 0
+    spriteColorChange:
+      onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+      spriteRef: {fileID: 0}
+      spriteColorChangeDuration: 0
+      spritehasChangedColor: 0
+      spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+    hasCameraShake: 0
+    cameraShake:
+      shakeAmplitude: 0
+      shakeFrequency: 0
+      shakeDuration: 0
+      cinemachineCameraShakerRef: {fileID: 0}
+    soundParent: {fileID: 0}
+  uxWithoutHeartbeat:
+    hasSound: 1
+    sound:
+      clip: {fileID: 8300000, guid: 2a3104900353e0a45b1a07fd5d3db0a4, type: 3}
+      priority: 128
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 1
+      loop: 1
+      playOnAwake: 0
+      mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
     hasSpriteColorChange: 0
     spriteColorChange:
       onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}

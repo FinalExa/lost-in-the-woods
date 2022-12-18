@@ -21,6 +21,7 @@ public class PCLight : MonoBehaviour
     }
     private void Start()
     {
+        uxOnLanternSwitch.UXEffectStartup();
         lightRange = new Vector3(1f, 1f, 0f);
         lightTrigger.enabled = false;
         entitiesAffectedByLight = new List<AffectedByLight>();

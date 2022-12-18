@@ -17,6 +17,7 @@ public class Heartbeat : MonoBehaviour
     [SerializeField] private UXEffect uxOnAnticipation;
     [SerializeField] private float anticipationTime;
     [SerializeField] private UXEffect uxOnHeartbeat;
+    [SerializeField] private UXEffect uxWithoutHeartbeat;
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class Heartbeat : MonoBehaviour
         globalLightBaseColor = globalLight.color;
         uxOnAnticipation.UXEffectStartup();
         uxOnHeartbeat.UXEffectStartup();
+        uxWithoutHeartbeat.UXEffectStartup();
         SetHeartbeatTimer(false);
     }
 
@@ -46,7 +48,11 @@ public class Heartbeat : MonoBehaviour
         if (uxOnAnticipation.hasSound &&
             heartbeatTimer <= anticipationTime &&
             !uxOnAnticipation.sound.IsPlaying() &&
-            !inHeartbeat) uxOnAnticipation.sound.PlayAudio();
+            !inHeartbeat)
+        {
+            if (uxWithoutHeartbeat.hasSound) uxWithoutHeartbeat.sound.StopAudio();
+            uxOnAnticipation.sound.PlayAudio();
+        }
         if (heartbeatTimer > 0) heartbeatTimer -= Time.deltaTime;
         else
         {
@@ -61,6 +67,8 @@ public class Heartbeat : MonoBehaviour
         {
             heartbeatTimer = heartbeatCooldown;
             globalLight.color = globalLightBaseColor;
+            if (uxOnHeartbeat.hasSound && uxOnHeartbeat.sound.IsPlaying()) uxOnHeartbeat.sound.StopAudio();
+            if (uxWithoutHeartbeat.hasSound) uxWithoutHeartbeat.sound.PlayAudio();
         }
         else
         {
@@ -69,7 +77,8 @@ public class Heartbeat : MonoBehaviour
             if (uxOnHeartbeat.hasSound)
             {
                 if (uxOnAnticipation.hasSound) uxOnAnticipation.sound.StopAudio();
-                uxOnHeartbeat.sound.PlayAudio();
+                if (uxWithoutHeartbeat.hasSound) uxWithoutHeartbeat.sound.StopAudio();
+                if (uxOnHeartbeat.hasSound) uxOnHeartbeat.sound.PlayAudio();
             }
         }
     }
