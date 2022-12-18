@@ -184,8 +184,33 @@ MonoBehaviour:
         projectile: {fileID: 0}
         projectileLaunchTimeAfterStart: 0
     hasAnimation: 0
-    playsSound: 1
-    soundToPlay: PCAttack1
+    uxOnWeaponAttack:
+      hasSound: 1
+      sound:
+        clip: {fileID: 8300000, guid: a78081cb1badaf048b78b1ecca3a0898, type: 3}
+        priority: 128
+        volume: 1
+        pitch: 1
+        stereoPan: 0
+        spatialBlend: 0
+        reverbZoneMix: 1
+        loop: 0
+        playOnAwake: 0
+        mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
+      hasSpriteColorChange: 0
+      spriteColorChange:
+        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        spriteRef: {fileID: 0}
+        spriteColorChangeDuration: 0
+        spritehasChangedColor: 0
+        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+      hasCameraShake: 0
+      cameraShake:
+        shakeAmplitude: 0
+        shakeFrequency: 0
+        shakeDuration: 0
+        cinemachineCameraShakerRef: {fileID: 0}
+      soundParent: {fileID: 0}
   - damage: 10
     duration: 0.5
     afterDelay: 0.1
@@ -216,8 +241,33 @@ MonoBehaviour:
         projectile: {fileID: 0}
         projectileLaunchTimeAfterStart: 0
     hasAnimation: 0
-    playsSound: 1
-    soundToPlay: PCAttack2
+    uxOnWeaponAttack:
+      hasSound: 1
+      sound:
+        clip: {fileID: 8300000, guid: 244fb2fca14b3e24cb7b754c21cf1979, type: 3}
+        priority: 128
+        volume: 1
+        pitch: 1
+        stereoPan: 0
+        spatialBlend: 0
+        reverbZoneMix: 1
+        loop: 0
+        playOnAwake: 0
+        mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
+      hasSpriteColorChange: 0
+      spriteColorChange:
+        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        spriteRef: {fileID: 0}
+        spriteColorChangeDuration: 0
+        spritehasChangedColor: 0
+        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+      hasCameraShake: 0
+      cameraShake:
+        shakeAmplitude: 0
+        shakeFrequency: 0
+        shakeDuration: 0
+        cinemachineCameraShakerRef: {fileID: 0}
+      soundParent: {fileID: 0}
   - damage: 20
     duration: 0.3
     afterDelay: 0
@@ -241,8 +291,33 @@ MonoBehaviour:
         projectile: {fileID: 0}
         projectileLaunchTimeAfterStart: 0
     hasAnimation: 0
-    playsSound: 1
-    soundToPlay: PCAttack3
+    uxOnWeaponAttack:
+      hasSound: 1
+      sound:
+        clip: {fileID: 8300000, guid: dc16683ddfc54994f839e63788e94d05, type: 3}
+        priority: 128
+        volume: 1
+        pitch: 1
+        stereoPan: 0
+        spatialBlend: 0
+        reverbZoneMix: 1
+        loop: 0
+        playOnAwake: 0
+        mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
+      hasSpriteColorChange: 0
+      spriteColorChange:
+        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        spriteRef: {fileID: 0}
+        spriteColorChangeDuration: 0
+        spritehasChangedColor: 0
+        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+      hasCameraShake: 0
+      cameraShake:
+        shakeAmplitude: 0
+        shakeFrequency: 0
+        shakeDuration: 0
+        cinemachineCameraShakerRef: {fileID: 0}
+      soundParent: {fileID: 0}
   hitTargets: []
   currentDamage: 0
   currentWeaponAttackIndex: 0
