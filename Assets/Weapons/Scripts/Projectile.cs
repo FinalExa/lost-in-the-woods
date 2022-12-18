@@ -21,6 +21,7 @@ public class Projectile : MonoBehaviour
     private void Start()
     {
         projectileTimer = projectileLifetime;
+        uxProjectile.UXEffectStartup();
         if (uxProjectile.hasSound) uxProjectile.sound.PlayAudio();
     }
 

@@ -26,6 +26,8 @@ public class Heartbeat : MonoBehaviour
     private void Start()
     {
         globalLightBaseColor = globalLight.color;
+        uxOnAnticipation.UXEffectStartup();
+        uxOnHeartbeat.UXEffectStartup();
         SetHeartbeatTimer(false);
     }
 

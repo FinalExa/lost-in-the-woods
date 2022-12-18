@@ -21,6 +21,7 @@ public class EnemyAggro : MonoBehaviour
     private void Start()
     {
         SetupAggro();
+        uxOnAggro.UXEffectStartup();
     }
 
     private void Update()

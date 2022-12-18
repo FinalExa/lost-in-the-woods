@@ -53,6 +53,7 @@ public class AttackInteraction : MonoBehaviour
         public bool hasSpecialCondition;
         [Header("UX Effects on Interaction")]
         public UXEffect uxOnInteraction;
+        [HideInInspector] public bool uxOnInteractionInitialized;
     }
     [SerializeField] private bool turnsOff;
     [SerializeField] private AttackTypeInteraction[] attackTypeInteractions;

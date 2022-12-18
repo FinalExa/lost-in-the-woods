@@ -6,7 +6,6 @@ using UnityEngine.Audio;
 public class Sound
 {
     private AudioSource source;
-    public string clipName;
     public AudioClip clip;
     [Range(0, 256)] public int priority = 128;
     [Range(0f, 1f)] public float volume = 1f;

@@ -48,6 +48,7 @@ public abstract class Health : MonoBehaviour
     {
         OnHitSetSpriteColorChange();
         OnHitSound();
+        OnHitCameraShake();
     }
 
     public void OnHitSound()
@@ -58,6 +59,11 @@ public abstract class Health : MonoBehaviour
     public void OnDeathSound()
     {
         if (uxOnDeath.hasSound) uxOnDeath.sound.PlayAudio();
+    }
+
+    public void OnHitCameraShake()
+    {
+        if (uxOnHit.hasCameraShake) uxOnHit.cameraShake.StartCameraShake();
     }
 
     private IEnumerator OnHitSpriteColorChangeExecute(float timeToWait)

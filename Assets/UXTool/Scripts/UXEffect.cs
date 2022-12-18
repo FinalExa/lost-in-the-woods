@@ -39,7 +39,7 @@ public class UXEffect
 
     private void GetCameraShaker()
     {
-        cameraShake.cinemachineCameraShakerRef = MonoBehaviour.FindObjectOfType<CinemachineCameraShaker>();
-        if (cameraShake.cinemachineCameraShakerRef) hasCameraShake = false;
+        cameraShake.cinemachineCameraShakerRef = GameObject.FindObjectOfType<CinemachineCameraShaker>();
+        if (cameraShake.cinemachineCameraShakerRef == null) hasCameraShake = false;
     }
 }

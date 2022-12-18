@@ -27,6 +27,7 @@ public class Weapon : MonoBehaviour
         {
             for (int i = 0; i < weaponAttack.weaponAttackHitboxSequence.Length; i++)
             {
+                weaponAttack.uxOnWeaponAttack.UXEffectStartup();
                 WeaponAttackHitbox attackToSet = weaponAttack.weaponAttackHitboxSequence[i].attackRef.gameObject.GetComponent<WeaponAttackHitbox>();
                 weaponAttack.weaponAttackHitboxSequence[i].attackRef = attackToSet;
                 if (attackToSet != null)
