@@ -16,6 +16,8 @@ public class EnemyController : MonoBehaviour
     [HideInInspector] public Spawner spawnerRef;
     [HideInInspector] public Spawner.EnemiesToRespawn spawnerEnemyInfo;
     [HideInInspector] public AffectedByLight affectedByLight;
+    public bool usesFixedTimeLifetimeObject;
+    public float fixedTimeLifetimeObjectDuration;
 
     protected virtual void Awake()
     {
