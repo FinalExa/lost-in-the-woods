@@ -108,8 +108,8 @@ TextureImporter:
       name: character_turnaround_render_0
       rect:
         serializedVersion: 2
-        x: 61
-        y: 56
+        x: 84
+        y: 63
         width: 316
         height: 716
       alignment: 0
@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0c9e731e212bcd45a425345d5569b5c
-      internalID: 1363088190
+      spriteID: 2ec195d057ea953449271b2e6f2df960
+      internalID: -1876262755
       vertices: []
       indices: 
       edges: []
@@ -129,8 +129,8 @@ TextureImporter:
       name: character_turnaround_render_1
       rect:
         serializedVersion: 2
-        x: 492
-        y: 56
+        x: 515
+        y: 63
         width: 316
         height: 716
       alignment: 0
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e47d7c2aaf8ae04085ade06c8c566a6
-      internalID: -1595382693
+      spriteID: eeeef69109c074740bea8d6855f02216
+      internalID: 723844147
       vertices: []
       indices: 
       edges: []
@@ -150,8 +150,8 @@ TextureImporter:
       name: character_turnaround_render_2
       rect:
         serializedVersion: 2
-        x: 893
-        y: 56
+        x: 916
+        y: 63
         width: 315
         height: 716
       alignment: 0
@@ -161,8 +161,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 569bd81fb8a12a442a3fa909aca11bce
-      internalID: -283613366
+      spriteID: c920eb85bc9cac44e82c2786736f375a
+      internalID: 592366022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character_turnaround_render_3
+      rect:
+        serializedVersion: 2
+        x: 1315
+        y: 63
+        width: 315
+        height: 716
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a92c31f27ad3b440ab9833db992f8cb
+      internalID: 1246764356
       vertices: []
       indices: 
       edges: []
@@ -178,9 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      character_turnaround_render_1: -1595382693
-      character_turnaround_render_0: 1363088190
-      character_turnaround_render_2: -283613366
+      character_turnaround_render_1: 723844147
+      character_turnaround_render_3: 1246764356
+      character_turnaround_render_0: -1876262755
+      character_turnaround_render_2: 592366022
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
