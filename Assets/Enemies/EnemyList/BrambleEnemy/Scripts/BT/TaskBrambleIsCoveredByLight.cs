@@ -4,16 +4,20 @@ using BehaviorTree;
 
 public class TaskBrambleIsCoveredByLight : Node
 {
-    private BrambleController enemyController;
+    private BrambleController brambleController;
 
     public TaskBrambleIsCoveredByLight(EnemyController _enemyController)
     {
-        enemyController = (BrambleController)_enemyController;
+        brambleController = (BrambleController)_enemyController;
     }
 
     public override NodeState Evaluate()
     {
-        enemyController.RetractionUpdate(-enemyController.brambleData.unretractedScaleSize);
-        return NodeState.RUNNING;
+        if (brambleController.affectedByLight.lightState == AffectedByLight.LightState.CALM)
+        {
+            brambleController.OnLightReceived(-brambleController.brambleData.unretractedScaleSize);
+            return NodeState.FAILURE;
+        }
+        return NodeState.SUCCESS;
     }
 }

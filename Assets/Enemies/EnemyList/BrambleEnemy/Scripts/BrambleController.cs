@@ -37,7 +37,25 @@ public class BrambleController : EnemyController, ISendSignalToSelf
     }
     public void OnSignalReceived(GameObject source)
     {
-        if (!isRetracted) RetractionUpdate(-brambleData.onHitRetractReduction);
+        if (!isRetracted && affectedByLight.lightState != AffectedByLight.LightState.BERSERK)
+        {
+            RetractionUpdate(-brambleData.onHitRetractReduction);
+            Vector3 direction = this.gameObject.transform.position - source.transform.position;
+            ShootBrambleBall(direction);
+            if (isRetracted) enemyCombo.EndCombo();
+        }
+    }
+
+    public override void LightStateUpdate()
+    {
+        base.LightStateUpdate();
+        if (affectedByLight.lightState == AffectedByLight.LightState.BERSERK) RetractOff();
+    }
+
+    public void OnLightReceived(float unretractedScaleSize)
+    {
+        RetractionUpdate(unretractedScaleSize);
+        if (isRetracted) enemyCombo.EndCombo();
     }
 
     private void RetractSet(float timer)
@@ -54,14 +72,16 @@ public class BrambleController : EnemyController, ISendSignalToSelf
     private void RetractTimer()
     {
         if (retractTimer > 0) retractTimer -= Time.deltaTime;
-        else
-        {
-            isRetracted = false;
-            spriteColliderObject.SetActive(true);
-        }
+        else RetractOff();
     }
 
-    public void RetractionUpdate(float valueToAdd)
+    private void RetractOff()
+    {
+        isRetracted = false;
+        spriteColliderObject.SetActive(true);
+    }
+
+    private void RetractionUpdate(float valueToAdd)
     {
         Vector3 vectorToClamp = currentColliderSize + new Vector3(valueToAdd, valueToAdd, valueToAdd);
         vectorToClamp.x = Mathf.Clamp(vectorToClamp.x, startBoxColliderSize.x, expandedBoxColliderSize.x);
@@ -71,5 +91,10 @@ public class BrambleController : EnemyController, ISendSignalToSelf
         boxCollider.size = currentColliderSize;
         spriteColliderObject.transform.localScale = currentColliderSize;
         if (currentColliderSize == startBoxColliderSize) RetractSet(brambleData.onHitRetractTime);
+    }
+
+    private void ShootBrambleBall(Vector3 direction)
+    {
+
     }
 }
