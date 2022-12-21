@@ -9,7 +9,8 @@ public class PCRotation : MonoBehaviour
     [SerializeField] private bool isInGraphicsMode;
     [SerializeField] private Sprite frontSprite;
     [SerializeField] private Sprite backSprite;
-    [SerializeField] private Sprite sideSprite;
+    [SerializeField] private Sprite faceRightSprite;
+    [SerializeField] private Sprite faceLeftSprite;
     [SerializeField] private SpriteRenderer spriteRef;
     private Quaternion spriteStartRotation;
 
@@ -37,20 +38,19 @@ public class PCRotation : MonoBehaviour
     }
     private void SetRotation()
     {
-        if (direction.z > 0 && this.transform.eulerAngles != rotation.left) SetRotationSide(rotation.left, sideSprite, false);
-        else if (direction.z < 0 && this.transform.eulerAngles != rotation.right) SetRotationSide(rotation.right, sideSprite, true);
-        if (direction.x > 0 && this.transform.eulerAngles != rotation.forward) SetRotationSide(rotation.forward, frontSprite, false);
-        else if (direction.x < 0 && this.transform.eulerAngles != rotation.back) SetRotationSide(rotation.back, backSprite, false);
+        if (direction.z > 0 && this.transform.eulerAngles != rotation.left) SetRotationSide(rotation.left, faceLeftSprite);
+        else if (direction.z < 0 && this.transform.eulerAngles != rotation.right) SetRotationSide(rotation.right, faceRightSprite);
+        if (direction.x > 0 && this.transform.eulerAngles != rotation.forward) SetRotationSide(rotation.forward, frontSprite);
+        else if (direction.x < 0 && this.transform.eulerAngles != rotation.back) SetRotationSide(rotation.back, backSprite);
     }
 
-    private void SetRotationSide(Vector3 rotation, Sprite spriteToApply, bool isFlipped)
+    private void SetRotationSide(Vector3 rotation, Sprite spriteToApply)
     {
         this.transform.eulerAngles = rotation;
         if (isInGraphicsMode)
         {
             spriteRef.gameObject.transform.rotation = spriteStartRotation;
             spriteRef.sprite = spriteToApply;
-            spriteRef.flipX = isFlipped;
         }
     }
 }
