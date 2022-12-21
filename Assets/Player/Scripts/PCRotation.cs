@@ -25,7 +25,7 @@ public class PCRotation : MonoBehaviour
     }
     private void Update()
     {
-        Rotation();
+        if (!pcReferences.pcCombo.isAttacking) Rotation();
     }
     private void Rotation()
     {
