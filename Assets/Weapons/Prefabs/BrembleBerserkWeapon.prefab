@@ -116,99 +116,164 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: TEMPLATEWEAPON
-  comboCancelTime: 10
   comboEndDelay: 2
+  comboCancelEnabled: 0
+  comboCancelTime: 10
   possibleTargets: 0000000001000000
   weaponAttacks:
   - damage: 15
     duration: 0.5
     afterDelay: 0.1
     movementDistance: 0
+    ignoresWalls: 0
     attackObject: {fileID: 1083629791230123650}
     weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 6654631832715134272}
       activationDelayAfterStart: 0
       deactivationDelayAfterStart: 0.3
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
     - attackRef: {fileID: 3570830417707677332}
       activationDelayAfterStart: 0.3
       deactivationDelayAfterStart: 0.4
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
     - attackRef: {fileID: 5496394219624157946}
       activationDelayAfterStart: 0.4
       deactivationDelayAfterStart: 0.49
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
+    weaponSpawnsObjectDuringThisAttack:
+    - objectRef: {fileID: 4014776901287296295, guid: c89ec9ec48c88a94ab08433039e855bb, type: 3}
+      objectStartPosition: {fileID: 3573543966837063527}
+      launchTimeAfterStart: 0.45
+      spawned: 0
     hasAnimation: 0
+    uxOnWeaponAttack:
+      hasSound: 0
+      sound:
+        clip: {fileID: 0}
+        priority: 128
+        volume: 1
+        pitch: 1
+        stereoPan: 0
+        spatialBlend: 0
+        reverbZoneMix: 1
+        loop: 0
+        playOnAwake: 0
+        mixer: {fileID: 0}
+      hasSpriteColorChange: 0
+      spriteColorChange:
+        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        spriteRef: {fileID: 0}
+        spriteColorChangeDuration: 0
+        spritehasChangedColor: 0
+        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+      hasCameraShake: 0
+      cameraShake:
+        shakeAmplitude: 0
+        shakeFrequency: 0
+        shakeDuration: 0
+        cinemachineCameraShakerRef: {fileID: 0}
+      soundParent: {fileID: 0}
   - damage: 15
     duration: 0.5
     afterDelay: 0.1
     movementDistance: 0
+    ignoresWalls: 0
     attackObject: {fileID: 1349951445937875719}
     weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 6025941950384637456}
       activationDelayAfterStart: 0
       deactivationDelayAfterStart: 0.3
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
     - attackRef: {fileID: 8530579406042529503}
       activationDelayAfterStart: 0.3
       deactivationDelayAfterStart: 0.4
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
     - attackRef: {fileID: 5977628148942957117}
       activationDelayAfterStart: 0.4
       deactivationDelayAfterStart: 0.49
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
+    weaponSpawnsObjectDuringThisAttack:
+    - objectRef: {fileID: 4014776901287296295, guid: c89ec9ec48c88a94ab08433039e855bb, type: 3}
+      objectStartPosition: {fileID: 3396865339718076320}
+      launchTimeAfterStart: 0.45
+      spawned: 0
     hasAnimation: 0
+    uxOnWeaponAttack:
+      hasSound: 0
+      sound:
+        clip: {fileID: 0}
+        priority: 128
+        volume: 1
+        pitch: 1
+        stereoPan: 0
+        spatialBlend: 0
+        reverbZoneMix: 1
+        loop: 0
+        playOnAwake: 0
+        mixer: {fileID: 0}
+      hasSpriteColorChange: 0
+      spriteColorChange:
+        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        spriteRef: {fileID: 0}
+        spriteColorChangeDuration: 0
+        spritehasChangedColor: 0
+        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+      hasCameraShake: 0
+      cameraShake:
+        shakeAmplitude: 0
+        shakeFrequency: 0
+        shakeDuration: 0
+        cinemachineCameraShakerRef: {fileID: 0}
+      soundParent: {fileID: 0}
   - damage: 25
     duration: 0.8
     afterDelay: 0
     movementDistance: 0
+    ignoresWalls: 0
     attackObject: {fileID: 8420139833468032874}
     weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 5278892286593807925}
       activationDelayAfterStart: 0
       deactivationDelayAfterStart: 0.4
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
     - attackRef: {fileID: 8769752998694833518}
       activationDelayAfterStart: 0.4
       deactivationDelayAfterStart: 0.5
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
     - attackRef: {fileID: 2038701918739963020}
       activationDelayAfterStart: 0.5
       deactivationDelayAfterStart: 0.79
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
+    weaponSpawnsObjectDuringThisAttack:
+    - objectRef: {fileID: 4014776901287296295, guid: c89ec9ec48c88a94ab08433039e855bb, type: 3}
+      objectStartPosition: {fileID: 7032993906086277393}
+      launchTimeAfterStart: 0.75
+      spawned: 0
     hasAnimation: 0
+    uxOnWeaponAttack:
+      hasSound: 0
+      sound:
+        clip: {fileID: 0}
+        priority: 128
+        volume: 1
+        pitch: 1
+        stereoPan: 0
+        spatialBlend: 0
+        reverbZoneMix: 1
+        loop: 0
+        playOnAwake: 0
+        mixer: {fileID: 0}
+      hasSpriteColorChange: 0
+      spriteColorChange:
+        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        spriteRef: {fileID: 0}
+        spriteColorChangeDuration: 0
+        spritehasChangedColor: 0
+        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+      hasCameraShake: 0
+      cameraShake:
+        shakeAmplitude: 0
+        shakeFrequency: 0
+        shakeDuration: 0
+        cinemachineCameraShakerRef: {fileID: 0}
+      soundParent: {fileID: 0}
   hitTargets: []
   currentDamage: 0
+  currentWeaponAttackIndex: 0
 --- !u!1 &8420139833468032874
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +378,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 33525169902638111, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
   m_PrefabInstance: {fileID: 2035053503490279571}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 7032993906086277393}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 122280257fdbf8d43b11ffac583ce4eb, type: 3}
@@ -322,6 +387,11 @@ MonoBehaviour:
 --- !u!4 &6133181839286914822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5269358908780119957, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
+  m_PrefabInstance: {fileID: 2035053503490279571}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7032993906086277393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9054417579223923074, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
   m_PrefabInstance: {fileID: 2035053503490279571}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3600972798353531531
@@ -564,12 +634,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5269358908780119957, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
   m_PrefabInstance: {fileID: 5489896316876195557}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3573543966837063527 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9054417579223923074, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
+  m_PrefabInstance: {fileID: 5489896316876195557}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5496394219624157946 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 33525169902638111, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
   m_PrefabInstance: {fileID: 5489896316876195557}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 3573543966837063527}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 122280257fdbf8d43b11ffac583ce4eb, type: 3}
@@ -645,12 +720,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5269358908780119957, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
   m_PrefabInstance: {fileID: 5945833253927271970}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3396865339718076320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9054417579223923074, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
+  m_PrefabInstance: {fileID: 5945833253927271970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5977628148942957117 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 33525169902638111, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
   m_PrefabInstance: {fileID: 5945833253927271970}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 3396865339718076320}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 122280257fdbf8d43b11ffac583ce4eb, type: 3}

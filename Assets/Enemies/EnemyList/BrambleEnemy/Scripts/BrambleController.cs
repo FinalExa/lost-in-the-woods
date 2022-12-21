@@ -6,6 +6,7 @@ public class BrambleController : EnemyController, ISendSignalToSelf
 {
     [HideInInspector] public bool isRetracted;
     [HideInInspector] public BrambleData brambleData;
+    [SerializeField] private GameObject brambleBallRef;
     private BoxCollider boxCollider;
     [SerializeField] GameObject spriteColliderObject;
     private Vector3 startBoxColliderSize;
@@ -95,6 +96,8 @@ public class BrambleController : EnemyController, ISendSignalToSelf
 
     private void ShootBrambleBall(Vector3 direction)
     {
-
+        GameObject brambleBall = Instantiate(brambleBallRef, this.transform.position, this.transform.rotation);
+        IHaveSettableDirection haveSettableDirection = brambleBall.GetComponent<IHaveSettableDirection>();
+        if (haveSettableDirection != null) haveSettableDirection.SetDirection(direction);
     }
 }

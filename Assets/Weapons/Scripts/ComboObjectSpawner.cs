@@ -19,11 +19,10 @@ public class ComboObjectSpawner
     {
         WeaponAttack.WeaponSpawnsObjectDuringThisAttack currentObjectToSpawn = currentAttack.weaponSpawnsObjectDuringThisAttack[currentIndex];
         currentObjectToSpawn.spawned = true;
-        GameObject objectToLaunch = GameObject.Instantiate(currentObjectToSpawn.objectRef, currentObjectToSpawn.objectStartPosition.transform.position, currentObjectToSpawn.objectStartPosition.transform.rotation);
+        GameObject objectToLaunch = GameObject.Instantiate(currentObjectToSpawn.objectRef, currentObjectToSpawn.objectStartPosition.transform.position, Quaternion.identity);
         IHaveSettableDirection haveSettableDirection = objectToLaunch.GetComponent<IHaveSettableDirection>();
         if (haveSettableDirection != null) haveSettableDirection.SetDirection(lastDirection);
         currentAttack.weaponSpawnsObjectDuringThisAttack[currentIndex] = currentObjectToSpawn;
-        Debug.Log(currentAttack.weaponSpawnsObjectDuringThisAttack[currentIndex].spawned);
     }
 
     public void ResetObjectsToSpawn(WeaponAttack currentAttack)
