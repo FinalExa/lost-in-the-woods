@@ -16,8 +16,14 @@ public class Combo : MonoBehaviour
     [HideInInspector] public Vector3 lastDirection { get; set; }
     protected bool comboCancelDelay;
     protected float movementSpeed;
-    protected bool enteredProjectileSpawn;
+    protected bool enteredObjectSpawn;
     protected bool colliding;
+    protected ComboObjectSpawner comboObjectSpawner;
+
+    protected virtual void Awake()
+    {
+        comboObjectSpawner = new ComboObjectSpawner();
+    }
 
     protected virtual void Start()
     {
@@ -85,10 +91,12 @@ public class Combo : MonoBehaviour
             attackCountTime += Time.deltaTime;
             AttackMovement(currentAttack);
             CheckActivatingHitboxes(currentAttack);
+            if (currentAttack.weaponSpawnsObjectDuringThisAttack.Length > 0) comboObjectSpawner.CheckObjectsToSpawn(currentAttack, attackCountTime, lastDirection);
         }
         else
         {
             CheckActivatingHitboxes(currentAttack);
+            if (currentAttack.weaponSpawnsObjectDuringThisAttack.Length > 0) comboObjectSpawner.ResetObjectsToSpawn(currentAttack);
             isAttacking = false;
             currentAttack.attackObject.SetActive(false);
             EndComboHit();
@@ -108,16 +116,10 @@ public class Combo : MonoBehaviour
         foreach (WeaponAttack.WeaponAttackHitboxSequence hitboxToCheck in currentAttack.weaponAttackHitboxSequence)
         {
             if (attackCountTime >= hitboxToCheck.activationDelayAfterStart && attackCountTime < hitboxToCheck.deactivationDelayAfterStart) hitboxToCheck.attackRef.gameObject.SetActive(true);
-            if (hitboxToCheck.weaponAttackHitboxProjectile.spawnsProjectile && attackCountTime >= hitboxToCheck.weaponAttackHitboxProjectile.projectileLaunchTimeAfterStart && attackCountTime < hitboxToCheck.deactivationDelayAfterStart && !enteredProjectileSpawn)
-            {
-                Projectile projectile = Instantiate(hitboxToCheck.weaponAttackHitboxProjectile.projectile, hitboxToCheck.attackRef.transform.position, hitboxToCheck.attackRef.transform.rotation);
-                projectile.direction = lastDirection;
-                enteredProjectileSpawn = true;
-            }
             if (attackCountTime >= hitboxToCheck.deactivationDelayAfterStart)
             {
                 hitboxToCheck.attackRef.gameObject.SetActive(false);
-                enteredProjectileSpawn = false;
+                enteredObjectSpawn = false;
             }
             count++;
         }
@@ -157,6 +159,17 @@ public class Combo : MonoBehaviour
     protected virtual void OnComboEnd()
     {
         return;
+    }
+
+    public void EndCombo()
+    {
+        WeaponAttack currentAttack = currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex];
+        attackTimer = currentAttack.duration;
+        foreach (WeaponAttack.WeaponAttackHitboxSequence weaponAttackHitbox in currentAttack.weaponAttackHitboxSequence) weaponAttackHitbox.attackRef.gameObject.SetActive(false);
+        isAttacking = false;
+        currentAttack.attackObject.SetActive(false);
+        currentWeapon.currentWeaponAttackIndex = currentWeapon.weaponAttacks.Count - 1;
+        EndComboHit();
     }
 
     private void OnCollisionEnter(Collision collision)

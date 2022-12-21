@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : MonoBehaviour, IHaveSettableDirection
 {
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float projectileDamage;
@@ -30,6 +30,10 @@ public class Projectile : MonoBehaviour
         ProjectileMovement();
     }
 
+    public void SetDirection(Vector3 receivedDirection)
+    {
+        direction = receivedDirection;
+    }
     private void ProjectileMovement()
     {
         if (projectileTimer > 0)
