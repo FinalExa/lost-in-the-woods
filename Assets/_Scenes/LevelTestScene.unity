@@ -13047,6 +13047,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2093622783}
+  - component: {fileID: 2093622784}
   m_Layer: 0
   m_Name: Teleports
   m_TagString: Untagged
@@ -13073,6 +13074,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2093622784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093622782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f820a30c8ea38be4c83eacbfdc8918b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelTeleports:
+  - teleportObj: {fileID: 2049370336}
+    associatedKey: 256
+  - teleportObj: {fileID: 1466876454}
+    associatedKey: 257
+  - teleportObj: {fileID: 2032234047}
+    associatedKey: 258
+  - teleportObj: {fileID: 1425798273}
+    associatedKey: 259
 --- !u!1 &2103360013
 GameObject:
   m_ObjectHideFlags: 0
