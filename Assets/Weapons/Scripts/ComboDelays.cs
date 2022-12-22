@@ -8,9 +8,9 @@ public class ComboDelays
     private bool comboHitOver;
     private bool comboDelay;
     private bool comboEndDelay;
-    private float comboDelayTimer;
+    private int comboDelayCountdownFrames;
     private bool comboCancelActive;
-    private float comboCancelTimer;
+    private float comboDelayCancelFrames;
 
     public ComboDelays(Combo comboRef)
     {
@@ -56,7 +56,7 @@ public class ComboDelays
     {
         if (comboDelay)
         {
-            if (comboDelayTimer > 0) comboDelayTimer -= Time.deltaTime;
+            if (comboDelayCountdownFrames > 0) comboDelayCountdownFrames--;
             else
             {
                 comboDelay = false;
@@ -72,7 +72,7 @@ public class ComboDelays
     {
         if (comboCancelActive && combo.currentWeapon.comboCancelEnabled)
         {
-            if (comboCancelTimer > 0) comboCancelTimer -= Time.deltaTime;
+            if (comboDelayCancelFrames > 0) comboDelayCancelFrames--;
             else ComboCanceled();
         }
     }
@@ -87,20 +87,20 @@ public class ComboDelays
 
     public void SetComboEnd()
     {
-        comboDelayTimer = combo.currentWeapon.comboEndDelay;
+        comboDelayCountdownFrames = combo.currentWeapon.comboEndFramesDelay;
         comboEndDelay = true;
         comboCancelActive = false;
     }
 
     public void SetDelayForNextAttack()
     {
-        comboDelayTimer = combo.currentAttack.afterDelay;
+        comboDelayCountdownFrames = combo.currentAttack.framesOfDelay;
         SetComboCancel();
     }
 
     private void SetComboCancel()
     {
         comboCancelActive = true;
-        comboCancelTimer = combo.currentWeapon.comboCancelTime;
+        comboDelayCancelFrames = combo.currentWeapon.comboCancelFrames;
     }
 }
