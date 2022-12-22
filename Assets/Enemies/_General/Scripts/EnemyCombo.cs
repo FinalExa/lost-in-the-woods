@@ -8,8 +8,9 @@ public class EnemyCombo : Combo
     private EnemyController enemyController;
     [HideInInspector] public bool isInCombo;
     [HideInInspector] public Transform target;
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         enemyRotator = this.gameObject.GetComponent<EnemyRotator>();
         enemyController = this.gameObject.GetComponent<EnemyController>();
     }

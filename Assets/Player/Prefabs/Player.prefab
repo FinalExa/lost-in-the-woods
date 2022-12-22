@@ -387,7 +387,7 @@ Rigidbody:
   m_GameObject: {fileID: 7129377632901191479}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
@@ -539,9 +539,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {fileID: 11400000, guid: 3a0ecedcd75d65b498584f6fa7373c60, type: 2}
   isInGraphicsMode: 0
-  frontSprite: {fileID: -1595382693, guid: 0c0d21bf47a4a464195a50e660919e1b, type: 3}
-  backSprite: {fileID: 1363088190, guid: 0c0d21bf47a4a464195a50e660919e1b, type: 3}
-  sideSprite: {fileID: -283613366, guid: 0c0d21bf47a4a464195a50e660919e1b, type: 3}
+  frontSprite: {fileID: 723844147, guid: 0c0d21bf47a4a464195a50e660919e1b, type: 3}
+  backSprite: {fileID: -1876262755, guid: 0c0d21bf47a4a464195a50e660919e1b, type: 3}
+  faceRightSprite: {fileID: 1246764356, guid: 0c0d21bf47a4a464195a50e660919e1b, type: 3}
+  faceLeftSprite: {fileID: 592366022, guid: 0c0d21bf47a4a464195a50e660919e1b, type: 3}
   spriteRef: {fileID: 8717672636991933783}
 --- !u!1001 &1313772443539866196
 PrefabInstance:

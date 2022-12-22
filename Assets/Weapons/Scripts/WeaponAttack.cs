@@ -18,16 +18,17 @@ public class WeaponAttack
         public WeaponAttackHitbox attackRef;
         public int activationFrame;
         public float deactivationFrame;
-        public WeaponAttackHitboxProjectile weaponAttackHitboxProjectile;
     }
     [System.Serializable]
-    public struct WeaponAttackHitboxProjectile
+    public struct WeaponSpawnsObjectDuringThisAttack
     {
-        public bool spawnsProjectile;
-        public Projectile projectile;
-        public float projectileLaunchFrame;
+        public GameObject objectRef;
+        public GameObject objectStartPosition;
+        public float launchTimeAfterStart;
+        [HideInInspector] public bool spawned;
     }
     public WeaponAttackHitboxSequence[] weaponAttackHitboxSequence;
+    public WeaponSpawnsObjectDuringThisAttack[] weaponSpawnsObjectDuringThisAttack;
     public bool hasAnimation;
     public UXEffect uxOnWeaponAttack;
 }
