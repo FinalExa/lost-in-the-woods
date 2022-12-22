@@ -42,14 +42,9 @@ public class Combo : MonoBehaviour
         comboDelays.SetVariablesReadyForAttack();
         LastDirection = new Vector3(0f, 0f, 1f);
     }
-    public bool StartComboHitCheck()
+    public void StartComboHitCheck()
     {
-        if (comboDelays.CheckIfHitIsPossible())
-        {
-            StartComboHit();
-            return true;
-        }
-        else return false;
+        if (GetIfHitIsPossible()) StartComboHit();
     }
 
     protected void StartComboHit()
@@ -82,6 +77,10 @@ public class Combo : MonoBehaviour
         return;
     }
 
+    public bool GetIfHitIsPossible()
+    {
+        return comboDelays.CheckIfHitIsPossible();
+    }
     public bool GetIfIsAttacking()
     {
         return comboAttack.IsAttacking;

@@ -27,6 +27,7 @@ public class ComboDelays
     {
         comboHitOver = false;
         comboDelay = false;
+        comboCancelActive = false;
     }
 
     public void SetVariablesAfterAttack()
@@ -72,11 +73,11 @@ public class ComboDelays
         if (comboCancelActive && combo.currentWeapon.comboCancelEnabled)
         {
             if (comboCancelTimer > 0) comboCancelTimer -= Time.deltaTime;
-            else OnComboCancel();
+            else ComboCanceled();
         }
     }
 
-    private void OnComboCancel()
+    private void ComboCanceled()
     {
         combo.currentWeapon.weaponAttacks[combo.currentWeapon.currentWeaponAttackIndex].attackObject.SetActive(false);
         combo.currentWeapon.currentWeaponAttackIndex = 0;
@@ -94,7 +95,12 @@ public class ComboDelays
     public void SetDelayForNextAttack()
     {
         comboDelayTimer = combo.currentAttack.afterDelay;
-        comboCancelTimer = combo.currentWeapon.comboCancelTime;
+        SetComboCancel();
+    }
+
+    private void SetComboCancel()
+    {
         comboCancelActive = true;
+        comboCancelTimer = combo.currentWeapon.comboCancelTime;
     }
 }

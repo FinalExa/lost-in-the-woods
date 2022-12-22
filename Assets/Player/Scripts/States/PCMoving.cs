@@ -65,6 +65,7 @@ public class PCMoving : PCState
         if (inputs.LeftClickInput)
         {
             _pcStateMachine.SetState(new PCAttack(_pcStateMachine));
+            _pcStateMachine.pcController.pcReferences.rb.velocity = Vector3.zero;
         }
     }
     #endregion
