@@ -17,7 +17,7 @@ public class PCAttack : PCState
 
     public override void Update()
     {
-        if (combo.comboHitOver) Transitions();
+        if (combo.GetHitOver()) Transitions();
     }
 
     #region Transitions
