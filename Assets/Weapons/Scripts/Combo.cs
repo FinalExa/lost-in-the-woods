@@ -91,7 +91,7 @@ public class Combo : MonoBehaviour
             attackFrameCount++;
             AttackMovement(currentAttack);
             CheckActivatingHitboxes(currentAttack);
-            if (currentAttack.weaponSpawnsObjectDuringThisAttack.Length > 0) comboObjectSpawner.CheckObjectsToSpawn(currentAttack, attackCountTime, lastDirection);
+            if (currentAttack.weaponSpawnsObjectDuringThisAttack.Length > 0) comboObjectSpawner.CheckObjectsToSpawn(currentAttack, currentAttackFrame, lastDirection);
         }
         else
         {
@@ -162,7 +162,7 @@ public class Combo : MonoBehaviour
     public void EndCombo()
     {
         WeaponAttack currentAttack = currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex];
-        attackTimer = currentAttack.duration;
+        currentAttackFrame = currentAttack.frameDuration;
         foreach (WeaponAttack.WeaponAttackHitboxSequence weaponAttackHitbox in currentAttack.weaponAttackHitboxSequence) weaponAttackHitbox.attackRef.gameObject.SetActive(false);
         isAttacking = false;
         currentAttack.attackObject.SetActive(false);

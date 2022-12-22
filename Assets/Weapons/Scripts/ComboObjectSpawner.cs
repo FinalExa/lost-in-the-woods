@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ComboObjectSpawner
 {
-    public void CheckObjectsToSpawn(WeaponAttack currentAttack, float attackCountTime, Vector3 lastDirection)
+    public void CheckObjectsToSpawn(WeaponAttack currentAttack, int attackFrame, Vector3 lastDirection)
     {
         for (int i = 0; i < currentAttack.weaponSpawnsObjectDuringThisAttack.Length; i++)
         {
-            if (!currentAttack.weaponSpawnsObjectDuringThisAttack[i].spawned && attackCountTime >= currentAttack.weaponSpawnsObjectDuringThisAttack[i].launchTimeAfterStart)
+            if (!currentAttack.weaponSpawnsObjectDuringThisAttack[i].spawned && attackFrame >= currentAttack.weaponSpawnsObjectDuringThisAttack[i].launchFrame)
             {
                 SpawnObject(currentAttack, i, lastDirection);
             }
