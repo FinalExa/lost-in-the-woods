@@ -24,7 +24,7 @@ public class EnemyCombo : Combo
     {
         base.Update();
         if (isInCombo) EnemyAutoCombo();
-        else if (!isAttacking) Direction(target.position);
+        else if (!GetIfIsAttacking()) Direction(target.position);
     }
 
     public void ActivateEnemyCombo(Vector3 target)
