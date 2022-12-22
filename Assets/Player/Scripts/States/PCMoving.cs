@@ -27,7 +27,7 @@ public class PCMoving : PCState
         if (movementWithDirection != Vector3.zero)
         {
             lastDirection = movementWithDirection;
-            pcController.pcReferences.pcCombo.lastDirection = movementWithDirection;
+            pcController.pcReferences.pcCombo.LastDirection = movementWithDirection;
         }
         rigidbody.velocity = movementWithDirection * pcController.actualSpeed;
     }
@@ -62,7 +62,7 @@ public class PCMoving : PCState
     #region ToAttackState
     private void GoToAttackState(Inputs inputs)
     {
-        if (inputs.LeftClickInput && !_pcStateMachine.pcController.pcReferences.pcCombo.comboDelay)
+        if (inputs.LeftClickInput)
         {
             _pcStateMachine.SetState(new PCAttack(_pcStateMachine));
             _pcStateMachine.pcController.pcReferences.rb.velocity = Vector3.zero;

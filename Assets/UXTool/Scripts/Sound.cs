@@ -35,7 +35,7 @@ public class Sound
 
     public void PlayAudio()
     {
-        source.Play();
+        if (source != null) source.Play();
     }
 
     public void StopAudio()

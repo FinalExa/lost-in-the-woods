@@ -22,10 +22,10 @@ public class AutoCombo : Combo
     }
     private void AutoComboExecute()
     {
-        if (comboHitOver && !comboDelay) StartComboHit();
+        StartComboHitCheck();
     }
 
-    protected override void OnComboEnd()
+    public override void OnComboEnd()
     {
         if (resetsPositionAndRotationOnComboEnd) ResetPositionAndRotation();
     }
