@@ -8,14 +8,14 @@ public class Combo : MonoBehaviour
     [HideInInspector] public WeaponAttack currentAttack;
     [HideInInspector] public Vector3 LastDirection { get; set; }
     [HideInInspector] public ComboObjectSpawner comboObjectSpawner;
+    [HideInInspector] public ComboDelays comboDelays;
     protected ComboAttack comboAttack;
-    protected ComboDelays comboDelays;
 
     protected virtual void Awake()
     {
         comboObjectSpawner = new ComboObjectSpawner();
-        comboAttack = new ComboAttack(this);
         comboDelays = new ComboDelays(this);
+        comboAttack = new ComboAttack(this);
     }
 
     protected virtual void Start()
@@ -52,25 +52,7 @@ public class Combo : MonoBehaviour
         comboDelays.SetVariablesDuringAttack();
         currentWeapon.currentDamage = currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].damage;
         currentAttack = currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex];
-        comboAttack.StartAttack(currentWeapon, currentAttack, LastDirection);
-    }
-
-
-
-    public void EndComboHit()
-    {
-        currentWeapon.hitTargets.Clear();
-        if (currentWeapon.currentWeaponAttackIndex + 1 == currentWeapon.weaponAttacks.Count)
-        {
-            currentWeapon.currentWeaponAttackIndex = 0;
-            comboDelays.SetComboEnd();
-        }
-        else
-        {
-            currentWeapon.currentWeaponAttackIndex++;
-            comboDelays.SetDelayForNextAttack();
-        }
-        comboDelays.SetVariablesAfterAttack();
+        comboAttack.StartAttack(currentAttack, LastDirection);
     }
     public virtual void OnComboEnd()
     {

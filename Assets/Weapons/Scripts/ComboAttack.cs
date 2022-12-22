@@ -6,7 +6,6 @@ public class ComboAttack
 {
     public bool IsAttacking { get; private set; }
     private Combo combo;
-    private Weapon currentWeapon;
     private WeaponAttack currentAttack;
     private float attackTimer;
     private float attackCountTime;
@@ -18,11 +17,10 @@ public class ComboAttack
         combo = comboRef;
     }
 
-    public void StartAttack(Weapon weaponRef, WeaponAttack attackRef, Vector3 receivedDirection)
+    public void StartAttack(WeaponAttack attackRef, Vector3 receivedDirection)
     {
         if (!IsAttacking)
         {
-            if (currentWeapon != weaponRef) currentWeapon = weaponRef;
             currentAttack = attackRef;
             attackTimer = currentAttack.duration;
             attackCountTime = 0;
@@ -58,7 +56,7 @@ public class ComboAttack
         if (currentAttack.weaponSpawnsObjectDuringThisAttack.Length > 0) combo.comboObjectSpawner.ResetObjectsToSpawn(currentAttack);
         IsAttacking = false;
         currentAttack.attackObject.SetActive(false);
-        combo.EndComboHit();
+        EndComboHit();
     }
 
     private void AttackMovement()
@@ -80,13 +78,29 @@ public class ComboAttack
         }
     }
 
+    public void EndComboHit()
+    {
+        combo.currentWeapon.hitTargets.Clear();
+        if (combo.currentWeapon.currentWeaponAttackIndex + 1 == combo.currentWeapon.weaponAttacks.Count)
+        {
+            combo.currentWeapon.currentWeaponAttackIndex = 0;
+            combo.comboDelays.SetComboEnd();
+        }
+        else
+        {
+            combo.currentWeapon.currentWeaponAttackIndex++;
+            combo.comboDelays.SetDelayForNextAttack();
+        }
+        combo.comboDelays.SetVariablesAfterAttack();
+    }
+
     public void EndCombo()
     {
         attackTimer = currentAttack.duration;
         foreach (WeaponAttack.WeaponAttackHitboxSequence weaponAttackHitbox in currentAttack.weaponAttackHitboxSequence) weaponAttackHitbox.attackRef.gameObject.SetActive(false);
         IsAttacking = false;
         currentAttack.attackObject.SetActive(false);
-        currentWeapon.currentWeaponAttackIndex = currentWeapon.weaponAttacks.Count - 1;
-        combo.EndComboHit();
+        combo.currentWeapon.currentWeaponAttackIndex = combo.currentWeapon.weaponAttacks.Count - 1;
+        EndComboHit();
     }
 }
