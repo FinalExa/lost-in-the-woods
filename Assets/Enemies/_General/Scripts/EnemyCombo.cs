@@ -36,10 +36,10 @@ public class EnemyCombo : Combo
 
     private void EnemyAutoCombo()
     {
-        if (comboHitOver && !comboDelay) StartComboHit();
+        StartComboHitCheck();
     }
 
-    protected override void OnComboEnd()
+    public override void OnComboEnd()
     {
         isInCombo = false;
         enemyController.attackDone = true;
@@ -47,6 +47,6 @@ public class EnemyCombo : Combo
 
     public void Direction(Vector3 target)
     {
-        lastDirection = (target - this.transform.position).normalized;
+        LastDirection = (target - this.transform.position).normalized;
     }
 }

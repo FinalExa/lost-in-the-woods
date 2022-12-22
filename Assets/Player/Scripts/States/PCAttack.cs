@@ -12,12 +12,12 @@ public class PCAttack : PCState
     public override void Start()
     {
         combo = _pcStateMachine.pcController.pcReferences.pcCombo;
-        combo.StartComboHitCheck();
+        if (combo.StartComboHitCheck()) _pcStateMachine.pcController.pcReferences.rb.velocity = Vector3.zero;
     }
 
     public override void Update()
     {
-        if (combo.comboHitOver) Transitions();
+        if (combo.GetHitOver()) Transitions();
     }
 
     #region Transitions

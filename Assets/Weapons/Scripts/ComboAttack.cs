@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ComboAttack
 {
-    public bool isAttacking;
+    public bool IsAttacking { get; private set; }
     private Combo combo;
     private Weapon currentWeapon;
     private WeaponAttack currentAttack;
@@ -20,7 +20,7 @@ public class ComboAttack
 
     public void StartAttack(Weapon weaponRef, WeaponAttack attackRef, Vector3 receivedDirection)
     {
-        if (!isAttacking)
+        if (!IsAttacking)
         {
             if (currentWeapon != weaponRef) currentWeapon = weaponRef;
             currentAttack = attackRef;
@@ -30,13 +30,13 @@ public class ComboAttack
             attackDirection = receivedDirection;
             currentAttack.attackObject.SetActive(true);
             if (currentAttack.uxOnWeaponAttack.hasSound) currentAttack.uxOnWeaponAttack.sound.PlayAudio();
-            isAttacking = true;
+            IsAttacking = true;
         }
     }
 
     public void Attacking()
     {
-        if (isAttacking)
+        if (IsAttacking)
         {
             if (attackTimer > 0) DuringAttack();
             else OnAttackEnd();
@@ -56,7 +56,7 @@ public class ComboAttack
     {
         CheckActivatingHitboxes();
         if (currentAttack.weaponSpawnsObjectDuringThisAttack.Length > 0) combo.comboObjectSpawner.ResetObjectsToSpawn(currentAttack);
-        isAttacking = false;
+        IsAttacking = false;
         currentAttack.attackObject.SetActive(false);
         combo.EndComboHit();
     }
@@ -84,7 +84,7 @@ public class ComboAttack
     {
         attackTimer = currentAttack.duration;
         foreach (WeaponAttack.WeaponAttackHitboxSequence weaponAttackHitbox in currentAttack.weaponAttackHitboxSequence) weaponAttackHitbox.attackRef.gameObject.SetActive(false);
-        isAttacking = false;
+        IsAttacking = false;
         currentAttack.attackObject.SetActive(false);
         currentWeapon.currentWeaponAttackIndex = currentWeapon.weaponAttacks.Count - 1;
         combo.EndComboHit();
