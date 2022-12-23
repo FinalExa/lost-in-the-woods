@@ -23,5 +23,6 @@ public class PCReferences : MonoBehaviour
         pcRotation = FindObjectOfType<PCRotation>();
         pcHealth = this.gameObject.GetComponent<PCHealth>();
         pcLight = this.gameObject.GetComponentInChildren<PCLight>();
+        uxOnDodge.UXEffectStartup();
     }
 }
