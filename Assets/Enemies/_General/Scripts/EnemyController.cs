@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     [HideInInspector] public Spawner spawnerRef;
     [HideInInspector] public Spawner.EnemiesToRespawn spawnerEnemyInfo;
     [HideInInspector] public AffectedByLight affectedByLight;
+    [HideInInspector] public AttackReceived attackReceived;
     public bool usesFixedTimeLifetimeObject;
     public float fixedTimeLifetimeObjectDuration;
 
@@ -25,6 +26,7 @@ public class EnemyController : MonoBehaviour
         enemyCombo = this.gameObject.GetComponent<EnemyCombo>();
         thisNavMeshAgent = this.gameObject.GetComponent<NavMeshAgent>();
         affectedByLight = this.gameObject.GetComponent<AffectedByLight>();
+        attackReceived = this.gameObject.GetComponent<AttackReceived>();
     }
     public virtual void LightStateUpdate()
     {
