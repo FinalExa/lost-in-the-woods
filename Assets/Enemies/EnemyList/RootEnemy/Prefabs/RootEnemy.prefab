@@ -274,6 +274,7 @@ MonoBehaviour:
   isInsideLight: 0
   isInHeartbeatState: 0
   enemyController: {fileID: 0}
+  attackInteraction: {fileID: 0}
 --- !u!65 &7001282123244882244
 BoxCollider:
   m_ObjectHideFlags: 0

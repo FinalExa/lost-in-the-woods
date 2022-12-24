@@ -69,7 +69,6 @@ public class AttackInteraction : MonoBehaviour
 
     private void Start()
     {
-        AffectedByLight.lightStateChangedSignal += ExecuteLightInteraction;
         attackInteractionOptions = new AttackInteractionOptions();
         attackInteractionOptions.selfObject = this.gameObject;
         attackInteractionOptions.attackInteraction = this;
@@ -109,7 +108,7 @@ public class AttackInteraction : MonoBehaviour
         if (onDeathEnabled) attackInteractionOptions.Interact(onDeathInteraction, this.gameObject, turnsOff, lifeTime);
     }
 
-    private void ExecuteLightInteraction(AffectedByLight receivedRef, AffectedByLight.LightState receivedLightState)
+    public void ExecuteLightInteraction(AffectedByLight receivedRef, AffectedByLight.LightState receivedLightState)
     {
         if (receivedRef != null && lightInteraction.hasLightInteraction && receivedRef == lightInteraction.affectedByLightRef)
         {
