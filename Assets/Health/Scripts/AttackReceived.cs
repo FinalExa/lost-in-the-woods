@@ -30,7 +30,7 @@ public class AttackReceived : MonoBehaviour
         if (attackInteraction != null) attackInteraction.CheckIfAttackTypeIsTheSame(weaponAttackTypes, attacker);
     }
 
-    private void DealDamage(bool invulnerable, float damage)
+    public void DealDamage(bool invulnerable, float damage)
     {
         if (health != null && !invulnerable) health.HealthAddValue(-damage);
     }
