@@ -10,10 +10,6 @@ public class RootEnemyController : EnemyController
     [SerializeField] private Sprite rootOutsideSprite;
     [SerializeField] private float rootOutsideTime;
     private float rootOutsideTimer;
-    private bool isInPermanentHoleTerrain;
-    private GameObject currentHoleToSpawn;
-    [SerializeField] private GameObject permanentHoleRef;
-    [SerializeField] private GameObject temporaryHoleRef;
 
     private void OnEnable()
     {
@@ -29,6 +25,7 @@ public class RootEnemyController : EnemyController
     {
         rootUnderground = true;
         spriteRef.sprite = rootUndergroundSprite;
+        attackReceived.SetInvincibility(true);
     }
 
     public void SetRootOutside()
@@ -36,33 +33,12 @@ public class RootEnemyController : EnemyController
         rootUnderground = false;
         spriteRef.sprite = rootOutsideSprite;
         rootOutsideTimer = rootOutsideTime;
-    }
-
-    private void SetPermanentHoleOff()
-    {
-        isInPermanentHoleTerrain = false;
-        currentHoleToSpawn = temporaryHoleRef;
-    }
-
-    private void SetPermanentHoleOn()
-    {
-        isInPermanentHoleTerrain = true;
-        currentHoleToSpawn = permanentHoleRef;
+        attackReceived.SetInvincibility(false);
     }
 
     private void RootOutsideTime()
     {
         if (rootOutsideTimer > 0 && affectedByLight.lightState != AffectedByLight.LightState.BERSERK) rootOutsideTimer -= Time.deltaTime;
         else SetRootUnderground();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("PermanentHoleTerrain")) SetPermanentHoleOn();
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("PermanentHoleTerrain")) SetPermanentHoleOff();
     }
 }

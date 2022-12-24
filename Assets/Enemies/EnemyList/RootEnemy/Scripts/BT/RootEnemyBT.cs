@@ -17,7 +17,32 @@ public class RootEnemyBT : EnemyBT
         Node root = new Sequence(new List<Node>
         {
             new TaskEnemyIsNotLocked(enemyController),
-            new TaskSetInvulnerability(enemyController,rootEnemyController.rootUnderground),
+            new TaskSetRootVulnerable(rootEnemyController),
+            new Sequence (new List<Node>
+            {
+                new TaskIsInBerserkState(enemyController, enemyWeaponSwitcher),
+                new Selector (new List<Node>
+                {
+                    new TaskIsCloseToPlayer(enemyController, enemyController.enemyData.berserkDistanceFromPlayer),
+                    new TaskMoveToPlayer(enemyController, enemyController.enemyData.berserkMovementSpeed)
+                }),
+                new TaskAttackPlayer(enemyController)
+            }),
+            new Sequence (new List<Node>
+            {
+                new TaskIsInNormalState(enemyController, enemyWeaponSwitcher),
+                new Selector(new List<Node>
+                {
+                    new TaskIsCloseToPlayer(enemyController, enemyController.enemyData.normalDistanceFromPlayer),
+                    new TaskMoveToPlayer(enemyController, enemyController.enemyData.normalMovementSpeed)
+                }),
+                new TaskAttackPlayer(enemyController)
+            }),
+            new Sequence (new List<Node>
+            {
+                new TaskIsInCalmState(enemyController, enemyWeaponSwitcher),
+                new TaskStopMovement(enemyController)
+            })
         });
         return root;
     }

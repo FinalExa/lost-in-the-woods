@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour
     [HideInInspector] public GameObject playerTarget;
     [HideInInspector] public EnemyCombo enemyCombo;
     [HideInInspector] public NavMeshAgent thisNavMeshAgent;
-    [HideInInspector] public bool attackDone;
+    [HideInInspector] public bool attackDone { get; set; }
     [HideInInspector] public Spawner spawnerRef;
     [HideInInspector] public Spawner.EnemiesToRespawn spawnerEnemyInfo;
     [HideInInspector] public AffectedByLight affectedByLight;

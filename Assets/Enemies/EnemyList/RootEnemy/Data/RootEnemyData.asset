@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Root
   maxHP: 10
-  normalMovementSpeed: 6
-  normalDistanceFromPlayer: 5
+  normalMovementSpeed: 3
+  normalDistanceFromPlayer: 2
   normalDistanceTolerance: 0
   hasNormalWeapon: 1
   normalWeapon: {fileID: 4222045236405462924, guid: 7065d176beefb154a9e74bdef152c08c, type: 3}
@@ -24,8 +24,8 @@ MonoBehaviour:
   calmDistanceTolerance: 0
   hasCalmWeapon: 0
   calmWeapon: {fileID: 0}
-  berserkMovementSpeed: 10
-  berserkDistanceFromPlayer: 10
+  berserkMovementSpeed: 5
+  berserkDistanceFromPlayer: 2
   berserkDistanceTolerance: 0
   hasBerserkWeapon: 1
   berserkWeapon: {fileID: 4222045236405462924, guid: 7065d176beefb154a9e74bdef152c08c, type: 3}

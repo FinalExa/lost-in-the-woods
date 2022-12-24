@@ -63,7 +63,6 @@ MonoBehaviour:
   playerTarget: {fileID: 0}
   enemyCombo: {fileID: 0}
   thisNavMeshAgent: {fileID: 0}
-  attackDone: 0
   spawnerRef: {fileID: 0}
   spawnerEnemyInfo:
     enemy: {fileID: 0}
@@ -77,9 +76,7 @@ MonoBehaviour:
   spriteRef: {fileID: 5968671515912607088}
   rootUndergroundSprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   rootOutsideSprite: {fileID: 21300000, guid: 55d9a5e5eb63789448c3c43fc5eca070, type: 3}
-  rootOutsideTime: 2
-  permanentHoleRef: {fileID: 828246935292236319, guid: d8b14d083a12c0b40b402d683c37e6c3, type: 3}
-  temporaryHoleRef: {fileID: 828246935292236319, guid: b0e1446aaedf2f54d94b32062fd6c892, type: 3}
+  rootOutsideTime: 1
 --- !u!114 &8288229314863728144
 MonoBehaviour:
   m_ObjectHideFlags: 0
