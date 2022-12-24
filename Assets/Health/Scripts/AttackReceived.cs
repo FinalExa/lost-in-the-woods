@@ -8,7 +8,7 @@ public class AttackReceived : MonoBehaviour
     private AttackInteraction attackInteraction;
     public enum GameTargets { PLAYER, ENEMY, PUZZLE_ELEMENT, ENVIRONMENT }
     [SerializeField] private GameTargets thisType;
-    [SerializeField] private bool ignoresDamage;
+    public bool ignoresDamage;
 
     private void Awake()
     {
@@ -30,8 +30,13 @@ public class AttackReceived : MonoBehaviour
         if (attackInteraction != null) attackInteraction.CheckIfAttackTypeIsTheSame(weaponAttackTypes, attacker);
     }
 
-    private void DealDamage(bool invulnerable, float damage)
+    public void DealDamage(bool invulnerable, float damage)
     {
         if (health != null && !invulnerable) health.HealthAddValue(-damage);
+    }
+
+    public void SetInvincibility(bool invincibility)
+    {
+        ignoresDamage = invincibility;
     }
 }

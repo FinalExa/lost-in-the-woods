@@ -11,11 +11,12 @@ public class AffectedByLight : MonoBehaviour
     [HideInInspector] public bool isInsideLight;
     [HideInInspector] public bool isInHeartbeatState;
     [HideInInspector] public EnemyController enemyController;
-    public static Action<AffectedByLight, LightState> lightStateChangedSignal;
+    [HideInInspector] public AttackInteraction attackInteraction;
 
     private void Awake()
     {
         enemyController = this.gameObject.GetComponent<EnemyController>();
+        attackInteraction = this.gameObject.GetComponent<AttackInteraction>();
     }
 
     private void Start()
@@ -35,7 +36,7 @@ public class AffectedByLight : MonoBehaviour
         else if (isInHeartbeatState && !isInsideLight) lightState = LightState.BERSERK;
         else lightState = LightState.NORMAL;
         if (enemyController != null) enemyController.LightStateUpdate();
-        lightStateChangedSignal(this, lightState);
+        if (attackInteraction != null) attackInteraction.ExecuteLightInteraction(this, lightState);
     }
 
     public bool CheckForSwitchState()
