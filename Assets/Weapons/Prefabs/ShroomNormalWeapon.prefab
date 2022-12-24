@@ -80,41 +80,60 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Shroom Normal Weapon
-  comboCancelTime: 5
   comboEndDelay: 1
+  comboCancelEnabled: 0
+  comboCancelTime: 5
   possibleTargets: 00000000
   weaponAttacks:
   - damage: 10
     duration: 1
     afterDelay: 0
     movementDistance: 0
+    ignoresWalls: 0
     attackObject: {fileID: 1083629791230123650}
     weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 7016281881931003761}
       activationDelayAfterStart: 0
       deactivationDelayAfterStart: 0.5
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
     - attackRef: {fileID: 4339234631054684887}
       activationDelayAfterStart: 0.5
       deactivationDelayAfterStart: 0.7
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
     - attackRef: {fileID: 8425156803019114793}
       activationDelayAfterStart: 0.7
       deactivationDelayAfterStart: 0.99
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
+    weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
+    uxOnWeaponAttack:
+      hasSound: 0
+      sound:
+        clip: {fileID: 0}
+        priority: 128
+        volume: 1
+        pitch: 1
+        stereoPan: 0
+        spatialBlend: 0
+        reverbZoneMix: 1
+        loop: 0
+        playOnAwake: 0
+        mixer: {fileID: 0}
+      hasSpriteColorChange: 0
+      spriteColorChange:
+        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        spriteRef: {fileID: 0}
+        spriteColorChangeDuration: 0
+        spritehasChangedColor: 0
+        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+      hasCameraShake: 0
+      cameraShake:
+        shakeAmplitude: 0
+        shakeFrequency: 0
+        shakeDuration: 0
+        cinemachineCameraShakerRef: {fileID: 0}
+      soundParent: {fileID: 0}
   hitTargets: []
   currentDamage: 0
+  currentWeaponAttackIndex: 0
 --- !u!1001 &4345714288778979016
 PrefabInstance:
   m_ObjectHideFlags: 0

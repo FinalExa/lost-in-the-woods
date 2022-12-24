@@ -6,7 +6,13 @@ public class Lifetime : MonoBehaviour
 {
     private bool isReady;
     private float timer;
+    [SerializeField] private bool manualTimer;
+    [SerializeField] private float manualTimerValue;
 
+    private void Start()
+    {
+        if (manualTimer) SetTimer(manualTimerValue);
+    }
 
     private void Update()
     {
