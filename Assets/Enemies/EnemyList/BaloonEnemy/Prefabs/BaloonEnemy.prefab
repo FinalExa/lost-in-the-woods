@@ -74,6 +74,8 @@ MonoBehaviour:
   fixedTimeLifetimeObjectDuration: 0
   absorbableAttackTypes: 0200000004000000
   repelAttackTypes: 01000000
+  normalWeaponAttackTypes: []
+  normalWeaponAttackAbsorbedTypes: []
 --- !u!114 &3939637572597450188
 MonoBehaviour:
   m_ObjectHideFlags: 0

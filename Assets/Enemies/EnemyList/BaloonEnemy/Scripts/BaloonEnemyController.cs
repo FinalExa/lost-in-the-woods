@@ -8,14 +8,19 @@ public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWe
     public WeaponAttack.WeaponAttackType ReceivedWeaponAttackType { get; set; }
     [SerializeField] private List<WeaponAttack.WeaponAttackType> absorbableAttackTypes;
     [SerializeField] private List<WeaponAttack.WeaponAttackType> repelAttackTypes;
-    private bool hasAbsorbed;
-    private WeaponAttack.WeaponAttackType absorbedAttackType;
-    [SerializeField] private List<WeaponAttack> normalWeaponAttacks;
-    [SerializeField] private List<WeaponAttack> normalWeaponAttacksAbsorbed;
-    private List<WeaponAttack> calmWeaponAttacks;
-    private List<WeaponAttack> calmWeaponAttacksAbsorbed;
-    private List<WeaponAttack> berserkWeaponAttacks;
-    private List<WeaponAttack> berserkWeaponAttacksAbsorbed;
+    private bool absorbed;
+    [System.Serializable]
+    public struct AttackTypeStorage
+    {
+        public List<WeaponAttack.WeaponAttackType> attackTypes;
+    }
+    private List<AttackTypeStorage> normalWeaponAttackTypes;
+    private List<AttackTypeStorage> normalWeaponAttackAbsorbedTypes;
+    private List<AttackTypeStorage> calmWeaponAttackTypes;
+    private List<AttackTypeStorage> calmWeaponAttackAbsorbedTypes;
+    private List<AttackTypeStorage> berserkWeaponAttackTypes;
+    private List<AttackTypeStorage> berserkWeaponAttackAbsorbedTypes;
+
 
     protected override void Awake()
     {
@@ -30,46 +35,88 @@ public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWe
 
     public void OnSignalReceived(GameObject source)
     {
-        if (absorbableAttackTypes.Contains(ReceivedWeaponAttackType) && !hasAbsorbed) Absorb(absorbableAttackTypes.IndexOf(ReceivedWeaponAttackType));
+        if (absorbableAttackTypes.Contains(ReceivedWeaponAttackType) && !absorbed) Absorb(absorbableAttackTypes.IndexOf(ReceivedWeaponAttackType));
         else if (repelAttackTypes.Contains(ReceivedWeaponAttackType)) ForcedAttack();
     }
 
     private void PrepareLists()
     {
-        normalWeaponAttacks = enemyWeaponSwitcher.normalStateWeapon.weaponAttacks;
-        normalWeaponAttacksAbsorbed = CreateAbsorbedAttackTypeList(absorbableAttackTypes, normalWeaponAttacks);
-        calmWeaponAttacks = enemyWeaponSwitcher.calmStateWeapon.weaponAttacks;
-        calmWeaponAttacksAbsorbed = CreateAbsorbedAttackTypeList(absorbableAttackTypes, calmWeaponAttacks);
-        berserkWeaponAttacks = enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks;
-        berserkWeaponAttacksAbsorbed = CreateAbsorbedAttackTypeList(absorbableAttackTypes, berserkWeaponAttacks);
+        normalWeaponAttackTypes = GetAttackTypesByList(enemyWeaponSwitcher.normalStateWeapon.weaponAttacks);
+        normalWeaponAttackAbsorbedTypes = CreateAbsorbedAttackTypeList(enemyWeaponSwitcher.normalStateWeapon.weaponAttacks);
+        calmWeaponAttackTypes = GetAttackTypesByList(enemyWeaponSwitcher.calmStateWeapon.weaponAttacks);
+        calmWeaponAttackAbsorbedTypes = CreateAbsorbedAttackTypeList(enemyWeaponSwitcher.calmStateWeapon.weaponAttacks);
+        berserkWeaponAttackTypes = GetAttackTypesByList(enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks);
+        berserkWeaponAttackAbsorbedTypes = CreateAbsorbedAttackTypeList(enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks);
     }
 
-    private List<WeaponAttack> CreateAbsorbedAttackTypeList(List<WeaponAttack.WeaponAttackType> absorbedAttackTypes, List<WeaponAttack> referenceList)
+    private List<AttackTypeStorage> GetAttackTypesByList(List<WeaponAttack> referenceList)
     {
-        List<WeaponAttack> listToPass = new List<WeaponAttack>();
+        List<AttackTypeStorage> attackTypeStorage = new List<AttackTypeStorage>();
+        for (int i = 0; i < referenceList.Count; i++)
+        {
+            AttackTypeStorage store = new AttackTypeStorage();
+            store.attackTypes = referenceList[i].weaponAttackTypes;
+            attackTypeStorage.Add(store);
+        }
+        return attackTypeStorage;
+    }
+
+    private List<AttackTypeStorage> CreateAbsorbedAttackTypeList(List<WeaponAttack> referenceList)
+    {
+        List<AttackTypeStorage> listToPass = new List<AttackTypeStorage>();
         for (int attackTypeIndex = 0; attackTypeIndex < absorbableAttackTypes.Count; attackTypeIndex++)
         {
-            List<WeaponAttack.WeaponAttackType> attackTypeToSwitch = new List<WeaponAttack.WeaponAttackType>();
-            attackTypeToSwitch.Add(absorbableAttackTypes[attackTypeIndex]);
             for (int referenceIndex = 0; referenceIndex < referenceList.Count; referenceIndex++)
             {
-                WeaponAttack attackToAdd = new WeaponAttack();
-                attackToAdd = referenceList[referenceIndex];
-                attackToAdd.weaponAttackTypes = attackTypeToSwitch;
-                listToPass.Add(attackToAdd);
+                AttackTypeStorage store = new AttackTypeStorage();
+                List<WeaponAttack.WeaponAttackType> attackTypesToAdd = new List<WeaponAttack.WeaponAttackType>();
+                attackTypesToAdd.Add(absorbableAttackTypes[attackTypeIndex]);
+                store.attackTypes = attackTypesToAdd;
+                listToPass.Add(store);
             }
         }
         return listToPass;
     }
 
+    private List<WeaponAttack> SetAbsorbWeaponAttacks(List<WeaponAttack> listToSet, int indexOfAttackType, int baseLenghtOfAttacks)
+    {
+        int startPoint = indexOfAttackType * baseLenghtOfAttacks;
+        for (int i = startPoint; i < startPoint + baseLenghtOfAttacks; i++)
+        {
+            List<WeaponAttack.WeaponAttackType> resetElement = new List<WeaponAttack.WeaponAttackType>();
+            resetElement.Add(absorbableAttackTypes[indexOfAttackType]);
+            listToSet[i - startPoint].weaponAttackTypes = resetElement;
+        }
+        return listToSet;
+    }
+
+    private List<WeaponAttack> ResetWeaponAttacks(List<WeaponAttack> listToSet, List<AttackTypeStorage> storage)
+    {
+        for (int i = 0; i < listToSet.Count; i++)
+        {
+            listToSet[i].weaponAttackTypes = storage[i].attackTypes;
+        }
+        return listToSet;
+    }
+
     private void Absorb(int indexOfAttackType)
     {
-        absorbedAttackType = ReceivedWeaponAttackType;
-        print("absorbed " + absorbedAttackType.ToString());
+        enemyWeaponSwitcher.normalStateWeapon.weaponAttacks = SetAbsorbWeaponAttacks(enemyWeaponSwitcher.normalStateWeapon.weaponAttacks, indexOfAttackType, normalWeaponAttackTypes.Count);
+        enemyWeaponSwitcher.calmStateWeapon.weaponAttacks = SetAbsorbWeaponAttacks(enemyWeaponSwitcher.calmStateWeapon.weaponAttacks, indexOfAttackType, calmWeaponAttackTypes.Count);
+        enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks = SetAbsorbWeaponAttacks(enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks, indexOfAttackType, berserkWeaponAttackTypes.Count);
+        absorbed = true;
+    }
+
+    public void StopAbsorb()
+    {
+        enemyWeaponSwitcher.normalStateWeapon.weaponAttacks = ResetWeaponAttacks(enemyWeaponSwitcher.normalStateWeapon.weaponAttacks, normalWeaponAttackTypes);
+        enemyWeaponSwitcher.calmStateWeapon.weaponAttacks = ResetWeaponAttacks(enemyWeaponSwitcher.calmStateWeapon.weaponAttacks, calmWeaponAttackTypes);
+        enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks = ResetWeaponAttacks(enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks, berserkWeaponAttackTypes);
+        absorbed = false;
     }
 
     private void ForcedAttack()
     {
-        print("repel");
+        StopAbsorb();
     }
 }
