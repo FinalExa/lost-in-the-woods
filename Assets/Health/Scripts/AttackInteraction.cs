@@ -81,9 +81,14 @@ public class AttackInteraction : MonoBehaviour
     }
     public void CheckIfAttackTypeIsTheSame(List<WeaponAttack.WeaponAttackType> attackTypes, GameObject source)
     {
+        ISendWeaponAttackType sendWeaponAttackType = this.gameObject.GetComponent<ISendWeaponAttackType>();
         foreach (AttackTypeInteraction attackTypeInteraction in attackTypeInteractions)
         {
-            if (attackTypes.Contains(attackTypeInteraction.attackType)) attackInteractionOptions.Interact(attackTypeInteraction.options, source, turnsOff);
+            if (attackTypes.Contains(attackTypeInteraction.attackType))
+            {
+                if (sendWeaponAttackType != null) sendWeaponAttackType.ReceivedWeaponAttackType = attackTypeInteraction.attackType;
+                attackInteractionOptions.Interact(attackTypeInteraction.options, source, turnsOff);
+            }
         }
     }
 
