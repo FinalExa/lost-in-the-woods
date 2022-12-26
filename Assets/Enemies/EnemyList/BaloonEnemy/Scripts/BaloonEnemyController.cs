@@ -35,8 +35,8 @@ public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWe
 
     public void OnSignalReceived(GameObject source)
     {
-        if (absorbableAttackTypes.Contains(ReceivedWeaponAttackType) && !absorbed) Absorb(absorbableAttackTypes.IndexOf(ReceivedWeaponAttackType));
-        else if (repelAttackTypes.Contains(ReceivedWeaponAttackType)) ForcedAttack();
+        if (absorbableAttackTypes.Contains(ReceivedWeaponAttackType)) Absorb(absorbableAttackTypes.IndexOf(ReceivedWeaponAttackType));
+        else if (repelAttackTypes.Contains(ReceivedWeaponAttackType) && !enemyCombo.isInCombo) Redirect();
     }
 
     private void PrepareLists()
@@ -101,22 +101,31 @@ public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWe
 
     private void Absorb(int indexOfAttackType)
     {
-        enemyWeaponSwitcher.normalStateWeapon.weaponAttacks = SetAbsorbWeaponAttacks(enemyWeaponSwitcher.normalStateWeapon.weaponAttacks, indexOfAttackType, normalWeaponAttackTypes.Count);
-        enemyWeaponSwitcher.calmStateWeapon.weaponAttacks = SetAbsorbWeaponAttacks(enemyWeaponSwitcher.calmStateWeapon.weaponAttacks, indexOfAttackType, calmWeaponAttackTypes.Count);
-        enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks = SetAbsorbWeaponAttacks(enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks, indexOfAttackType, berserkWeaponAttackTypes.Count);
-        absorbed = true;
+        if (!absorbed && affectedByLight.lightState != AffectedByLight.LightState.BERSERK)
+        {
+            enemyWeaponSwitcher.normalStateWeapon.weaponAttacks = SetAbsorbWeaponAttacks(enemyWeaponSwitcher.normalStateWeapon.weaponAttacks, indexOfAttackType, normalWeaponAttackTypes.Count);
+            enemyWeaponSwitcher.calmStateWeapon.weaponAttacks = SetAbsorbWeaponAttacks(enemyWeaponSwitcher.calmStateWeapon.weaponAttacks, indexOfAttackType, calmWeaponAttackTypes.Count);
+            enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks = SetAbsorbWeaponAttacks(enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks, indexOfAttackType, berserkWeaponAttackTypes.Count);
+            absorbed = true;
+        }
     }
 
     public void StopAbsorb()
     {
-        enemyWeaponSwitcher.normalStateWeapon.weaponAttacks = ResetWeaponAttacks(enemyWeaponSwitcher.normalStateWeapon.weaponAttacks, normalWeaponAttackTypes);
-        enemyWeaponSwitcher.calmStateWeapon.weaponAttacks = ResetWeaponAttacks(enemyWeaponSwitcher.calmStateWeapon.weaponAttacks, calmWeaponAttackTypes);
-        enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks = ResetWeaponAttacks(enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks, berserkWeaponAttackTypes);
-        absorbed = false;
+        if (absorbed && affectedByLight.lightState != AffectedByLight.LightState.BERSERK && attackDone)
+        {
+            enemyWeaponSwitcher.normalStateWeapon.weaponAttacks = ResetWeaponAttacks(enemyWeaponSwitcher.normalStateWeapon.weaponAttacks, normalWeaponAttackTypes);
+            enemyWeaponSwitcher.calmStateWeapon.weaponAttacks = ResetWeaponAttacks(enemyWeaponSwitcher.calmStateWeapon.weaponAttacks, calmWeaponAttackTypes);
+            enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks = ResetWeaponAttacks(enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks, berserkWeaponAttackTypes);
+            absorbed = false;
+            attackDone = false;
+        }
     }
 
-    private void ForcedAttack()
+    private void Redirect()
     {
-        StopAbsorb();
+        Vector3 pointDirection = (this.transform.position - playerTarget.transform.position);
+        Vector3 endPoint = this.transform.position + pointDirection * 5f;
+        if (!enemyCombo.isInCombo) enemyCombo.ActivateEnemyCombo(endPoint);
     }
 }

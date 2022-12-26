@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6395110103217412864}
   - component: {fileID: -6213912900962634631}
+  - component: {fileID: -8967726667995805398}
   - component: {fileID: 3939637572597450188}
   - component: {fileID: -57584891418013859}
   - component: {fileID: 8690117516297040685}
@@ -74,8 +75,20 @@ MonoBehaviour:
   fixedTimeLifetimeObjectDuration: 0
   absorbableAttackTypes: 0200000004000000
   repelAttackTypes: 01000000
-  normalWeaponAttackTypes: []
-  normalWeaponAttackAbsorbedTypes: []
+--- !u!114 &-8967726667995805398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477770951886658404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad2af8ac8b623b49ab564c8c5257385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyController: {fileID: 0}
+  enemyWeaponSwitcher: {fileID: 0}
 --- !u!114 &3939637572597450188
 MonoBehaviour:
   m_ObjectHideFlags: 0

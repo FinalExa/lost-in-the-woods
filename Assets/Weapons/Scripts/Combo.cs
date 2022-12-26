@@ -9,7 +9,7 @@ public class Combo : MonoBehaviour
     [HideInInspector] public Vector3 LastDirection { get; set; }
     [HideInInspector] public ComboObjectSpawner comboObjectSpawner;
     [HideInInspector] public ComboDelays comboDelays;
-    protected ComboAttack comboAttack;
+    [HideInInspector] public ComboAttack comboAttack;
 
     protected virtual void Awake()
     {

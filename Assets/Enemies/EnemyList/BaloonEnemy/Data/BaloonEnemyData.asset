@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Baloon
   maxHP: 200
-  normalMovementSpeed: 0
-  normalDistanceFromPlayer: 0
+  normalMovementSpeed: 3
+  normalDistanceFromPlayer: 5
   normalDistanceTolerance: 0
   hasNormalWeapon: 1
-  normalWeapon: {fileID: 4222045236405462924, guid: 7065d176beefb154a9e74bdef152c08c, type: 3}
-  calmMovementSpeed: 0
+  normalWeapon: {fileID: 4222045236405462924, guid: c19aad884a580714899e6e2c38161964, type: 3}
+  calmMovementSpeed: 5
   calmDistanceFromPlayer: 0
   calmDistanceTolerance: 0
   hasCalmWeapon: 1
   calmWeapon: {fileID: 4222045236405462924, guid: 7065d176beefb154a9e74bdef152c08c, type: 3}
-  berserkMovementSpeed: 0
-  berserkDistanceFromPlayer: 0
+  berserkMovementSpeed: 6
+  berserkDistanceFromPlayer: 8
   berserkDistanceTolerance: 0
   hasBerserkWeapon: 1
   berserkWeapon: {fileID: 4222045236405462924, guid: 7065d176beefb154a9e74bdef152c08c, type: 3}
-  firstAggroDistance: 0
-  stopAggroDistance: 0
+  firstAggroDistance: 20
+  stopAggroDistance: 40
