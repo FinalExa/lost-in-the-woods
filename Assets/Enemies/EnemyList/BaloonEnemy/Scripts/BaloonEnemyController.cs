@@ -101,7 +101,7 @@ public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWe
 
     private void Absorb(int indexOfAttackType)
     {
-        if (!absorbed && affectedByLight.lightState != AffectedByLight.LightState.BERSERK)
+        if (!absorbed && affectedByLight.lightState != AffectedByLight.LightState.BERSERK && enemyCombo.isInCombo)
         {
             enemyWeaponSwitcher.normalStateWeapon.weaponAttacks = SetAbsorbWeaponAttacks(enemyWeaponSwitcher.normalStateWeapon.weaponAttacks, indexOfAttackType, normalWeaponAttackTypes.Count);
             enemyWeaponSwitcher.calmStateWeapon.weaponAttacks = SetAbsorbWeaponAttacks(enemyWeaponSwitcher.calmStateWeapon.weaponAttacks, indexOfAttackType, calmWeaponAttackTypes.Count);
