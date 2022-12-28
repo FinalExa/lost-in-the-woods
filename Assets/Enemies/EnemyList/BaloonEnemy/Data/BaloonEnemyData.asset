@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27a85e3fe686b974fbb85406426b7efc, type: 3}
+  m_Name: BaloonEnemyData
+  m_EditorClassIdentifier: 
+  enemyName: Baloon
+  maxHP: 200
+  normalMovementSpeed: 3
+  normalDistanceFromPlayer: 5
+  normalDistanceTolerance: 0
+  hasNormalWeapon: 1
+  normalWeapon: {fileID: 4222045236405462924, guid: c19aad884a580714899e6e2c38161964, type: 3}
+  calmMovementSpeed: 5
+  calmDistanceFromPlayer: 0
+  calmDistanceTolerance: 0
+  hasCalmWeapon: 1
+  calmWeapon: {fileID: 4222045236405462924, guid: 7065d176beefb154a9e74bdef152c08c, type: 3}
+  berserkMovementSpeed: 6
+  berserkDistanceFromPlayer: 8
+  berserkDistanceTolerance: 0
+  hasBerserkWeapon: 1
+  berserkWeapon: {fileID: 4222045236405462924, guid: 7065d176beefb154a9e74bdef152c08c, type: 3}
+  firstAggroDistance: 20
+  stopAggroDistance: 40

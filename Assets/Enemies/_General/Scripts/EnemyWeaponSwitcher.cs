@@ -13,10 +13,6 @@ public class EnemyWeaponSwitcher : MonoBehaviour
     private void Awake()
     {
         enemyController = this.gameObject.GetComponent<EnemyController>();
-    }
-
-    private void Start()
-    {
         GenerateEnemyWeapons();
     }
 
