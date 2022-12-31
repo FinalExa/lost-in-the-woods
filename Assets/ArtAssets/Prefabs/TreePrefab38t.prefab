@@ -11,18 +11,6 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1243251948, guid: bf100adf639d1c74aa393ed3777c5030, type: 3}
-    - target: {fileID: 5057222241132769791, guid: 8df489b172136b04084abcaeb09f8dc5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8660254
-      objectReference: {fileID: 0}
-    - target: {fileID: 5057222241132769791, guid: 8df489b172136b04084abcaeb09f8dc5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5057222241132769791, guid: 8df489b172136b04084abcaeb09f8dc5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 60
-      objectReference: {fileID: 0}
     - target: {fileID: 6605838718407374979, guid: 8df489b172136b04084abcaeb09f8dc5, type: 3}
       propertyPath: m_Name
       value: TreePrefab38t
