@@ -8,27 +8,37 @@ public class Zone : MonoBehaviour
     [SerializeField] private string zoneName;
     [SerializeField] private ZoneType thisZoneType;
     [SerializeField] private float colliderReactivationDelay = 1f;
+    [SerializeField] private float zoneHeartbeatCooldown;
+    [SerializeField] private float zoneHeartbeatDuration;
+    public ZonePuzzle zonePuzzle;
     private Collider[] zoneColliders;
     private bool playerIsInThisZone;
     private PCController playerRef;
 
     private void Start()
     {
-        GetZoneColliders();
+        ZoneStartup();
     }
 
     private void SetPlayerInZone(Collider other)
     {
         if (playerRef == null) playerRef = other.gameObject.GetComponent<PCController>();
         playerRef.ChangePlayerZone(this);
+        playerRef.pcReferences.heartbeat.ChangeHeartbeatCooldownAndDuration(zoneHeartbeatCooldown, zoneHeartbeatDuration);
         SetZoneColliders(false);
-        print("In " + zoneName);
+        zonePuzzle.PlayerHasEntered();
     }
 
     public void SetPlayerOutOfZone()
     {
-        print("Out " + zoneName);
         StartCoroutine(WaitToReactivateColliders());
+    }
+
+    private void ZoneStartup()
+    {
+        GetZoneColliders();
+        zonePuzzle.zoneRef = this;
+        zonePuzzle.ZonePuzzleStartup();
     }
 
     private void GetZoneColliders()

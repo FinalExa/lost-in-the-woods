@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Heartbeat : MonoBehaviour
 {
-    [SerializeField] private float heartbeatCooldown;
-    [SerializeField] private float heartbeatDuration;
+    public float heartbeatCooldown;
+    public float heartbeatDuration;
     private float heartbeatTimer;
     private bool inHeartbeat;
     private Light globalLight;
@@ -81,5 +81,27 @@ public class Heartbeat : MonoBehaviour
                 if (uxOnHeartbeat.hasSound) uxOnHeartbeat.sound.PlayAudio();
             }
         }
+    }
+
+    public void ChangeHeartbeatCooldownAndDuration(float newCooldown, float newDuration)
+    {
+        float currentTimerPercentageValue;
+        if (inHeartbeat) currentTimerPercentageValue = GetCurrentTimerPercentage(heartbeatDuration);
+        else currentTimerPercentageValue = GetCurrentTimerPercentage(heartbeatCooldown);
+        heartbeatCooldown = newCooldown;
+        heartbeatDuration = newDuration;
+        if (inHeartbeat) heartbeatTimer = ConvertPercentageIntoTimer(currentTimerPercentageValue, heartbeatDuration);
+        else heartbeatTimer = ConvertPercentageIntoTimer(currentTimerPercentageValue, heartbeatCooldown);
+        print("Changed");
+    }
+
+    private float GetCurrentTimerPercentage(float maxTimerValue)
+    {
+        return (heartbeatTimer * 100f) / maxTimerValue;
+    }
+
+    private float ConvertPercentageIntoTimer(float percentage, float maxTimerValue)
+    {
+        return (percentage * maxTimerValue) / 100f;
     }
 }
