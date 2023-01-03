@@ -19,14 +19,13 @@ public class Spawner : MonoBehaviour
         public float maxTimer;
         public float deathTimer;
     }
-    [SerializeField] private string zoneName;
     [SerializeField] private SpawnerEnemies[] enemiesToSpawnInThisZone;
     [SerializeField] private GameObject[] spawnPoints;
     private List<EnemiesToRespawn> activeEnemies;
     private List<EnemiesToRespawn> deadEnemies;
     private bool spawnerIsSet;
 
-    private void Start()
+    private void OnEnable()
     {
         SpawnerStartup();
     }

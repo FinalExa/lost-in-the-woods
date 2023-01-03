@@ -19,7 +19,7 @@ public class ZonePuzzle
         {
             puzzleInactiveParent.SetActive(false);
             puzzleEntrance.SetActive(false);
-            puzzleActiveParent.SetActive(true);
+            puzzleActiveParent.SetActive(false);
             PuzzleExit puzzleExitRef = puzzleExit.AddComponent<PuzzleExit>();
             puzzleExitRef.zoneRef = zoneRef;
         }
@@ -27,7 +27,11 @@ public class ZonePuzzle
 
     public void PlayerHasEntered()
     {
-        if (zoneHasPuzzle) puzzleEntrance.SetActive(true);
+        if (zoneHasPuzzle && !puzzleDone)
+        {
+            puzzleEntrance.SetActive(true);
+            puzzleActiveParent.SetActive(true);
+        }
     }
 
     public void ZonePuzzleEnd()
