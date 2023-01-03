@@ -73,7 +73,12 @@ MonoBehaviour:
   attackReceived: {fileID: 0}
   usesFixedTimeLifetimeObject: 0
   fixedTimeLifetimeObjectDuration: 0
-  absorbableAttackTypes: 0200000004000000
+  spriteRef: {fileID: 5968671515912607088}
+  absorbableAttackTypes:
+  - attackType: 2
+    feedbackColor: {r: 0, g: 0, b: 1, a: 1}
+  - attackType: 4
+    feedbackColor: {r: 1, g: 0, b: 0, a: 1}
   repelAttackTypes: 01000000
 --- !u!114 &-8967726667995805398
 MonoBehaviour:
@@ -159,7 +164,7 @@ MonoBehaviour:
       loop: 0
       playOnAwake: 0
       mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
-    hasSpriteColorChange: 1
+    hasSpriteColorChange: 0
     spriteColorChange:
       onHitSpriteColor: {r: 0, g: 0, b: 1, a: 1}
       spriteRef: {fileID: 5968671515912607088}

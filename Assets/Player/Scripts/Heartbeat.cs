@@ -92,7 +92,6 @@ public class Heartbeat : MonoBehaviour
         heartbeatDuration = newDuration;
         if (inHeartbeat) heartbeatTimer = ConvertPercentageIntoTimer(currentTimerPercentageValue, heartbeatDuration);
         else heartbeatTimer = ConvertPercentageIntoTimer(currentTimerPercentageValue, heartbeatCooldown);
-        print("Changed");
     }
 
     private float GetCurrentTimerPercentage(float maxTimerValue)
