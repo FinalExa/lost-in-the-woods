@@ -8,6 +8,7 @@ public class PCController : MonoBehaviour
     [HideInInspector] public float actualSpeed;
     [HideInInspector] public PCReferences pcReferences;
     [HideInInspector] public Weapon thisWeapon;
+    private Zone currentZone;
 
     private void Start()
     {
@@ -28,5 +29,11 @@ public class PCController : MonoBehaviour
     {
         thisWeapon = this.gameObject.GetComponentInChildren<Weapon>();
         pcReferences.pcCombo.currentWeapon = thisWeapon;
+    }
+
+    public void ChangePlayerZone(Zone zoneToSet)
+    {
+        if (currentZone != null) currentZone.SetPlayerOutOfZone();
+        currentZone = zoneToSet;
     }
 }

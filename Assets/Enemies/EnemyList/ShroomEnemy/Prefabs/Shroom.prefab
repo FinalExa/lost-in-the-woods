@@ -82,7 +82,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5477770951886658404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 11.24}
+  m_LocalPosition: {x: -22.5, y: 0, z: -14.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -110,13 +110,15 @@ MonoBehaviour:
   playerTarget: {fileID: 0}
   enemyCombo: {fileID: 0}
   thisNavMeshAgent: {fileID: 0}
-  attackDone: 0
   spawnerRef: {fileID: 0}
   spawnerEnemyInfo:
     enemy: {fileID: 0}
     maxTimer: 0
     deathTimer: 0
   affectedByLight: {fileID: 0}
+  attackReceived: {fileID: 0}
+  usesFixedTimeLifetimeObject: 0
+  fixedTimeLifetimeObjectDuration: 0
   backTrigger: {fileID: 6678532261102327}
 --- !u!114 &6031758856537235096
 MonoBehaviour:
@@ -230,14 +232,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWeapon: {fileID: 0}
-  isAttacking: 0
-  comboHitOver: 0
-  comboDelay: 0
-  comboEndDelay: 0
-  attackTimer: 0
-  attackCountTime: 0
-  comboDelayTimer: 0
-  comboCancelTimer: 0
+  currentAttack:
+    damage: 0
+    duration: 0
+    afterDelay: 0
+    movementDistance: 0
+    ignoresWalls: 0
+    attackObject: {fileID: 0}
+    weaponAttackTypes: 
+    weaponAttackHitboxSequence: []
+    weaponSpawnsObjectDuringThisAttack: []
+    hasAnimation: 0
+    uxOnWeaponAttack:
+      hasSound: 0
+      sound:
+        clip: {fileID: 0}
+        priority: 128
+        volume: 1
+        pitch: 1
+        stereoPan: 0
+        spatialBlend: 0
+        reverbZoneMix: 1
+        loop: 0
+        playOnAwake: 0
+        mixer: {fileID: 0}
+      hasSpriteColorChange: 0
+      spriteColorChange:
+        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        spriteRef: {fileID: 0}
+        spriteColorChangeDuration: 0
+        spritehasChangedColor: 0
+        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+      hasCameraShake: 0
+      cameraShake:
+        shakeAmplitude: 0
+        shakeFrequency: 0
+        shakeDuration: 0
+        cinemachineCameraShakerRef: {fileID: 0}
+      soundParent: {fileID: 0}
   isInCombo: 0
   target: {fileID: 0}
 --- !u!114 &249166922592196662
@@ -492,6 +524,7 @@ MonoBehaviour:
   isInsideLight: 0
   isInHeartbeatState: 0
   enemyController: {fileID: 0}
+  attackInteraction: {fileID: 0}
 --- !u!65 &7001282123244882244
 BoxCollider:
   m_ObjectHideFlags: 0
