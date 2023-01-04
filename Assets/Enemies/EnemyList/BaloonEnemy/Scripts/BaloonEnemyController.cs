@@ -5,8 +5,16 @@ using UnityEngine;
 public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWeaponAttackType
 {
     private EnemyWeaponSwitcher enemyWeaponSwitcher;
+    [SerializeField] private SpriteRenderer spriteRef;
+    private Color baseColor;
     public WeaponAttack.WeaponAttackType ReceivedWeaponAttackType { get; set; }
-    [SerializeField] private List<WeaponAttack.WeaponAttackType> absorbableAttackTypes;
+    [System.Serializable]
+    public struct AbsorbableAttackTypes
+    {
+        public WeaponAttack.WeaponAttackType attackType;
+        public Color feedbackColor;
+    }
+    [SerializeField] private List<AbsorbableAttackTypes> absorbableAttackTypes;
     [SerializeField] private List<WeaponAttack.WeaponAttackType> repelAttackTypes;
     private bool absorbed;
     [System.Serializable]
@@ -30,13 +38,24 @@ public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWe
 
     private void Start()
     {
+        baseColor = spriteRef.color;
         PrepareLists();
     }
 
     public void OnSignalReceived(GameObject source)
     {
-        if (absorbableAttackTypes.Contains(ReceivedWeaponAttackType)) Absorb(absorbableAttackTypes.IndexOf(ReceivedWeaponAttackType));
+        int index = SearchAbsorbedAttack();
+        if (index >= 0) Absorb(index);
         else if (repelAttackTypes.Contains(ReceivedWeaponAttackType) && !enemyCombo.isInCombo) Redirect();
+    }
+
+    private int SearchAbsorbedAttack()
+    {
+        for (int i = 0; i < absorbableAttackTypes.Count; i++)
+        {
+            if (absorbableAttackTypes[i].attackType == ReceivedWeaponAttackType) return i;
+        }
+        return -1;
     }
 
     private void PrepareLists()
@@ -70,7 +89,7 @@ public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWe
             {
                 AttackTypeStorage store = new AttackTypeStorage();
                 List<WeaponAttack.WeaponAttackType> attackTypesToAdd = new List<WeaponAttack.WeaponAttackType>();
-                attackTypesToAdd.Add(absorbableAttackTypes[attackTypeIndex]);
+                attackTypesToAdd.Add(absorbableAttackTypes[attackTypeIndex].attackType);
                 store.attackTypes = attackTypesToAdd;
                 listToPass.Add(store);
             }
@@ -84,7 +103,7 @@ public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWe
         for (int i = startPoint; i < startPoint + baseLenghtOfAttacks; i++)
         {
             List<WeaponAttack.WeaponAttackType> resetElement = new List<WeaponAttack.WeaponAttackType>();
-            resetElement.Add(absorbableAttackTypes[indexOfAttackType]);
+            resetElement.Add(absorbableAttackTypes[indexOfAttackType].attackType);
             listToSet[i - startPoint].weaponAttackTypes = resetElement;
         }
         return listToSet;
@@ -106,6 +125,7 @@ public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWe
             enemyWeaponSwitcher.normalStateWeapon.weaponAttacks = SetAbsorbWeaponAttacks(enemyWeaponSwitcher.normalStateWeapon.weaponAttacks, indexOfAttackType, normalWeaponAttackTypes.Count);
             enemyWeaponSwitcher.calmStateWeapon.weaponAttacks = SetAbsorbWeaponAttacks(enemyWeaponSwitcher.calmStateWeapon.weaponAttacks, indexOfAttackType, calmWeaponAttackTypes.Count);
             enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks = SetAbsorbWeaponAttacks(enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks, indexOfAttackType, berserkWeaponAttackTypes.Count);
+            spriteRef.color = absorbableAttackTypes[indexOfAttackType].feedbackColor;
             absorbed = true;
         }
     }
@@ -117,6 +137,7 @@ public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWe
             enemyWeaponSwitcher.normalStateWeapon.weaponAttacks = ResetWeaponAttacks(enemyWeaponSwitcher.normalStateWeapon.weaponAttacks, normalWeaponAttackTypes);
             enemyWeaponSwitcher.calmStateWeapon.weaponAttacks = ResetWeaponAttacks(enemyWeaponSwitcher.calmStateWeapon.weaponAttacks, calmWeaponAttackTypes);
             enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks = ResetWeaponAttacks(enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks, berserkWeaponAttackTypes);
+            spriteRef.color = baseColor;
             absorbed = false;
             attackDone = false;
         }

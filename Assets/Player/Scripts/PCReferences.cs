@@ -13,6 +13,7 @@ public class PCReferences : MonoBehaviour
     [HideInInspector] public PCRotation pcRotation;
     [HideInInspector] public PCHealth pcHealth;
     [HideInInspector] public PCLight pcLight;
+    [HideInInspector] public Heartbeat heartbeat;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class PCReferences : MonoBehaviour
         pcRotation = FindObjectOfType<PCRotation>();
         pcHealth = this.gameObject.GetComponent<PCHealth>();
         pcLight = this.gameObject.GetComponentInChildren<PCLight>();
+        heartbeat = this.gameObject.GetComponent<Heartbeat>();
         uxOnDodge.UXEffectStartup();
     }
 }
