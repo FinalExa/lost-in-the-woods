@@ -12,7 +12,7 @@ public class Zone : MonoBehaviour
     [SerializeField] private float zoneHeartbeatDuration;
     [SerializeField] private GameObject zoneTriggersParent;
     public ZonePuzzle zonePuzzle;
-    [SerializeField] private Collider[] zoneTriggers;
+    private Collider[] zoneTriggers;
     private bool playerIsInThisZone;
     private PCController playerRef;
 
