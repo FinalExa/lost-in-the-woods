@@ -36,7 +36,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5477770951886658404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 181.56213, y: 0.25, z: -137.38113}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -65,17 +65,18 @@ MonoBehaviour:
   playerTarget: {fileID: 0}
   enemyCombo: {fileID: 0}
   thisNavMeshAgent: {fileID: 0}
-  attackDone: 0
   spawnerRef: {fileID: 0}
   spawnerEnemyInfo:
     enemy: {fileID: 0}
     maxTimer: 0
     deathTimer: 0
   affectedByLight: {fileID: 0}
+  attackReceived: {fileID: 0}
   usesFixedTimeLifetimeObject: 0
   fixedTimeLifetimeObjectDuration: 0
   isRetracted: 0
   brambleData: {fileID: 0}
+  brambleBallRef: {fileID: 4014776901287296295, guid: c89ec9ec48c88a94ab08433039e855bb, type: 3}
   spriteColliderObject: {fileID: 7200053106513421008}
   uxOnFullyRetracted:
     hasSound: 0
@@ -104,7 +105,6 @@ MonoBehaviour:
       shakeDuration: 0
       cinemachineCameraShakerRef: {fileID: 0}
     soundParent: {fileID: 0}
-  brambleBallRef: {fileID: 4014776901287296295, guid: c89ec9ec48c88a94ab08433039e855bb, type: 3}
 --- !u!114 &2722995872011041464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,14 +217,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWeapon: {fileID: 0}
-  isAttacking: 0
-  comboHitOver: 0
-  comboDelay: 0
-  comboEndDelay: 0
-  attackTimer: 0
-  attackCountTime: 0
-  comboDelayTimer: 0
-  comboCancelTimer: 0
+  currentAttack:
+    damage: 0
+    duration: 0
+    afterDelay: 0
+    movementDistance: 0
+    ignoresWalls: 0
+    attackObject: {fileID: 0}
+    weaponAttackTypes: 
+    weaponAttackHitboxSequence: []
+    weaponSpawnsObjectDuringThisAttack: []
+    hasAnimation: 0
+    uxOnWeaponAttack:
+      hasSound: 0
+      sound:
+        clip: {fileID: 0}
+        priority: 128
+        volume: 1
+        pitch: 1
+        stereoPan: 0
+        spatialBlend: 0
+        reverbZoneMix: 1
+        loop: 0
+        playOnAwake: 0
+        mixer: {fileID: 0}
+      hasSpriteColorChange: 0
+      spriteColorChange:
+        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        spriteRef: {fileID: 0}
+        spriteColorChangeDuration: 0
+        spritehasChangedColor: 0
+        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+      hasCameraShake: 0
+      cameraShake:
+        shakeAmplitude: 0
+        shakeFrequency: 0
+        shakeDuration: 0
+        cinemachineCameraShakerRef: {fileID: 0}
+      soundParent: {fileID: 0}
   isInCombo: 0
   target: {fileID: 0}
 --- !u!114 &249166922592196662
@@ -271,6 +301,7 @@ MonoBehaviour:
   isInsideLight: 0
   isInHeartbeatState: 0
   enemyController: {fileID: 0}
+  attackInteraction: {fileID: 0}
 --- !u!114 &4912769767824199975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,14 +703,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWeapon: {fileID: 0}
-  isAttacking: 0
-  comboHitOver: 0
-  comboDelay: 0
-  comboEndDelay: 0
-  attackTimer: 0
-  attackCountTime: 0
-  comboDelayTimer: 0
-  comboCancelTimer: 0
+  currentAttack:
+    damage: 0
+    duration: 0
+    afterDelay: 0
+    movementDistance: 0
+    ignoresWalls: 0
+    attackObject: {fileID: 0}
+    weaponAttackTypes: 
+    weaponAttackHitboxSequence: []
+    weaponSpawnsObjectDuringThisAttack: []
+    hasAnimation: 0
+    uxOnWeaponAttack:
+      hasSound: 0
+      sound:
+        clip: {fileID: 0}
+        priority: 128
+        volume: 1
+        pitch: 1
+        stereoPan: 0
+        spatialBlend: 0
+        reverbZoneMix: 1
+        loop: 0
+        playOnAwake: 0
+        mixer: {fileID: 0}
+      hasSpriteColorChange: 0
+      spriteColorChange:
+        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        spriteRef: {fileID: 0}
+        spriteColorChangeDuration: 0
+        spritehasChangedColor: 0
+        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+      hasCameraShake: 0
+      cameraShake:
+        shakeAmplitude: 0
+        shakeFrequency: 0
+        shakeDuration: 0
+        cinemachineCameraShakerRef: {fileID: 0}
+      soundParent: {fileID: 0}
   weaponToSet: {fileID: 581327821958723364}
   resetsPositionAndRotationOnComboEnd: 0
 --- !u!212 &9095401162938848358
