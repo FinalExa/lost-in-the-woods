@@ -111,54 +111,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81dec813fad57f74ab47ded6ae72d8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Witch Berserk Weapon
-  comboCancelTime: 5
-  comboEndDelay: 0.3
+  weaponName: Little Shade Berserk Weapon
+  comboEndFramesDelay: 9
+  comboCancelEnabled: 0
+  comboCancelFrames: 0
   possibleTargets: 00000000
   weaponAttacks:
   - damage: 0
-    duration: 0.5
-    afterDelay: 0
+    frameDuration: 15
+    framesOfDelay: 0
     movementDistance: 0
+    ignoresWalls: 0
     attackObject: {fileID: 1083629791230123650}
     weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 6654631832715134272}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.4
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
+      activationFrame: 0
+      deactivationFrame: 12
     - attackRef: {fileID: 3701447072236635035}
-      activationDelayAfterStart: 0.4
-      deactivationDelayAfterStart: 0.49
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
+      activationFrame: 12
+      deactivationFrame: 15
+    weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
-    playsSound: 0
-    soundToPlay: 
-  - damage: 0
-    duration: 0.1
-    afterDelay: 0
+    uxOnWeaponAttack:
+      hasSound: 0
+      sound:
+        clip: {fileID: 0}
+        priority: 128
+        volume: 1
+        pitch: 1
+        stereoPan: 0
+        spatialBlend: 0
+        reverbZoneMix: 1
+        loop: 0
+        playOnAwake: 0
+        mixer: {fileID: 0}
+      hasSpriteColorChange: 0
+      spriteColorChange:
+        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        spriteRef: {fileID: 0}
+        spriteColorChangeDuration: 0
+        spritehasChangedColor: 0
+        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+      hasCameraShake: 0
+      cameraShake:
+        shakeAmplitude: 0
+        shakeFrequency: 0
+        shakeDuration: 0
+        cinemachineCameraShakerRef: {fileID: 0}
+      soundParent: {fileID: 0}
+  - damage: 10
+    frameDuration: 3
+    framesOfDelay: 0
     movementDistance: 0
+    ignoresWalls: 0
     attackObject: {fileID: 1349951445937875719}
     weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 89369581386872112}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.09
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 1
-        projectile: {fileID: 4156505867278205312, guid: 7e4dcf51ca871fd4786bd1984337f367, type: 3}
-        projectileLaunchTimeAfterStart: 0
+      activationFrame: 0
+      deactivationFrame: 3
+    weaponSpawnsObjectDuringThisAttack:
+    - objectRef: {fileID: 4985850856629122337, guid: 7e4dcf51ca871fd4786bd1984337f367, type: 3}
+      objectStartPosition: {fileID: 9001951350886455469}
+      launchFrame: 1
+      spawned: 0
     hasAnimation: 0
-    playsSound: 0
-    soundToPlay: 
+    uxOnWeaponAttack:
+      hasSound: 0
+      sound:
+        clip: {fileID: 0}
+        priority: 128
+        volume: 1
+        pitch: 1
+        stereoPan: 0
+        spatialBlend: 0
+        reverbZoneMix: 1
+        loop: 0
+        playOnAwake: 0
+        mixer: {fileID: 0}
+      hasSpriteColorChange: 0
+      spriteColorChange:
+        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        spriteRef: {fileID: 0}
+        spriteColorChangeDuration: 0
+        spritehasChangedColor: 0
+        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+      hasCameraShake: 0
+      cameraShake:
+        shakeAmplitude: 0
+        shakeFrequency: 0
+        shakeDuration: 0
+        cinemachineCameraShakerRef: {fileID: 0}
+      soundParent: {fileID: 0}
   hitTargets: []
   currentDamage: 0
+  currentWeaponAttackIndex: 0
 --- !u!1001 &93058127806521647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -233,7 +281,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 33525169902638111, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
   m_PrefabInstance: {fileID: 93058127806521647}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 9001951350886455469}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 122280257fdbf8d43b11ffac583ce4eb, type: 3}
@@ -242,6 +290,11 @@ MonoBehaviour:
 --- !u!4 &5218015955782723258 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5269358908780119957, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
+  m_PrefabInstance: {fileID: 93058127806521647}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9001951350886455469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9054417579223923074, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
   m_PrefabInstance: {fileID: 93058127806521647}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3686535454150612868
