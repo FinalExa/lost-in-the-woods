@@ -112,13 +112,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Big Shade Normal Weapon
-  comboEndFramesDelay: 3
+  comboEndFramesDelay: 6
   comboCancelEnabled: 0
   comboCancelFrames: 0
   possibleTargets: 00000000
   weaponAttacks:
   - damage: 0
-    frameDuration: 30
+    frameDuration: 60
     framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
@@ -127,10 +127,10 @@ MonoBehaviour:
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 3455886621140185002}
       activationFrame: 0
-      deactivationFrame: 21
+      deactivationFrame: 42
     - attackRef: {fileID: 3254695389529482790}
-      activationFrame: 21
-      deactivationFrame: 30
+      activationFrame: 42
+      deactivationFrame: 60
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
@@ -161,7 +161,7 @@ MonoBehaviour:
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
   - damage: 100
-    frameDuration: 9
+    frameDuration: 18
     framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 6905998153787500603}
       activationFrame: 0
-      deactivationFrame: 9
+      deactivationFrame: 18
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:

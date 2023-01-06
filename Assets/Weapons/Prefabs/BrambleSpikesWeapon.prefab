@@ -78,13 +78,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Bramble Spikes Weapon
-  comboEndFramesDelay: 9
+  comboEndFramesDelay: 18
   comboCancelEnabled: 0
   comboCancelFrames: 0
   possibleTargets: 0000000001000000
   weaponAttacks:
   - damage: 10
-    frameDuration: 6
+    frameDuration: 18
     framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 5496394219624157946}
       activationFrame: 0
-      deactivationFrame: 6
+      deactivationFrame: 18
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:

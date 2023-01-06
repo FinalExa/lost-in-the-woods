@@ -219,7 +219,7 @@ MonoBehaviour:
   possibleTargets: 0000000003000000
   weaponAttacks:
   - damage: 0
-    frameDuration: 30
+    frameDuration: 60
     framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
@@ -228,10 +228,10 @@ MonoBehaviour:
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 6654631832715134272}
       activationFrame: 0
-      deactivationFrame: 27
+      deactivationFrame: 54
     - attackRef: {fileID: 4364370029918331853}
-      activationFrame: 27
-      deactivationFrame: 30
+      activationFrame: 54
+      deactivationFrame: 60
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
@@ -262,7 +262,7 @@ MonoBehaviour:
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
   - damage: 10
-    frameDuration: 6
+    frameDuration: 12
     framesOfDelay: 0
     movementDistance: 3
     ignoresWalls: 0
@@ -271,7 +271,7 @@ MonoBehaviour:
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 89369581386872112}
       activationFrame: 0
-      deactivationFrame: 6
+      deactivationFrame: 12
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
@@ -302,7 +302,7 @@ MonoBehaviour:
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
   - damage: 10
-    frameDuration: 6
+    frameDuration: 12
     framesOfDelay: 0
     movementDistance: 3
     ignoresWalls: 0
@@ -311,7 +311,7 @@ MonoBehaviour:
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 1849451110353811739}
       activationFrame: 0
-      deactivationFrame: 6
+      deactivationFrame: 12
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
@@ -422,7 +422,7 @@ MonoBehaviour:
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
   - damage: 10
-    frameDuration: 6
+    frameDuration: 12
     framesOfDelay: 0
     movementDistance: 3
     ignoresWalls: 0
@@ -431,7 +431,7 @@ MonoBehaviour:
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 3916367756767755265}
       activationFrame: 0
-      deactivationFrame: 6
+      deactivationFrame: 12
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
@@ -462,7 +462,7 @@ MonoBehaviour:
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
   - damage: 30
-    frameDuration: 9
+    frameDuration: 18
     framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
@@ -471,7 +471,7 @@ MonoBehaviour:
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 3805721757383102869}
       activationFrame: 0
-      deactivationFrame: 9
+      deactivationFrame: 18
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:

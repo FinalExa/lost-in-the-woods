@@ -78,13 +78,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Witch Calm Weapon
-  comboEndFramesDelay: 15
+  comboEndFramesDelay: 30
   comboCancelEnabled: 0
   comboCancelFrames: 0
   possibleTargets: 000000000100000002000000
   weaponAttacks:
   - damage: 20
-    frameDuration: 15
+    frameDuration: 30
     framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 5496394219624157946}
       activationFrame: 0
-      deactivationFrame: 15
+      deactivationFrame: 30
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:

@@ -112,13 +112,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Witch Berserk Weapon
-  comboEndFramesDelay: 9
+  comboEndFramesDelay: 18
   comboCancelEnabled: 0
   comboCancelFrames: 0
   possibleTargets: 00000000
   weaponAttacks:
   - damage: 0
-    frameDuration: 15
+    frameDuration: 30
     framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
@@ -127,10 +127,10 @@ MonoBehaviour:
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 6654631832715134272}
       activationFrame: 0
-      deactivationFrame: 12
+      deactivationFrame: 24
     - attackRef: {fileID: 3701447072236635035}
-      activationFrame: 12
-      deactivationFrame: 15
+      activationFrame: 24
+      deactivationFrame: 30
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:

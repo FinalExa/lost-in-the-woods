@@ -37,7 +37,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5477770951886658404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 301.25, y: 0.25, z: -136}
+  m_LocalPosition: {x: 300.25, y: 0.25, z: -162.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -190,8 +190,8 @@ MonoBehaviour:
   currentWeapon: {fileID: 0}
   currentAttack:
     damage: 0
-    duration: 0
-    afterDelay: 0
+    frameDuration: 0
+    framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
     attackObject: {fileID: 0}

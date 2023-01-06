@@ -219,8 +219,8 @@ MonoBehaviour:
   currentWeapon: {fileID: 0}
   currentAttack:
     damage: 0
-    duration: 0
-    afterDelay: 0
+    frameDuration: 0
+    framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
     attackObject: {fileID: 0}
@@ -705,8 +705,8 @@ MonoBehaviour:
   currentWeapon: {fileID: 0}
   currentAttack:
     damage: 0
-    duration: 0
-    afterDelay: 0
+    frameDuration: 0
+    framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
     attackObject: {fileID: 0}

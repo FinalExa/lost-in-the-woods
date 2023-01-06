@@ -119,13 +119,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Bramble Normal Weapon
-  comboEndFramesDelay: 150
+  comboEndFramesDelay: 300
   comboCancelEnabled: 0
   comboCancelFrames: 0
   possibleTargets: 0000000001000000
   weaponAttacks:
   - damage: 25
-    frameDuration: 33
+    frameDuration: 66
     framesOfDelay: 6
     movementDistance: 0
     ignoresWalls: 0
@@ -134,22 +134,22 @@ MonoBehaviour:
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 6654631832715134272}
       activationFrame: 0
-      deactivationFrame: 12
+      deactivationFrame: 24
     - attackRef: {fileID: 366035016614358744}
-      activationFrame: 12
-      deactivationFrame: 15
-    - attackRef: {fileID: 6683376727879917316}
-      activationFrame: 15
-      deactivationFrame: 20
-    - attackRef: {fileID: 2917106316172707920}
-      activationFrame: 20
-      deactivationFrame: 25
-    - attackRef: {fileID: 3755998350179901173}
-      activationFrame: 25
+      activationFrame: 24
       deactivationFrame: 30
-    - attackRef: {fileID: 4737181245437712581}
+    - attackRef: {fileID: 6683376727879917316}
       activationFrame: 30
-      deactivationFrame: 33
+      deactivationFrame: 40
+    - attackRef: {fileID: 2917106316172707920}
+      activationFrame: 40
+      deactivationFrame: 50
+    - attackRef: {fileID: 3755998350179901173}
+      activationFrame: 50
+      deactivationFrame: 60
+    - attackRef: {fileID: 4737181245437712581}
+      activationFrame: 60
+      deactivationFrame: 66
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
@@ -180,7 +180,7 @@ MonoBehaviour:
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
   - damage: 25
-    frameDuration: 18
+    frameDuration: 36
     framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
@@ -189,16 +189,16 @@ MonoBehaviour:
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 3947200154783462468}
       activationFrame: 0
-      deactivationFrame: 5
+      deactivationFrame: 10
     - attackRef: {fileID: 6594560557056732219}
-      activationFrame: 5
-      deactivationFrame: 12
+      activationFrame: 10
+      deactivationFrame: 24
     - attackRef: {fileID: 171109409194446665}
-      activationFrame: 12
-      deactivationFrame: 15
+      activationFrame: 24
+      deactivationFrame: 30
     - attackRef: {fileID: 5347559103951576430}
-      activationFrame: 15
-      deactivationFrame: 18
+      activationFrame: 30
+      deactivationFrame: 36
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
