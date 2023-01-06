@@ -122,31 +122,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Witch Normal Weapon
-  comboEndDelay: 0
+  comboEndFramesDelay: 0
   comboCancelEnabled: 0
-  comboCancelTime: 5
+  comboCancelFrames: 0
   possibleTargets: 00000000
   weaponAttacks:
   - damage: 0
-    duration: 0.5
-    afterDelay: 0
+    frameDuration: 15
+    framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
     attackObject: {fileID: 1083629791230123650}
     weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 6654631832715134272}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.4
+      activationFrame: 0
+      deactivationFrame: 12
     - attackRef: {fileID: 7702132646969113527}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.4
+      activationFrame: 0
+      deactivationFrame: 12
     - attackRef: {fileID: 8779068666338814595}
-      activationDelayAfterStart: 0.4
-      deactivationDelayAfterStart: 0.49
+      activationFrame: 12
+      deactivationFrame: 15
     - attackRef: {fileID: 7658264888048267432}
-      activationDelayAfterStart: 0.4
-      deactivationDelayAfterStart: 0.49
+      activationFrame: 12
+      deactivationFrame: 15
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
@@ -177,31 +177,31 @@ MonoBehaviour:
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
   - damage: 20
-    duration: 0.3
-    afterDelay: 0.1
+    frameDuration: 9
+    framesOfDelay: 3
     movementDistance: 1
     ignoresWalls: 0
     attackObject: {fileID: 1349951445937875719}
     weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 89369581386872112}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.1
+      activationFrame: 0
+      deactivationFrame: 3
     - attackRef: {fileID: 7117953214973568259}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.1
+      activationFrame: 0
+      deactivationFrame: 3
     - attackRef: {fileID: 690753494360434735}
-      activationDelayAfterStart: 0.1
-      deactivationDelayAfterStart: 0.2
+      activationFrame: 3
+      deactivationFrame: 6
     - attackRef: {fileID: 3576991801287322947}
-      activationDelayAfterStart: 0.1
-      deactivationDelayAfterStart: 0.2
+      activationFrame: 3
+      deactivationFrame: 6
     - attackRef: {fileID: 8607017169275237718}
-      activationDelayAfterStart: 0.2
-      deactivationDelayAfterStart: 0.29
+      activationFrame: 6
+      deactivationFrame: 9
     - attackRef: {fileID: 5093713299777706605}
-      activationDelayAfterStart: 0.2
-      deactivationDelayAfterStart: 0.29
+      activationFrame: 6
+      deactivationFrame: 9
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
@@ -232,31 +232,31 @@ MonoBehaviour:
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
   - damage: 20
-    duration: 0.3
-    afterDelay: 0.1
+    frameDuration: 9
+    framesOfDelay: 3
     movementDistance: 1
     ignoresWalls: 0
     attackObject: {fileID: 7359365170921667884}
     weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 7883805944324575788}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.1
+      activationFrame: 0
+      deactivationFrame: 3
     - attackRef: {fileID: 8488350732686477752}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.1
+      activationFrame: 0
+      deactivationFrame: 3
     - attackRef: {fileID: 4280961404423566550}
-      activationDelayAfterStart: 0.1
-      deactivationDelayAfterStart: 0.2
+      activationFrame: 3
+      deactivationFrame: 6
     - attackRef: {fileID: 5237240862263569209}
-      activationDelayAfterStart: 0.1
-      deactivationDelayAfterStart: 0.2
+      activationFrame: 3
+      deactivationFrame: 6
     - attackRef: {fileID: 5548137344038613671}
-      activationDelayAfterStart: 0.2
-      deactivationDelayAfterStart: 0.29
+      activationFrame: 6
+      deactivationFrame: 9
     - attackRef: {fileID: 5183731256892554997}
-      activationDelayAfterStart: 0.2
-      deactivationDelayAfterStart: 0.29
+      activationFrame: 6
+      deactivationFrame: 9
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
@@ -287,31 +287,31 @@ MonoBehaviour:
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
   - damage: 20
-    duration: 0.3
-    afterDelay: 0.1
+    frameDuration: 9
+    framesOfDelay: 3
     movementDistance: 1
     ignoresWalls: 0
     attackObject: {fileID: 7013241079892500528}
     weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 3834173184739019600}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.1
+      activationFrame: 0
+      deactivationFrame: 3
     - attackRef: {fileID: 6423340198883815809}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.1
+      activationFrame: 0
+      deactivationFrame: 3
     - attackRef: {fileID: 3054540552435812529}
-      activationDelayAfterStart: 0.1
-      deactivationDelayAfterStart: 0.2
+      activationFrame: 3
+      deactivationFrame: 6
     - attackRef: {fileID: 4872242447842369902}
-      activationDelayAfterStart: 0.1
-      deactivationDelayAfterStart: 0.2
+      activationFrame: 3
+      deactivationFrame: 6
     - attackRef: {fileID: 5032742708643879371}
-      activationDelayAfterStart: 0.2
-      deactivationDelayAfterStart: 0.29
+      activationFrame: 6
+      deactivationFrame: 9
     - attackRef: {fileID: 5123629485724972183}
-      activationDelayAfterStart: 0.2
-      deactivationDelayAfterStart: 0.29
+      activationFrame: 6
+      deactivationFrame: 9
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
@@ -342,31 +342,31 @@ MonoBehaviour:
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
   - damage: 20
-    duration: 0.3
-    afterDelay: 0.1
+    frameDuration: 9
+    framesOfDelay: 3
     movementDistance: 1
     ignoresWalls: 0
     attackObject: {fileID: 8218973252585090097}
     weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 2353933429635900272}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.1
+      activationFrame: 0
+      deactivationFrame: 3
     - attackRef: {fileID: 4675808446482441041}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.1
+      activationFrame: 0
+      deactivationFrame: 3
     - attackRef: {fileID: 2248379472867109270}
-      activationDelayAfterStart: 0.1
-      deactivationDelayAfterStart: 0.2
+      activationFrame: 3
+      deactivationFrame: 6
     - attackRef: {fileID: 6717310762991372613}
-      activationDelayAfterStart: 0.1
-      deactivationDelayAfterStart: 0.2
+      activationFrame: 3
+      deactivationFrame: 6
     - attackRef: {fileID: 5188736676028159071}
-      activationDelayAfterStart: 0.2
-      deactivationDelayAfterStart: 0.29
+      activationFrame: 6
+      deactivationFrame: 9
     - attackRef: {fileID: 4943912512208124255}
-      activationDelayAfterStart: 0.2
-      deactivationDelayAfterStart: 0.29
+      activationFrame: 6
+      deactivationFrame: 9
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
