@@ -145,25 +145,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Shroom Berserk Weapon
-  comboEndDelay: 2
+  comboEndFramesDelay: 60
   comboCancelEnabled: 0
-  comboCancelTime: 5
+  comboCancelFrames: 0
   possibleTargets: 00000000
   weaponAttacks:
   - damage: 0
-    duration: 1.5
-    afterDelay: 0
+    frameDuration: 45
+    framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
     attackObject: {fileID: 1083629791230123650}
     weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 6654631832715134272}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 1.4
+      activationFrame: 0
+      deactivationFrame: 41
     - attackRef: {fileID: 4364370029918331853}
-      activationDelayAfterStart: 1.41
-      deactivationDelayAfterStart: 1.49
+      activationFrame: 41
+      deactivationFrame: 45
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
@@ -194,16 +194,16 @@ MonoBehaviour:
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
   - damage: 20
-    duration: 1
-    afterDelay: 0
+    frameDuration: 30
+    framesOfDelay: 0
     movementDistance: 15
     ignoresWalls: 0
     attackObject: {fileID: 1349951445937875719}
     weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 89369581386872112}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.99
+      activationFrame: 0
+      deactivationFrame: 30
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
@@ -234,20 +234,21 @@ MonoBehaviour:
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
   - damage: 10
-    duration: 0.5
-    afterDelay: 0
+    frameDuration: 15
+    framesOfDelay: 0
     movementDistance: 2
     ignoresWalls: 0
     attackObject: {fileID: 4473720335808703301}
     weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 3805721757383102869}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.49
+      activationFrame: 0
+      deactivationFrame: 15
     weaponSpawnsObjectDuringThisAttack:
     - objectRef: {fileID: 4985850856629122337, guid: 660c68e138b85404494a2770e8d22301, type: 3}
       objectStartPosition: {fileID: 5260338369164934152}
-      launchTimeAfterStart: 0.15
+      launchFrame: 15
+      spawned: 0
     hasAnimation: 0
     uxOnWeaponAttack:
       hasSound: 0
