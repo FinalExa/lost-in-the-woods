@@ -149,28 +149,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Player Weapon
-  comboEndFramesDelay: 30
+  comboEndFramesDelay: 15
   comboCancelEnabled: 1
-  comboCancelFrames: 20
+  comboCancelFrames: 9
   possibleTargets: 0100000002000000
   weaponAttacks:
   - damage: 10
-    frameDuration: 12
-    framesOfDelay: 4
-    movementDistance: 1
+    frameDuration: 15
+    framesOfDelay: 3
+    movementDistance: 0
     ignoresWalls: 0
     attackObject: {fileID: 1083629791230123650}
     weaponAttackTypes: 01000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 859736369464844710}
       activationFrame: 0
-      deactivationFrame: 4
+      deactivationFrame: 6
     - attackRef: {fileID: 6526309348032195427}
-      activationFrame: 4
-      deactivationFrame: 8
+      activationFrame: 6
+      deactivationFrame: 10
     - attackRef: {fileID: 8325479208159613690}
-      activationFrame: 8
-      deactivationFrame: 12
+      activationFrame: 10
+      deactivationFrame: 15
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
@@ -201,8 +201,8 @@ MonoBehaviour:
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
   - damage: 10
-    frameDuration: 12
-    framesOfDelay: 4
+    frameDuration: 15
+    framesOfDelay: 3
     movementDistance: 1
     ignoresWalls: 0
     attackObject: {fileID: 1349951445937875719}
@@ -210,13 +210,13 @@ MonoBehaviour:
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 4658391373233835051}
       activationFrame: 0
-      deactivationFrame: 4
+      deactivationFrame: 6
     - attackRef: {fileID: 5247614352713155819}
-      activationFrame: 4
-      deactivationFrame: 8
+      activationFrame: 6
+      deactivationFrame: 10
     - attackRef: {fileID: 3198442819149500785}
-      activationFrame: 8
-      deactivationFrame: 12
+      activationFrame: 10
+      deactivationFrame: 15
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
@@ -247,7 +247,7 @@ MonoBehaviour:
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
   - damage: 20
-    frameDuration: 8
+    frameDuration: 9
     framesOfDelay: 0
     movementDistance: 1
     ignoresWalls: 0
@@ -259,12 +259,8 @@ MonoBehaviour:
       deactivationFrame: 4
     - attackRef: {fileID: 3453954900141080744}
       activationFrame: 4
-      deactivationFrame: 8
-    weaponSpawnsObjectDuringThisAttack:
-    - objectRef: {fileID: 4985850856629122337, guid: 660c68e138b85404494a2770e8d22301, type: 3}
-      objectStartPosition: {fileID: 5926230821282540853}
-      launchFrame: 6
-      spawned: 0
+      deactivationFrame: 9
+    weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
       hasSound: 1
@@ -532,17 +528,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 33525169902638111, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
   m_PrefabInstance: {fileID: 3430040152351036599}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5926230821282540853}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 122280257fdbf8d43b11ffac583ce4eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &5926230821282540853 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9054417579223923074, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
-  m_PrefabInstance: {fileID: 3430040152351036599}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7402076492803658530 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5269358908780119957, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
