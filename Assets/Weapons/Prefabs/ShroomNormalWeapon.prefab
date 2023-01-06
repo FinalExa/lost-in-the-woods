@@ -80,28 +80,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Shroom Normal Weapon
-  comboEndDelay: 1
+  comboEndFramesDelay: 30
   comboCancelEnabled: 0
-  comboCancelTime: 5
+  comboCancelFrames: 0
   possibleTargets: 00000000
   weaponAttacks:
   - damage: 10
-    duration: 1
-    afterDelay: 0
+    frameDuration: 30
+    framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
     attackObject: {fileID: 1083629791230123650}
     weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 7016281881931003761}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.5
+      activationFrame: 0
+      deactivationFrame: 15
     - attackRef: {fileID: 4339234631054684887}
-      activationDelayAfterStart: 0.5
-      deactivationDelayAfterStart: 0.7
+      activationFrame: 15
+      deactivationFrame: 21
     - attackRef: {fileID: 8425156803019114793}
-      activationDelayAfterStart: 0.7
-      deactivationDelayAfterStart: 0.99
+      activationFrame: 21
+      deactivationFrame: 30
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
