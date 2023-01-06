@@ -61,11 +61,7 @@ public class ComboAttack
 
     private void AttackMovement()
     {
-        if (currentAttack.movementDistance != 0)
-        {
-            float relativeSpeed = movementSpeed * Time.deltaTime;
-            combo.transform.position += (attackDirection * relativeSpeed);
-        }
+        if (currentAttack.movementDistance != 0) combo.transform.position += (attackDirection * movementSpeed);
     }
     private void CheckActivatingHitboxes()
     {

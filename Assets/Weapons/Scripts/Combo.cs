@@ -12,7 +12,7 @@ public class Combo : MonoBehaviour
     [HideInInspector] public ComboAttack comboAttack;
     protected bool frameActive;
     protected int framesPerSecond = 60;
-    protected float frameValueTime;
+    [HideInInspector] public float frameValueTime;
 
     protected virtual void Awake()
     {
