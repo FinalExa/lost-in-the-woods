@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Zone : MonoBehaviour
 {
-    public enum ZoneType { GENERIC_FOREST, MONSTROUS_FOREST, DENSE_FOREST, ABANDONED_VILLAGE, FOREST_CENTER }
+    public enum ZoneType { GENERIC_FOREST, MONSTROUS_FOREST, DENSE_FOREST, ABANDONED_VILLAGE, FOREST_CENTER, TEST }
     [SerializeField] private string zoneName;
     [SerializeField] private ZoneType thisZoneType;
     [SerializeField] private float colliderReactivationDelay = 1f;
     [SerializeField] private float zoneHeartbeatCooldown;
     [SerializeField] private float zoneHeartbeatDuration;
+    [SerializeField] private GameObject zoneTriggersParent;
     public ZonePuzzle zonePuzzle;
-    private Collider[] zoneColliders;
+    private Collider[] zoneTriggers;
     private bool playerIsInThisZone;
     private PCController playerRef;
 
@@ -20,7 +21,7 @@ public class Zone : MonoBehaviour
         ZoneStartup();
     }
 
-    private void SetPlayerInZone(Collider other)
+    public void SetPlayerInZone(Collider other)
     {
         if (playerRef == null) playerRef = other.gameObject.GetComponent<PCController>();
         playerRef.ChangePlayerZone(this);
@@ -43,20 +44,20 @@ public class Zone : MonoBehaviour
 
     private void GetZoneColliders()
     {
-        zoneColliders = this.gameObject.GetComponents<Collider>();
+        zoneTriggers = zoneTriggersParent.GetComponentsInChildren<Collider>();
+        foreach (Collider collider in zoneTriggers)
+        {
+            ZoneTrigger zoneTrigger = collider.gameObject.AddComponent<ZoneTrigger>();
+            zoneTrigger.SetZone(this);
+        }
     }
 
     private void SetZoneColliders(bool stateToSet)
     {
-        foreach (Collider collider in zoneColliders)
+        foreach (Collider collider in zoneTriggers)
         {
             collider.enabled = stateToSet;
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player")) SetPlayerInZone(other);
     }
 
     private IEnumerator WaitToReactivateColliders()
