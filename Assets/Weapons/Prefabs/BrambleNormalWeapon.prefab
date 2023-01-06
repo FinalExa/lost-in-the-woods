@@ -180,7 +180,7 @@ MonoBehaviour:
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
   - damage: 25
-    frameDuration: 0
+    frameDuration: 18
     framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
@@ -189,16 +189,16 @@ MonoBehaviour:
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 3947200154783462468}
       activationFrame: 0
-      deactivationFrame: 0
+      deactivationFrame: 5
     - attackRef: {fileID: 6594560557056732219}
-      activationFrame: 0
-      deactivationFrame: 0
+      activationFrame: 5
+      deactivationFrame: 12
     - attackRef: {fileID: 171109409194446665}
-      activationFrame: 0
-      deactivationFrame: 0
+      activationFrame: 12
+      deactivationFrame: 15
     - attackRef: {fileID: 5347559103951576430}
-      activationFrame: 0
-      deactivationFrame: 0
+      activationFrame: 15
+      deactivationFrame: 18
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:

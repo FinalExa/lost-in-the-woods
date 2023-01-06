@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81dec813fad57f74ab47ded6ae72d8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Big Shade Normal Weapon
+  weaponName: Big Shade Berserk Weapon
   comboEndFramesDelay: 3
   comboCancelEnabled: 0
   comboCancelFrames: 0
