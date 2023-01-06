@@ -20,9 +20,9 @@ public class EnemyCombo : Combo
         target = this.gameObject.GetComponent<EnemyController>().playerTarget.transform;
     }
 
-    public override void FixedUpdate()
+    public override void Update()
     {
-        base.FixedUpdate();
+        base.Update();
         if (isInCombo) EnemyAutoCombo();
         else if (!GetIfIsAttacking()) Direction(target.position);
     }

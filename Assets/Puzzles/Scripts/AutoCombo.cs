@@ -15,9 +15,9 @@ public class AutoCombo : Combo
         startRotation = this.transform.rotation;
         SetWeapon(weaponToSet);
     }
-    public override void FixedUpdate()
+    public override void Update()
     {
-        base.FixedUpdate();
+        base.Update();
         AutoComboExecute();
     }
     private void AutoComboExecute()
