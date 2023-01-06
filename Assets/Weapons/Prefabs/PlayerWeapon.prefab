@@ -203,7 +203,7 @@ MonoBehaviour:
   - damage: 10
     frameDuration: 30
     framesOfDelay: 6
-    movementDistance: 1
+    movementDistance: 0
     ignoresWalls: 0
     attackObject: {fileID: 1349951445937875719}
     weaponAttackTypes: 01000000
@@ -249,7 +249,7 @@ MonoBehaviour:
   - damage: 20
     frameDuration: 18
     framesOfDelay: 0
-    movementDistance: 1
+    movementDistance: 0
     ignoresWalls: 0
     attackObject: {fileID: 408014969534981321}
     weaponAttackTypes: 01000000
