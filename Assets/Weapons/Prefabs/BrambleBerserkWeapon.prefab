@@ -172,8 +172,8 @@ MonoBehaviour:
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
   - damage: 15
-    frameDuration: 0
-    framesOfDelay: 0
+    frameDuration: 15
+    framesOfDelay: 3
     movementDistance: 0
     ignoresWalls: 0
     attackObject: {fileID: 1349951445937875719}
@@ -181,17 +181,17 @@ MonoBehaviour:
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 6025941950384637456}
       activationFrame: 0
-      deactivationFrame: 0
+      deactivationFrame: 9
     - attackRef: {fileID: 8530579406042529503}
-      activationFrame: 0
-      deactivationFrame: 0
+      activationFrame: 9
+      deactivationFrame: 12
     - attackRef: {fileID: 5977628148942957117}
-      activationFrame: 0
-      deactivationFrame: 0
+      activationFrame: 12
+      deactivationFrame: 15
     weaponSpawnsObjectDuringThisAttack:
     - objectRef: {fileID: 4014776901287296295, guid: c89ec9ec48c88a94ab08433039e855bb, type: 3}
       objectStartPosition: {fileID: 3396865339718076320}
-      launchFrame: 0
+      launchFrame: 13
       spawned: 0
     hasAnimation: 0
     uxOnWeaponAttack:
@@ -222,7 +222,7 @@ MonoBehaviour:
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
   - damage: 25
-    frameDuration: 0
+    frameDuration: 24
     framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
@@ -231,17 +231,17 @@ MonoBehaviour:
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 5278892286593807925}
       activationFrame: 0
-      deactivationFrame: 0
+      deactivationFrame: 12
     - attackRef: {fileID: 8769752998694833518}
-      activationFrame: 0
-      deactivationFrame: 0
+      activationFrame: 12
+      deactivationFrame: 15
     - attackRef: {fileID: 2038701918739963020}
-      activationFrame: 0
-      deactivationFrame: 0
+      activationFrame: 15
+      deactivationFrame: 24
     weaponSpawnsObjectDuringThisAttack:
     - objectRef: {fileID: 4014776901287296295, guid: c89ec9ec48c88a94ab08433039e855bb, type: 3}
       objectStartPosition: {fileID: 7032993906086277393}
-      launchFrame: 0
+      launchFrame: 22
       spawned: 0
     hasAnimation: 0
     uxOnWeaponAttack:
