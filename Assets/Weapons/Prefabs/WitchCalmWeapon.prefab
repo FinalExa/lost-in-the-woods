@@ -78,27 +78,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Witch Calm Weapon
-  comboCancelTime: 5
-  comboEndDelay: 0.5
+  comboEndFramesDelay: 30
+  comboCancelEnabled: 0
+  comboCancelFrames: 0
   possibleTargets: 000000000100000002000000
   weaponAttacks:
   - damage: 20
-    duration: 0.5
-    afterDelay: 0
+    frameDuration: 30
+    framesOfDelay: 0
     movementDistance: 0
+    ignoresWalls: 0
     attackObject: {fileID: 1083629791230123650}
     weaponAttackTypes: 02000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 5496394219624157946}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.49
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
+      activationFrame: 0
+      deactivationFrame: 30
+    weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
+    uxOnWeaponAttack:
+      hasSound: 0
+      sound:
+        clip: {fileID: 0}
+        priority: 128
+        volume: 1
+        pitch: 1
+        stereoPan: 0
+        spatialBlend: 0
+        reverbZoneMix: 1
+        loop: 0
+        playOnAwake: 0
+        mixer: {fileID: 0}
+      hasSpriteColorChange: 0
+      spriteColorChange:
+        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        spriteRef: {fileID: 0}
+        spriteColorChangeDuration: 0
+        spritehasChangedColor: 0
+        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+      hasCameraShake: 0
+      cameraShake:
+        shakeAmplitude: 0
+        shakeFrequency: 0
+        shakeDuration: 0
+        cinemachineCameraShakerRef: {fileID: 0}
+      soundParent: {fileID: 0}
   hitTargets: []
   currentDamage: 0
+  currentWeaponAttackIndex: 0
 --- !u!1001 &5489896316876195557
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -77,23 +77,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81dec813fad57f74ab47ded6ae72d8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Bramble Spikes Weapon
-  comboEndDelay: 0.3
+  weaponName: Fire Source Weapon
+  comboEndFramesDelay: 18
   comboCancelEnabled: 0
-  comboCancelTime: 0
+  comboCancelFrames: 0
   possibleTargets: 0000000001000000
   weaponAttacks:
   - damage: 10
-    duration: 0.2
-    afterDelay: 0
+    frameDuration: 12
+    framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
     attackObject: {fileID: 1083629791230123650}
     weaponAttackTypes: 04000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 5496394219624157946}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.2
+      activationFrame: 0
+      deactivationFrame: 12
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:

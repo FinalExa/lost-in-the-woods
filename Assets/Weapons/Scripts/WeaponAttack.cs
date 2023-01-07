@@ -5,8 +5,8 @@ using UnityEngine;
 public class WeaponAttack
 {
     public float damage;
-    public float duration;
-    public float afterDelay;
+    public int frameDuration;
+    public int framesOfDelay;
     public float movementDistance;
     public bool ignoresWalls;
     public GameObject attackObject;
@@ -16,15 +16,15 @@ public class WeaponAttack
     public struct WeaponAttackHitboxSequence
     {
         public WeaponAttackHitbox attackRef;
-        public float activationDelayAfterStart;
-        public float deactivationDelayAfterStart;
+        public int activationFrame;
+        public float deactivationFrame;
     }
     [System.Serializable]
     public struct WeaponSpawnsObjectDuringThisAttack
     {
         public GameObject objectRef;
         public GameObject objectStartPosition;
-        public float launchTimeAfterStart;
+        public int launchFrame;
         [HideInInspector] public bool spawned;
     }
     public WeaponAttackHitboxSequence[] weaponAttackHitboxSequence;

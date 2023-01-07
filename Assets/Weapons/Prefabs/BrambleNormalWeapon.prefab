@@ -118,99 +118,119 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81dec813fad57f74ab47ded6ae72d8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: TEMPLATEWEAPON
-  comboCancelTime: 10
-  comboEndDelay: 5
+  weaponName: Bramble Normal Weapon
+  comboEndFramesDelay: 300
+  comboCancelEnabled: 0
+  comboCancelFrames: 0
   possibleTargets: 0000000001000000
   weaponAttacks:
   - damage: 25
-    duration: 1.1
-    afterDelay: 0.2
+    frameDuration: 66
+    framesOfDelay: 6
     movementDistance: 0
+    ignoresWalls: 0
     attackObject: {fileID: 1083629791230123650}
     weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 6654631832715134272}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.4
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
+      activationFrame: 0
+      deactivationFrame: 24
     - attackRef: {fileID: 366035016614358744}
-      activationDelayAfterStart: 0.4
-      deactivationDelayAfterStart: 0.5
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
+      activationFrame: 24
+      deactivationFrame: 30
     - attackRef: {fileID: 6683376727879917316}
-      activationDelayAfterStart: 0.5
-      deactivationDelayAfterStart: 0.65
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
+      activationFrame: 30
+      deactivationFrame: 40
     - attackRef: {fileID: 2917106316172707920}
-      activationDelayAfterStart: 0.65
-      deactivationDelayAfterStart: 0.85
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
+      activationFrame: 40
+      deactivationFrame: 50
     - attackRef: {fileID: 3755998350179901173}
-      activationDelayAfterStart: 0.85
-      deactivationDelayAfterStart: 1
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
+      activationFrame: 50
+      deactivationFrame: 60
     - attackRef: {fileID: 4737181245437712581}
-      activationDelayAfterStart: 1
-      deactivationDelayAfterStart: 1.09
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
+      activationFrame: 60
+      deactivationFrame: 66
+    weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
+    uxOnWeaponAttack:
+      hasSound: 0
+      sound:
+        clip: {fileID: 0}
+        priority: 128
+        volume: 1
+        pitch: 1
+        stereoPan: 0
+        spatialBlend: 0
+        reverbZoneMix: 1
+        loop: 0
+        playOnAwake: 0
+        mixer: {fileID: 0}
+      hasSpriteColorChange: 0
+      spriteColorChange:
+        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        spriteRef: {fileID: 0}
+        spriteColorChangeDuration: 0
+        spritehasChangedColor: 0
+        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+      hasCameraShake: 0
+      cameraShake:
+        shakeAmplitude: 0
+        shakeFrequency: 0
+        shakeDuration: 0
+        cinemachineCameraShakerRef: {fileID: 0}
+      soundParent: {fileID: 0}
   - damage: 25
-    duration: 0.6
-    afterDelay: 0
+    frameDuration: 36
+    framesOfDelay: 0
     movementDistance: 0
+    ignoresWalls: 0
     attackObject: {fileID: 1349951445937875719}
     weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 3947200154783462468}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.15
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
+      activationFrame: 0
+      deactivationFrame: 10
     - attackRef: {fileID: 6594560557056732219}
-      activationDelayAfterStart: 0.15
-      deactivationDelayAfterStart: 0.35
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
+      activationFrame: 10
+      deactivationFrame: 24
     - attackRef: {fileID: 171109409194446665}
-      activationDelayAfterStart: 0.35
-      deactivationDelayAfterStart: 0.5
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
+      activationFrame: 24
+      deactivationFrame: 30
     - attackRef: {fileID: 5347559103951576430}
-      activationDelayAfterStart: 0.5
-      deactivationDelayAfterStart: 0.59
-      weaponAttackHitboxProjectile:
-        spawnsProjectile: 0
-        projectile: {fileID: 0}
-        projectileLaunchTimeAfterStart: 0
+      activationFrame: 30
+      deactivationFrame: 36
+    weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
+    uxOnWeaponAttack:
+      hasSound: 0
+      sound:
+        clip: {fileID: 0}
+        priority: 128
+        volume: 1
+        pitch: 1
+        stereoPan: 0
+        spatialBlend: 0
+        reverbZoneMix: 1
+        loop: 0
+        playOnAwake: 0
+        mixer: {fileID: 0}
+      hasSpriteColorChange: 0
+      spriteColorChange:
+        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        spriteRef: {fileID: 0}
+        spriteColorChangeDuration: 0
+        spritehasChangedColor: 0
+        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+      hasCameraShake: 0
+      cameraShake:
+        shakeAmplitude: 0
+        shakeFrequency: 0
+        shakeDuration: 0
+        cinemachineCameraShakerRef: {fileID: 0}
+      soundParent: {fileID: 0}
   hitTargets: []
   currentDamage: 0
+  currentWeaponAttackIndex: 0
 --- !u!1001 &155653390147771222
 PrefabInstance:
   m_ObjectHideFlags: 0

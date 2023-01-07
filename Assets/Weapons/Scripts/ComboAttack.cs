@@ -7,8 +7,8 @@ public class ComboAttack
     public bool IsAttacking { get; private set; }
     private Combo combo;
     private WeaponAttack currentAttack;
-    private float attackTimer;
-    private float attackCountTime;
+    private int attackCountdownFrame;
+    private int attackCountFrame;
     private float movementSpeed;
     private Vector3 attackDirection;
 
@@ -22,9 +22,9 @@ public class ComboAttack
         if (!IsAttacking)
         {
             currentAttack = attackRef;
-            attackTimer = currentAttack.duration;
-            attackCountTime = 0;
-            movementSpeed = currentAttack.movementDistance / currentAttack.duration;
+            attackCountdownFrame = currentAttack.frameDuration;
+            attackCountFrame = 0;
+            movementSpeed = currentAttack.movementDistance / currentAttack.frameDuration;
             attackDirection = receivedDirection;
             currentAttack.attackObject.SetActive(true);
             if (currentAttack.uxOnWeaponAttack.hasSound) currentAttack.uxOnWeaponAttack.sound.PlayAudio();
@@ -36,18 +36,18 @@ public class ComboAttack
     {
         if (IsAttacking)
         {
-            if (attackTimer > 0) DuringAttack();
+            if (attackCountdownFrame > 0) DuringAttack();
             else OnAttackEnd();
         }
     }
 
     private void DuringAttack()
     {
-        attackTimer -= Time.deltaTime;
-        attackCountTime += Time.deltaTime;
+        attackCountdownFrame--;
+        attackCountFrame++;
         AttackMovement();
         CheckActivatingHitboxes();
-        if (currentAttack.weaponSpawnsObjectDuringThisAttack.Length > 0) combo.comboObjectSpawner.CheckObjectsToSpawn(currentAttack, attackCountTime, attackDirection);
+        if (currentAttack.weaponSpawnsObjectDuringThisAttack.Length > 0) combo.comboObjectSpawner.CheckObjectsToSpawn(currentAttack, attackCountFrame, attackDirection);
     }
 
     private void OnAttackEnd()
@@ -61,19 +61,15 @@ public class ComboAttack
 
     private void AttackMovement()
     {
-        if (currentAttack.movementDistance != 0)
-        {
-            float relativeSpeed = movementSpeed * Time.deltaTime;
-            combo.transform.position += (attackDirection * relativeSpeed);
-        }
+        if (currentAttack.movementDistance != 0) combo.transform.position += (attackDirection * movementSpeed);
     }
     private void CheckActivatingHitboxes()
     {
         int count = 0;
         foreach (WeaponAttack.WeaponAttackHitboxSequence hitboxToCheck in currentAttack.weaponAttackHitboxSequence)
         {
-            if (attackCountTime >= hitboxToCheck.activationDelayAfterStart && attackCountTime < hitboxToCheck.deactivationDelayAfterStart) hitboxToCheck.attackRef.gameObject.SetActive(true);
-            if (attackCountTime >= hitboxToCheck.deactivationDelayAfterStart) hitboxToCheck.attackRef.gameObject.SetActive(false);
+            if (attackCountFrame >= hitboxToCheck.activationFrame && attackCountFrame < hitboxToCheck.deactivationFrame) hitboxToCheck.attackRef.gameObject.SetActive(true);
+            if (attackCountFrame >= hitboxToCheck.deactivationFrame) hitboxToCheck.attackRef.gameObject.SetActive(false);
             count++;
         }
     }
@@ -96,7 +92,7 @@ public class ComboAttack
 
     public void EndCombo()
     {
-        attackTimer = currentAttack.duration;
+        attackCountFrame = currentAttack.frameDuration;
         foreach (WeaponAttack.WeaponAttackHitboxSequence weaponAttackHitbox in currentAttack.weaponAttackHitboxSequence) weaponAttackHitbox.attackRef.gameObject.SetActive(false);
         IsAttacking = false;
         currentAttack.attackObject.SetActive(false);

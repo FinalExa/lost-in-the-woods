@@ -10,6 +10,9 @@ public class Combo : MonoBehaviour
     [HideInInspector] public ComboObjectSpawner comboObjectSpawner;
     [HideInInspector] public ComboDelays comboDelays;
     [HideInInspector] public ComboAttack comboAttack;
+    protected bool frameActive;
+    protected int framesPerSecond = 60;
+    [HideInInspector] public float frameValueTime;
 
     protected virtual void Awake()
     {
@@ -24,9 +27,15 @@ public class Combo : MonoBehaviour
     }
     public virtual void Update()
     {
+        if (!frameActive) StartCoroutine(ComboFrames());
+    }
+
+    private void ExecuteComboOperations()
+    {
         comboAttack.Attacking();
         comboDelays.ComboDelay();
         comboDelays.CancelComboTimer();
+        frameActive = true;
     }
 
     public void SetWeapon(Weapon weaponToSet)
@@ -41,6 +50,7 @@ public class Combo : MonoBehaviour
     {
         comboDelays.SetVariablesReadyForAttack();
         LastDirection = new Vector3(0f, 0f, 1f);
+        frameValueTime = 1f / (float)framesPerSecond;
     }
     public void StartComboHitCheck()
     {
@@ -76,5 +86,12 @@ public class Combo : MonoBehaviour
     public void EndCombo()
     {
         comboAttack.EndCombo();
+    }
+
+    protected IEnumerator ComboFrames()
+    {
+        ExecuteComboOperations();
+        yield return new WaitForSeconds(frameValueTime);
+        frameActive = false;
     }
 }

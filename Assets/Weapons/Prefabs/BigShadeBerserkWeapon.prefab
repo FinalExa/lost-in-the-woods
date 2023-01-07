@@ -111,26 +111,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81dec813fad57f74ab47ded6ae72d8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Big Shade Normal Weapon
-  comboEndDelay: 0.1
+  weaponName: Big Shade Berserk Weapon
+  comboEndFramesDelay: 6
   comboCancelEnabled: 0
-  comboCancelTime: 5
+  comboCancelFrames: 0
   possibleTargets: 00000000
   weaponAttacks:
   - damage: 0
-    duration: 0.5
-    afterDelay: 0
+    frameDuration: 30
+    framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
     attackObject: {fileID: 1083629791230123650}
     weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 3455886621140185002}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.3
+      activationFrame: 0
+      deactivationFrame: 18
     - attackRef: {fileID: 3254695389529482790}
-      activationDelayAfterStart: 0.3
-      deactivationDelayAfterStart: 0.49
+      activationFrame: 18
+      deactivationFrame: 30
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
@@ -161,16 +161,16 @@ MonoBehaviour:
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
   - damage: 100
-    duration: 0.3
-    afterDelay: 0
+    frameDuration: 18
+    framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
     attackObject: {fileID: 2994451660470790823}
     weaponAttackTypes: 00000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 6905998153787500603}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.29
+      activationFrame: 0
+      deactivationFrame: 18
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
