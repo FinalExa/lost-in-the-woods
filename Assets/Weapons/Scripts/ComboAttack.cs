@@ -74,7 +74,7 @@ public class ComboAttack
         }
     }
 
-    public void EndComboHit()
+    private void EndComboHit()
     {
         combo.currentWeapon.hitTargets.Clear();
         if (combo.currentWeapon.currentWeaponAttackIndex + 1 == combo.currentWeapon.weaponAttacks.Count)
@@ -92,11 +92,14 @@ public class ComboAttack
 
     public void EndCombo()
     {
-        attackCountFrame = currentAttack.frameDuration;
-        foreach (WeaponAttack.WeaponAttackHitboxSequence weaponAttackHitbox in currentAttack.weaponAttackHitboxSequence) weaponAttackHitbox.attackRef.gameObject.SetActive(false);
-        IsAttacking = false;
-        currentAttack.attackObject.SetActive(false);
-        combo.currentWeapon.currentWeaponAttackIndex = combo.currentWeapon.weaponAttacks.Count - 1;
-        EndComboHit();
+        if (IsAttacking)
+        {
+            attackCountFrame = currentAttack.frameDuration;
+            foreach (WeaponAttack.WeaponAttackHitboxSequence weaponAttackHitbox in currentAttack.weaponAttackHitboxSequence) weaponAttackHitbox.attackRef.gameObject.SetActive(false);
+            IsAttacking = false;
+            currentAttack.attackObject.SetActive(false);
+            combo.currentWeapon.currentWeaponAttackIndex = combo.currentWeapon.weaponAttacks.Count - 1;
+            EndComboHit();
+        }
     }
 }
