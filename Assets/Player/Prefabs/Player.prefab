@@ -135,6 +135,7 @@ MonoBehaviour:
   pcRotation: {fileID: 0}
   pcHealth: {fileID: 0}
   pcLight: {fileID: 0}
+  heartbeat: {fileID: 0}
 --- !u!114 &723867546203750364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,8 +181,8 @@ MonoBehaviour:
   currentWeapon: {fileID: 0}
   currentAttack:
     damage: 0
-    duration: 0
-    afterDelay: 0
+    frameDuration: 0
+    framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
     attackObject: {fileID: 0}
@@ -216,6 +217,7 @@ MonoBehaviour:
         shakeDuration: 0
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
+  frameValueTime: 0
 --- !u!114 &7621549938335928225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,7 +276,7 @@ MonoBehaviour:
   uxOnHit:
     hasSound: 1
     sound:
-      clip: {fileID: 8300000, guid: b0088bc667f21f9418a4831c8f67434b, type: 3}
+      clip: {fileID: 8300000, guid: 1072ed95e8d314a40ae05465aac96702, type: 3}
       priority: 128
       volume: 1
       pitch: 1
@@ -283,7 +285,7 @@ MonoBehaviour:
       reverbZoneMix: 1
       loop: 0
       playOnAwake: 0
-      mixer: {fileID: 0}
+      mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
     hasSpriteColorChange: 1
     spriteColorChange:
       onHitSpriteColor: {r: 1, g: 1, b: 0, a: 1}

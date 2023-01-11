@@ -255,6 +255,7 @@ MonoBehaviour:
         shakeDuration: 0
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
+  frameValueTime: 0
   isInCombo: 0
   target: {fileID: 0}
 --- !u!114 &249166922592196662
@@ -741,6 +742,7 @@ MonoBehaviour:
         shakeDuration: 0
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
+  frameValueTime: 0
   weaponToSet: {fileID: 581327821958723364}
   resetsPositionAndRotationOnComboEnd: 0
 --- !u!212 &9095401162938848358
