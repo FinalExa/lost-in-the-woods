@@ -40,6 +40,10 @@ public class AttackInteraction : MonoBehaviour
         public bool canSetObjectActiveStatus;
         public bool objectActiveStatus;
         public GameObject objectToSetActiveStatus;
+        [Header("Spawns other object")]
+        public bool canSpawnObject;
+        public GameObject objectToSpawn;
+        public Vector3 objectSpawnPositionOffset;
         [Header("Rotates object in ref")]
         public bool rotates;
         public GameObject objectToRotate;
@@ -148,12 +152,6 @@ public class AttackInteraction : MonoBehaviour
                     break;
             }
         }
-    }
-
-    public GameObject InstantiateNew(Options options)
-    {
-        GameObject objectRef = Instantiate(options.transformedRef, this.gameObject.transform.position, this.gameObject.transform.rotation, this.gameObject.transform.parent);
-        return objectRef;
     }
 
     public void StartForcedMovement(Vector3 direction, float distance, float duration)
