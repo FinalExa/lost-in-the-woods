@@ -8,9 +8,9 @@ public class ZonePuzzle
     [HideInInspector] public Zone zoneRef;
     [SerializeField] private bool zoneHasPuzzle;
     private bool puzzleDone;
+    private bool puzzleActive;
     [SerializeField] private GameObject puzzleActiveParent;
     [SerializeField] private GameObject puzzleInactiveParent;
-    [SerializeField] private GameObject puzzleEntrance;
     [SerializeField] private GameObject puzzleExit;
 
     public void ZonePuzzleStartup()
@@ -18,7 +18,6 @@ public class ZonePuzzle
         if (zoneHasPuzzle)
         {
             puzzleInactiveParent.SetActive(false);
-            puzzleEntrance.SetActive(false);
             puzzleActiveParent.SetActive(false);
             PuzzleExit puzzleExitRef = puzzleExit.AddComponent<PuzzleExit>();
             puzzleExitRef.zoneRef = zoneRef;
@@ -29,8 +28,8 @@ public class ZonePuzzle
     {
         if (zoneHasPuzzle && !puzzleDone)
         {
-            puzzleEntrance.SetActive(true);
             puzzleActiveParent.SetActive(true);
+            puzzleActive = true;
         }
     }
 
@@ -39,9 +38,9 @@ public class ZonePuzzle
         if (zoneHasPuzzle)
         {
             puzzleActiveParent.SetActive(false);
-            puzzleEntrance.SetActive(false);
             puzzleInactiveParent.SetActive(true);
             puzzleDone = true;
+            puzzleActive = false;
         }
     }
 }
