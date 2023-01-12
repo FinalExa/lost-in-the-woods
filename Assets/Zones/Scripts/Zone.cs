@@ -13,7 +13,6 @@ public class Zone : MonoBehaviour
     [SerializeField] private GameObject zoneTriggersParent;
     public ZonePuzzle zonePuzzle;
     private Collider[] zoneTriggers;
-    private bool playerIsInThisZone;
     private PCController playerRef;
 
     private void Start()
