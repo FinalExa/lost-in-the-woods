@@ -5,7 +5,9 @@ using UnityEngine;
 public class GenericNamedInteractionExecutor : MonoBehaviour
 {
     [SerializeField] private string thisName;
+    [HideInInspector] public bool active;
     [SerializeField] private bool inLoop;
+    [HideInInspector] public bool interactionDone;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,9 +22,10 @@ public class GenericNamedInteractionExecutor : MonoBehaviour
     private void ExecuteGenericInteraction(Collider other)
     {
         AttackInteraction attackInteraction = other.GetComponent<AttackInteraction>();
-        if (attackInteraction != null)
+        if (attackInteraction != null && active)
         {
             attackInteraction.NamedInteractionExecute(thisName, this.gameObject);
+            interactionDone = true;
         }
     }
 }
