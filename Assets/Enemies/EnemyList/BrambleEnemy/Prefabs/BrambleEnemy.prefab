@@ -325,6 +325,9 @@ MonoBehaviour:
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
@@ -370,6 +373,9 @@ MonoBehaviour:
     canSetObjectActiveStatus: 0
     objectActiveStatus: 0
     objectToSetActiveStatus: {fileID: 0}
+    canSpawnObject: 0
+    objectToSpawn: {fileID: 0}
+    objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
     rotates: 0
     objectToRotate: {fileID: 0}
     rotateValue: 0
@@ -417,6 +423,9 @@ MonoBehaviour:
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
@@ -461,6 +470,9 @@ MonoBehaviour:
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
@@ -505,6 +517,9 @@ MonoBehaviour:
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0

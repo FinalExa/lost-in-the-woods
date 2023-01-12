@@ -13,6 +13,7 @@ public class AttackInteractionOptions
             UXEffectExecute(options);
             if (options.isDestroyed) DestroyOrTurnOff(turnsOff);
             else if (options.isTransformed && options.transformedRef != null) Transform(options, turnsOff);
+            else if (options.canSpawnObject && options.objectToSpawn != null) SpawnObject(options.objectToSpawn, options.objectSpawnPositionOffset);
             else if (options.sendsSignalToSelf) SendSignalToSelf(source);
             else if (options.isMoved) MoveObject(options, source.transform.position - selfObject.transform.position);
             else if (options.canSetObjectActiveStatus) SetObjectActiveStatus(options);
@@ -25,6 +26,7 @@ public class AttackInteractionOptions
         {
             if (options.isDestroyed) DestroyOrTurnOff(turnsOff);
             else if (options.isTransformed && options.transformedRef != null) Transform(options, turnsOff, lifeTime);
+            else if (options.canSpawnObject && options.objectToSpawn != null) SpawnObject(options.objectToSpawn, options.objectSpawnPositionOffset);
             else if (options.sendsSignalToSelf) SendSignalToSelf(source);
             else if (options.isMoved) MoveObject(options, source.transform.position - selfObject.transform.position);
             else if (options.canSetObjectActiveStatus) SetObjectActiveStatus(options);
@@ -43,19 +45,22 @@ public class AttackInteractionOptions
         return check;
     }
 
-    private GameObject Transform(AttackInteraction.Options options, bool turnsOff)
+    private void SpawnObject(GameObject objectToSpawn, Vector3 offset)
     {
-        GameObject objectRef = attackInteraction.InstantiateNew(options);
-        DestroyOrTurnOff(turnsOff);
-        return objectRef;
+        GameObject.Instantiate(objectToSpawn, attackInteraction.gameObject.transform.position + offset, Quaternion.identity);
     }
-    private GameObject Transform(AttackInteraction.Options options, bool turnsOff, float lifeTime)
+
+    private void Transform(AttackInteraction.Options options, bool turnsOff)
     {
-        GameObject objectRef = attackInteraction.InstantiateNew(options);
+        GameObject.Instantiate(options.transformedRef, attackInteraction.gameObject.transform.position, attackInteraction.gameObject.transform.rotation, attackInteraction.gameObject.transform.parent);
+        DestroyOrTurnOff(turnsOff);
+    }
+    private void Transform(AttackInteraction.Options options, bool turnsOff, float lifeTime)
+    {
+        GameObject objectRef = GameObject.Instantiate(options.transformedRef, attackInteraction.gameObject.transform.position, attackInteraction.gameObject.transform.rotation, attackInteraction.gameObject.transform.parent);
         Lifetime lifetimeRef = objectRef.GetComponent<Lifetime>();
         if (lifetimeRef != null) lifetimeRef.SetTimer(lifeTime);
         DestroyOrTurnOff(turnsOff);
-        return objectRef;
     }
     private void SetObjectActiveStatus(AttackInteraction.Options options)
     {
