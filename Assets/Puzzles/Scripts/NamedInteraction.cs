@@ -7,6 +7,7 @@ public class NamedInteraction : MonoBehaviour
     [SerializeField] private string thisName;
     public bool active;
     [SerializeField] private bool inLoop;
+    [SerializeField] private bool destroyOnDone;
     [HideInInspector] public bool interactionDone;
 
     private void OnTriggerEnter(Collider other)
@@ -26,6 +27,13 @@ public class NamedInteraction : MonoBehaviour
         {
             attackInteraction.NamedInteractionExecute(thisName, this.gameObject);
             interactionDone = true;
+            DestroyOnDone();
         }
     }
+    
+    private void DestroyOnDone()
+    {
+        if (destroyOnDone) GameObject.Destroy(this.gameObject);
+    }
+    
 }
