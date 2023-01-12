@@ -36,7 +36,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5477770951886658404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.53, y: 0, z: 10.139999}
+  m_LocalPosition: {x: 225, y: 0.25, z: -123.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -190,8 +190,8 @@ MonoBehaviour:
   currentWeapon: {fileID: 0}
   currentAttack:
     damage: 0
-    duration: 0
-    afterDelay: 0
+    frameDuration: 0
+    framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
     attackObject: {fileID: 0}
@@ -226,6 +226,7 @@ MonoBehaviour:
         shakeDuration: 0
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
+  frameValueTime: 0
   isInCombo: 0
   target: {fileID: 0}
 --- !u!114 &249166922592196662
@@ -295,6 +296,9 @@ MonoBehaviour:
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
@@ -340,6 +344,9 @@ MonoBehaviour:
     canSetObjectActiveStatus: 0
     objectActiveStatus: 0
     objectToSetActiveStatus: {fileID: 0}
+    canSpawnObject: 0
+    objectToSpawn: {fileID: 0}
+    objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
     rotates: 0
     objectToRotate: {fileID: 0}
     rotateValue: 0
@@ -387,6 +394,9 @@ MonoBehaviour:
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
@@ -431,6 +441,9 @@ MonoBehaviour:
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
@@ -475,6 +488,9 @@ MonoBehaviour:
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0

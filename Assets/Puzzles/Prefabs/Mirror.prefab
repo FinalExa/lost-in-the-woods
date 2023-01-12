@@ -55,6 +55,7 @@ MonoBehaviour:
   isInsideLight: 0
   isInHeartbeatState: 0
   enemyController: {fileID: 0}
+  attackInteraction: {fileID: 0}
 --- !u!114 &8758143008440390022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,6 +92,9 @@ MonoBehaviour:
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 1
       objectToRotate: {fileID: 4014776902879149190}
       rotateValue: 90
@@ -136,6 +140,9 @@ MonoBehaviour:
     canSetObjectActiveStatus: 0
     objectActiveStatus: 0
     objectToSetActiveStatus: {fileID: 0}
+    canSpawnObject: 0
+    objectToSpawn: {fileID: 0}
+    objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
     rotates: 0
     objectToRotate: {fileID: 0}
     rotateValue: 0
@@ -183,6 +190,9 @@ MonoBehaviour:
       canSetObjectActiveStatus: 1
       objectActiveStatus: 0
       objectToSetActiveStatus: {fileID: 6657388294094064601}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
@@ -227,6 +237,9 @@ MonoBehaviour:
       canSetObjectActiveStatus: 1
       objectActiveStatus: 1
       objectToSetActiveStatus: {fileID: 6657388294094064601}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
@@ -271,6 +284,9 @@ MonoBehaviour:
       canSetObjectActiveStatus: 1
       objectActiveStatus: 0
       objectToSetActiveStatus: {fileID: 6657388294094064601}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
@@ -529,7 +545,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisName: MirrorLight
+  active: 1
   inLoop: 0
+  interactionDone: 0
 --- !u!212 &1573464355726389430
 SpriteRenderer:
   m_ObjectHideFlags: 0

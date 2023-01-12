@@ -5,7 +5,7 @@ using UnityEngine;
 public class NamedInteraction : MonoBehaviour
 {
     [SerializeField] private string thisName;
-    [HideInInspector] public bool active;
+    public bool active;
     [SerializeField] private bool inLoop;
     [HideInInspector] public bool interactionDone;
 

@@ -37,8 +37,7 @@ public class Zone : MonoBehaviour
     private void ZoneStartup()
     {
         GetZoneColliders();
-        zonePuzzle.zoneRef = this;
-        zonePuzzle.ZonePuzzleStartup();
+        zonePuzzle.ZonePuzzleStartup(this);
     }
 
     private void GetZoneColliders()

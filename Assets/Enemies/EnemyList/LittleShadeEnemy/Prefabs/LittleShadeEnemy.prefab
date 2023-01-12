@@ -540,7 +540,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisName: LittleShade
+  active: 0
   inLoop: 1
+  interactionDone: 0
 --- !u!65 &7001282123244882244
 BoxCollider:
   m_ObjectHideFlags: 0
