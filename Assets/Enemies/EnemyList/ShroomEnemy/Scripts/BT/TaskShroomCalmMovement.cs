@@ -15,19 +15,24 @@ public class TaskShroomCalmMovement : Node
     {
         _enemyController.thisNavMeshAgent.speed = _enemyController.enemyData.calmMovementSpeed;
         float distance = Vector3.Distance(_enemyController.transform.position, _enemyController.playerTarget.transform.position);
-        if (distance >= _enemyController.enemyData.calmDistanceFromPlayer + _enemyController.enemyData.calmDistanceTolerance)
-        {
-            if (_enemyController.thisNavMeshAgent.isStopped) _enemyController.thisNavMeshAgent.isStopped = false;
-            _enemyController.thisNavMeshAgent.SetDestination(_enemyController.playerTarget.transform.position);
-        }
-        else if (distance <= _enemyController.enemyData.calmDistanceFromPlayer - _enemyController.enemyData.calmDistanceTolerance)
-        {
-            if (_enemyController.thisNavMeshAgent.isStopped) _enemyController.thisNavMeshAgent.isStopped = false;
-            Vector3 direction = _enemyController.backTrigger.transform.position - _enemyController.gameObject.transform.position;
-            if (Physics.Raycast(_enemyController.transform.position, direction, out RaycastHit hit)) _enemyController.thisNavMeshAgent.SetDestination(hit.point);
-        }
+        if (distance >= _enemyController.enemyData.calmDistanceFromPlayer + _enemyController.enemyData.calmDistanceTolerance) GoToPlayer();
+        else if (distance <= _enemyController.enemyData.calmDistanceFromPlayer - _enemyController.enemyData.calmDistanceTolerance) EscapeFromPlayer();
         else _enemyController.thisNavMeshAgent.isStopped = true;
         state = NodeState.RUNNING;
         return state;
+    }
+
+    private void GoToPlayer()
+    {
+        if (_enemyController.thisNavMeshAgent.isStopped) _enemyController.thisNavMeshAgent.isStopped = false;
+        _enemyController.thisNavMeshAgent.SetDestination(_enemyController.playerTarget.transform.position);
+    }
+
+    private void EscapeFromPlayer()
+    {
+        if (_enemyController.thisNavMeshAgent.isStopped) _enemyController.thisNavMeshAgent.isStopped = false;
+        Vector3 direction = _enemyController.gameObject.transform.position - _enemyController.playerTarget.transform.position;
+        direction = new Vector3(direction.x, 0f, direction.z);
+        _enemyController.thisNavMeshAgent.SetDestination(_enemyController.transform.position + direction);
     }
 }

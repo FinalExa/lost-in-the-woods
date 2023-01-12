@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GenericNamedInteractionExecutor : MonoBehaviour
+public class NamedInteraction : MonoBehaviour
 {
     [SerializeField] private string thisName;
     [HideInInspector] public bool active;

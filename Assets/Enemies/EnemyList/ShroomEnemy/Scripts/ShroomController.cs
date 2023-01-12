@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class ShroomController : EnemyController
 {
-    private GenericNamedInteractionExecutor genericNamedInteractionExecutor;
-    public GameObject backTrigger;
+    private NamedInteraction namedInteraction;
 
     protected override void Awake()
     {
         base.Awake();
-        genericNamedInteractionExecutor = this.gameObject.GetComponent<GenericNamedInteractionExecutor>();
+        namedInteraction = this.gameObject.GetComponent<NamedInteraction>();
     }
 
     private void Update()
     {
-        if (genericNamedInteractionExecutor.interactionDone) this.gameObject.SetActive(false);
+        if (namedInteraction.interactionDone) this.gameObject.SetActive(false);
     }
 
     public override void LightStateUpdate()
     {
-        if (affectedByLight.lightState == AffectedByLight.LightState.NORMAL) genericNamedInteractionExecutor.active = false;
-        else genericNamedInteractionExecutor.active = true;
+        if (affectedByLight.lightState == AffectedByLight.LightState.NORMAL) namedInteraction.active = false;
+        else namedInteraction.active = true;
     }
 }
