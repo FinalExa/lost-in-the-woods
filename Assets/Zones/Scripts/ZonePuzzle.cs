@@ -13,8 +13,9 @@ public class ZonePuzzle
     [SerializeField] private GameObject puzzleInactiveParent;
     [SerializeField] private GameObject puzzleExit;
 
-    public void ZonePuzzleStartup()
+    public void ZonePuzzleStartup(Zone zone)
     {
+        zoneRef = zone;
         if (zoneHasPuzzle)
         {
             puzzleInactiveParent.SetActive(false);

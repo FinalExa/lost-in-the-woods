@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 6954856771747106118}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 8, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8214064172803431104}
@@ -75,6 +75,9 @@ MonoBehaviour:
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
@@ -119,6 +122,9 @@ MonoBehaviour:
     canSetObjectActiveStatus: 0
     objectActiveStatus: 0
     objectToSetActiveStatus: {fileID: 0}
+    canSpawnObject: 0
+    objectToSpawn: {fileID: 0}
+    objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
     rotates: 0
     objectToRotate: {fileID: 0}
     rotateValue: 0
@@ -166,6 +172,9 @@ MonoBehaviour:
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
@@ -210,6 +219,9 @@ MonoBehaviour:
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
@@ -254,6 +266,9 @@ MonoBehaviour:
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
@@ -363,7 +378,7 @@ GameObject:
   m_Name: DoorGraphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &7953866992932305141
