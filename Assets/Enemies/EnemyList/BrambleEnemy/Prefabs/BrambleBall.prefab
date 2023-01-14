@@ -148,9 +148,9 @@ MonoBehaviour:
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
-      isMoved: 1
-      movementDistance: 5
-      movementTime: 0.3
+      isMoved: 0
+      movementDistance: 0
+      movementTime: 0
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
       uxOnInteraction:
@@ -195,9 +195,9 @@ MonoBehaviour:
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
-      isMoved: 1
-      movementDistance: 5
-      movementTime: 0.3
+      isMoved: 0
+      movementDistance: 0
+      movementTime: 0
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
       uxOnInteraction:
@@ -230,6 +230,7 @@ MonoBehaviour:
       uxOnInteractionInitialized: 0
   namedInteractions:
   - name: Water
+    destroyNamedObjectOnInteraction: 0
     options:
       isDestroyed: 0
       isTransformed: 1
@@ -277,6 +278,7 @@ MonoBehaviour:
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
   - name: NaturalLight
+    destroyNamedObjectOnInteraction: 0
     options:
       isDestroyed: 0
       isTransformed: 1
@@ -324,6 +326,7 @@ MonoBehaviour:
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
   - name: Fire
+    destroyNamedObjectOnInteraction: 0
     options:
       isDestroyed: 0
       isTransformed: 1
@@ -626,7 +629,6 @@ MonoBehaviour:
   thisName: BrambleBall
   active: 1
   inLoop: 0
-  destroyOnDone: 0
   interactionDone: 0
 --- !u!114 &8067873864333942580
 MonoBehaviour:
