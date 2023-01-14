@@ -176,7 +176,9 @@ public class AttackInteraction : MonoBehaviour
     {
         if (forcedMovementDuration > 0)
         {
+            float yValueSave = this.gameObject.transform.position.y;
             this.gameObject.transform.Translate(forcedMovementDirection * forcedMovementDistance * Time.deltaTime);
+            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, yValueSave, this.gameObject.transform.position.z);
             forcedMovementDuration -= Time.deltaTime;
         }
         else forcedMovementActive = false;
