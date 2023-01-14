@@ -17,6 +17,14 @@ public class AttackInteraction : MonoBehaviour
         public Options options;
     }
     [System.Serializable]
+    public struct TimeAfterStartInteraction
+    {
+        public bool hasTimeAfterStartInteraction;
+        public float timeAfterStart;
+        public bool repeats;
+        public Options options;
+    }
+    [System.Serializable]
     public struct LightInteraction
     {
         public bool hasLightInteraction;
@@ -65,6 +73,7 @@ public class AttackInteraction : MonoBehaviour
     [SerializeField] private bool onDeathEnabled;
     [SerializeField] private Options onDeathInteraction;
     [SerializeField] private LightInteraction lightInteraction;
+    [SerializeField] private TimeAfterStartInteraction timeAfterStartInteraction;
     private AttackInteractionOptions attackInteractionOptions;
     private bool forcedMovementActive;
     private float forcedMovementDuration;
@@ -76,6 +85,7 @@ public class AttackInteraction : MonoBehaviour
         attackInteractionOptions = new AttackInteractionOptions();
         attackInteractionOptions.selfObject = this.gameObject;
         attackInteractionOptions.attackInteraction = this;
+        if (timeAfterStartInteraction.hasTimeAfterStartInteraction) LaunchTimeInteraction();
     }
 
     private void Update()
@@ -170,5 +180,17 @@ public class AttackInteraction : MonoBehaviour
             forcedMovementDuration -= Time.deltaTime;
         }
         else forcedMovementActive = false;
+    }
+
+    private void LaunchTimeInteraction()
+    {
+        StartCoroutine(TimeAfterStartInteractionExecute());
+    }
+
+    private IEnumerator TimeAfterStartInteractionExecute()
+    {
+        yield return new WaitForSeconds(timeAfterStartInteraction.timeAfterStart);
+        attackInteractionOptions.Interact(timeAfterStartInteraction.options, this.gameObject, turnsOff);
+        if (timeAfterStartInteraction.repeats) LaunchTimeInteraction();
     }
 }
