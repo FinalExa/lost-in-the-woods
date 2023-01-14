@@ -9,9 +9,13 @@ public class ZonePuzzle
     [SerializeField] private bool zoneHasPuzzle;
     private bool puzzleDone;
     private bool puzzleActive;
+    [Header("You must fill these with GameObjects.")]
     [SerializeField] private GameObject puzzleActiveParent;
     [SerializeField] private GameObject puzzleInactiveParent;
     [SerializeField] private GameObject puzzleExit;
+    [Header("Filling these is not mandatory, do it if you want to activate/deactivate stuff when the puzzle ends.")]
+    [SerializeField] private GameObject activateOnPuzzleEnd;
+    [SerializeField] private GameObject deactivateOnPuzzleEnd;
 
     public void ZonePuzzleStartup(Zone zone)
     {
@@ -20,6 +24,8 @@ public class ZonePuzzle
         {
             puzzleInactiveParent.SetActive(false);
             puzzleActiveParent.SetActive(false);
+            if (activateOnPuzzleEnd != null) activateOnPuzzleEnd.SetActive(false);
+            if (deactivateOnPuzzleEnd != null) deactivateOnPuzzleEnd.SetActive(true);
             PuzzleExit puzzleExitRef = puzzleExit.AddComponent<PuzzleExit>();
             puzzleExitRef.zoneRef = zoneRef;
         }
@@ -40,6 +46,8 @@ public class ZonePuzzle
         {
             puzzleActiveParent.SetActive(false);
             puzzleInactiveParent.SetActive(true);
+            if (activateOnPuzzleEnd != null) activateOnPuzzleEnd.SetActive(true);
+            if (deactivateOnPuzzleEnd != null) deactivateOnPuzzleEnd.SetActive(false);
             puzzleDone = true;
             puzzleActive = false;
         }
