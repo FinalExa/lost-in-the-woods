@@ -14,6 +14,7 @@ public class AttackInteraction : MonoBehaviour
     public struct NamedInteraction
     {
         public string name;
+        public bool destroyNamedObjectOnInteraction;
         public Options options;
     }
     [System.Serializable]
@@ -106,13 +107,14 @@ public class AttackInteraction : MonoBehaviour
         }
     }
 
-    public string NamedInteractionExecute(string enemyName, GameObject source)
+    public string NamedInteractionExecute(string enemyName, GameObject source, NamedInteractionExecutor namedInteractionRef)
     {
         foreach (NamedInteraction namedInteraction in namedInteractions)
         {
             if (namedInteraction.name == enemyName)
             {
                 attackInteractionOptions.Interact(namedInteraction.options, source, turnsOff);
+                if (namedInteraction.destroyNamedObjectOnInteraction) namedInteractionRef.DestroyOnDone();
                 return enemyName;
             }
         }

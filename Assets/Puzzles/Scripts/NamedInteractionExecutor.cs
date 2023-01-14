@@ -2,38 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NamedInteraction : MonoBehaviour
+public class NamedInteractionExecutor : MonoBehaviour
 {
     [SerializeField] private string thisName;
     public bool active;
     [SerializeField] private bool inLoop;
-    [SerializeField] private bool destroyOnDone;
     [HideInInspector] public bool interactionDone;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!inLoop) ExecuteGenericInteraction(other);
+        if (!inLoop) ExecuteNamedInteraction(other);
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (inLoop) ExecuteGenericInteraction(other);
+        if (inLoop) ExecuteNamedInteraction(other);
     }
 
-    private void ExecuteGenericInteraction(Collider other)
+    private void ExecuteNamedInteraction(Collider other)
     {
         AttackInteraction attackInteraction = other.GetComponent<AttackInteraction>();
         if (attackInteraction != null && active)
         {
-            attackInteraction.NamedInteractionExecute(thisName, this.gameObject);
+            attackInteraction.NamedInteractionExecute(thisName, this.gameObject, this);
             interactionDone = true;
             DestroyOnDone();
         }
     }
-    
-    private void DestroyOnDone()
+
+    public void DestroyOnDone()
     {
-        if (destroyOnDone) GameObject.Destroy(this.gameObject);
+        GameObject.Destroy(this.gameObject);
     }
-    
+
 }

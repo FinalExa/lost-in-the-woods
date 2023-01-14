@@ -6,7 +6,7 @@ public class LittleShadeEnemyController : EnemyController, ISendSignalToSelf, IH
 {
 
     [HideInInspector] public bool isStunned;
-    private NamedInteraction namedInteraction;
+    private NamedInteractionExecutor namedInteraction;
     public float littleShadeStunTimer;
     private float stunTimer;
 
@@ -18,7 +18,7 @@ public class LittleShadeEnemyController : EnemyController, ISendSignalToSelf, IH
     protected override void Awake()
     {
         base.Awake();
-        namedInteraction = this.gameObject.GetComponent<NamedInteraction>();
+        namedInteraction = this.gameObject.GetComponent<NamedInteractionExecutor>();
     }
 
     private void Start()
