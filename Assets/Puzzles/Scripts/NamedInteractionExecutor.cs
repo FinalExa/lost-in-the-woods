@@ -26,7 +26,6 @@ public class NamedInteractionExecutor : MonoBehaviour
         {
             attackInteraction.NamedInteractionExecute(thisName, this.gameObject, this);
             interactionDone = true;
-            DestroyOnDone();
         }
     }
 

@@ -77,6 +77,7 @@ MonoBehaviour:
   isRetracted: 0
   brambleData: {fileID: 0}
   brambleBallRef: {fileID: 4014776901287296295, guid: c89ec9ec48c88a94ab08433039e855bb, type: 3}
+  brambleBallStartSpeed: 1
   spriteColliderObject: {fileID: 7200053106513421008}
   uxOnFullyRetracted:
     hasSound: 0

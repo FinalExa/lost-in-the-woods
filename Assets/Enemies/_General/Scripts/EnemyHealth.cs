@@ -29,7 +29,6 @@ public class EnemyHealth : Health
     }
     private void SetEnemyDead()
     {
-        if (uxOnDeath.hasSound) uxOnDeath.sound.PlayAudio();
         if (!deathDone)
         {
             if (enemyController.spawnerRef != null) enemyController.spawnerRef.SetEnemyDead(enemyController.spawnerEnemyInfo);
@@ -52,6 +51,6 @@ public class EnemyHealth : Health
 
     private void OnDisable()
     {
-        SetEnemyDead();
+        OnDeath();
     }
 }
