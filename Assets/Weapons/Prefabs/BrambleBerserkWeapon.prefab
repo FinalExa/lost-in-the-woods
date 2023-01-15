@@ -142,6 +142,7 @@ MonoBehaviour:
     - objectRef: {fileID: 4014776901287296295, guid: c89ec9ec48c88a94ab08433039e855bb, type: 3}
       objectStartPosition: {fileID: 3573543966837063527}
       launchFrame: 27
+      launchSpeed: 8
       spawned: 0
     hasAnimation: 0
     uxOnWeaponAttack:
@@ -192,6 +193,7 @@ MonoBehaviour:
     - objectRef: {fileID: 4014776901287296295, guid: c89ec9ec48c88a94ab08433039e855bb, type: 3}
       objectStartPosition: {fileID: 3396865339718076320}
       launchFrame: 27
+      launchSpeed: 8
       spawned: 0
     hasAnimation: 0
     uxOnWeaponAttack:
@@ -242,6 +244,7 @@ MonoBehaviour:
     - objectRef: {fileID: 4014776901287296295, guid: c89ec9ec48c88a94ab08433039e855bb, type: 3}
       objectStartPosition: {fileID: 7032993906086277393}
       launchFrame: 45
+      launchSpeed: 8
       spawned: 0
     hasAnimation: 0
     uxOnWeaponAttack:

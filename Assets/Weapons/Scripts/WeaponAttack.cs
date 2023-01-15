@@ -25,6 +25,7 @@ public class WeaponAttack
         public GameObject objectRef;
         public GameObject objectStartPosition;
         public int launchFrame;
+        public float launchSpeed;
         [HideInInspector] public bool spawned;
     }
     public WeaponAttackHitboxSequence[] weaponAttackHitboxSequence;

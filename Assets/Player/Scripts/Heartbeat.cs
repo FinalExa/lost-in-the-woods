@@ -8,7 +8,7 @@ public class Heartbeat : MonoBehaviour
     public float heartbeatCooldown;
     public float heartbeatDuration;
     private float heartbeatTimer;
-    private bool inHeartbeat;
+    public bool InHeartbeat { get; private set; }
     private Light globalLight;
     private Color globalLightBaseColor;
     [SerializeField] private Color globalLightHeartbeatColor;
@@ -40,7 +40,7 @@ public class Heartbeat : MonoBehaviour
 
     private void SetHeartbeatTimer(bool heartbeatState)
     {
-        inHeartbeat = heartbeatState;
+        InHeartbeat = heartbeatState;
         HeartbeatStateSetup();
     }
     private void HeartbeatTimer()
@@ -48,7 +48,7 @@ public class Heartbeat : MonoBehaviour
         if (uxOnAnticipation.hasSound &&
             heartbeatTimer <= anticipationTime &&
             !uxOnAnticipation.sound.IsPlaying() &&
-            !inHeartbeat)
+            !InHeartbeat)
         {
             if (uxWithoutHeartbeat.hasSound) uxWithoutHeartbeat.sound.StopAudio();
             uxOnAnticipation.sound.PlayAudio();
@@ -56,14 +56,14 @@ public class Heartbeat : MonoBehaviour
         if (heartbeatTimer > 0) heartbeatTimer -= Time.deltaTime;
         else
         {
-            SetHeartbeatTimer(!inHeartbeat);
-            if (!testScene) heartbeatSwitch(inHeartbeat);
+            SetHeartbeatTimer(!InHeartbeat);
+            if (!testScene) heartbeatSwitch(InHeartbeat);
         }
     }
 
     private void HeartbeatStateSetup()
     {
-        if (!inHeartbeat)
+        if (!InHeartbeat)
         {
             heartbeatTimer = heartbeatCooldown;
             globalLight.color = globalLightBaseColor;
@@ -86,11 +86,11 @@ public class Heartbeat : MonoBehaviour
     public void ChangeHeartbeatCooldownAndDuration(float newCooldown, float newDuration)
     {
         float currentTimerPercentageValue;
-        if (inHeartbeat) currentTimerPercentageValue = GetCurrentTimerPercentage(heartbeatDuration);
+        if (InHeartbeat) currentTimerPercentageValue = GetCurrentTimerPercentage(heartbeatDuration);
         else currentTimerPercentageValue = GetCurrentTimerPercentage(heartbeatCooldown);
         heartbeatCooldown = newCooldown;
         heartbeatDuration = newDuration;
-        if (inHeartbeat) heartbeatTimer = ConvertPercentageIntoTimer(currentTimerPercentageValue, heartbeatDuration);
+        if (InHeartbeat) heartbeatTimer = ConvertPercentageIntoTimer(currentTimerPercentageValue, heartbeatDuration);
         else heartbeatTimer = ConvertPercentageIntoTimer(currentTimerPercentageValue, heartbeatCooldown);
     }
 

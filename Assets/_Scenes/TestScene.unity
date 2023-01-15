@@ -891,11 +891,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8706434170628328547, guid: c44e0394991c2c44597e45f504601056, type: 3}
       propertyPath: testScene
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8706434170628328547, guid: c44e0394991c2c44597e45f504601056, type: 3}
       propertyPath: heartbeatCooldown
-      value: 900
+      value: 9000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706434170628328547, guid: c44e0394991c2c44597e45f504601056, type: 3}
+      propertyPath: heartbeatDuration
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c44e0394991c2c44597e45f504601056, type: 3}
