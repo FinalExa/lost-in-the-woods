@@ -99,7 +99,7 @@ public class BrambleController : EnemyController, ISendSignalToSelf
     private void ShootBrambleBall(Vector3 direction)
     {
         GameObject brambleBall = Instantiate(brambleBallRef, this.transform.position, this.transform.rotation);
-        brambleBall.transform.position = this.transform.position + Vector3.Scale(direction, currentColliderSize);
+        brambleBall.transform.position = this.transform.position + Vector3.Scale(direction, currentColliderSize + (Vector3.one * 2f));
         Rigidbody brambleBallRb = brambleBall.GetComponent<Rigidbody>();
         if (brambleBallRb != null) brambleBallRb.velocity = direction * brambleBallStartSpeed;
     }
