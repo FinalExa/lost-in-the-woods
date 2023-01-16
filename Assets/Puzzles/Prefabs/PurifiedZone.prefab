@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &809524107923366733
+--- !u!1 &3090375533108977098
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,161 +8,79 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 809524107923366735}
-  - component: {fileID: 2576409215562440935}
-  - component: {fileID: 6233606446062444267}
-  - component: {fileID: 809524107923366734}
-  - component: {fileID: 5498709914088524314}
+  - component: {fileID: 3090375533108977097}
   m_Layer: 0
-  m_Name: ShroomCorpse
+  m_Name: Rotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &809524107923366735
+--- !u!4 &3090375533108977097
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809524107923366733}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.75}
+  m_GameObject: {fileID: 3090375533108977098}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 145398612053958380}
+  - {fileID: 3090375534178339294}
+  m_Father: {fileID: 3090375533518136072}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &3090375533518136074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3090375533518136072}
+  - component: {fileID: 3090375533518136071}
+  - component: {fileID: 3090375533518136073}
+  m_Layer: 0
+  m_Name: PurifiedZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3090375533518136072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090375533518136074}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3090375533108977097}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2576409215562440935
+--- !u!114 &3090375533518136071
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809524107923366733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0eca4a9e1534ba4f944878999c913a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisName: Shroom
-  active: 1
-  inLoop: 0
-  interactionDone: 0
---- !u!114 &6233606446062444267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809524107923366733}
+  m_GameObject: {fileID: 3090375533518136074}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e17b331db98df9143ae63583c3486477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   turnsOff: 0
-  attackTypeInteractions:
-  - attackType: 5
-    destroyAttackSourceObject: 1
-    options:
-      isDestroyed: 1
-      isTransformed: 0
-      transformedRef: {fileID: 0}
-      canSetObjectActiveStatus: 0
-      objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
-      canSpawnObject: 0
-      objectToSpawn: {fileID: 0}
-      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
-      rotates: 0
-      objectToRotate: {fileID: 0}
-      rotateValue: 0
-      isMoved: 0
-      movementDistance: 0
-      movementTime: 0
-      sendsSignalToSelf: 0
-      hasSpecialCondition: 0
-      uxOnInteraction:
-        hasSound: 0
-        sound:
-          clip: {fileID: 0}
-          priority: 0
-          volume: 0
-          pitch: 0
-          stereoPan: 0
-          spatialBlend: 0
-          reverbZoneMix: 0
-          loop: 0
-          playOnAwake: 0
-          mixer: {fileID: 0}
-        hasSpriteColorChange: 0
-        spriteColorChange:
-          onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-          spriteRef: {fileID: 0}
-          spriteColorChangeDuration: 0
-          spritehasChangedColor: 0
-          spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
-        hasCameraShake: 0
-        cameraShake:
-          shakeAmplitude: 0
-          shakeFrequency: 0
-          shakeDuration: 0
-          cinemachineCameraShakerRef: {fileID: 0}
-        soundParent: {fileID: 0}
-      uxOnInteractionInitialized: 0
-  namedInteractions:
-  - name: BrambleBallInfested
-    destroyNamedObjectOnInteraction: 1
-    options:
-      isDestroyed: 1
-      isTransformed: 0
-      transformedRef: {fileID: 0}
-      canSetObjectActiveStatus: 0
-      objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
-      canSpawnObject: 0
-      objectToSpawn: {fileID: 0}
-      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
-      rotates: 0
-      objectToRotate: {fileID: 0}
-      rotateValue: 0
-      isMoved: 0
-      movementDistance: 0
-      movementTime: 0
-      sendsSignalToSelf: 0
-      hasSpecialCondition: 0
-      uxOnInteraction:
-        hasSound: 0
-        sound:
-          clip: {fileID: 0}
-          priority: 0
-          volume: 0
-          pitch: 0
-          stereoPan: 0
-          spatialBlend: 0
-          reverbZoneMix: 0
-          loop: 0
-          playOnAwake: 0
-          mixer: {fileID: 0}
-        hasSpriteColorChange: 0
-        spriteColorChange:
-          onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-          spriteRef: {fileID: 0}
-          spriteColorChangeDuration: 0
-          spritehasChangedColor: 0
-          spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
-        hasCameraShake: 0
-        cameraShake:
-          shakeAmplitude: 0
-          shakeFrequency: 0
-          shakeDuration: 0
-          cinemachineCameraShakerRef: {fileID: 0}
-        soundParent: {fileID: 0}
-      uxOnInteractionInitialized: 0
+  attackTypeInteractions: []
+  namedInteractions: []
   onDeathEnabled: 0
   onDeathInteraction:
     isDestroyed: 0
@@ -359,7 +277,7 @@ MonoBehaviour:
     timeAfterStart: 15
     repeats: 0
     options:
-      isDestroyed: 0
+      isDestroyed: 1
       isTransformed: 0
       transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
@@ -404,36 +322,23 @@ MonoBehaviour:
           cinemachineCameraShakerRef: {fileID: 0}
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
---- !u!54 &809524107923366734
-Rigidbody:
+--- !u!208 &3090375533518136073
+NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809524107923366733}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 1
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 116
-  m_CollisionDetection: 0
---- !u!65 &5498709914088524314
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809524107923366733}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_GameObject: {fileID: 3090375533518136074}
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &5594138154642329595
+  m_TimeToStationary: 0.5
+--- !u!1 &3090375534178339295
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -441,8 +346,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2139941466638179529}
-  - component: {fileID: 5772981877008877569}
+  - component: {fileID: 3090375534178339294}
+  - component: {fileID: 3090375534178339293}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -450,28 +355,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2139941466638179529
+--- !u!4 &3090375534178339294
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5594138154642329595}
+  m_GameObject: {fileID: 3090375534178339295}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 145398612053958380}
+  m_Father: {fileID: 3090375533108977097}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5772981877008877569
+--- !u!212 &3090375534178339293
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5594138154642329595}
+  m_GameObject: {fileID: 3090375534178339295}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -485,7 +390,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0931932f260cf5a449a0aa1105fff808, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -505,9 +410,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 55d9a5e5eb63789448c3c43fc5eca070, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.69019604, a: 1}
+  m_SortingOrder: -100
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 0, g: 1, b: 0.5332718, a: 0.50980395}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -517,35 +422,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &6547989922807381867
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 145398612053958380}
-  m_Layer: 0
-  m_Name: Rotator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &145398612053958380
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6547989922807381867}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2139941466638179529}
-  m_Father: {fileID: 809524107923366735}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}

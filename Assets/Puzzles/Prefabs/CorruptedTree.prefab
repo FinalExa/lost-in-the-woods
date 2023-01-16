@@ -77,7 +77,7 @@ MonoBehaviour:
       objectActiveStatus: 0
       objectToSetActiveStatus: {fileID: 0}
       canSpawnObject: 1
-      objectToSpawn: {fileID: 5486014711160620302, guid: 19d90277f1fae244da6fa4b1eec899e5, type: 3}
+      objectToSpawn: {fileID: 477417064391332959, guid: 0f86773994a727e448794ba273d78125, type: 3}
       objectSpawnPositionOffset: {x: 0, y: 0, z: -2}
       rotates: 0
       objectToRotate: {fileID: 0}
