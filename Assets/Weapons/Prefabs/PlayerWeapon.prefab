@@ -160,7 +160,7 @@ MonoBehaviour:
     movementDistance: 0
     ignoresWalls: 0
     attackObject: {fileID: 1083629791230123650}
-    weaponAttackTypes: 02000000
+    weaponAttackTypes: 01000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 859736369464844710}
       activationFrame: 0

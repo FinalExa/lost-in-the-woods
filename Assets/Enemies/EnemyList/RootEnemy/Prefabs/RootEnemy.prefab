@@ -16,11 +16,11 @@ GameObject:
   - component: {fileID: 8690117516297040685}
   - component: {fileID: 249166922592196662}
   - component: {fileID: 1079639170565201830}
+  - component: {fileID: 6417200175528668259}
   - component: {fileID: -3714416512890541913}
   - component: {fileID: 7001282123244882244}
   - component: {fileID: 4992552886037869941}
   - component: {fileID: 4166100610456823755}
-  - component: {fileID: 6417200175528668259}
   m_Layer: 0
   m_Name: RootEnemy
   m_TagString: Enemy
@@ -194,8 +194,8 @@ MonoBehaviour:
   currentWeapon: {fileID: 0}
   currentAttack:
     damage: 0
-    duration: 0
-    afterDelay: 0
+    frameDuration: 0
+    framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
     attackObject: {fileID: 0}
@@ -230,6 +230,7 @@ MonoBehaviour:
         shakeDuration: 0
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
+  frameValueTime: 0
   isInCombo: 0
   target: {fileID: 0}
 --- !u!114 &249166922592196662
@@ -259,6 +260,358 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisType: 1
   ignoresDamage: 0
+--- !u!114 &6417200175528668259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477770951886658404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17b331db98df9143ae63583c3486477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnsOff: 1
+  attackTypeInteractions:
+  - attackType: 5
+    destroyAttackSourceObject: 1
+    options:
+      isDestroyed: 1
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      isMoved: 0
+      movementDistance: 0
+      movementTime: 0
+      sendsSignalToSelf: 0
+      hasSpecialCondition: 0
+      uxOnInteraction:
+        hasSound: 0
+        sound:
+          clip: {fileID: 0}
+          priority: 0
+          volume: 0
+          pitch: 0
+          stereoPan: 0
+          spatialBlend: 0
+          reverbZoneMix: 0
+          loop: 0
+          playOnAwake: 0
+          mixer: {fileID: 0}
+        hasSpriteColorChange: 0
+        spriteColorChange:
+          onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+          spriteRef: {fileID: 0}
+          spriteColorChangeDuration: 0
+          spritehasChangedColor: 0
+          spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+        hasCameraShake: 0
+        cameraShake:
+          shakeAmplitude: 0
+          shakeFrequency: 0
+          shakeDuration: 0
+          cinemachineCameraShakerRef: {fileID: 0}
+        soundParent: {fileID: 0}
+      uxOnInteractionInitialized: 0
+  namedInteractions:
+  - name: BrambleBallInfested
+    destroyNamedObjectOnInteraction: 1
+    options:
+      isDestroyed: 1
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      isMoved: 0
+      movementDistance: 0
+      movementTime: 0
+      sendsSignalToSelf: 0
+      hasSpecialCondition: 0
+      uxOnInteraction:
+        hasSound: 0
+        sound:
+          clip: {fileID: 0}
+          priority: 0
+          volume: 0
+          pitch: 0
+          stereoPan: 0
+          spatialBlend: 0
+          reverbZoneMix: 0
+          loop: 0
+          playOnAwake: 0
+          mixer: {fileID: 0}
+        hasSpriteColorChange: 0
+        spriteColorChange:
+          onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+          spriteRef: {fileID: 0}
+          spriteColorChangeDuration: 0
+          spritehasChangedColor: 0
+          spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+        hasCameraShake: 0
+        cameraShake:
+          shakeAmplitude: 0
+          shakeFrequency: 0
+          shakeDuration: 0
+          cinemachineCameraShakerRef: {fileID: 0}
+        soundParent: {fileID: 0}
+      uxOnInteractionInitialized: 0
+  onDeathEnabled: 1
+  onDeathInteraction:
+    isDestroyed: 0
+    isTransformed: 1
+    transformedRef: {fileID: 4014776901287296295, guid: b6b7fe929ac1cbd4090a2fd39153e906, type: 3}
+    canSetObjectActiveStatus: 0
+    objectActiveStatus: 0
+    objectToSetActiveStatus: {fileID: 0}
+    canSpawnObject: 0
+    objectToSpawn: {fileID: 0}
+    objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
+    rotates: 0
+    objectToRotate: {fileID: 0}
+    rotateValue: 0
+    isMoved: 0
+    movementDistance: 0
+    movementTime: 0
+    sendsSignalToSelf: 0
+    hasSpecialCondition: 1
+    uxOnInteraction:
+      hasSound: 0
+      sound:
+        clip: {fileID: 0}
+        priority: 128
+        volume: 1
+        pitch: 1
+        stereoPan: 0
+        spatialBlend: 0
+        reverbZoneMix: 1
+        loop: 0
+        playOnAwake: 0
+        mixer: {fileID: 0}
+      hasSpriteColorChange: 0
+      spriteColorChange:
+        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        spriteRef: {fileID: 0}
+        spriteColorChangeDuration: 0
+        spritehasChangedColor: 0
+        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+      hasCameraShake: 0
+      cameraShake:
+        shakeAmplitude: 0
+        shakeFrequency: 0
+        shakeDuration: 0
+        cinemachineCameraShakerRef: {fileID: 0}
+      soundParent: {fileID: 0}
+    uxOnInteractionInitialized: 0
+  lightInteraction:
+    hasLightInteraction: 0
+    affectedByLightRef: {fileID: 0}
+    normalRefreshes: 0
+    normalOptions:
+      isDestroyed: 0
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      isMoved: 0
+      movementDistance: 0
+      movementTime: 0
+      sendsSignalToSelf: 0
+      hasSpecialCondition: 0
+      uxOnInteraction:
+        hasSound: 0
+        sound:
+          clip: {fileID: 0}
+          priority: 128
+          volume: 1
+          pitch: 1
+          stereoPan: 0
+          spatialBlend: 0
+          reverbZoneMix: 1
+          loop: 0
+          playOnAwake: 0
+          mixer: {fileID: 0}
+        hasSpriteColorChange: 0
+        spriteColorChange:
+          onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+          spriteRef: {fileID: 0}
+          spriteColorChangeDuration: 0
+          spritehasChangedColor: 0
+          spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+        hasCameraShake: 0
+        cameraShake:
+          shakeAmplitude: 0
+          shakeFrequency: 0
+          shakeDuration: 0
+          cinemachineCameraShakerRef: {fileID: 0}
+        soundParent: {fileID: 0}
+      uxOnInteractionInitialized: 0
+    calmRefreshes: 0
+    calmOptions:
+      isDestroyed: 0
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      isMoved: 0
+      movementDistance: 0
+      movementTime: 0
+      sendsSignalToSelf: 0
+      hasSpecialCondition: 0
+      uxOnInteraction:
+        hasSound: 0
+        sound:
+          clip: {fileID: 0}
+          priority: 128
+          volume: 1
+          pitch: 1
+          stereoPan: 0
+          spatialBlend: 0
+          reverbZoneMix: 1
+          loop: 0
+          playOnAwake: 0
+          mixer: {fileID: 0}
+        hasSpriteColorChange: 0
+        spriteColorChange:
+          onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+          spriteRef: {fileID: 0}
+          spriteColorChangeDuration: 0
+          spritehasChangedColor: 0
+          spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+        hasCameraShake: 0
+        cameraShake:
+          shakeAmplitude: 0
+          shakeFrequency: 0
+          shakeDuration: 0
+          cinemachineCameraShakerRef: {fileID: 0}
+        soundParent: {fileID: 0}
+      uxOnInteractionInitialized: 0
+    berserkRefreshes: 0
+    berserkOptions:
+      isDestroyed: 0
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      isMoved: 0
+      movementDistance: 0
+      movementTime: 0
+      sendsSignalToSelf: 0
+      hasSpecialCondition: 0
+      uxOnInteraction:
+        hasSound: 0
+        sound:
+          clip: {fileID: 0}
+          priority: 128
+          volume: 1
+          pitch: 1
+          stereoPan: 0
+          spatialBlend: 0
+          reverbZoneMix: 1
+          loop: 0
+          playOnAwake: 0
+          mixer: {fileID: 0}
+        hasSpriteColorChange: 0
+        spriteColorChange:
+          onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+          spriteRef: {fileID: 0}
+          spriteColorChangeDuration: 0
+          spritehasChangedColor: 0
+          spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+        hasCameraShake: 0
+        cameraShake:
+          shakeAmplitude: 0
+          shakeFrequency: 0
+          shakeDuration: 0
+          cinemachineCameraShakerRef: {fileID: 0}
+        soundParent: {fileID: 0}
+      uxOnInteractionInitialized: 0
+  timeAfterStartInteraction:
+    hasTimeAfterStartInteraction: 0
+    timeAfterStart: 0
+    repeats: 0
+    options:
+      isDestroyed: 0
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      isMoved: 0
+      movementDistance: 0
+      movementTime: 0
+      sendsSignalToSelf: 0
+      hasSpecialCondition: 0
+      uxOnInteraction:
+        hasSound: 0
+        sound:
+          clip: {fileID: 0}
+          priority: 128
+          volume: 1
+          pitch: 1
+          stereoPan: 0
+          spatialBlend: 0
+          reverbZoneMix: 1
+          loop: 0
+          playOnAwake: 0
+          mixer: {fileID: 0}
+        hasSpriteColorChange: 0
+        spriteColorChange:
+          onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+          spriteRef: {fileID: 0}
+          spriteColorChangeDuration: 0
+          spritehasChangedColor: 0
+          spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+        hasCameraShake: 0
+        cameraShake:
+          shakeAmplitude: 0
+          shakeFrequency: 0
+          shakeDuration: 0
+          cinemachineCameraShakerRef: {fileID: 0}
+        soundParent: {fileID: 0}
+      uxOnInteractionInitialized: 0
 --- !u!114 &-3714416512890541913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,200 +681,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &6417200175528668259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5477770951886658404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e17b331db98df9143ae63583c3486477, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turnsOff: 1
-  attackTypeInteractions: []
-  namedInteractions: []
-  onDeathEnabled: 1
-  onDeathInteraction:
-    isDestroyed: 0
-    isTransformed: 1
-    transformedRef: {fileID: 4014776901287296295, guid: b6b7fe929ac1cbd4090a2fd39153e906, type: 3}
-    canSetObjectActiveStatus: 0
-    objectActiveStatus: 0
-    objectToSetActiveStatus: {fileID: 0}
-    rotates: 0
-    objectToRotate: {fileID: 0}
-    rotateValue: 0
-    isMoved: 0
-    movementDistance: 0
-    movementTime: 0
-    sendsSignalToSelf: 0
-    hasSpecialCondition: 1
-    uxOnInteraction:
-      hasSound: 0
-      sound:
-        clip: {fileID: 0}
-        priority: 128
-        volume: 1
-        pitch: 1
-        stereoPan: 0
-        spatialBlend: 0
-        reverbZoneMix: 1
-        loop: 0
-        playOnAwake: 0
-        mixer: {fileID: 0}
-      hasSpriteColorChange: 0
-      spriteColorChange:
-        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-        spriteRef: {fileID: 0}
-        spriteColorChangeDuration: 0
-        spritehasChangedColor: 0
-        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
-      hasCameraShake: 0
-      cameraShake:
-        shakeAmplitude: 0
-        shakeFrequency: 0
-        shakeDuration: 0
-        cinemachineCameraShakerRef: {fileID: 0}
-      soundParent: {fileID: 0}
-    uxOnInteractionInitialized: 0
-  lightInteraction:
-    hasLightInteraction: 0
-    affectedByLightRef: {fileID: 0}
-    normalRefreshes: 0
-    normalOptions:
-      isDestroyed: 0
-      isTransformed: 0
-      transformedRef: {fileID: 0}
-      canSetObjectActiveStatus: 0
-      objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
-      rotates: 0
-      objectToRotate: {fileID: 0}
-      rotateValue: 0
-      isMoved: 0
-      movementDistance: 0
-      movementTime: 0
-      sendsSignalToSelf: 0
-      hasSpecialCondition: 0
-      uxOnInteraction:
-        hasSound: 0
-        sound:
-          clip: {fileID: 0}
-          priority: 128
-          volume: 1
-          pitch: 1
-          stereoPan: 0
-          spatialBlend: 0
-          reverbZoneMix: 1
-          loop: 0
-          playOnAwake: 0
-          mixer: {fileID: 0}
-        hasSpriteColorChange: 0
-        spriteColorChange:
-          onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-          spriteRef: {fileID: 0}
-          spriteColorChangeDuration: 0
-          spritehasChangedColor: 0
-          spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
-        hasCameraShake: 0
-        cameraShake:
-          shakeAmplitude: 0
-          shakeFrequency: 0
-          shakeDuration: 0
-          cinemachineCameraShakerRef: {fileID: 0}
-        soundParent: {fileID: 0}
-      uxOnInteractionInitialized: 0
-    calmRefreshes: 0
-    calmOptions:
-      isDestroyed: 0
-      isTransformed: 0
-      transformedRef: {fileID: 0}
-      canSetObjectActiveStatus: 0
-      objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
-      rotates: 0
-      objectToRotate: {fileID: 0}
-      rotateValue: 0
-      isMoved: 0
-      movementDistance: 0
-      movementTime: 0
-      sendsSignalToSelf: 0
-      hasSpecialCondition: 0
-      uxOnInteraction:
-        hasSound: 0
-        sound:
-          clip: {fileID: 0}
-          priority: 128
-          volume: 1
-          pitch: 1
-          stereoPan: 0
-          spatialBlend: 0
-          reverbZoneMix: 1
-          loop: 0
-          playOnAwake: 0
-          mixer: {fileID: 0}
-        hasSpriteColorChange: 0
-        spriteColorChange:
-          onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-          spriteRef: {fileID: 0}
-          spriteColorChangeDuration: 0
-          spritehasChangedColor: 0
-          spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
-        hasCameraShake: 0
-        cameraShake:
-          shakeAmplitude: 0
-          shakeFrequency: 0
-          shakeDuration: 0
-          cinemachineCameraShakerRef: {fileID: 0}
-        soundParent: {fileID: 0}
-      uxOnInteractionInitialized: 0
-    berserkRefreshes: 0
-    berserkOptions:
-      isDestroyed: 0
-      isTransformed: 0
-      transformedRef: {fileID: 0}
-      canSetObjectActiveStatus: 0
-      objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
-      rotates: 0
-      objectToRotate: {fileID: 0}
-      rotateValue: 0
-      isMoved: 0
-      movementDistance: 0
-      movementTime: 0
-      sendsSignalToSelf: 0
-      hasSpecialCondition: 0
-      uxOnInteraction:
-        hasSound: 0
-        sound:
-          clip: {fileID: 0}
-          priority: 128
-          volume: 1
-          pitch: 1
-          stereoPan: 0
-          spatialBlend: 0
-          reverbZoneMix: 1
-          loop: 0
-          playOnAwake: 0
-          mixer: {fileID: 0}
-        hasSpriteColorChange: 0
-        spriteColorChange:
-          onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-          spriteRef: {fileID: 0}
-          spriteColorChangeDuration: 0
-          spritehasChangedColor: 0
-          spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
-        hasCameraShake: 0
-        cameraShake:
-          shakeAmplitude: 0
-          shakeFrequency: 0
-          shakeDuration: 0
-          cinemachineCameraShakerRef: {fileID: 0}
-        soundParent: {fileID: 0}
-      uxOnInteractionInitialized: 0
 --- !u!1 &6982585701272724667
 GameObject:
   m_ObjectHideFlags: 0

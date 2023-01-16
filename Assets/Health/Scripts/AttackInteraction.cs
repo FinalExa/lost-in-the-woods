@@ -8,6 +8,7 @@ public class AttackInteraction : MonoBehaviour
     public struct AttackTypeInteraction
     {
         public WeaponAttack.WeaponAttackType attackType;
+        public bool destroyAttackSourceObject;
         public Options options;
     }
     [System.Serializable]
@@ -103,6 +104,7 @@ public class AttackInteraction : MonoBehaviour
             {
                 if (sendWeaponAttackType != null) sendWeaponAttackType.ReceivedWeaponAttackType = attackTypeInteraction.attackType;
                 attackInteractionOptions.Interact(attackTypeInteraction.options, source, turnsOff);
+                if (attackTypeInteraction.destroyAttackSourceObject) GameObject.Destroy(source);
             }
         }
     }
