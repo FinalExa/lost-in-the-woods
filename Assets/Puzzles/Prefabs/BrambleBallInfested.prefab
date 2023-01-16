@@ -204,6 +204,7 @@ MonoBehaviour:
   turnsOff: 0
   attackTypeInteractions:
   - attackType: 1
+    destroyAttackSourceObject: 0
     options:
       isDestroyed: 0
       isTransformed: 0
@@ -251,6 +252,7 @@ MonoBehaviour:
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
   - attackType: 4
+    destroyAttackSourceObject: 0
     options:
       isDestroyed: 0
       isTransformed: 1
