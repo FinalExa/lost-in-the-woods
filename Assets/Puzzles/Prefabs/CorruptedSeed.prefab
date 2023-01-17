@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 3084122534763078422}
   - component: {fileID: 5495336166469649114}
   m_Layer: 0
-  m_Name: CorrupedSeed
+  m_Name: CorruptedSeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
