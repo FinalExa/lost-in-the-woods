@@ -47,10 +47,7 @@ public class RootEnemyBT : EnemyBT
             new Selector (new List<Node>
             {
                 new TaskIsInCalmState(enemyController, enemyWeaponSwitcher),
-                new Sequence(new List<Node>
-                {
-                    new TaskStopMovement(enemyController)
-                })
+                new TaskStopMovement(enemyController)
             })
         });
         return root;

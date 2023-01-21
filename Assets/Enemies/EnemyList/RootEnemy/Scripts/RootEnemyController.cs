@@ -27,8 +27,14 @@ public class RootEnemyController : EnemyController, IHaveSpecialConditions
 
     public override void LightStateUpdate()
     {
-        if (affectedByLight.lightState == AffectedByLight.LightState.CALM) SetBurning();
+        if (affectedByLight.lightState == AffectedByLight.LightState.CALM) CalmStateRoot();
         else StopBurning();
+    }
+
+    private void CalmStateRoot()
+    {
+        if (!rootUnderground) SetBurning();
+        else SetRootUnderground();
     }
 
     private void SetRootUnderground()

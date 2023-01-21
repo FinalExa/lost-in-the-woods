@@ -159,17 +159,17 @@ MonoBehaviour:
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 6654631832715134272}
       activationFrame: 0
-      deactivationFrame: 15
+      deactivationFrame: 20
     - attackRef: {fileID: 1684325879591002324}
-      activationFrame: 15
-      deactivationFrame: 25
+      activationFrame: 20
+      deactivationFrame: 30
     - attackRef: {fileID: 5496394219624157946}
-      activationFrame: 25
+      activationFrame: 30
       deactivationFrame: 45
     weaponSpawnsObjectDuringThisAttack:
     - objectRef: {fileID: 551186820573199659, guid: 0106b83c3fae11348b15d2d36a0e0c85, type: 3}
       objectStartPosition: {fileID: 4060479670253871750}
-      launchFrame: 50
+      launchFrame: 35
       launchSpeed: 0
       spawned: 0
     hasAnimation: 0
