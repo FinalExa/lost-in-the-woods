@@ -7,7 +7,6 @@ public class EnemyHealth : Health
     protected EnemyController enemyController;
     protected AttackInteraction attackInteraction;
     protected bool deathDone;
-    [SerializeField] private bool spawnLifetimeObjOnDeath;
 
     protected virtual void Awake()
     {
@@ -38,15 +37,7 @@ public class EnemyHealth : Health
 
     protected virtual void OnDeathInteraction()
     {
-        if (!deathDone && attackInteraction != null)
-        {
-            if (!spawnLifetimeObjOnDeath) attackInteraction.OnDeathInteraction();
-            else
-            {
-                if (!enemyController.usesFixedTimeLifetimeObject) attackInteraction.OnDeathInteraction(enemyController.spawnerEnemyInfo.maxTimer);
-                else attackInteraction.OnDeathInteraction(enemyController.fixedTimeLifetimeObjectDuration);
-            }
-        }
+        if (!deathDone && attackInteraction != null) attackInteraction.OnDeathInteraction();
     }
 
     private void OnDisable()

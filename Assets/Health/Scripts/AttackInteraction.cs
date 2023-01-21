@@ -84,10 +84,15 @@ public class AttackInteraction : MonoBehaviour
 
     private void Start()
     {
-        attackInteractionOptions = new AttackInteractionOptions();
+        CreateAttackInteractionOptions();
         attackInteractionOptions.selfObject = this.gameObject;
         attackInteractionOptions.attackInteraction = this;
         if (timeAfterStartInteraction.hasTimeAfterStartInteraction) LaunchTimeInteraction();
+    }
+
+    private void CreateAttackInteractionOptions()
+    {
+        if (attackInteractionOptions == null) attackInteractionOptions = new AttackInteractionOptions();
     }
 
     private void Update()
@@ -126,69 +131,26 @@ public class AttackInteraction : MonoBehaviour
     {
         if (onDeathEnabled) attackInteractionOptions.Interact(onDeathInteraction, this.gameObject, turnsOff);
     }
-    public void OnDeathInteraction(float lifeTime)
-    {
-        if (onDeathEnabled) attackInteractionOptions.Interact(onDeathInteraction, this.gameObject, turnsOff, lifeTime);
-    }
 
     public void ExecuteLightInteraction(AffectedByLight receivedRef, AffectedByLight.LightState receivedLightState)
     {
         if (receivedRef != null && lightInteraction.hasLightInteraction && receivedRef == lightInteraction.affectedByLightRef)
         {
-            switch (receivedLightState)
-            {
-                case AffectedByLight.LightState.CALM:
-                    if (!lightInteraction.calmRefreshes)
-                    {
-                        if (attackInteractionOptions == null) attackInteractionOptions = new AttackInteractionOptions();
-                        attackInteractionOptions.Interact(lightInteraction.calmOptions, this.gameObject, turnsOff);
-                    }
-                    break;
-                case AffectedByLight.LightState.BERSERK:
-                    if (!lightInteraction.berserkRefreshes)
-                    {
-                        if (attackInteractionOptions == null) attackInteractionOptions = new AttackInteractionOptions();
-                        attackInteractionOptions.Interact(lightInteraction.berserkOptions, this.gameObject, turnsOff);
-                    }
-                    break;
-                case AffectedByLight.LightState.NORMAL:
-                    if (!lightInteraction.normalRefreshes)
-                    {
-                        if (attackInteractionOptions == null) attackInteractionOptions = new AttackInteractionOptions();
-                        attackInteractionOptions.Interact(lightInteraction.normalOptions, this.gameObject, turnsOff);
-                    }
-                    break;
-            }
+            CreateAttackInteractionOptions();
+            if (receivedLightState == AffectedByLight.LightState.CALM && !lightInteraction.calmRefreshes) attackInteractionOptions.Interact(lightInteraction.calmOptions, this.gameObject, turnsOff);
+            if (receivedLightState == AffectedByLight.LightState.BERSERK && !lightInteraction.berserkRefreshes) attackInteractionOptions.Interact(lightInteraction.berserkOptions, this.gameObject, turnsOff);
+            if (receivedLightState == AffectedByLight.LightState.NORMAL && !lightInteraction.normalRefreshes) attackInteractionOptions.Interact(lightInteraction.normalOptions, this.gameObject, turnsOff);
         }
     }
     private void ExecuteLightInteractionRefresh(AffectedByLight receivedRef, AffectedByLight.LightState receivedLightState)
     {
         if (receivedRef != null && lightInteraction.hasLightInteraction && receivedRef == lightInteraction.affectedByLightRef)
         {
-            switch (receivedLightState)
-            {
-                case AffectedByLight.LightState.CALM:
-                    if (lightInteraction.calmRefreshes)
-                    {
-                        if (attackInteractionOptions == null) attackInteractionOptions = new AttackInteractionOptions();
-                        attackInteractionOptions.Interact(lightInteraction.calmOptions, this.gameObject, turnsOff);
-                    }
-                    break;
-                case AffectedByLight.LightState.BERSERK:
-                    if (lightInteraction.berserkRefreshes)
-                    {
-                        if (attackInteractionOptions == null) attackInteractionOptions = new AttackInteractionOptions();
-                        attackInteractionOptions.Interact(lightInteraction.berserkOptions, this.gameObject, turnsOff);
-                    }
-                    break;
-                case AffectedByLight.LightState.NORMAL:
-                    if (lightInteraction.normalRefreshes)
-                    {
-                        if (attackInteractionOptions == null) attackInteractionOptions = new AttackInteractionOptions();
-                        attackInteractionOptions.Interact(lightInteraction.normalOptions, this.gameObject, turnsOff);
-                    }
-                    break;
-            }
+            CreateAttackInteractionOptions();
+            if (receivedLightState == AffectedByLight.LightState.CALM && lightInteraction.calmRefreshes) attackInteractionOptions.Interact(lightInteraction.calmOptions, this.gameObject, turnsOff);
+            if (receivedLightState == AffectedByLight.LightState.BERSERK && lightInteraction.berserkRefreshes) attackInteractionOptions.Interact(lightInteraction.berserkOptions, this.gameObject, turnsOff);
+            if (receivedLightState == AffectedByLight.LightState.NORMAL && lightInteraction.normalRefreshes) attackInteractionOptions.Interact(lightInteraction.normalOptions, this.gameObject, turnsOff);
+
         }
     }
 

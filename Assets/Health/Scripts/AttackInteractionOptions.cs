@@ -20,19 +20,6 @@ public class AttackInteractionOptions
             else if (options.rotates && options.objectToRotate != null) RotateObject(options);
         }
     }
-    public void Interact(AttackInteraction.Options options, GameObject source, bool turnsOff, float lifeTime)
-    {
-        if (!options.hasSpecialCondition || SpecialConditionsCheck(options))
-        {
-            if (options.isDestroyed) DestroyOrTurnOff(turnsOff);
-            else if (options.isTransformed && options.transformedRef != null) Transform(options, turnsOff, lifeTime);
-            else if (options.canSpawnObject && options.objectToSpawn != null) SpawnObject(options.objectToSpawn, options.objectSpawnPositionOffset);
-            else if (options.sendsSignalToSelf) SendSignalToSelf(source);
-            else if (options.isMoved) MoveObject(options, source.transform.position - selfObject.transform.position);
-            else if (options.canSetObjectActiveStatus) SetObjectActiveStatus(options);
-            else if (options.rotates && options.objectToRotate != null) RotateObject(options);
-        }
-    }
 
     private bool SpecialConditionsCheck(AttackInteraction.Options options)
     {
@@ -55,13 +42,7 @@ public class AttackInteractionOptions
         GameObject.Instantiate(options.transformedRef, attackInteraction.gameObject.transform.position, attackInteraction.gameObject.transform.rotation, attackInteraction.gameObject.transform.parent);
         DestroyOrTurnOff(turnsOff);
     }
-    private void Transform(AttackInteraction.Options options, bool turnsOff, float lifeTime)
-    {
-        GameObject objectRef = GameObject.Instantiate(options.transformedRef, attackInteraction.gameObject.transform.position, attackInteraction.gameObject.transform.rotation, attackInteraction.gameObject.transform.parent);
-        Lifetime lifetimeRef = objectRef.GetComponent<Lifetime>();
-        if (lifetimeRef != null) lifetimeRef.SetTimer(lifeTime);
-        DestroyOrTurnOff(turnsOff);
-    }
+
     private void SetObjectActiveStatus(AttackInteraction.Options options)
     {
         if (options.objectToSetActiveStatus != null) options.objectToSetActiveStatus.SetActive(options.objectActiveStatus);
