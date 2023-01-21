@@ -36,7 +36,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5477770951886658404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.03, y: 0.25, z: 0.02}
+  m_LocalPosition: {x: 9.03, y: 0.25, z: 0.01999998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -72,8 +72,6 @@ MonoBehaviour:
     deathTimer: 0
   affectedByLight: {fileID: 0}
   attackReceived: {fileID: 0}
-  usesFixedTimeLifetimeObject: 0
-  fixedTimeLifetimeObjectDuration: 0
   isRetracted: 0
   brambleData: {fileID: 0}
   brambleBallRef: {fileID: 4014776901287296295, guid: c89ec9ec48c88a94ab08433039e855bb, type: 3}
@@ -204,7 +202,6 @@ MonoBehaviour:
       shakeDuration: 0
       cinemachineCameraShakerRef: {fileID: 0}
     soundParent: {fileID: 0}
-  spawnLifetimeObjOnDeath: 0
 --- !u!114 &8690117516297040685
 MonoBehaviour:
   m_ObjectHideFlags: 0

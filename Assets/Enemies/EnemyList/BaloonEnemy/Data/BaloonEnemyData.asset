@@ -18,16 +18,16 @@ MonoBehaviour:
   normalDistanceFromPlayer: 5
   normalDistanceTolerance: 0
   hasNormalWeapon: 1
-  normalWeapon: {fileID: 4222045236405462924, guid: c19aad884a580714899e6e2c38161964, type: 3}
+  normalWeapon: {fileID: 4222045236405462924, guid: 9459f94b2e382654d9853b969b684672, type: 3}
   calmMovementSpeed: 5
   calmDistanceFromPlayer: 0
   calmDistanceTolerance: 0
   hasCalmWeapon: 1
-  calmWeapon: {fileID: 4222045236405462924, guid: 7065d176beefb154a9e74bdef152c08c, type: 3}
+  calmWeapon: {fileID: 4222045236405462924, guid: c78e58062ac8caf40b4bd1375d5790b8, type: 3}
   berserkMovementSpeed: 6
   berserkDistanceFromPlayer: 8
   berserkDistanceTolerance: 0
   hasBerserkWeapon: 1
-  berserkWeapon: {fileID: 4222045236405462924, guid: 7065d176beefb154a9e74bdef152c08c, type: 3}
+  berserkWeapon: {fileID: 4222045236405462924, guid: 5a697c1681a98f547807ff2dd8fe5ef4, type: 3}
   firstAggroDistance: 20
   stopAggroDistance: 40
