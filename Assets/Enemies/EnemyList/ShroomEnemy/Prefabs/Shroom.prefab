@@ -359,13 +359,13 @@ MonoBehaviour:
   onDeathEnabled: 1
   onDeathInteraction:
     isDestroyed: 0
-    isTransformed: 1
-    transformedRef: {fileID: 809524107923366733, guid: e756edc1778626d4b96a6f7b6332a7c7, type: 3}
+    isTransformed: 0
+    transformedRef: {fileID: 0}
     canSetObjectActiveStatus: 0
     objectActiveStatus: 0
     objectToSetActiveStatus: {fileID: 0}
-    canSpawnObject: 0
-    objectToSpawn: {fileID: 0}
+    canSpawnObject: 1
+    objectToSpawn: {fileID: 809524107923366733, guid: e756edc1778626d4b96a6f7b6332a7c7, type: 3}
     objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
     rotates: 0
     objectToRotate: {fileID: 0}
