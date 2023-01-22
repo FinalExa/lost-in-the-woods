@@ -71,8 +71,6 @@ MonoBehaviour:
     deathTimer: 0
   affectedByLight: {fileID: 0}
   attackReceived: {fileID: 0}
-  usesFixedTimeLifetimeObject: 0
-  fixedTimeLifetimeObjectDuration: 0
   rootUnderground: 0
   spriteRef: {fileID: 5968671515912607088}
   rootUndergroundSprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
@@ -139,11 +137,9 @@ MonoBehaviour:
       mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
     hasSpriteColorChange: 0
     spriteColorChange:
-      onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+      changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
       spriteRef: {fileID: 0}
       spriteColorChangeDuration: 0
-      spritehasChangedColor: 0
-      spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
     hasCameraShake: 0
     cameraShake:
       shakeAmplitude: 0
@@ -166,11 +162,9 @@ MonoBehaviour:
       mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
     hasSpriteColorChange: 1
     spriteColorChange:
-      onHitSpriteColor: {r: 0, g: 0, b: 1, a: 1}
+      changedSpriteColor: {r: 0, g: 0, b: 1, a: 1}
       spriteRef: {fileID: 5968671515912607088}
       spriteColorChangeDuration: 0.3
-      spritehasChangedColor: 0
-      spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
     hasCameraShake: 0
     cameraShake:
       shakeAmplitude: 0
@@ -178,7 +172,6 @@ MonoBehaviour:
       shakeDuration: 0
       cinemachineCameraShakerRef: {fileID: 0}
     soundParent: {fileID: 0}
-  spawnLifetimeObjOnDeath: 0
 --- !u!114 &8690117516297040685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,11 +211,9 @@ MonoBehaviour:
         mixer: {fileID: 0}
       hasSpriteColorChange: 0
       spriteColorChange:
-        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
         spriteRef: {fileID: 0}
         spriteColorChangeDuration: 0
-        spritehasChangedColor: 0
-        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
       hasCameraShake: 0
       cameraShake:
         shakeAmplitude: 0
@@ -309,11 +300,9 @@ MonoBehaviour:
           mixer: {fileID: 0}
         hasSpriteColorChange: 0
         spriteColorChange:
-          onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
           spriteRef: {fileID: 0}
           spriteColorChangeDuration: 0
-          spritehasChangedColor: 0
-          spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
         hasCameraShake: 0
         cameraShake:
           shakeAmplitude: 0
@@ -358,11 +347,9 @@ MonoBehaviour:
           mixer: {fileID: 0}
         hasSpriteColorChange: 0
         spriteColorChange:
-          onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
           spriteRef: {fileID: 0}
           spriteColorChangeDuration: 0
-          spritehasChangedColor: 0
-          spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
         hasCameraShake: 0
         cameraShake:
           shakeAmplitude: 0
@@ -405,11 +392,9 @@ MonoBehaviour:
         mixer: {fileID: 0}
       hasSpriteColorChange: 0
       spriteColorChange:
-        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
         spriteRef: {fileID: 0}
         spriteColorChangeDuration: 0
-        spritehasChangedColor: 0
-        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
       hasCameraShake: 0
       cameraShake:
         shakeAmplitude: 0
@@ -455,11 +440,9 @@ MonoBehaviour:
           mixer: {fileID: 0}
         hasSpriteColorChange: 0
         spriteColorChange:
-          onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
           spriteRef: {fileID: 0}
           spriteColorChangeDuration: 0
-          spritehasChangedColor: 0
-          spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
         hasCameraShake: 0
         cameraShake:
           shakeAmplitude: 0
@@ -502,11 +485,9 @@ MonoBehaviour:
           mixer: {fileID: 0}
         hasSpriteColorChange: 0
         spriteColorChange:
-          onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
           spriteRef: {fileID: 0}
           spriteColorChangeDuration: 0
-          spritehasChangedColor: 0
-          spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
         hasCameraShake: 0
         cameraShake:
           shakeAmplitude: 0
@@ -549,11 +530,9 @@ MonoBehaviour:
           mixer: {fileID: 0}
         hasSpriteColorChange: 0
         spriteColorChange:
-          onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
           spriteRef: {fileID: 0}
           spriteColorChangeDuration: 0
-          spritehasChangedColor: 0
-          spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
         hasCameraShake: 0
         cameraShake:
           shakeAmplitude: 0
@@ -599,11 +578,9 @@ MonoBehaviour:
           mixer: {fileID: 0}
         hasSpriteColorChange: 0
         spriteColorChange:
-          onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
           spriteRef: {fileID: 0}
           spriteColorChangeDuration: 0
-          spritehasChangedColor: 0
-          spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
         hasCameraShake: 0
         cameraShake:
           shakeAmplitude: 0

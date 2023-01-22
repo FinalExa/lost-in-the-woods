@@ -24,5 +24,4 @@ public class PCData : ScriptableObject
     public float dodgeDuration;
     public float dodgeDistance;
     public float dodgeStopTime;
-    public Color dodgeColor;
 }
