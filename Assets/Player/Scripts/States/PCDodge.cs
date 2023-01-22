@@ -33,7 +33,7 @@ public class PCDodge : PCState
         _pcStateMachine.gameObject.tag = pcData.invulnerabilityTag;
         dodgeTimer = pcData.dodgeDuration;
         dodgeSpeed = pcData.dodgeDistance / pcData.dodgeDuration;
-        if (_pcStateMachine.pcController.pcReferences.uxOnDodge.hasSpriteColorChange) _pcStateMachine.pcController.pcReferences.uxOnDodge.spriteColorChange.SetSpriteColor();
+        if (_pcStateMachine.pcController.pcReferences.uxOnDodge.hasSpriteColorChange) _pcStateMachine.pcController.pcReferences.uxOnDodge.spriteColorChange.StartColorChange();
         startDodge = true;
     }
 
@@ -56,7 +56,6 @@ public class PCDodge : PCState
         _pcStateMachine.pcController.pcReferences.rb.velocity = Vector3.zero;
         _pcStateMachine.gameObject.tag = playerTag;
         dodgeTimer = _pcStateMachine.pcController.pcReferences.pcData.dodgeStopTime;
-        if (_pcStateMachine.pcController.pcReferences.uxOnDodge.hasSpriteColorChange) _pcStateMachine.pcController.pcReferences.uxOnDodge.spriteColorChange.ResetSpriteColor();
         wait = true;
     }
 

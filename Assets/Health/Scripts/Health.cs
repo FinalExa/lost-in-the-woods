@@ -37,11 +37,7 @@ public abstract class Health : MonoBehaviour
 
     public void OnHitSetSpriteColorChange()
     {
-        if (uxOnHit.hasSpriteColorChange && uxOnHit.spriteColorChange.spriteRef != null)
-        {
-            uxOnHit.spriteColorChange.SetSpriteColor();
-            StartCoroutine(OnHitSpriteColorChangeExecute(uxOnHit.spriteColorChange.spriteColorChangeDuration));
-        }
+        if (uxOnHit.hasSpriteColorChange && uxOnHit.spriteColorChange.spriteRef != null) uxOnHit.spriteColorChange.StartColorChange();
     }
 
     public virtual void OnHitReceived()
@@ -64,11 +60,5 @@ public abstract class Health : MonoBehaviour
     public void OnHitCameraShake()
     {
         if (uxOnHit.hasCameraShake) uxOnHit.cameraShake.StartCameraShake();
-    }
-
-    private IEnumerator OnHitSpriteColorChangeExecute(float timeToWait)
-    {
-        yield return new WaitForSeconds(timeToWait);
-        uxOnHit.spriteColorChange.ResetSpriteColor();
     }
 }
