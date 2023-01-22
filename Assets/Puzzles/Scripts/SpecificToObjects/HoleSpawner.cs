@@ -21,7 +21,7 @@ public class HoleSpawner : MonoBehaviour
         {
             if (collider.gameObject.CompareTag(permanentHoleTerrainTag))
             {
-                SpawnHole(permanentHoleRef);
+                SpawnHole(permanentHoleRef, collider.gameObject.GetComponent<PermanentHoleTerrain>());
                 check = true;
                 break;
             }
@@ -32,6 +32,12 @@ public class HoleSpawner : MonoBehaviour
     private void SpawnHole(GameObject holeToSpawn)
     {
         Instantiate(holeToSpawn, this.transform.position, Quaternion.identity);
+        GameObject.Destroy(this.gameObject);
+    }
+    private void SpawnHole(GameObject holeToSpawn, PermanentHoleTerrain permanentHoleTerrain)
+    {
+        GameObject hole = Instantiate(holeToSpawn, this.transform.position, Quaternion.identity);
+        permanentHoleTerrain.AddPermanentHole(hole);
         GameObject.Destroy(this.gameObject);
     }
 }
