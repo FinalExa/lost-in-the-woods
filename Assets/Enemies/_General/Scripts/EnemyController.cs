@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
     [HideInInspector] public Spawner.EnemiesToRespawn spawnerEnemyInfo;
     [HideInInspector] public AffectedByLight affectedByLight;
     [HideInInspector] public AttackReceived attackReceived;
+    [HideInInspector] public AttackInteraction attackInteraction;
 
     protected virtual void Awake()
     {
@@ -25,6 +26,7 @@ public class EnemyController : MonoBehaviour
         thisNavMeshAgent = this.gameObject.GetComponent<NavMeshAgent>();
         affectedByLight = this.gameObject.GetComponent<AffectedByLight>();
         attackReceived = this.gameObject.GetComponent<AttackReceived>();
+        attackInteraction = this.gameObject.GetComponent<AttackInteraction>();
     }
     public virtual void LightStateUpdate()
     {

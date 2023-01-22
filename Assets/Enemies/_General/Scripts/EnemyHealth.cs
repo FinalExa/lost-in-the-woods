@@ -30,7 +30,7 @@ public class EnemyHealth : Health
     {
         if (!deathDone)
         {
-            if (enemyController.spawnerRef != null) enemyController.spawnerRef.SetEnemyDead(enemyController.spawnerEnemyInfo);
+            if (enemyController.spawnerRef != null) enemyController.spawnerRef.SetEnemyDead(enemyController.spawnerEnemyInfo, false);
             else this.gameObject.SetActive(false);
         }
     }
