@@ -10,12 +10,18 @@ public class Spawner : MonoBehaviour
         public EnemyController enemy;
         public bool startsSpawned;
         public GameObject firstSpawnPosition;
+        public bool hasFixedSpawnPositionOnRespawn;
+        public GameObject fixedSpawnPosition;
+        public bool doesntRespawn;
         public float deathCooldown;
     }
     [System.Serializable]
     public struct EnemiesToRespawn
     {
         public EnemyController enemy;
+        public bool doesntRespawn;
+        public bool fixedSpawn;
+        public GameObject fixedSpawnPosition;
         public float maxTimer;
         public float deathTimer;
     }
@@ -49,7 +55,7 @@ public class Spawner : MonoBehaviour
         foreach (SpawnerEnemies enemyToSpawn in enemiesToSpawnInThisZone)
         {
             EnemyController enemyRef = Instantiate(enemyToSpawn.enemy, this.transform);
-            EnemiesToRespawn enemyToRespawn = CreateEnemyToRespawn(enemyRef, enemyToSpawn.deathCooldown);
+            EnemiesToRespawn enemyToRespawn = CreateEnemyToRespawn(enemyRef, enemyToSpawn.deathCooldown, enemyToSpawn.doesntRespawn, enemyToSpawn.hasFixedSpawnPositionOnRespawn, enemyToSpawn.fixedSpawnPosition);
             enemyRef.spawnerRef = this;
             enemyRef.spawnerEnemyInfo = enemyToRespawn;
             enemyRef.isAlerted = false;
@@ -59,13 +65,16 @@ public class Spawner : MonoBehaviour
                 else RandomizeEnemyPosition(enemyToSpawn.enemy);
                 SetEnemyActive(enemyToRespawn);
             }
-            else SetEnemyDead(enemyToRespawn);
+            else SetEnemyDead(enemyToRespawn, true);
         }
     }
-    private EnemiesToRespawn CreateEnemyToRespawn(EnemyController enemyRef, float timer)
+    private EnemiesToRespawn CreateEnemyToRespawn(EnemyController enemyRef, float timer, bool _doesntRespawn, bool _fixedSpawn, GameObject fixedSpawnObj)
     {
         EnemiesToRespawn enemyToRespawn = new EnemiesToRespawn();
         enemyToRespawn.enemy = enemyRef;
+        enemyToRespawn.doesntRespawn = _doesntRespawn;
+        enemyToRespawn.fixedSpawn = _fixedSpawn;
+        enemyToRespawn.fixedSpawnPosition = fixedSpawnObj;
         enemyToRespawn.maxTimer = timer;
         enemyToRespawn.deathTimer = timer;
         return enemyToRespawn;
@@ -79,10 +88,11 @@ public class Spawner : MonoBehaviour
     }
 
 
-    public void SetEnemyDead(EnemiesToRespawn enemyRef)
+    public void SetEnemyDead(EnemiesToRespawn enemyRef, bool firstTime)
     {
-        if (!deadEnemies.Contains(enemyRef)) deadEnemies.Add(enemyRef);
+        if (!deadEnemies.Contains(enemyRef) && (!enemyRef.doesntRespawn || firstTime)) deadEnemies.Add(enemyRef);
         if (activeEnemies.Contains(enemyRef)) activeEnemies.Remove(enemyRef);
+        if (enemyRef.enemy.attackInteraction != null) enemyRef.enemy.attackInteraction.despawned = true;
         enemyRef.enemy.gameObject.SetActive(false);
     }
     private void RandomizeEnemyPosition(EnemyController enemyRef)
@@ -103,10 +113,10 @@ public class Spawner : MonoBehaviour
             {
                 enemyToRespawn.deathTimer = enemyToRespawn.maxTimer;
                 deadEnemies[i] = enemyToRespawn;
-                RandomizeEnemyPosition(enemyToRespawn.enemy);
+                if (!enemyToRespawn.fixedSpawn || (enemyToRespawn.fixedSpawn && enemyToRespawn.fixedSpawnPosition == null)) RandomizeEnemyPosition(enemyToRespawn.enemy);
+                else enemyToRespawn.enemy.transform.position = enemyToRespawn.fixedSpawnPosition.transform.position;
                 SetEnemyActive(deadEnemies[i]);
             }
         }
     }
-
 }

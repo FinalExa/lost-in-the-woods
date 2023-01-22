@@ -17,7 +17,7 @@ public class UXEffect
     public void UXEffectStartup()
     {
         if (hasSound) GetAudioSource();
-        if (hasSpriteColorChange) spriteColorChange.GetSpriteBaseColor();
+        if (hasSpriteColorChange) spriteColorChange.SpriteColorChangeStartup();
         if (hasCameraShake) GetCameraShaker();
     }
 

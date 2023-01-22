@@ -21,7 +21,9 @@ public class ComboObjectSpawner
         currentObjectToSpawn.spawned = true;
         GameObject objectToLaunch = GameObject.Instantiate(currentObjectToSpawn.objectRef, currentObjectToSpawn.objectStartPosition.transform.position, Quaternion.identity);
         IHaveSettableDirection haveSettableDirection = objectToLaunch.GetComponent<IHaveSettableDirection>();
+        Rigidbody objectToLaunchRb = objectToLaunch.GetComponent<Rigidbody>();
         if (haveSettableDirection != null) haveSettableDirection.SetDirection(lastDirection);
+        if (objectToLaunchRb != null) objectToLaunchRb.velocity = lastDirection * currentObjectToSpawn.launchSpeed;
         currentAttack.weaponSpawnsObjectDuringThisAttack[currentIndex] = currentObjectToSpawn;
     }
 

@@ -36,7 +36,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5477770951886658404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 181.56213, y: 0.25, z: -137.38113}
+  m_LocalPosition: {x: 12.95, y: 0.25, z: -9.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -68,15 +68,18 @@ MonoBehaviour:
   spawnerRef: {fileID: 0}
   spawnerEnemyInfo:
     enemy: {fileID: 0}
+    doesntRespawn: 0
+    fixedSpawn: 0
+    fixedSpawnPosition: {fileID: 0}
     maxTimer: 0
     deathTimer: 0
   affectedByLight: {fileID: 0}
   attackReceived: {fileID: 0}
-  usesFixedTimeLifetimeObject: 0
-  fixedTimeLifetimeObjectDuration: 0
+  attackInteraction: {fileID: 0}
   isRetracted: 0
   brambleData: {fileID: 0}
   brambleBallRef: {fileID: 4014776901287296295, guid: c89ec9ec48c88a94ab08433039e855bb, type: 3}
+  brambleBallStartSpeed: 0.1
   spriteColliderObject: {fileID: 7200053106513421008}
   uxOnFullyRetracted:
     hasSound: 0
@@ -93,11 +96,9 @@ MonoBehaviour:
       mixer: {fileID: 0}
     hasSpriteColorChange: 0
     spriteColorChange:
-      onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+      changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
       spriteRef: {fileID: 0}
       spriteColorChangeDuration: 0
-      spritehasChangedColor: 0
-      spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
     hasCameraShake: 0
     cameraShake:
       shakeAmplitude: 0
@@ -164,11 +165,9 @@ MonoBehaviour:
       mixer: {fileID: 0}
     hasSpriteColorChange: 0
     spriteColorChange:
-      onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+      changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
       spriteRef: {fileID: 0}
       spriteColorChangeDuration: 0
-      spritehasChangedColor: 0
-      spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
     hasCameraShake: 0
     cameraShake:
       shakeAmplitude: 0
@@ -191,11 +190,9 @@ MonoBehaviour:
       mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
     hasSpriteColorChange: 1
     spriteColorChange:
-      onHitSpriteColor: {r: 0, g: 0, b: 1, a: 1}
+      changedSpriteColor: {r: 0, g: 0, b: 1, a: 1}
       spriteRef: {fileID: 5968671515912607088}
       spriteColorChangeDuration: 0.3
-      spritehasChangedColor: 0
-      spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
     hasCameraShake: 0
     cameraShake:
       shakeAmplitude: 0
@@ -203,7 +200,6 @@ MonoBehaviour:
       shakeDuration: 0
       cinemachineCameraShakerRef: {fileID: 0}
     soundParent: {fileID: 0}
-  spawnLifetimeObjOnDeath: 0
 --- !u!114 &8690117516297040685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,11 +239,9 @@ MonoBehaviour:
         mixer: {fileID: 0}
       hasSpriteColorChange: 0
       spriteColorChange:
-        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
         spriteRef: {fileID: 0}
         spriteColorChangeDuration: 0
-        spritehasChangedColor: 0
-        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
       hasCameraShake: 0
       cameraShake:
         shakeAmplitude: 0
@@ -318,6 +312,7 @@ MonoBehaviour:
   turnsOff: 0
   attackTypeInteractions:
   - attackType: 1
+    destroyAttackSourceObject: 0
     options:
       isDestroyed: 0
       isTransformed: 0
@@ -351,11 +346,9 @@ MonoBehaviour:
           mixer: {fileID: 0}
         hasSpriteColorChange: 0
         spriteColorChange:
-          onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
           spriteRef: {fileID: 0}
           spriteColorChangeDuration: 0
-          spritehasChangedColor: 0
-          spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
         hasCameraShake: 0
         cameraShake:
           shakeAmplitude: 0
@@ -364,7 +357,99 @@ MonoBehaviour:
           cinemachineCameraShakerRef: {fileID: 0}
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
-  namedInteractions: []
+  - attackType: 5
+    destroyAttackSourceObject: 1
+    options:
+      isDestroyed: 1
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      isMoved: 0
+      movementDistance: 0
+      movementTime: 0
+      sendsSignalToSelf: 1
+      hasSpecialCondition: 0
+      uxOnInteraction:
+        hasSound: 0
+        sound:
+          clip: {fileID: 0}
+          priority: 128
+          volume: 1
+          pitch: 1
+          stereoPan: 0
+          spatialBlend: 0
+          reverbZoneMix: 1
+          loop: 0
+          playOnAwake: 0
+          mixer: {fileID: 0}
+        hasSpriteColorChange: 0
+        spriteColorChange:
+          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+          spriteRef: {fileID: 0}
+          spriteColorChangeDuration: 0
+        hasCameraShake: 0
+        cameraShake:
+          shakeAmplitude: 0
+          shakeFrequency: 0
+          shakeDuration: 0
+          cinemachineCameraShakerRef: {fileID: 0}
+        soundParent: {fileID: 0}
+      uxOnInteractionInitialized: 0
+  namedInteractions:
+  - name: BrambleBallInfested
+    destroyNamedObjectOnInteraction: 1
+    options:
+      isDestroyed: 1
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      isMoved: 0
+      movementDistance: 0
+      movementTime: 0
+      sendsSignalToSelf: 0
+      hasSpecialCondition: 0
+      uxOnInteraction:
+        hasSound: 0
+        sound:
+          clip: {fileID: 0}
+          priority: 0
+          volume: 0
+          pitch: 0
+          stereoPan: 0
+          spatialBlend: 0
+          reverbZoneMix: 0
+          loop: 0
+          playOnAwake: 0
+          mixer: {fileID: 0}
+        hasSpriteColorChange: 0
+        spriteColorChange:
+          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+          spriteRef: {fileID: 0}
+          spriteColorChangeDuration: 0
+        hasCameraShake: 0
+        cameraShake:
+          shakeAmplitude: 0
+          shakeFrequency: 0
+          shakeDuration: 0
+          cinemachineCameraShakerRef: {fileID: 0}
+        soundParent: {fileID: 0}
+      uxOnInteractionInitialized: 0
   onDeathEnabled: 0
   onDeathInteraction:
     isDestroyed: 0
@@ -399,11 +484,9 @@ MonoBehaviour:
         mixer: {fileID: 0}
       hasSpriteColorChange: 0
       spriteColorChange:
-        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
         spriteRef: {fileID: 0}
         spriteColorChangeDuration: 0
-        spritehasChangedColor: 0
-        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
       hasCameraShake: 0
       cameraShake:
         shakeAmplitude: 0
@@ -449,11 +532,9 @@ MonoBehaviour:
           mixer: {fileID: 0}
         hasSpriteColorChange: 0
         spriteColorChange:
-          onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
           spriteRef: {fileID: 0}
           spriteColorChangeDuration: 0
-          spritehasChangedColor: 0
-          spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
         hasCameraShake: 0
         cameraShake:
           shakeAmplitude: 0
@@ -496,11 +577,9 @@ MonoBehaviour:
           mixer: {fileID: 0}
         hasSpriteColorChange: 0
         spriteColorChange:
-          onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
           spriteRef: {fileID: 0}
           spriteColorChangeDuration: 0
-          spritehasChangedColor: 0
-          spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
         hasCameraShake: 0
         cameraShake:
           shakeAmplitude: 0
@@ -543,11 +622,9 @@ MonoBehaviour:
           mixer: {fileID: 0}
         hasSpriteColorChange: 0
         spriteColorChange:
-          onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
           spriteRef: {fileID: 0}
           spriteColorChangeDuration: 0
-          spritehasChangedColor: 0
-          spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
         hasCameraShake: 0
         cameraShake:
           shakeAmplitude: 0
@@ -556,6 +633,55 @@ MonoBehaviour:
           cinemachineCameraShakerRef: {fileID: 0}
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
+  timeAfterStartInteraction:
+    hasTimeAfterStartInteraction: 0
+    timeAfterStart: 0
+    repeats: 0
+    options:
+      isDestroyed: 0
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      isMoved: 0
+      movementDistance: 0
+      movementTime: 0
+      sendsSignalToSelf: 0
+      hasSpecialCondition: 0
+      uxOnInteraction:
+        hasSound: 0
+        sound:
+          clip: {fileID: 0}
+          priority: 128
+          volume: 1
+          pitch: 1
+          stereoPan: 0
+          spatialBlend: 0
+          reverbZoneMix: 1
+          loop: 0
+          playOnAwake: 0
+          mixer: {fileID: 0}
+        hasSpriteColorChange: 0
+        spriteColorChange:
+          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+          spriteRef: {fileID: 0}
+          spriteColorChangeDuration: 0
+        hasCameraShake: 0
+        cameraShake:
+          shakeAmplitude: 0
+          shakeFrequency: 0
+          shakeDuration: 0
+          cinemachineCameraShakerRef: {fileID: 0}
+        soundParent: {fileID: 0}
+      uxOnInteractionInitialized: 0
+  despawned: 0
 --- !u!65 &7001282123244882244
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -745,11 +871,9 @@ MonoBehaviour:
         mixer: {fileID: 0}
       hasSpriteColorChange: 0
       spriteColorChange:
-        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
         spriteRef: {fileID: 0}
         spriteColorChangeDuration: 0
-        spritehasChangedColor: 0
-        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
       hasCameraShake: 0
       cameraShake:
         shakeAmplitude: 0

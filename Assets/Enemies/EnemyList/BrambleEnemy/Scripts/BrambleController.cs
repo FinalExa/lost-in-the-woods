@@ -8,6 +8,7 @@ public class BrambleController : EnemyController, ISendSignalToSelf
     [HideInInspector] public BrambleData brambleData;
     [SerializeField] private GameObject brambleBallRef;
     private BoxCollider boxCollider;
+    [SerializeField] private float brambleBallStartSpeed;
     [SerializeField] GameObject spriteColliderObject;
     private Vector3 startBoxColliderSize;
     private Vector3 expandedBoxColliderSize;
@@ -42,6 +43,7 @@ public class BrambleController : EnemyController, ISendSignalToSelf
         {
             RetractionUpdate(-brambleData.onHitRetractReduction);
             Vector3 direction = this.gameObject.transform.position - source.transform.position;
+            direction = new Vector3(direction.x, 0f, direction.z);
             ShootBrambleBall(direction);
             if (isRetracted) enemyCombo.EndCombo();
         }
@@ -97,7 +99,8 @@ public class BrambleController : EnemyController, ISendSignalToSelf
     private void ShootBrambleBall(Vector3 direction)
     {
         GameObject brambleBall = Instantiate(brambleBallRef, this.transform.position, this.transform.rotation);
-        IHaveSettableDirection haveSettableDirection = brambleBall.GetComponent<IHaveSettableDirection>();
-        if (haveSettableDirection != null) haveSettableDirection.SetDirection(direction);
+        brambleBall.transform.position = this.transform.position + Vector3.Scale(direction, currentColliderSize + (Vector3.one * 2f));
+        Rigidbody brambleBallRb = brambleBall.GetComponent<Rigidbody>();
+        if (brambleBallRb != null) brambleBallRb.velocity = direction * brambleBallStartSpeed;
     }
 }

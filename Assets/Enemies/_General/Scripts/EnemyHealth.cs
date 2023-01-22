@@ -7,7 +7,6 @@ public class EnemyHealth : Health
     protected EnemyController enemyController;
     protected AttackInteraction attackInteraction;
     protected bool deathDone;
-    [SerializeField] private bool spawnLifetimeObjOnDeath;
 
     protected virtual void Awake()
     {
@@ -29,29 +28,20 @@ public class EnemyHealth : Health
     }
     private void SetEnemyDead()
     {
-        if (uxOnDeath.hasSound) uxOnDeath.sound.PlayAudio();
         if (!deathDone)
         {
-            if (enemyController.spawnerRef != null) enemyController.spawnerRef.SetEnemyDead(enemyController.spawnerEnemyInfo);
+            if (enemyController.spawnerRef != null) enemyController.spawnerRef.SetEnemyDead(enemyController.spawnerEnemyInfo, false);
             else this.gameObject.SetActive(false);
         }
     }
 
     protected virtual void OnDeathInteraction()
     {
-        if (!deathDone && attackInteraction != null)
-        {
-            if (!spawnLifetimeObjOnDeath) attackInteraction.OnDeathInteraction();
-            else
-            {
-                if (!enemyController.usesFixedTimeLifetimeObject) attackInteraction.OnDeathInteraction(enemyController.spawnerEnemyInfo.maxTimer);
-                else attackInteraction.OnDeathInteraction(enemyController.fixedTimeLifetimeObjectDuration);
-            }
-        }
+        if (!deathDone && attackInteraction != null) attackInteraction.OnDeathInteraction();
     }
 
     private void OnDisable()
     {
-        SetEnemyDead();
+        OnDeath();
     }
 }

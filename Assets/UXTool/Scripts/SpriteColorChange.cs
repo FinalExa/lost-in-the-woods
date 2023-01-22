@@ -5,26 +5,27 @@ using UnityEngine;
 [System.Serializable]
 public class SpriteColorChange
 {
-    public Color onHitSpriteColor;
+    public Color changedSpriteColor;
     public SpriteRenderer spriteRef;
     public float spriteColorChangeDuration;
-    [HideInInspector] public bool spritehasChangedColor;
-    [HideInInspector] public Color spriteRefBaseColor;
+    private SpriteColorChanger spriteColorChanger;
 
-    public void GetSpriteBaseColor()
+
+    public void SpriteColorChangeStartup()
     {
-        spriteRefBaseColor = spriteRef.color;
+        if (spriteRef != null)
+        {
+            if (spriteColorChanger == null)
+            {
+                if (spriteRef.gameObject.GetComponent<SpriteColorChanger>()) spriteColorChanger = spriteRef.gameObject.GetComponent<SpriteColorChanger>();
+                else spriteColorChanger = spriteRef.gameObject.AddComponent<SpriteColorChanger>();
+            }
+            spriteColorChanger.Startup(spriteRef);
+        }
     }
 
-    public void SetSpriteColor()
+    public void StartColorChange()
     {
-        spriteRef.color = onHitSpriteColor;
-        spritehasChangedColor = true;
-    }
-
-    public void ResetSpriteColor()
-    {
-        spriteRef.color = spriteRefBaseColor;
-        spritehasChangedColor = false;
+        if (spriteColorChanger != null) spriteColorChanger.StartColorChange(spriteColorChangeDuration, changedSpriteColor);
     }
 }

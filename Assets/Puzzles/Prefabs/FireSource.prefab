@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8758143008440390022}
   - component: {fileID: 4830499187636917438}
   - component: {fileID: 359752019594827067}
+  - component: {fileID: -2482230483106684483}
   - component: {fileID: 4014776901287296293}
   - component: {fileID: 4014776901287296294}
   - component: {fileID: 5852709638868262122}
@@ -93,6 +94,9 @@ MonoBehaviour:
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
@@ -138,6 +142,9 @@ MonoBehaviour:
     canSetObjectActiveStatus: 0
     objectActiveStatus: 0
     objectToSetActiveStatus: {fileID: 0}
+    canSpawnObject: 0
+    objectToSpawn: {fileID: 0}
+    objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
     rotates: 0
     objectToRotate: {fileID: 0}
     rotateValue: 0
@@ -185,6 +192,9 @@ MonoBehaviour:
       canSetObjectActiveStatus: 1
       objectActiveStatus: 0
       objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
@@ -229,6 +239,9 @@ MonoBehaviour:
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
@@ -273,6 +286,59 @@ MonoBehaviour:
       canSetObjectActiveStatus: 1
       objectActiveStatus: 0
       objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
+      rotates: 0
+      objectToRotate: {fileID: 0}
+      rotateValue: 0
+      isMoved: 0
+      movementDistance: 0
+      movementTime: 0
+      sendsSignalToSelf: 0
+      hasSpecialCondition: 0
+      uxOnInteraction:
+        hasSound: 0
+        sound:
+          clip: {fileID: 0}
+          priority: 128
+          volume: 1
+          pitch: 1
+          stereoPan: 0
+          spatialBlend: 0
+          reverbZoneMix: 1
+          loop: 0
+          playOnAwake: 0
+          mixer: {fileID: 0}
+        hasSpriteColorChange: 0
+        spriteColorChange:
+          onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+          spriteRef: {fileID: 0}
+          spriteColorChangeDuration: 0
+          spritehasChangedColor: 0
+          spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
+        hasCameraShake: 0
+        cameraShake:
+          shakeAmplitude: 0
+          shakeFrequency: 0
+          shakeDuration: 0
+          cinemachineCameraShakerRef: {fileID: 0}
+        soundParent: {fileID: 0}
+      uxOnInteractionInitialized: 0
+  timeAfterStartInteraction:
+    hasTimeAfterStartInteraction: 1
+    timeAfterStart: 10
+    repeats: 0
+    options:
+      isDestroyed: 1
+      isTransformed: 0
+      transformedRef: {fileID: 0}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      objectToSetActiveStatus: {fileID: 0}
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
       objectToRotate: {fileID: 0}
       rotateValue: 0
@@ -324,8 +390,8 @@ MonoBehaviour:
   currentWeapon: {fileID: 0}
   currentAttack:
     damage: 0
-    duration: 0
-    afterDelay: 0
+    frameDuration: 0
+    framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
     attackObject: {fileID: 0}
@@ -360,8 +426,26 @@ MonoBehaviour:
         shakeDuration: 0
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
+  frameValueTime: 0
   weaponToSet: {fileID: 6410237515491514060}
   resetsPositionAndRotationOnComboEnd: 0
+--- !u!114 &-2482230483106684483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4014776901287296295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0eca4a9e1534ba4f944878999c913a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisName: Fire
+  active: 1
+  inLoop: 0
+  destroyOnDone: 0
+  interactionDone: 0
 --- !u!54 &4014776901287296293
 Rigidbody:
   m_ObjectHideFlags: 0

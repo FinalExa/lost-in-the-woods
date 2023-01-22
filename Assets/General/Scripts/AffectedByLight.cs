@@ -22,7 +22,8 @@ public class AffectedByLight : MonoBehaviour
     private void Start()
     {
         Heartbeat.heartbeatSwitch += HeartbeatState;
-        lightState = LightState.NORMAL;
+        isInHeartbeatState = FindObjectOfType<Heartbeat>().InHeartbeat;
+        LightStateChange();
         previousLightState = lightState;
     }
     private void HeartbeatState(bool heartbeatState)
