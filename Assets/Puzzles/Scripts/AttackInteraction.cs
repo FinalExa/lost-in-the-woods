@@ -81,13 +81,19 @@ public class AttackInteraction : MonoBehaviour
     private float forcedMovementDuration;
     private float forcedMovementDistance;
     private Vector3 forcedMovementDirection;
+    [HideInInspector] public bool despawned;
 
     private void Start()
     {
         CreateAttackInteractionOptions();
         attackInteractionOptions.selfObject = this.gameObject;
         attackInteractionOptions.attackInteraction = this;
+    }
+
+    private void OnEnable()
+    {
         if (timeAfterStartInteraction.hasTimeAfterStartInteraction) LaunchTimeInteraction();
+        despawned = false;
     }
 
     private void CreateAttackInteractionOptions()
@@ -129,7 +135,11 @@ public class AttackInteraction : MonoBehaviour
     }
     public void OnDeathInteraction()
     {
-        if (onDeathEnabled) attackInteractionOptions.Interact(onDeathInteraction, this.gameObject, turnsOff);
+        if (onDeathEnabled)
+        {
+            if (!despawned) attackInteractionOptions.Interact(onDeathInteraction, this.gameObject, turnsOff);
+            else despawned = false;
+        }
     }
 
     public void ExecuteLightInteraction(AffectedByLight receivedRef, AffectedByLight.LightState receivedLightState)
