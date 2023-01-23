@@ -37,7 +37,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5477770951886658404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 300.25, y: 0.25, z: -162.5}
+  m_LocalPosition: {x: 301.25, y: 0.25, z: -136}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -68,10 +68,14 @@ MonoBehaviour:
   spawnerRef: {fileID: 0}
   spawnerEnemyInfo:
     enemy: {fileID: 0}
+    doesntRespawn: 0
+    fixedSpawn: 0
+    fixedSpawnPosition: {fileID: 0}
     maxTimer: 0
     deathTimer: 0
   affectedByLight: {fileID: 0}
   attackReceived: {fileID: 0}
+  attackInteraction: {fileID: 0}
   isStunned: 0
   littleShadeStunTimer: 3
 --- !u!114 &8730113041865061406
@@ -557,6 +561,7 @@ MonoBehaviour:
           cinemachineCameraShakerRef: {fileID: 0}
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
+  despawned: 0
 --- !u!114 &5639283629155765799
 MonoBehaviour:
   m_ObjectHideFlags: 0

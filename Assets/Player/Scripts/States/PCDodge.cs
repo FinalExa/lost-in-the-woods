@@ -34,6 +34,7 @@ public class PCDodge : PCState
         dodgeTimer = pcData.dodgeDuration;
         dodgeSpeed = pcData.dodgeDistance / pcData.dodgeDuration;
         if (_pcStateMachine.pcController.pcReferences.uxOnDodge.hasSpriteColorChange) _pcStateMachine.pcController.pcReferences.uxOnDodge.spriteColorChange.StartColorChange();
+        if (_pcStateMachine.pcController.pcReferences.uxOnDodge.hasSound) _pcStateMachine.pcController.pcReferences.uxOnDodge.sound.PlayAudio();
         startDodge = true;
     }
 

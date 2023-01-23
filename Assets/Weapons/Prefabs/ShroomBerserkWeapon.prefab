@@ -167,9 +167,9 @@ MonoBehaviour:
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
-      hasSound: 0
+      hasSound: 1
       sound:
-        clip: {fileID: 0}
+        clip: {fileID: 8300000, guid: 5d7a89d38a083a64893b68682d69e804, type: 3}
         priority: 128
         volume: 1
         pitch: 1
@@ -178,14 +178,12 @@ MonoBehaviour:
         reverbZoneMix: 1
         loop: 0
         playOnAwake: 0
-        mixer: {fileID: 0}
+        mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
       hasSpriteColorChange: 0
       spriteColorChange:
-        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
         spriteRef: {fileID: 0}
         spriteColorChangeDuration: 0
-        spritehasChangedColor: 0
-        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
       hasCameraShake: 0
       cameraShake:
         shakeAmplitude: 0
@@ -207,9 +205,9 @@ MonoBehaviour:
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
-      hasSound: 0
+      hasSound: 1
       sound:
-        clip: {fileID: 0}
+        clip: {fileID: 8300000, guid: 5d7a89d38a083a64893b68682d69e804, type: 3}
         priority: 128
         volume: 1
         pitch: 1
@@ -218,14 +216,12 @@ MonoBehaviour:
         reverbZoneMix: 1
         loop: 0
         playOnAwake: 0
-        mixer: {fileID: 0}
+        mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
       hasSpriteColorChange: 0
       spriteColorChange:
-        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
         spriteRef: {fileID: 0}
         spriteColorChangeDuration: 0
-        spritehasChangedColor: 0
-        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
       hasCameraShake: 0
       cameraShake:
         shakeAmplitude: 0
@@ -248,12 +244,13 @@ MonoBehaviour:
     - objectRef: {fileID: 4985850856629122337, guid: 660c68e138b85404494a2770e8d22301, type: 3}
       objectStartPosition: {fileID: 5260338369164934152}
       launchFrame: 30
+      launchSpeed: 0
       spawned: 0
     hasAnimation: 0
     uxOnWeaponAttack:
-      hasSound: 0
+      hasSound: 1
       sound:
-        clip: {fileID: 0}
+        clip: {fileID: 8300000, guid: 5d7a89d38a083a64893b68682d69e804, type: 3}
         priority: 128
         volume: 1
         pitch: 1
@@ -262,14 +259,12 @@ MonoBehaviour:
         reverbZoneMix: 1
         loop: 0
         playOnAwake: 0
-        mixer: {fileID: 0}
+        mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
       hasSpriteColorChange: 0
       spriteColorChange:
-        onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
         spriteRef: {fileID: 0}
         spriteColorChangeDuration: 0
-        spritehasChangedColor: 0
-        spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
       hasCameraShake: 0
       cameraShake:
         shakeAmplitude: 0

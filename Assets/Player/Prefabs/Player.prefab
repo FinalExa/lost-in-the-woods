@@ -103,9 +103,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pcData: {fileID: 11400000, guid: 2337e969dbc55004d8d9d48208094455, type: 2}
   uxOnDodge:
-    hasSound: 0
+    hasSound: 1
     sound:
-      clip: {fileID: 0}
+      clip: {fileID: 8300000, guid: 2d4f25aebcef7124b96077c4ed9828b4, type: 3}
       priority: 128
       volume: 1
       pitch: 1
@@ -114,7 +114,7 @@ MonoBehaviour:
       reverbZoneMix: 1
       loop: 0
       playOnAwake: 0
-      mixer: {fileID: 0}
+      mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
     hasSpriteColorChange: 1
     spriteColorChange:
       changedSpriteColor: {r: 0, g: 0.49019608, b: 0.6039216, a: 1}
@@ -677,6 +677,7 @@ MonoBehaviour:
           cinemachineCameraShakerRef: {fileID: 0}
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
+  despawned: 0
 --- !u!114 &1353845484741870925
 MonoBehaviour:
   m_ObjectHideFlags: 0
