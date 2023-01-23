@@ -1548,7 +1548,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8602866887416077042}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1585,6 +1585,8 @@ MonoBehaviour:
     puzzleActiveParent: {fileID: 8602866888104416627}
     puzzleInactiveParent: {fileID: 8602866887427505717}
     puzzleExit: {fileID: 1722372562241282497}
+    activateOnPuzzleEnd: {fileID: 0}
+    deactivateOnPuzzleEnd: {fileID: 0}
 --- !u!1 &8602866887427505717
 GameObject:
   m_ObjectHideFlags: 0
@@ -4093,8 +4095,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7825407511030907407, guid: 2f996d003cf366b4581b578d2c86fff6, type: 3}
     - target: {fileID: -6262136790749942028, guid: ed4aac8be66338d46a77bcd49d5e76fb, type: 3}
+      propertyPath: enemiesToSpawnInThisZone.Array.data[0].deathCooldown
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -6262136790749942028, guid: ed4aac8be66338d46a77bcd49d5e76fb, type: 3}
       propertyPath: enemiesToSpawnInThisZone.Array.data[0].startsSpawned
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6262136790749942028, guid: ed4aac8be66338d46a77bcd49d5e76fb, type: 3}
       propertyPath: enemiesToSpawnInThisZone.Array.data[1].startsSpawned
@@ -4129,6 +4135,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8602866886862495021}
     - target: {fileID: -6262136790749942028, guid: ed4aac8be66338d46a77bcd49d5e76fb, type: 3}
+      propertyPath: enemiesToSpawnInThisZone.Array.data[0].fixedSpawnPosition
+      value: 
+      objectReference: {fileID: 8602866886862495021}
+    - target: {fileID: -6262136790749942028, guid: ed4aac8be66338d46a77bcd49d5e76fb, type: 3}
       propertyPath: enemiesToSpawnInThisZone.Array.data[1].firstSpawnPosition
       value: 
       objectReference: {fileID: 8602866887173291309}
@@ -4156,6 +4166,10 @@ PrefabInstance:
       propertyPath: enemiesToSpawnInThisZone.Array.data[7].firstSpawnPosition
       value: 
       objectReference: {fileID: 8602866888299608671}
+    - target: {fileID: -6262136790749942028, guid: ed4aac8be66338d46a77bcd49d5e76fb, type: 3}
+      propertyPath: enemiesToSpawnInThisZone.Array.data[0].hasFixedSpawnPositionOnRespawn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1583234520602683218, guid: ed4aac8be66338d46a77bcd49d5e76fb, type: 3}
       propertyPath: m_Name
       value: Spawner

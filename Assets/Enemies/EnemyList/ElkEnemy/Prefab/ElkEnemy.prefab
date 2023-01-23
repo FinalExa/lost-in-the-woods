@@ -67,10 +67,14 @@ MonoBehaviour:
   spawnerRef: {fileID: 0}
   spawnerEnemyInfo:
     enemy: {fileID: 0}
+    doesntRespawn: 0
+    fixedSpawn: 0
+    fixedSpawnPosition: {fileID: 0}
     maxTimer: 0
     deathTimer: 0
   affectedByLight: {fileID: 0}
   attackReceived: {fileID: 0}
+  attackInteraction: {fileID: 0}
   isStunned: 0
   elkStunTimer: 4.3
   elkCalmStunTimer: 2
@@ -557,6 +561,7 @@ MonoBehaviour:
           cinemachineCameraShakerRef: {fileID: 0}
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
+  despawned: 0
 --- !u!65 &7001282123244882244
 BoxCollider:
   m_ObjectHideFlags: 0
