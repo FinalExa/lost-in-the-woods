@@ -92,7 +92,7 @@ public class Spawner : MonoBehaviour
     {
         if (!deadEnemies.Contains(enemyRef) && (!enemyRef.doesntRespawn || firstTime)) deadEnemies.Add(enemyRef);
         if (activeEnemies.Contains(enemyRef)) activeEnemies.Remove(enemyRef);
-        if (enemyRef.enemy.attackInteraction != null) enemyRef.enemy.attackInteraction.despawned = true;
+        if (enemyRef.enemy.interaction != null) enemyRef.enemy.interaction.despawned = true;
         enemyRef.enemy.gameObject.SetActive(false);
     }
     private void RandomizeEnemyPosition(EnemyController enemyRef)

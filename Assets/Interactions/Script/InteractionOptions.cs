@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackInteractionOptions
+public class InteractionOptions
 {
     public GameObject selfObject;
-    public AttackInteraction attackInteraction;
-    public void Interact(AttackInteraction.Options options, GameObject source, bool turnsOff)
+    public Interaction interaction;
+    public void Interact(Interaction.Options options, GameObject source, bool turnsOff)
     {
         if (!options.hasSpecialCondition || SpecialConditionsCheck(options))
         {
@@ -21,12 +21,12 @@ public class AttackInteractionOptions
         }
     }
 
-    private bool SpecialConditionsCheck(AttackInteraction.Options options)
+    private bool SpecialConditionsCheck(Interaction.Options options)
     {
         bool check = false;
         if (options.hasSpecialCondition)
         {
-            IHaveSpecialConditions haveSpecialConditions = attackInteraction.GetComponent<IHaveSpecialConditions>();
+            IHaveSpecialConditions haveSpecialConditions = interaction.GetComponent<IHaveSpecialConditions>();
             if (haveSpecialConditions != null) check = haveSpecialConditions.SpecialConditions();
         }
         return check;
@@ -34,28 +34,28 @@ public class AttackInteractionOptions
 
     private void SpawnObject(GameObject objectToSpawn, Vector3 offset)
     {
-        GameObject.Instantiate(objectToSpawn, attackInteraction.gameObject.transform.position + offset, Quaternion.identity);
+        GameObject.Instantiate(objectToSpawn, interaction.gameObject.transform.position + offset, Quaternion.identity);
     }
 
-    private void Transform(AttackInteraction.Options options, bool turnsOff)
+    private void Transform(Interaction.Options options, bool turnsOff)
     {
-        GameObject.Instantiate(options.transformedRef, attackInteraction.gameObject.transform.position, attackInteraction.gameObject.transform.rotation, attackInteraction.gameObject.transform.parent);
+        GameObject.Instantiate(options.transformedRef, interaction.gameObject.transform.position, interaction.gameObject.transform.rotation, interaction.gameObject.transform.parent);
         DestroyOrTurnOff(turnsOff);
     }
 
-    private void SetObjectActiveStatus(AttackInteraction.Options options)
+    private void SetObjectActiveStatus(Interaction.Options options)
     {
         if (options.objectToSetActiveStatus != null) options.objectToSetActiveStatus.SetActive(options.objectActiveStatus);
     }
 
-    private void RotateObject(AttackInteraction.Options options)
+    private void RotateObject(Interaction.Options options)
     {
         options.objectToRotate.transform.Rotate(0f, 0f, -options.rotateValue);
     }
 
-    private void MoveObject(AttackInteraction.Options options, Vector3 direction)
+    private void MoveObject(Interaction.Options options, Vector3 direction)
     {
-        attackInteraction.StartForcedMovement(direction, -options.movementDistance, options.movementTime);
+        interaction.StartForcedMovement(direction, -options.movementDistance, options.movementTime);
     }
 
     private void SendSignalToSelf(GameObject source)
@@ -68,7 +68,7 @@ public class AttackInteractionOptions
         if (!turnsOff) GameObject.Destroy(selfObject);
         else selfObject.SetActive(false);
     }
-    private void UXEffectExecute(AttackInteraction.Options options)
+    private void UXEffectExecute(Interaction.Options options)
     {
         if (!options.uxOnInteractionInitialized)
         {

@@ -21,10 +21,10 @@ public class NamedInteractionExecutor : MonoBehaviour
 
     private void ExecuteNamedInteraction(Collider other)
     {
-        AttackInteraction attackInteraction = other.GetComponent<AttackInteraction>();
-        if (attackInteraction != null && active)
+        Interaction interaction = other.GetComponent<Interaction>();
+        if (interaction != null && active)
         {
-            attackInteraction.NamedInteractionExecute(thisName, this.gameObject, this);
+            interaction.NamedInteractionExecute(thisName, this.gameObject, this);
             interactionDone = true;
         }
     }

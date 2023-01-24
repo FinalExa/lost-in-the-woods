@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackInteraction : MonoBehaviour
+public class Interaction : MonoBehaviour
 {
     [System.Serializable]
     public struct AttackTypeInteraction
@@ -76,7 +76,8 @@ public class AttackInteraction : MonoBehaviour
     [SerializeField] private Options onDeathInteraction;
     [SerializeField] private LightInteraction lightInteraction;
     [SerializeField] private TimeAfterStartInteraction timeAfterStartInteraction;
-    private AttackInteractionOptions attackInteractionOptions;
+    [SerializeField] private SetOfInteractions setOfInteractions;
+    private InteractionOptions interactionOptions;
     private bool forcedMovementActive;
     private float forcedMovementDuration;
     private float forcedMovementDistance;
@@ -86,8 +87,8 @@ public class AttackInteraction : MonoBehaviour
     private void Start()
     {
         CreateAttackInteractionOptions();
-        attackInteractionOptions.selfObject = this.gameObject;
-        attackInteractionOptions.attackInteraction = this;
+        interactionOptions.selfObject = this.gameObject;
+        interactionOptions.interaction = this;
     }
 
     private void OnEnable()
@@ -98,7 +99,7 @@ public class AttackInteraction : MonoBehaviour
 
     private void CreateAttackInteractionOptions()
     {
-        if (attackInteractionOptions == null) attackInteractionOptions = new AttackInteractionOptions();
+        if (interactionOptions == null) interactionOptions = new InteractionOptions();
     }
 
     private void Update()
@@ -114,7 +115,7 @@ public class AttackInteraction : MonoBehaviour
             if (attackTypes.Contains(attackTypeInteraction.attackType))
             {
                 if (sendWeaponAttackType != null) sendWeaponAttackType.ReceivedWeaponAttackType = attackTypeInteraction.attackType;
-                attackInteractionOptions.Interact(attackTypeInteraction.options, source, turnsOff);
+                interactionOptions.Interact(attackTypeInteraction.options, source, turnsOff);
                 if (attackTypeInteraction.destroyAttackSourceObject) GameObject.Destroy(source);
             }
         }
@@ -126,7 +127,7 @@ public class AttackInteraction : MonoBehaviour
         {
             if (namedInteraction.name == enemyName)
             {
-                attackInteractionOptions.Interact(namedInteraction.options, source, turnsOff);
+                interactionOptions.Interact(namedInteraction.options, source, turnsOff);
                 if (namedInteraction.destroyNamedObjectOnInteraction) namedInteractionRef.DestroyOnDone();
                 return enemyName;
             }
@@ -137,7 +138,7 @@ public class AttackInteraction : MonoBehaviour
     {
         if (onDeathEnabled)
         {
-            if (!despawned) attackInteractionOptions.Interact(onDeathInteraction, this.gameObject, turnsOff);
+            if (!despawned) interactionOptions.Interact(onDeathInteraction, this.gameObject, turnsOff);
             else despawned = false;
         }
     }
@@ -147,9 +148,9 @@ public class AttackInteraction : MonoBehaviour
         if (receivedRef != null && lightInteraction.hasLightInteraction && receivedRef == lightInteraction.affectedByLightRef)
         {
             CreateAttackInteractionOptions();
-            if (receivedLightState == AffectedByLight.LightState.CALM && !lightInteraction.calmRefreshes) attackInteractionOptions.Interact(lightInteraction.calmOptions, this.gameObject, turnsOff);
-            if (receivedLightState == AffectedByLight.LightState.BERSERK && !lightInteraction.berserkRefreshes) attackInteractionOptions.Interact(lightInteraction.berserkOptions, this.gameObject, turnsOff);
-            if (receivedLightState == AffectedByLight.LightState.NORMAL && !lightInteraction.normalRefreshes) attackInteractionOptions.Interact(lightInteraction.normalOptions, this.gameObject, turnsOff);
+            if (receivedLightState == AffectedByLight.LightState.CALM && !lightInteraction.calmRefreshes) interactionOptions.Interact(lightInteraction.calmOptions, this.gameObject, turnsOff);
+            if (receivedLightState == AffectedByLight.LightState.BERSERK && !lightInteraction.berserkRefreshes) interactionOptions.Interact(lightInteraction.berserkOptions, this.gameObject, turnsOff);
+            if (receivedLightState == AffectedByLight.LightState.NORMAL && !lightInteraction.normalRefreshes) interactionOptions.Interact(lightInteraction.normalOptions, this.gameObject, turnsOff);
         }
     }
     private void ExecuteLightInteractionRefresh(AffectedByLight receivedRef, AffectedByLight.LightState receivedLightState)
@@ -157,9 +158,9 @@ public class AttackInteraction : MonoBehaviour
         if (receivedRef != null && lightInteraction.hasLightInteraction && receivedRef == lightInteraction.affectedByLightRef)
         {
             CreateAttackInteractionOptions();
-            if (receivedLightState == AffectedByLight.LightState.CALM && lightInteraction.calmRefreshes) attackInteractionOptions.Interact(lightInteraction.calmOptions, this.gameObject, turnsOff);
-            if (receivedLightState == AffectedByLight.LightState.BERSERK && lightInteraction.berserkRefreshes) attackInteractionOptions.Interact(lightInteraction.berserkOptions, this.gameObject, turnsOff);
-            if (receivedLightState == AffectedByLight.LightState.NORMAL && lightInteraction.normalRefreshes) attackInteractionOptions.Interact(lightInteraction.normalOptions, this.gameObject, turnsOff);
+            if (receivedLightState == AffectedByLight.LightState.CALM && lightInteraction.calmRefreshes) interactionOptions.Interact(lightInteraction.calmOptions, this.gameObject, turnsOff);
+            if (receivedLightState == AffectedByLight.LightState.BERSERK && lightInteraction.berserkRefreshes) interactionOptions.Interact(lightInteraction.berserkOptions, this.gameObject, turnsOff);
+            if (receivedLightState == AffectedByLight.LightState.NORMAL && lightInteraction.normalRefreshes) interactionOptions.Interact(lightInteraction.normalOptions, this.gameObject, turnsOff);
 
         }
     }
@@ -192,7 +193,7 @@ public class AttackInteraction : MonoBehaviour
     private IEnumerator TimeAfterStartInteractionExecute()
     {
         yield return new WaitForSeconds(timeAfterStartInteraction.timeAfterStart);
-        attackInteractionOptions.Interact(timeAfterStartInteraction.options, this.gameObject, turnsOff);
+        interactionOptions.Interact(timeAfterStartInteraction.options, this.gameObject, turnsOff);
         if (timeAfterStartInteraction.repeats) LaunchTimeInteraction();
     }
 }
