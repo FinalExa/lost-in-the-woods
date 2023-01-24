@@ -31,7 +31,6 @@ public class SetOfInteractions : ScriptableObject
     public struct LightInteraction
     {
         public bool hasLightInteraction;
-        public AffectedByLight affectedByLightRef;
         public bool normalRefreshes;
         public Options normalOptions;
         public bool calmRefreshes;
@@ -57,7 +56,6 @@ public class SetOfInteractions : ScriptableObject
         public Vector3 objectSpawnPositionOffset;
         [Header("Rotates object in ref")]
         public bool rotates;
-        public GameObject objectToRotate;
         public float rotateValue;
         [Header("Moves by a certain amount of space this gameObject towards direction for a certain amount of time")]
         public bool isMoved;

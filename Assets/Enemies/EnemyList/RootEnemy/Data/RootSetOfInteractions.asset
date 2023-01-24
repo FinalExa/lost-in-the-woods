@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f17a2fc026ebd8040acf9f11d5d67083, type: 3}
   m_Name: RootSetOfInteractions
   m_EditorClassIdentifier: 
-  turnsOff: 0
+  turnsOff: 1
   attackTypeInteractions:
   - attackType: 5
     destroyAttackSourceObject: 1
@@ -27,7 +27,6 @@ MonoBehaviour:
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
-      objectToRotate: {fileID: 0}
       rotateValue: 0
       isMoved: 0
       movementDistance: 0
@@ -74,7 +73,6 @@ MonoBehaviour:
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
-      objectToRotate: {fileID: 0}
       rotateValue: 0
       isMoved: 0
       movementDistance: 0
@@ -119,7 +117,6 @@ MonoBehaviour:
     objectToSpawn: {fileID: 0}
     objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
     rotates: 0
-    objectToRotate: {fileID: 0}
     rotateValue: 0
     isMoved: 0
     movementDistance: 0
@@ -154,7 +151,6 @@ MonoBehaviour:
     uxOnInteractionInitialized: 0
   lightInteraction:
     hasLightInteraction: 0
-    affectedByLightRef: {fileID: 0}
     normalRefreshes: 0
     normalOptions:
       isDestroyed: 0
@@ -167,7 +163,6 @@ MonoBehaviour:
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
-      objectToRotate: {fileID: 0}
       rotateValue: 0
       isMoved: 0
       movementDistance: 0
@@ -212,7 +207,6 @@ MonoBehaviour:
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
-      objectToRotate: {fileID: 0}
       rotateValue: 0
       isMoved: 0
       movementDistance: 0
@@ -257,7 +251,6 @@ MonoBehaviour:
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
-      objectToRotate: {fileID: 0}
       rotateValue: 0
       isMoved: 0
       movementDistance: 0
@@ -305,7 +298,6 @@ MonoBehaviour:
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
-      objectToRotate: {fileID: 0}
       rotateValue: 0
       isMoved: 0
       movementDistance: 0

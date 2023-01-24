@@ -4,84 +4,14 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
-    [System.Serializable]
-    public struct AttackTypeInteraction
-    {
-        public WeaponAttack.WeaponAttackType attackType;
-        public bool destroyAttackSourceObject;
-        public Options options;
-    }
-    [System.Serializable]
-    public struct NamedInteraction
-    {
-        public string name;
-        public bool destroyNamedObjectOnInteraction;
-        public Options options;
-    }
-    [System.Serializable]
-    public struct TimeAfterStartInteraction
-    {
-        public bool hasTimeAfterStartInteraction;
-        public float timeAfterStart;
-        public bool repeats;
-        public Options options;
-    }
-    [System.Serializable]
-    public struct LightInteraction
-    {
-        public bool hasLightInteraction;
-        public AffectedByLight affectedByLightRef;
-        public bool normalRefreshes;
-        public Options normalOptions;
-        public bool calmRefreshes;
-        public Options calmOptions;
-        public bool berserkRefreshes;
-        public Options berserkOptions;
-    }
-    [System.Serializable]
-    public struct Options
-    {
-        [Header("Destruction")]
-        public bool isDestroyed;
-        [Header("Transformation into another object")]
-        public bool isTransformed;
-        public GameObject transformedRef;
-        [Header("Activates/Deactivates other objects")]
-        public bool canSetObjectActiveStatus;
-        public bool objectActiveStatus;
-        public GameObject objectToSetActiveStatus;
-        [Header("Spawns other object")]
-        public bool canSpawnObject;
-        public GameObject objectToSpawn;
-        public Vector3 objectSpawnPositionOffset;
-        [Header("Rotates object in ref")]
-        public bool rotates;
-        public GameObject objectToRotate;
-        public float rotateValue;
-        [Header("Moves by a certain amount of space this gameObject towards direction for a certain amount of time")]
-        public bool isMoved;
-        public float movementDistance;
-        public float movementTime;
-        [Header("For special functionalities, touch only if you script")]
-        public bool sendsSignalToSelf;
-        public bool hasSpecialCondition;
-        [Header("UX Effects on Interaction")]
-        public UXEffect uxOnInteraction;
-        [HideInInspector] public bool uxOnInteractionInitialized;
-    }
-    [SerializeField] private bool turnsOff;
-    [SerializeField] private AttackTypeInteraction[] attackTypeInteractions;
-    [SerializeField] private NamedInteraction[] namedInteractions;
-    [SerializeField] private bool onDeathEnabled;
-    [SerializeField] private Options onDeathInteraction;
-    [SerializeField] private LightInteraction lightInteraction;
-    [SerializeField] private TimeAfterStartInteraction timeAfterStartInteraction;
     [SerializeField] private SetOfInteractions setOfInteractions;
     private InteractionOptions interactionOptions;
     private bool forcedMovementActive;
     private float forcedMovementDuration;
     private float forcedMovementDistance;
     private Vector3 forcedMovementDirection;
+    private AffectedByLight affectedByLightRef;
+    private GameObject rotator;
     [HideInInspector] public bool despawned;
 
     private void Start()
@@ -89,11 +19,12 @@ public class Interaction : MonoBehaviour
         CreateAttackInteractionOptions();
         interactionOptions.selfObject = this.gameObject;
         interactionOptions.interaction = this;
+        if (setOfInteractions.lightInteraction.hasLightInteraction) affectedByLightRef = this.gameObject.GetComponent<AffectedByLight>();
     }
 
     private void OnEnable()
     {
-        if (timeAfterStartInteraction.hasTimeAfterStartInteraction) LaunchTimeInteraction();
+        if (setOfInteractions.timeAfterStartInteraction.hasTimeAfterStartInteraction) LaunchTimeInteraction();
         despawned = false;
     }
 
@@ -104,18 +35,18 @@ public class Interaction : MonoBehaviour
 
     private void Update()
     {
-        if (lightInteraction.affectedByLightRef != null) ExecuteLightInteractionRefresh(lightInteraction.affectedByLightRef, lightInteraction.affectedByLightRef.lightState);
+        if (affectedByLightRef != null) ExecuteLightInteractionRefresh(affectedByLightRef, affectedByLightRef.lightState);
         if (forcedMovementActive) ForcedMovement();
     }
     public void CheckIfAttackTypeIsTheSame(List<WeaponAttack.WeaponAttackType> attackTypes, GameObject source)
     {
         ISendWeaponAttackType sendWeaponAttackType = this.gameObject.GetComponent<ISendWeaponAttackType>();
-        foreach (AttackTypeInteraction attackTypeInteraction in attackTypeInteractions)
+        foreach (SetOfInteractions.AttackTypeInteraction attackTypeInteraction in setOfInteractions.attackTypeInteractions)
         {
             if (attackTypes.Contains(attackTypeInteraction.attackType))
             {
                 if (sendWeaponAttackType != null) sendWeaponAttackType.ReceivedWeaponAttackType = attackTypeInteraction.attackType;
-                interactionOptions.Interact(attackTypeInteraction.options, source, turnsOff);
+                interactionOptions.Interact(attackTypeInteraction.options, source, setOfInteractions.turnsOff);
                 if (attackTypeInteraction.destroyAttackSourceObject) GameObject.Destroy(source);
             }
         }
@@ -123,11 +54,11 @@ public class Interaction : MonoBehaviour
 
     public string NamedInteractionExecute(string enemyName, GameObject source, NamedInteractionExecutor namedInteractionRef)
     {
-        foreach (NamedInteraction namedInteraction in namedInteractions)
+        foreach (SetOfInteractions.NamedInteraction namedInteraction in setOfInteractions.namedInteractions)
         {
             if (namedInteraction.name == enemyName)
             {
-                interactionOptions.Interact(namedInteraction.options, source, turnsOff);
+                interactionOptions.Interact(namedInteraction.options, source, setOfInteractions.turnsOff);
                 if (namedInteraction.destroyNamedObjectOnInteraction) namedInteractionRef.DestroyOnDone();
                 return enemyName;
             }
@@ -136,31 +67,31 @@ public class Interaction : MonoBehaviour
     }
     public void OnDeathInteraction()
     {
-        if (onDeathEnabled)
+        if (setOfInteractions.onDeathEnabled)
         {
-            if (!despawned) interactionOptions.Interact(onDeathInteraction, this.gameObject, turnsOff);
+            if (!despawned) interactionOptions.Interact(setOfInteractions.onDeathInteraction, this.gameObject, setOfInteractions.turnsOff);
             else despawned = false;
         }
     }
 
     public void ExecuteLightInteraction(AffectedByLight receivedRef, AffectedByLight.LightState receivedLightState)
     {
-        if (receivedRef != null && lightInteraction.hasLightInteraction && receivedRef == lightInteraction.affectedByLightRef)
+        if (receivedRef != null && setOfInteractions.lightInteraction.hasLightInteraction && receivedRef == affectedByLightRef)
         {
             CreateAttackInteractionOptions();
-            if (receivedLightState == AffectedByLight.LightState.CALM && !lightInteraction.calmRefreshes) interactionOptions.Interact(lightInteraction.calmOptions, this.gameObject, turnsOff);
-            if (receivedLightState == AffectedByLight.LightState.BERSERK && !lightInteraction.berserkRefreshes) interactionOptions.Interact(lightInteraction.berserkOptions, this.gameObject, turnsOff);
-            if (receivedLightState == AffectedByLight.LightState.NORMAL && !lightInteraction.normalRefreshes) interactionOptions.Interact(lightInteraction.normalOptions, this.gameObject, turnsOff);
+            if (receivedLightState == AffectedByLight.LightState.CALM && !setOfInteractions.lightInteraction.calmRefreshes) interactionOptions.Interact(setOfInteractions.lightInteraction.calmOptions, this.gameObject, setOfInteractions.turnsOff);
+            if (receivedLightState == AffectedByLight.LightState.BERSERK && !setOfInteractions.lightInteraction.berserkRefreshes) interactionOptions.Interact(setOfInteractions.lightInteraction.berserkOptions, this.gameObject, setOfInteractions.turnsOff);
+            if (receivedLightState == AffectedByLight.LightState.NORMAL && !setOfInteractions.lightInteraction.normalRefreshes) interactionOptions.Interact(setOfInteractions.lightInteraction.normalOptions, this.gameObject, setOfInteractions.turnsOff);
         }
     }
     private void ExecuteLightInteractionRefresh(AffectedByLight receivedRef, AffectedByLight.LightState receivedLightState)
     {
-        if (receivedRef != null && lightInteraction.hasLightInteraction && receivedRef == lightInteraction.affectedByLightRef)
+        if (receivedRef != null && setOfInteractions.lightInteraction.hasLightInteraction && receivedRef == affectedByLightRef)
         {
             CreateAttackInteractionOptions();
-            if (receivedLightState == AffectedByLight.LightState.CALM && lightInteraction.calmRefreshes) interactionOptions.Interact(lightInteraction.calmOptions, this.gameObject, turnsOff);
-            if (receivedLightState == AffectedByLight.LightState.BERSERK && lightInteraction.berserkRefreshes) interactionOptions.Interact(lightInteraction.berserkOptions, this.gameObject, turnsOff);
-            if (receivedLightState == AffectedByLight.LightState.NORMAL && lightInteraction.normalRefreshes) interactionOptions.Interact(lightInteraction.normalOptions, this.gameObject, turnsOff);
+            if (receivedLightState == AffectedByLight.LightState.CALM && setOfInteractions.lightInteraction.calmRefreshes) interactionOptions.Interact(setOfInteractions.lightInteraction.calmOptions, this.gameObject, setOfInteractions.turnsOff);
+            if (receivedLightState == AffectedByLight.LightState.BERSERK && setOfInteractions.lightInteraction.berserkRefreshes) interactionOptions.Interact(setOfInteractions.lightInteraction.berserkOptions, this.gameObject, setOfInteractions.turnsOff);
+            if (receivedLightState == AffectedByLight.LightState.NORMAL && setOfInteractions.lightInteraction.normalRefreshes) interactionOptions.Interact(setOfInteractions.lightInteraction.normalOptions, this.gameObject, setOfInteractions.turnsOff);
 
         }
     }
@@ -192,8 +123,8 @@ public class Interaction : MonoBehaviour
 
     private IEnumerator TimeAfterStartInteractionExecute()
     {
-        yield return new WaitForSeconds(timeAfterStartInteraction.timeAfterStart);
-        interactionOptions.Interact(timeAfterStartInteraction.options, this.gameObject, turnsOff);
-        if (timeAfterStartInteraction.repeats) LaunchTimeInteraction();
+        yield return new WaitForSeconds(setOfInteractions.timeAfterStartInteraction.timeAfterStart);
+        interactionOptions.Interact(setOfInteractions.timeAfterStartInteraction.options, this.gameObject, setOfInteractions.turnsOff);
+        if (setOfInteractions.timeAfterStartInteraction.repeats) LaunchTimeInteraction();
     }
 }

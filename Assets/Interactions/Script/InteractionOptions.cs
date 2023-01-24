@@ -6,7 +6,7 @@ public class InteractionOptions
 {
     public GameObject selfObject;
     public Interaction interaction;
-    public void Interact(Interaction.Options options, GameObject source, bool turnsOff)
+    public void Interact(SetOfInteractions.Options options, GameObject source, bool turnsOff)
     {
         if (!options.hasSpecialCondition || SpecialConditionsCheck(options))
         {
@@ -17,11 +17,11 @@ public class InteractionOptions
             else if (options.sendsSignalToSelf) SendSignalToSelf(source);
             else if (options.isMoved) MoveObject(options, source.transform.position - selfObject.transform.position);
             else if (options.canSetObjectActiveStatus) SetObjectActiveStatus(options);
-            else if (options.rotates && options.objectToRotate != null) RotateObject(options);
+            //else if (options.rotates && options.objectToRotate != null) RotateObject(options);
         }
     }
 
-    private bool SpecialConditionsCheck(Interaction.Options options)
+    private bool SpecialConditionsCheck(SetOfInteractions.Options options)
     {
         bool check = false;
         if (options.hasSpecialCondition)
@@ -37,23 +37,23 @@ public class InteractionOptions
         GameObject.Instantiate(objectToSpawn, interaction.gameObject.transform.position + offset, Quaternion.identity);
     }
 
-    private void Transform(Interaction.Options options, bool turnsOff)
+    private void Transform(SetOfInteractions.Options options, bool turnsOff)
     {
         GameObject.Instantiate(options.transformedRef, interaction.gameObject.transform.position, interaction.gameObject.transform.rotation, interaction.gameObject.transform.parent);
         DestroyOrTurnOff(turnsOff);
     }
 
-    private void SetObjectActiveStatus(Interaction.Options options)
+    private void SetObjectActiveStatus(SetOfInteractions.Options options)
     {
         if (options.objectToSetActiveStatus != null) options.objectToSetActiveStatus.SetActive(options.objectActiveStatus);
     }
 
-    private void RotateObject(Interaction.Options options)
+    private void RotateObject(SetOfInteractions.Options options)
     {
-        options.objectToRotate.transform.Rotate(0f, 0f, -options.rotateValue);
+        //options.objectToRotate.transform.Rotate(0f, 0f, -options.rotateValue);
     }
 
-    private void MoveObject(Interaction.Options options, Vector3 direction)
+    private void MoveObject(SetOfInteractions.Options options, Vector3 direction)
     {
         interaction.StartForcedMovement(direction, -options.movementDistance, options.movementTime);
     }
@@ -68,7 +68,7 @@ public class InteractionOptions
         if (!turnsOff) GameObject.Destroy(selfObject);
         else selfObject.SetActive(false);
     }
-    private void UXEffectExecute(Interaction.Options options)
+    private void UXEffectExecute(SetOfInteractions.Options options)
     {
         if (!options.uxOnInteractionInitialized)
         {
