@@ -390,6 +390,8 @@ MonoBehaviour:
           cinemachineCameraShakerRef: {fileID: 0}
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
+  setOfInteractions: {fileID: 11400000, guid: f54af912036c669438ce08154cbf120d, type: 2}
+  despawned: 0
 --- !u!54 &809524107923366734
 Rigidbody:
   m_ObjectHideFlags: 0

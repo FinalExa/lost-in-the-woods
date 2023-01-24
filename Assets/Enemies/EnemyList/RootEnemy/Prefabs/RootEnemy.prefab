@@ -74,7 +74,7 @@ MonoBehaviour:
     deathTimer: 0
   affectedByLight: {fileID: 0}
   attackReceived: {fileID: 0}
-  attackInteraction: {fileID: 0}
+  interaction: {fileID: 0}
   rootUnderground: 0
   spriteRef: {fileID: 5968671515912607088}
   rootUndergroundSprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
@@ -362,11 +362,11 @@ MonoBehaviour:
           cinemachineCameraShakerRef: {fileID: 0}
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
-  onDeathEnabled: 1
+  onDeathEnabled: 0
   onDeathInteraction:
     isDestroyed: 0
-    isTransformed: 1
-    transformedRef: {fileID: 4014776901287296295, guid: b6b7fe929ac1cbd4090a2fd39153e906, type: 3}
+    isTransformed: 0
+    transformedRef: {fileID: 0}
     canSetObjectActiveStatus: 0
     objectActiveStatus: 0
     objectToSetActiveStatus: {fileID: 0}
@@ -593,6 +593,7 @@ MonoBehaviour:
           cinemachineCameraShakerRef: {fileID: 0}
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
+  setOfInteractions: {fileID: 11400000, guid: a9b824845f9497043bf9355dde226166, type: 2}
   despawned: 0
 --- !u!114 &-3714416512890541913
 MonoBehaviour:
@@ -611,7 +612,7 @@ MonoBehaviour:
   isInsideLight: 0
   isInHeartbeatState: 0
   enemyController: {fileID: 0}
-  attackInteraction: {fileID: 0}
+  interaction: {fileID: 0}
 --- !u!65 &7001282123244882244
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -674,7 +675,7 @@ GameObject:
   - component: {fileID: 3703071539599798944}
   m_Layer: 0
   m_Name: Rotator
-  m_TagString: Untagged
+  m_TagString: Rotator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
