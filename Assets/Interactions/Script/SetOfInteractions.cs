@@ -49,7 +49,6 @@ public class SetOfInteractions : ScriptableObject
         [Header("Activates/Deactivates other objects")]
         public bool canSetObjectActiveStatus;
         public bool objectActiveStatus;
-        public GameObject objectToSetActiveStatus;
         [Header("Spawns other object")]
         public bool canSpawnObject;
         public GameObject objectToSpawn;

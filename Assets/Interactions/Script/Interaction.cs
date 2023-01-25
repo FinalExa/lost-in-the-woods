@@ -10,8 +10,9 @@ public class Interaction : MonoBehaviour
     private float forcedMovementDuration;
     private float forcedMovementDistance;
     private Vector3 forcedMovementDirection;
-    private AffectedByLight affectedByLightRef;
-    private GameObject rotator;
+    [SerializeField] private AffectedByLight affectedByLightRef;
+    public GameObject rotator;
+    public GameObject objectToSetActiveStatus;
     [HideInInspector] public bool despawned;
 
     private void Start()
@@ -19,7 +20,6 @@ public class Interaction : MonoBehaviour
         CreateAttackInteractionOptions();
         interactionOptions.selfObject = this.gameObject;
         interactionOptions.interaction = this;
-        if (setOfInteractions.lightInteraction.hasLightInteraction) affectedByLightRef = this.gameObject.GetComponent<AffectedByLight>();
     }
 
     private void OnEnable()

@@ -17,7 +17,7 @@ public class InteractionOptions
             else if (options.sendsSignalToSelf) SendSignalToSelf(source);
             else if (options.isMoved) MoveObject(options, source.transform.position - selfObject.transform.position);
             else if (options.canSetObjectActiveStatus) SetObjectActiveStatus(options);
-            //else if (options.rotates && options.objectToRotate != null) RotateObject(options);
+            else if (options.rotates) RotateObject(options);
         }
     }
 
@@ -45,12 +45,12 @@ public class InteractionOptions
 
     private void SetObjectActiveStatus(SetOfInteractions.Options options)
     {
-        if (options.objectToSetActiveStatus != null) options.objectToSetActiveStatus.SetActive(options.objectActiveStatus);
+        if (interaction.objectToSetActiveStatus != null) interaction.objectToSetActiveStatus.SetActive(options.objectActiveStatus);
     }
 
     private void RotateObject(SetOfInteractions.Options options)
     {
-        //options.objectToRotate.transform.Rotate(0f, 0f, -options.rotateValue);
+        if (interaction.rotator != null) interaction.rotator.transform.Rotate(0f, 0f, -options.rotateValue);
     }
 
     private void MoveObject(SetOfInteractions.Options options, Vector3 direction)
