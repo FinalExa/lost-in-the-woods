@@ -129,7 +129,6 @@ GameObject:
   - component: {fileID: 1283443479848240081}
   - component: {fileID: 4664093087109911843}
   - component: {fileID: 8806897035263004699}
-  - component: {fileID: 2231757411256985919}
   - component: {fileID: 4453809154134266270}
   - component: {fileID: 1046621855832586624}
   - component: {fileID: 1046621855832586627}
@@ -206,22 +205,6 @@ MonoBehaviour:
   rotator: {fileID: 0}
   objectToSetActiveStatus: {fileID: 0}
   despawned: 0
---- !u!114 &2231757411256985919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046621855832586626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0eca4a9e1534ba4f944878999c913a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisName: BreakerPlant
-  active: 1
-  inLoop: 0
-  interactionDone: 0
 --- !u!114 &4453809154134266270
 MonoBehaviour:
   m_ObjectHideFlags: 0

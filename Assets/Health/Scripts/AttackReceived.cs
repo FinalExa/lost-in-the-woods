@@ -6,7 +6,7 @@ public class AttackReceived : MonoBehaviour
 {
     private Health health;
     private Interaction interaction;
-    public enum GameTargets { PLAYER, ENEMY, PUZZLE_ELEMENT, ENVIRONMENT }
+    public enum GameTargets { PLAYER, ENEMY, PUZZLE_ELEMENT}
     [SerializeField] private GameTargets thisType;
     public bool ignoresDamage;
 

@@ -47,6 +47,11 @@ public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWe
         int index = SearchAbsorbedAttack();
         if (index >= 0) Absorb(index);
         else if (repelAttackTypes.Contains(ReceivedWeaponAttackType) && !enemyCombo.isInCombo) Redirect();
+        else if (source.GetComponent<NamedInteractionExecutor>() != null)
+        {
+            index = SearchAbsorbedAttack(source.GetComponent<NamedInteractionExecutor>().thisName);
+            if (index >= 0) Absorb(index);
+        }
     }
 
     private int SearchAbsorbedAttack()
@@ -54,6 +59,15 @@ public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWe
         for (int i = 0; i < absorbableAttackTypes.Count; i++)
         {
             if (absorbableAttackTypes[i].attackType == ReceivedWeaponAttackType) return i;
+        }
+        return -1;
+    }
+
+    private int SearchAbsorbedAttack(string nameToSearch)
+    {
+        for (int i = 0; i < absorbableAttackTypes.Count; i++)
+        {
+            if (absorbableAttackTypes[i].attackType.ToString() == nameToSearch.ToUpper()) return i;
         }
         return -1;
     }
@@ -120,7 +134,7 @@ public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWe
 
     private void Absorb(int indexOfAttackType)
     {
-        if (!absorbed && affectedByLight.lightState != AffectedByLight.LightState.BERSERK && enemyCombo.isInCombo)
+        if (!absorbed && affectedByLight.lightState != AffectedByLight.LightState.BERSERK && !enemyCombo.isInCombo)
         {
             enemyWeaponSwitcher.normalStateWeapon.weaponAttacks = SetAbsorbWeaponAttacks(enemyWeaponSwitcher.normalStateWeapon.weaponAttacks, indexOfAttackType, normalWeaponAttackTypes.Count);
             enemyWeaponSwitcher.calmStateWeapon.weaponAttacks = SetAbsorbWeaponAttacks(enemyWeaponSwitcher.calmStateWeapon.weaponAttacks, indexOfAttackType, calmWeaponAttackTypes.Count);
