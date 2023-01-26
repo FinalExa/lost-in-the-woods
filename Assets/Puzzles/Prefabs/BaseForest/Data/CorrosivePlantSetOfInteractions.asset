@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f17a2fc026ebd8040acf9f11d5d67083, type: 3}
-  m_Name: SpikeShootPlantSetOfInteractions
+  m_Name: CorrosivePlantSetOfInteractions
   m_EditorClassIdentifier: 
   turnsOff: 0
   attackTypeInteractions:
@@ -103,7 +103,7 @@ MonoBehaviour:
       soundParent: {fileID: 0}
     uxOnInteractionInitialized: 0
   lightInteraction:
-    hasLightInteraction: 1
+    hasLightInteraction: 0
     normalRefreshes: 0
     normalOptions:
       isDestroyed: 0
@@ -157,8 +157,8 @@ MonoBehaviour:
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
-      rotates: 1
-      rotateValue: 90
+      rotates: 0
+      rotateValue: 0
       isMoved: 0
       movementDistance: 0
       movementTime: 0

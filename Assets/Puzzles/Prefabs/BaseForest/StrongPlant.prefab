@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 4891247077856279543}
   - component: {fileID: 1486705855634075715}
   m_Layer: 0
-  m_Name: WateredPlant
+  m_Name: StrongPlant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,7 +204,7 @@ MonoBehaviour:
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
   frameValueTime: 0
-  weaponToSet: {fileID: 7567215962428002325}
+  weaponToSet: {fileID: 4871256883982269101}
   resetsPositionAndRotationOnComboEnd: 0
 --- !u!114 &1052628479886881602
 MonoBehaviour:
@@ -219,6 +219,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setOfInteractions: {fileID: 11400000, guid: e56656ef96eff194683b88934e279a61, type: 2}
+  affectedByLightRef: {fileID: 0}
+  rotator: {fileID: 0}
+  objectToSetActiveStatus: {fileID: 0}
   despawned: 0
 --- !u!114 &8815048394872625965
 MonoBehaviour:
@@ -305,11 +308,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8971158322800550726}
-  - {fileID: 2110472833946538976}
+  - {fileID: 4023947974104152408}
   m_Father: {fileID: 6879512640748138809}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1001 &6022316654136670105
+--- !u!1001 &8722796924402638113
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -362,19 +365,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6089379293536037342, guid: dfea0ce21d3cc6544ab2d4e7c3455539, type: 3}
       propertyPath: m_Name
-      value: WateredPlantWeapon
+      value: StrongPlantWeapon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfea0ce21d3cc6544ab2d4e7c3455539, type: 3}
---- !u!4 &2110472833946538976 stripped
+--- !u!4 &4023947974104152408 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5681984492148024441, guid: dfea0ce21d3cc6544ab2d4e7c3455539, type: 3}
-  m_PrefabInstance: {fileID: 6022316654136670105}
+  m_PrefabInstance: {fileID: 8722796924402638113}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7567215962428002325 stripped
+--- !u!114 &4871256883982269101 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4222045236405462924, guid: dfea0ce21d3cc6544ab2d4e7c3455539, type: 3}
-  m_PrefabInstance: {fileID: 6022316654136670105}
+  m_PrefabInstance: {fileID: 8722796924402638113}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
