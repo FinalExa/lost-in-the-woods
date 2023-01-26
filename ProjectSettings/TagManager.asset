@@ -15,6 +15,7 @@ TagManager:
   - BigShade
   - SoundParent
   - PermanentHoleTerrain
+  - Rotator
   layers:
   - Default
   - TransparentFX

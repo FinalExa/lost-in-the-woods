@@ -677,6 +677,7 @@ MonoBehaviour:
           cinemachineCameraShakerRef: {fileID: 0}
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
+  setOfInteractions: {fileID: 11400000, guid: 47e4064cad9247648be7bb5e31ec56bf, type: 2}
   despawned: 0
 --- !u!114 &1353845484741870925
 MonoBehaviour:
@@ -815,7 +816,7 @@ GameObject:
   - component: {fileID: 180166666702332516}
   m_Layer: 0
   m_Name: Rotator
-  m_TagString: Untagged
+  m_TagString: Rotator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

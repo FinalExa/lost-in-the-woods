@@ -75,7 +75,7 @@ MonoBehaviour:
     deathTimer: 0
   affectedByLight: {fileID: 0}
   attackReceived: {fileID: 0}
-  attackInteraction: {fileID: 0}
+  interaction: {fileID: 0}
 --- !u!114 &6031758856537235096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -587,6 +587,7 @@ MonoBehaviour:
           cinemachineCameraShakerRef: {fileID: 0}
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
+  setOfInteractions: {fileID: 11400000, guid: ae69a235a27bca041a61da291775c10c, type: 2}
   despawned: 0
 --- !u!114 &6798857476549418956
 MonoBehaviour:
@@ -621,7 +622,7 @@ MonoBehaviour:
   isInsideLight: 0
   isInHeartbeatState: 0
   enemyController: {fileID: 0}
-  attackInteraction: {fileID: 0}
+  interaction: {fileID: 0}
 --- !u!65 &7001282123244882244
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -684,7 +685,7 @@ GameObject:
   - component: {fileID: 3703071539599798944}
   m_Layer: 0
   m_Name: Rotator
-  m_TagString: Untagged
+  m_TagString: Rotator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

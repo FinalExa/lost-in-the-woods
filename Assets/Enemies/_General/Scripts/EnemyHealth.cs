@@ -5,13 +5,13 @@ using UnityEngine;
 public class EnemyHealth : Health
 {
     protected EnemyController enemyController;
-    protected AttackInteraction attackInteraction;
+    protected Interaction interaction;
     protected bool deathDone;
 
     protected virtual void Awake()
     {
         enemyController = this.gameObject.GetComponent<EnemyController>();
-        attackInteraction = this.gameObject.GetComponent<AttackInteraction>();
+        interaction = this.gameObject.GetComponent<Interaction>();
     }
 
     private void OnEnable()
@@ -37,7 +37,7 @@ public class EnemyHealth : Health
 
     protected virtual void OnDeathInteraction()
     {
-        if (!deathDone && attackInteraction != null) attackInteraction.OnDeathInteraction();
+        if (!deathDone && interaction != null) interaction.OnDeathInteraction();
     }
 
     private void OnDisable()

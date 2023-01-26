@@ -5,15 +5,15 @@ using UnityEngine;
 public class AttackReceived : MonoBehaviour
 {
     private Health health;
-    private AttackInteraction attackInteraction;
-    public enum GameTargets { PLAYER, ENEMY, PUZZLE_ELEMENT, ENVIRONMENT }
+    private Interaction interaction;
+    public enum GameTargets { PLAYER, ENEMY, PUZZLE_ELEMENT}
     [SerializeField] private GameTargets thisType;
     public bool ignoresDamage;
 
     private void Awake()
     {
         health = this.gameObject.GetComponent<Health>();
-        attackInteraction = this.gameObject.GetComponent<AttackInteraction>();
+        interaction = this.gameObject.GetComponent<Interaction>();
     }
 
     public void AttackReceivedOperation(List<GameTargets> receivedTargets, float damage, List<WeaponAttack.WeaponAttackType> weaponAttackTypes, bool invulnerable, GameObject attacker)
@@ -27,7 +27,7 @@ public class AttackReceived : MonoBehaviour
                 health.OnHitSound();
             }
         }
-        if (attackInteraction != null) attackInteraction.CheckIfAttackTypeIsTheSame(weaponAttackTypes, attacker);
+        if (interaction != null) interaction.CheckIfAttackTypeIsTheSame(weaponAttackTypes, attacker);
     }
 
     public void DealDamage(bool invulnerable, float damage)
