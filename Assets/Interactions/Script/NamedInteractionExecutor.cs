@@ -19,7 +19,21 @@ public class NamedInteractionExecutor : MonoBehaviour
         if (inLoop) ExecuteNamedInteraction(other);
     }
 
+    /*private void OnTriggerExit(Collider other)
+    {
+        ExecuteExitFromNamedInteraction(other);
+    }*/
+
     private void ExecuteNamedInteraction(Collider other)
+    {
+        Interaction interaction = other.GetComponent<Interaction>();
+        if (interaction != null && active)
+        {
+            interaction.NamedInteractionExecute(thisName, this.gameObject, this);
+            interactionDone = true;
+        }
+    }
+    private void ExecuteExitFromNamedInteraction(Collider other)
     {
         Interaction interaction = other.GetComponent<Interaction>();
         if (interaction != null && active)

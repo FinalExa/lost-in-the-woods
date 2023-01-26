@@ -52,15 +52,15 @@ public class Interaction : MonoBehaviour
         }
     }
 
-    public string NamedInteractionExecute(string enemyName, GameObject source, NamedInteractionExecutor namedInteractionRef)
+    public string NamedInteractionExecute(string interactionName, GameObject source, NamedInteractionExecutor namedInteractionRef)
     {
         foreach (SetOfInteractions.NamedInteraction namedInteraction in setOfInteractions.namedInteractions)
         {
-            if (namedInteraction.name == enemyName)
+            if (namedInteraction.name == interactionName)
             {
                 interactionOptions.Interact(namedInteraction.options, source, setOfInteractions.turnsOff);
                 if (namedInteraction.destroyNamedObjectOnInteraction) namedInteractionRef.DestroyOnDone();
-                return enemyName;
+                return interactionName;
             }
         }
         return string.Empty;

@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0eca4a9e1534ba4f944878999c913a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisName: LightBulb
+  thisName: FogPlant
   active: 1
   inLoop: 0
   interactionDone: 0
@@ -273,7 +273,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7791339849050343981}
-  - component: {fileID: 4962220406099052933}
   - component: {fileID: 3575400320684914569}
   - component: {fileID: 7791339849050343980}
   - component: {fileID: 3121891899807671160}
@@ -300,22 +299,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4962220406099052933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7791339849050343983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0eca4a9e1534ba4f944878999c913a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisName: BigRollingPlant
-  active: 1
-  inLoop: 0
-  interactionDone: 0
 --- !u!114 &3575400320684914569
 MonoBehaviour:
   m_ObjectHideFlags: 0
