@@ -131,7 +131,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.39354917, b: 0, a: 1}
-  m_Intensity: 7
+  m_Intensity: 5
   m_Range: 7.5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -212,11 +212,9 @@ MonoBehaviour:
       mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
     hasSpriteColorChange: 0
     spriteColorChange:
-      onHitSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+      changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
       spriteRef: {fileID: 0}
       spriteColorChangeDuration: 0
-      spritehasChangedColor: 0
-      spriteRefBaseColor: {r: 0, g: 0, b: 0, a: 0}
     hasCameraShake: 0
     cameraShake:
       shakeAmplitude: 0
