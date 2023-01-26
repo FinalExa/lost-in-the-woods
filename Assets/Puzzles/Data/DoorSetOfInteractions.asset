@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnsOff: 0
   attackTypeInteractions:
-  - attackType: 3
+  - attackType: 5
     destroyAttackSourceObject: 0
     options:
       isDestroyed: 1
@@ -22,12 +22,10 @@ MonoBehaviour:
       transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
-      objectToRotate: {fileID: 0}
       rotateValue: 0
       isMoved: 0
       movementDistance: 0
@@ -68,12 +66,10 @@ MonoBehaviour:
     transformedRef: {fileID: 0}
     canSetObjectActiveStatus: 0
     objectActiveStatus: 0
-    objectToSetActiveStatus: {fileID: 0}
     canSpawnObject: 0
     objectToSpawn: {fileID: 0}
     objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
     rotates: 0
-    objectToRotate: {fileID: 0}
     rotateValue: 0
     isMoved: 0
     movementDistance: 0
@@ -108,7 +104,6 @@ MonoBehaviour:
     uxOnInteractionInitialized: 0
   lightInteraction:
     hasLightInteraction: 0
-    affectedByLightRef: {fileID: 0}
     normalRefreshes: 0
     normalOptions:
       isDestroyed: 0
@@ -116,12 +111,10 @@ MonoBehaviour:
       transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
-      objectToRotate: {fileID: 0}
       rotateValue: 0
       isMoved: 0
       movementDistance: 0
@@ -161,12 +154,10 @@ MonoBehaviour:
       transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
-      objectToRotate: {fileID: 0}
       rotateValue: 0
       isMoved: 0
       movementDistance: 0
@@ -206,12 +197,10 @@ MonoBehaviour:
       transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
-      objectToRotate: {fileID: 0}
       rotateValue: 0
       isMoved: 0
       movementDistance: 0
@@ -254,12 +243,10 @@ MonoBehaviour:
       transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
-      objectToRotate: {fileID: 0}
       rotateValue: 0
       isMoved: 0
       movementDistance: 0

@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 477417064391332958}
   - component: {fileID: 6930611499087050130}
   m_Layer: 0
-  m_Name: BrambleBallInfested
+  m_Name: InfestedBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0eca4a9e1534ba4f944878999c913a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisName: BrambleBallInfested
+  thisName: InfestedBall
   active: 1
   inLoop: 0
   interactionDone: 0

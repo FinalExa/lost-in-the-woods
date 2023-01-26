@@ -10,28 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f17a2fc026ebd8040acf9f11d5d67083, type: 3}
-  m_Name: FireSourceSetOfInteractions
+  m_Name: BigRollingPlantSetOfInteractions
   m_EditorClassIdentifier: 
   turnsOff: 0
   attackTypeInteractions:
-  - attackType: 2
+  - attackType: 1
     destroyAttackSourceObject: 0
     options:
-      isDestroyed: 1
+      isDestroyed: 0
       isTransformed: 0
       transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
-      objectToRotate: {fileID: 0}
       rotateValue: 0
-      isMoved: 0
-      movementDistance: 0
-      movementTime: 0
+      isMoved: 1
+      movementDistance: 5
+      movementTime: 0.3
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
       uxOnInteraction:
@@ -68,12 +66,10 @@ MonoBehaviour:
     transformedRef: {fileID: 0}
     canSetObjectActiveStatus: 0
     objectActiveStatus: 0
-    objectToSetActiveStatus: {fileID: 0}
     canSpawnObject: 0
     objectToSpawn: {fileID: 0}
     objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
     rotates: 0
-    objectToRotate: {fileID: 0}
     rotateValue: 0
     isMoved: 0
     movementDistance: 0
@@ -108,7 +104,6 @@ MonoBehaviour:
     uxOnInteractionInitialized: 0
   lightInteraction:
     hasLightInteraction: 0
-    affectedByLightRef: {fileID: 0}
     normalRefreshes: 0
     normalOptions:
       isDestroyed: 0
@@ -116,12 +111,10 @@ MonoBehaviour:
       transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
-      objectToRotate: {fileID: 0}
       rotateValue: 0
       isMoved: 0
       movementDistance: 0
@@ -161,12 +154,10 @@ MonoBehaviour:
       transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
-      objectToRotate: {fileID: 0}
       rotateValue: 0
       isMoved: 0
       movementDistance: 0
@@ -206,12 +197,10 @@ MonoBehaviour:
       transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
-      objectToRotate: {fileID: 0}
       rotateValue: 0
       isMoved: 0
       movementDistance: 0
@@ -245,21 +234,19 @@ MonoBehaviour:
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
   timeAfterStartInteraction:
-    hasTimeAfterStartInteraction: 1
-    timeAfterStart: 10
+    hasTimeAfterStartInteraction: 0
+    timeAfterStart: 0
     repeats: 0
     options:
-      isDestroyed: 1
+      isDestroyed: 0
       isTransformed: 0
       transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
-      objectToRotate: {fileID: 0}
       rotateValue: 0
       isMoved: 0
       movementDistance: 0

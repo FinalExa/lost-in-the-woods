@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f17a2fc026ebd8040acf9f11d5d67083, type: 3}
-  m_Name: WateredPlantSetOfInteractions
+  m_Name: SpikeShootPlantSetOfInteractions
   m_EditorClassIdentifier: 
   turnsOff: 0
   attackTypeInteractions:
@@ -22,12 +22,10 @@ MonoBehaviour:
       transformedRef: {fileID: 551186820573199659, guid: 0106b83c3fae11348b15d2d36a0e0c85, type: 3}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
-      objectToRotate: {fileID: 0}
       rotateValue: 0
       isMoved: 0
       movementDistance: 0
@@ -60,99 +58,7 @@ MonoBehaviour:
           cinemachineCameraShakerRef: {fileID: 0}
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
-  - attackType: 4
-    destroyAttackSourceObject: 0
-    options:
-      isDestroyed: 0
-      isTransformed: 1
-      transformedRef: {fileID: 551186820573199659, guid: 0106b83c3fae11348b15d2d36a0e0c85, type: 3}
-      canSetObjectActiveStatus: 0
-      objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
-      canSpawnObject: 0
-      objectToSpawn: {fileID: 0}
-      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
-      rotates: 0
-      objectToRotate: {fileID: 0}
-      rotateValue: 0
-      isMoved: 0
-      movementDistance: 0
-      movementTime: 0
-      sendsSignalToSelf: 0
-      hasSpecialCondition: 0
-      uxOnInteraction:
-        hasSound: 0
-        sound:
-          clip: {fileID: 0}
-          priority: 0
-          volume: 0
-          pitch: 0
-          stereoPan: 0
-          spatialBlend: 0
-          reverbZoneMix: 0
-          loop: 0
-          playOnAwake: 0
-          mixer: {fileID: 0}
-        hasSpriteColorChange: 0
-        spriteColorChange:
-          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-          spriteRef: {fileID: 0}
-          spriteColorChangeDuration: 0
-        hasCameraShake: 0
-        cameraShake:
-          shakeAmplitude: 0
-          shakeFrequency: 0
-          shakeDuration: 0
-          cinemachineCameraShakerRef: {fileID: 0}
-        soundParent: {fileID: 0}
-      uxOnInteractionInitialized: 0
-  namedInteractions:
-  - name: Fire
-    destroyNamedObjectOnInteraction: 0
-    options:
-      isDestroyed: 0
-      isTransformed: 1
-      transformedRef: {fileID: 9205835231336190723, guid: d139de3dad10e0b4e80d53ebcdff097c, type: 3}
-      canSetObjectActiveStatus: 0
-      objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
-      canSpawnObject: 0
-      objectToSpawn: {fileID: 0}
-      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
-      rotates: 0
-      objectToRotate: {fileID: 0}
-      rotateValue: 0
-      isMoved: 0
-      movementDistance: 0
-      movementTime: 0
-      sendsSignalToSelf: 0
-      hasSpecialCondition: 0
-      uxOnInteraction:
-        hasSound: 0
-        sound:
-          clip: {fileID: 0}
-          priority: 0
-          volume: 0
-          pitch: 0
-          stereoPan: 0
-          spatialBlend: 0
-          reverbZoneMix: 0
-          loop: 0
-          playOnAwake: 0
-          mixer: {fileID: 0}
-        hasSpriteColorChange: 0
-        spriteColorChange:
-          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-          spriteRef: {fileID: 0}
-          spriteColorChangeDuration: 0
-        hasCameraShake: 0
-        cameraShake:
-          shakeAmplitude: 0
-          shakeFrequency: 0
-          shakeDuration: 0
-          cinemachineCameraShakerRef: {fileID: 0}
-        soundParent: {fileID: 0}
-      uxOnInteractionInitialized: 0
+  namedInteractions: []
   onDeathEnabled: 0
   onDeathInteraction:
     isDestroyed: 0
@@ -160,12 +66,10 @@ MonoBehaviour:
     transformedRef: {fileID: 0}
     canSetObjectActiveStatus: 0
     objectActiveStatus: 0
-    objectToSetActiveStatus: {fileID: 0}
     canSpawnObject: 0
     objectToSpawn: {fileID: 0}
     objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
     rotates: 0
-    objectToRotate: {fileID: 0}
     rotateValue: 0
     isMoved: 0
     movementDistance: 0
@@ -199,8 +103,7 @@ MonoBehaviour:
       soundParent: {fileID: 0}
     uxOnInteractionInitialized: 0
   lightInteraction:
-    hasLightInteraction: 0
-    affectedByLightRef: {fileID: 0}
+    hasLightInteraction: 1
     normalRefreshes: 0
     normalOptions:
       isDestroyed: 0
@@ -208,12 +111,10 @@ MonoBehaviour:
       transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
-      objectToRotate: {fileID: 0}
       rotateValue: 0
       isMoved: 0
       movementDistance: 0
@@ -253,13 +154,11 @@ MonoBehaviour:
       transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
-      rotates: 0
-      objectToRotate: {fileID: 0}
-      rotateValue: 0
+      rotates: 1
+      rotateValue: 90
       isMoved: 0
       movementDistance: 0
       movementTime: 0
@@ -298,12 +197,10 @@ MonoBehaviour:
       transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
-      objectToRotate: {fileID: 0}
       rotateValue: 0
       isMoved: 0
       movementDistance: 0
@@ -346,12 +243,10 @@ MonoBehaviour:
       transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
-      objectToRotate: {fileID: 0}
       rotateValue: 0
       isMoved: 0
       movementDistance: 0
