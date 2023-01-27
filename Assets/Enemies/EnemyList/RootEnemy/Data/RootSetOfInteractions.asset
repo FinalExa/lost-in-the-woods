@@ -22,7 +22,6 @@ MonoBehaviour:
       transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
@@ -68,7 +67,6 @@ MonoBehaviour:
       transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
@@ -105,14 +103,13 @@ MonoBehaviour:
           cinemachineCameraShakerRef: {fileID: 0}
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
-  onDeathEnabled: 0
+  onDeathEnabled: 1
   onDeathInteraction:
     isDestroyed: 0
-    isTransformed: 0
-    transformedRef: {fileID: 0}
+    isTransformed: 1
+    transformedRef: {fileID: 551186820573199659, guid: 0106b83c3fae11348b15d2d36a0e0c85, type: 3}
     canSetObjectActiveStatus: 0
     objectActiveStatus: 0
-    objectToSetActiveStatus: {fileID: 0}
     canSpawnObject: 0
     objectToSpawn: {fileID: 0}
     objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
@@ -158,7 +155,6 @@ MonoBehaviour:
       transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
@@ -202,7 +198,6 @@ MonoBehaviour:
       transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
@@ -246,7 +241,6 @@ MonoBehaviour:
       transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
@@ -293,7 +287,6 @@ MonoBehaviour:
       transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
