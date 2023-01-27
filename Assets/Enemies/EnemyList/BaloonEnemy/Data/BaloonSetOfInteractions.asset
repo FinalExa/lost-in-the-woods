@@ -279,7 +279,7 @@ MonoBehaviour:
           cinemachineCameraShakerRef: {fileID: 0}
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
-  - name: Water
+  - name: Infestation
     destroyNamedObjectOnInteraction: 0
     options:
       isDestroyed: 0
@@ -323,10 +323,10 @@ MonoBehaviour:
           cinemachineCameraShakerRef: {fileID: 0}
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
-  - name: Infestation
-    destroyNamedObjectOnInteraction: 0
+  - name: InfestedBall
+    destroyNamedObjectOnInteraction: 1
     options:
-      isDestroyed: 0
+      isDestroyed: 1
       isTransformed: 0
       transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
@@ -339,7 +339,7 @@ MonoBehaviour:
       isMoved: 0
       movementDistance: 0
       movementTime: 0
-      sendsSignalToSelf: 1
+      sendsSignalToSelf: 0
       hasSpecialCondition: 0
       uxOnInteraction:
         hasSound: 0
