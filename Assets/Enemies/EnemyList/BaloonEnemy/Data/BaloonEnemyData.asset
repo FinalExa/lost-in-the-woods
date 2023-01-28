@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BaloonEnemyData
   m_EditorClassIdentifier: 
   enemyName: Baloon
-  maxHP: 200
+  maxHP: 10
   normalMovementSpeed: 3
   normalDistanceFromPlayer: 5
   normalDistanceTolerance: 0
