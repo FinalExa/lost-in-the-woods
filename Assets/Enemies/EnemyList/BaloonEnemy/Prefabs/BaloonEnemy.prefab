@@ -77,11 +77,9 @@ MonoBehaviour:
   interaction: {fileID: 0}
   spriteRef: {fileID: 6624776783331709772}
   absorbableAttackTypes:
-  - attackType: 2
-    feedbackColor: {r: 0, g: 0, b: 1, a: 0.7058824}
-  - attackType: 4
-    feedbackColor: {r: 1, g: 0.8021469, b: 0, a: 0.7058824}
   - attackType: 3
+    feedbackColor: {r: 1, g: 0.8021469, b: 0, a: 0.7058824}
+  - attackType: 2
     feedbackColor: {r: 0.7717838, g: 0, b: 1, a: 0.7058824}
   repelAttackTypes: 01000000
 --- !u!114 &-8967726667995805398
