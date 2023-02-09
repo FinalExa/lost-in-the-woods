@@ -7,7 +7,7 @@ public class NamedInteractionExecutor : MonoBehaviour
     public string thisName;
     public bool active;
     [SerializeField] private bool inLoop;
-    [HideInInspector] public bool interactionDone;
+    [HideInInspector] public bool interactionDone { get; set; }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -19,10 +19,10 @@ public class NamedInteractionExecutor : MonoBehaviour
         if (inLoop) ExecuteNamedInteraction(other);
     }
 
-    /*private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         ExecuteExitFromNamedInteraction(other);
-    }*/
+    }
 
     private void ExecuteNamedInteraction(Collider other)
     {
@@ -36,11 +36,7 @@ public class NamedInteractionExecutor : MonoBehaviour
     private void ExecuteExitFromNamedInteraction(Collider other)
     {
         Interaction interaction = other.GetComponent<Interaction>();
-        if (interaction != null && active)
-        {
-            interaction.NamedInteractionExecute(thisName, this.gameObject, this);
-            interactionDone = true;
-        }
+        if (interaction != null && active) interaction.ExitFromNamedInteraction(thisName, this.gameObject, this);
     }
 
     public void DestroyOnDone()

@@ -18,6 +18,9 @@ public class SetOfInteractions : ScriptableObject
         public string name;
         public bool destroyNamedObjectOnInteraction;
         public Options options;
+        public bool hasNamedInteractionExitOptions;
+        public bool destroyNamedObjectOnInteractionExit;
+        public Options exitNamedInteractionOptions;
     }
     [System.Serializable]
     public struct TimeAfterStartInteraction

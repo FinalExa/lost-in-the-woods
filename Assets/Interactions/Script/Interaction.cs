@@ -65,6 +65,20 @@ public class Interaction : MonoBehaviour
         }
         return string.Empty;
     }
+
+    public string ExitFromNamedInteraction(string interactionName, GameObject source, NamedInteractionExecutor namedInteractionRef)
+    {
+        foreach (SetOfInteractions.NamedInteraction namedInteraction in setOfInteractions.namedInteractions)
+        {
+            if (namedInteraction.name == interactionName && namedInteraction.hasNamedInteractionExitOptions)
+            {
+                interactionOptions.Interact(namedInteraction.exitNamedInteractionOptions, source, setOfInteractions.turnsOff);
+                if (namedInteraction.destroyNamedObjectOnInteractionExit) namedInteractionRef.DestroyOnDone();
+                return interactionName;
+            }
+        }
+        return string.Empty;
+    }
     public void OnDeathInteraction()
     {
         if (setOfInteractions.onDeathEnabled)
