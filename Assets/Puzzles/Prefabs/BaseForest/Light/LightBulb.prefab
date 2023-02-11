@@ -63,7 +63,6 @@ MonoBehaviour:
   thisName: LightBulb
   active: 1
   inLoop: 0
-  interactionDone: 0
 --- !u!1 &501519691474062153
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,6 +368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6552628957484814743}
   - component: {fileID: -6554840796819847052}
+  - component: {fileID: 864091193381167550}
   - component: {fileID: 527383757885418547}
   - component: {fileID: 6552628957484814742}
   - component: {fileID: 2133803774544410818}
@@ -413,6 +413,20 @@ MonoBehaviour:
   isInHeartbeatState: 0
   enemyController: {fileID: 0}
   interaction: {fileID: 0}
+--- !u!114 &864091193381167550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6552628957484814741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aedb3eb057b16d146897207048a286c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisType: 2
+  ignoresDamage: 1
 --- !u!114 &527383757885418547
 MonoBehaviour:
   m_ObjectHideFlags: 0

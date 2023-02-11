@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
-    [SerializeField] private SetOfInteractions setOfInteractions;
-    private InteractionOptions interactionOptions;
+    public SetOfInteractions setOfInteractions;
+    [HideInInspector] public InteractionOptions interactionOptions;
+    [HideInInspector] public NamedInteractionOperations namedInteractionOperations;
     private bool forcedMovementActive;
     private float forcedMovementDuration;
     private float forcedMovementDistance;
@@ -15,11 +16,9 @@ public class Interaction : MonoBehaviour
     public GameObject objectToSetActiveStatus;
     [HideInInspector] public bool despawned;
 
-    private void Start()
+    private void Awake()
     {
         CreateAttackInteractionOptions();
-        interactionOptions.selfObject = this.gameObject;
-        interactionOptions.interaction = this;
     }
 
     private void OnEnable()
@@ -30,7 +29,8 @@ public class Interaction : MonoBehaviour
 
     private void CreateAttackInteractionOptions()
     {
-        if (interactionOptions == null) interactionOptions = new InteractionOptions();
+        if (interactionOptions == null) interactionOptions = new InteractionOptions(this);
+        if (namedInteractionOperations == null) namedInteractionOperations = new NamedInteractionOperations(this);
     }
 
     private void Update()
@@ -52,18 +52,14 @@ public class Interaction : MonoBehaviour
         }
     }
 
-    public string NamedInteractionExecute(string interactionName, GameObject source, NamedInteractionExecutor namedInteractionRef)
+    public void NamedInteractionExecute(NamedInteractionExecutor namedInteractionRef, GameObject source)
     {
-        foreach (SetOfInteractions.NamedInteraction namedInteraction in setOfInteractions.namedInteractions)
-        {
-            if (namedInteraction.name == interactionName)
-            {
-                interactionOptions.Interact(namedInteraction.options, source, setOfInteractions.turnsOff);
-                if (namedInteraction.destroyNamedObjectOnInteraction) namedInteractionRef.DestroyOnDone();
-                return interactionName;
-            }
-        }
-        return string.Empty;
+        namedInteractionOperations.NamedInteractionEnter(namedInteractionRef, source);
+    }
+
+    public void ExitFromNamedInteraction(NamedInteractionExecutor namedInteractionRef, GameObject source)
+    {
+        namedInteractionOperations.NamedInteractionExit(namedInteractionRef, source);
     }
     public void OnDeathInteraction()
     {

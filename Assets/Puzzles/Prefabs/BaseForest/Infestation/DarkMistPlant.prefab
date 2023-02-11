@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 1853056172978285710}
   - component: {fileID: 8179742777429672632}
   - component: {fileID: 2793547763726862604}
+  - component: {fileID: -1665770304255581068}
   m_Layer: 0
   m_Name: DarkMistPlant
   m_TagString: Untagged
@@ -213,6 +214,22 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!54 &-1665770304255581068
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3180470605036223843}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &3633513208515824121
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +324,6 @@ MonoBehaviour:
   thisName: DarkMistPlant
   active: 1
   inLoop: 0
-  interactionDone: 0
 --- !u!212 &8579526735946817214
 SpriteRenderer:
   m_ObjectHideFlags: 0
