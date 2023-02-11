@@ -29,14 +29,14 @@ public class NamedInteractionExecutor : MonoBehaviour
         Interaction interaction = other.GetComponent<Interaction>();
         if (interaction != null && active)
         {
-            interaction.NamedInteractionExecute(thisName, this.gameObject, this);
+            interaction.NamedInteractionExecute(this, this.gameObject);
             interactionDone = true;
         }
     }
     private void ExecuteExitFromNamedInteraction(Collider other)
     {
         Interaction interaction = other.GetComponent<Interaction>();
-        if (interaction != null && active) interaction.ExitFromNamedInteraction(thisName, this.gameObject, this);
+        if (interaction != null && active) interaction.ExitFromNamedInteraction(this, this.gameObject);
     }
 
     public void DestroyOnDone()

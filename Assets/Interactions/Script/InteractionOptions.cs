@@ -6,6 +6,11 @@ public class InteractionOptions
 {
     public GameObject selfObject;
     public Interaction interaction;
+    public InteractionOptions(Interaction reference)
+    {
+        interaction = reference;
+        selfObject = reference.gameObject;
+    }
     public void Interact(SetOfInteractions.Options options, GameObject source, bool turnsOff)
     {
         if (!options.hasSpecialCondition || SpecialConditionsCheck(options))
