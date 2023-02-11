@@ -20,9 +20,9 @@ public class NamedInteractionOperations
             {
                 if (!ActiveNamedInteractions.ContainsKey(interactionExecutor.thisName))
                 {
-                    interactionRef.interactionOptions.Interact(interaction.options, sourceObject, interactionRef.setOfInteractions.turnsOff);
                     if (interaction.destroyNamedObjectOnInteraction) interactionExecutor.DestroyOnDone();
                     else ActiveNamedInteractions.Add(interactionExecutor.thisName, 1);
+                    interactionRef.interactionOptions.Interact(interaction.options, sourceObject, interactionRef.setOfInteractions.turnsOff);
                 }
                 else ActiveNamedInteractions[interactionExecutor.thisName]++;
                 break;
@@ -39,8 +39,8 @@ public class NamedInteractionOperations
                 if (ActiveNamedInteractions[interactionExecutor.thisName] > 1) ActiveNamedInteractions[interactionExecutor.thisName]--;
                 else
                 {
-                    if (interaction.hasNamedInteractionExitOptions) interactionRef.interactionOptions.Interact(interaction.exitNamedInteractionOptions, sourceObject, interactionRef.setOfInteractions.turnsOff);
                     ActiveNamedInteractions.Remove(interactionExecutor.thisName);
+                    if (interaction.hasNamedInteractionExitOptions) interactionRef.interactionOptions.Interact(interaction.exitNamedInteractionOptions, sourceObject, interactionRef.setOfInteractions.turnsOff);
                 }
             }
         }

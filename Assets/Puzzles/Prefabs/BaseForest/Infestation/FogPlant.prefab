@@ -146,7 +146,6 @@ MonoBehaviour:
   thisName: FogPlant
   active: 1
   inLoop: 0
-  interactionDone: 0
 --- !u!1 &3079961523078342297
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7791339849050343981}
   - component: {fileID: 4171338550877572620}
+  - component: {fileID: 6413767139371078842}
   - component: {fileID: 3575400320684914569}
   - component: {fileID: 7791339849050343980}
   - component: {fileID: 3121891899807671160}
@@ -318,6 +318,20 @@ MonoBehaviour:
   isInHeartbeatState: 0
   enemyController: {fileID: 0}
   interaction: {fileID: 0}
+--- !u!114 &6413767139371078842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7791339849050343983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aedb3eb057b16d146897207048a286c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisType: 2
+  ignoresDamage: 1
 --- !u!114 &3575400320684914569
 MonoBehaviour:
   m_ObjectHideFlags: 0
