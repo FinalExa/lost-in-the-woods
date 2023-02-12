@@ -34,13 +34,14 @@ public class Sprout : MonoBehaviour, ISendSignalToSelf
         else guidingLightPlantIn = false;
         if (thisInteraction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(darkMistPlantName)) darkMistPlantIn = true;
         else darkMistPlantIn = false;
-        SetInvisibilityStatus();
+        SetSproutRoots();
     }
 
-    private void SetInvisibilityStatus()
+    private void SetSproutRoots()
     {
-        /*if (lightBulbIn && !fogPlantIn) objectToOperate.SetActive(true);
-        else if (!lightBulbIn && fogPlantIn) objectToOperate.SetActive(false);
-        else objectToOperate.SetActive(baseActiveState);*/
+        if (sproutRoots.Length > 0)
+        {
+            foreach (SproutRoot sproutRoot in sproutRoots) sproutRoot.ReceiveSignalFromParent(lampPlantIn, corruptionPlantIn, guidingLightPlantIn, darkMistPlantIn);
+        }
     }
 }
