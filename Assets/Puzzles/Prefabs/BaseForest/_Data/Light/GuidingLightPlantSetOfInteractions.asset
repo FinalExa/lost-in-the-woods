@@ -109,8 +109,8 @@ MonoBehaviour:
       isDestroyed: 0
       isTransformed: 0
       transformedRef: {fileID: 0}
-      canSetObjectActiveStatus: 1
-      objectActiveStatus: 1
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
@@ -152,13 +152,13 @@ MonoBehaviour:
       isDestroyed: 0
       isTransformed: 0
       transformedRef: {fileID: 0}
-      canSetObjectActiveStatus: 1
-      objectActiveStatus: 1
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
-      rotates: 0
-      rotateValue: 0
+      rotates: 1
+      rotateValue: 90
       isMoved: 0
       movementDistance: 0
       movementTime: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
       isDestroyed: 0
       isTransformed: 0
       transformedRef: {fileID: 0}
-      canSetObjectActiveStatus: 1
+      canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
