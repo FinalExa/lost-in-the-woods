@@ -8,11 +8,11 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
     [SerializeField] private string corruptionPlantName;
     [SerializeField] private string guidingLightPlantName;
     [SerializeField] private string darkMistPlantName;
-    [SerializeField] private Interaction thisInteraction;
     [SerializeField] private GameObject baseSpike;
     [SerializeField] private GameObject[] extendedObjects;
     [SerializeField] private GameObject[] purityObjects;
     [SerializeField] private GameObject[] corruptionObjects;
+    private Interaction thisInteraction;
     private bool lampPlantIn;
     private bool lampPlantInParent;
     private bool corruptionPlantIn;
@@ -21,6 +21,11 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
     private bool guidingLightPlantInParent;
     private bool darkMistPlantIn;
     private bool darkMistPlantInParent;
+
+    private void Awake()
+    {
+        thisInteraction = this.gameObject.GetComponent<Interaction>();
+    }
 
     private void Start()
     {

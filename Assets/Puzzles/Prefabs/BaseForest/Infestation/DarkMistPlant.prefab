@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setOfInteractions: {fileID: 11400000, guid: 44b2b05e1ab9af549b872f09cfb4f49b, type: 2}
   affectedByLightRef: {fileID: 7957825094568495817}
-  rotator: {fileID: 0}
+  rotator: {fileID: 7760869364746593540}
   objectToSetActiveStatus: {fileID: 0}
   despawned: 0
 --- !u!114 &5201706176777790050
