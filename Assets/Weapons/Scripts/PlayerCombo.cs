@@ -7,15 +7,33 @@ public class PlayerCombo : Combo
     [SerializeField] private Weapon playerMainWeapon;
     [SerializeField] private Weapon playerSecondaryWeapon;
 
-    public void SetPlayerWeapon(bool isSecondary)
+    public void StartHitOnWeapon(bool isSecondary)
     {
-        if (!isSecondary) currentWeapon = playerMainWeapon;
-        else currentWeapon = playerSecondaryWeapon;
+        Weapon weaponToSet;
+        if (!isSecondary) weaponToSet = playerMainWeapon;
+        else weaponToSet = playerSecondaryWeapon;
+        if (weaponToSet != currentWeapon) DifferentWeapons(weaponToSet);
+        else StartComboHitCheck();
+    }
+
+    private void SetPlayerWeapon(Weapon weaponToSet)
+    {
+        currentWeapon = weaponToSet;
+    }
+
+    private void DifferentWeapons(Weapon weaponToSet)
+    {
+        if (GetHitOver())
+        {
+            EndCombo();
+            SetPlayerWeapon(weaponToSet);
+            StartComboHitCheck();
+        }
     }
 
     protected override void Start()
     {
-        SetPlayerWeapon(false);
+        SetPlayerWeapon(playerMainWeapon);
         base.Start();
     }
 }

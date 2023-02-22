@@ -56,7 +56,11 @@ public class PCExitLanternUp : PCState
     #region ToAttackState
     private void GoToAttackState(Inputs inputs)
     {
-        if (inputs.LeftClickInput) _pcStateMachine.SetState(new PCAttack(_pcStateMachine));
+        if (inputs.LeftClickInput || inputs.RightClickInput)
+        {
+            if (inputs.RightClickInput) _pcStateMachine.SetState(new PCAttack(_pcStateMachine, true));
+            else _pcStateMachine.SetState(new PCAttack(_pcStateMachine, false));
+        }
     }
     #endregion
     #region ToDodgeState

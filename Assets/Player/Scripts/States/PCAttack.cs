@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class PCAttack : PCState
 {
-    private Combo combo;
-    public PCAttack(PCStateMachine pcStateMachine) : base(pcStateMachine)
+    private PlayerCombo playerCombo;
+    private bool secondary;
+    public PCAttack(PCStateMachine pcStateMachine, bool isSecondary) : base(pcStateMachine)
     {
+        secondary = isSecondary;
+        playerCombo = _pcStateMachine.pcController.pcReferences.pcCombo;
     }
 
     public override void Start()
     {
-        combo = _pcStateMachine.pcController.pcReferences.pcCombo;
-        combo.StartComboHitCheck();
+        playerCombo.StartHitOnWeapon(secondary);
     }
 
     public override void Update()
     {
-        if (combo.GetHitOver()) Transitions();
+        if (playerCombo.GetHitOver()) Transitions();
     }
 
     #region Transitions
