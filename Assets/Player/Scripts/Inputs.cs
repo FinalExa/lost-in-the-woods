@@ -7,7 +7,9 @@ public class Inputs : MonoBehaviour
     public bool LeftClickInput { get; private set; }
     public bool RightClickInput { get; private set; }
     public Vector3 MovementInput { get; private set; }
+    [SerializeField] private KeyCode dodgeKey;
     public bool DodgeInput { get; private set; }
+    [SerializeField] private KeyCode lanternKey;
     public bool LanternInput { get; private set; }
     private void Update()
     {
@@ -39,12 +41,12 @@ public class Inputs : MonoBehaviour
     }
     private void GetDodgeInput()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift)) DodgeInput = true;
+        if (Input.GetKeyDown(dodgeKey)) DodgeInput = true;
         else DodgeInput = false;
     }
     private void GetLanternInput()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) LanternInput = true;
+        if (Input.GetKeyDown(lanternKey)) LanternInput = true;
         else LanternInput = false;
     }
     public void StopAllInputs()

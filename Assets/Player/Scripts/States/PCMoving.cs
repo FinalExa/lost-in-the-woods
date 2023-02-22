@@ -62,9 +62,10 @@ public class PCMoving : PCState
     #region ToAttackState
     private void GoToAttackState(Inputs inputs)
     {
-        if (inputs.LeftClickInput)
+        if (inputs.LeftClickInput || inputs.RightClickInput)
         {
-            _pcStateMachine.SetState(new PCAttack(_pcStateMachine));
+            if (inputs.RightClickInput) _pcStateMachine.SetState(new PCAttack(_pcStateMachine, true));
+            else _pcStateMachine.SetState(new PCAttack(_pcStateMachine, false));
             _pcStateMachine.pcController.pcReferences.rb.velocity = Vector3.zero;
         }
     }

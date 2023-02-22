@@ -10,11 +10,6 @@ public class PCController : MonoBehaviour
     [HideInInspector] public Weapon thisWeapon;
     private Zone currentZone;
 
-    private void Start()
-    {
-        SetupWeapon();
-    }
-
     private void Awake()
     {
         pcReferences = this.gameObject.GetComponent<PCReferences>();
@@ -23,12 +18,6 @@ public class PCController : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R)) UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
-    }
-
-    private void SetupWeapon()
-    {
-        thisWeapon = this.gameObject.GetComponentInChildren<Weapon>();
-        pcReferences.pcCombo.currentWeapon = thisWeapon;
     }
 
     public void ChangePlayerZone(Zone zoneToSet)
