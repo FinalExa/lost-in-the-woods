@@ -30,7 +30,7 @@ Transform:
   m_Children:
   - {fileID: 8821226034283833947}
   m_Father: {fileID: 8940398980789769128}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7129377632901191479
 GameObject:
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 1512204726384944193}
   - component: {fileID: 723867546203750364}
   - component: {fileID: 5618624451261787438}
-  - component: {fileID: 4483060674965839135}
+  - component: {fileID: 7302242419852583486}
   - component: {fileID: 7621549938335928225}
   - component: {fileID: 3858997638449282005}
   - component: {fileID: 8706434170628328547}
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pcController: {fileID: 0}
   thisStateName: 
---- !u!114 &4483060674965839135
+--- !u!114 &7302242419852583486
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7129377632901191479}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2e252280b774094e945deee32505945, type: 3}
+  m_Script: {fileID: 11500000, guid: ec298a8df4050634fb1a9a971c72e703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentWeapon: {fileID: 0}
@@ -215,6 +215,8 @@ MonoBehaviour:
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
   frameValueTime: 0
+  playerMainWeapon: {fileID: 8286796455347018909}
+  playerSecondaryWeapon: {fileID: 8027670724915755663}
 --- !u!114 &7621549938335928225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,287 +399,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17b331db98df9143ae63583c3486477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnsOff: 0
-  attackTypeInteractions:
-  - attackType: 6
-    destroyAttackSourceObject: 0
-    options:
-      isDestroyed: 0
-      isTransformed: 0
-      transformedRef: {fileID: 0}
-      canSetObjectActiveStatus: 0
-      objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
-      canSpawnObject: 0
-      objectToSpawn: {fileID: 0}
-      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
-      rotates: 0
-      objectToRotate: {fileID: 0}
-      rotateValue: 0
-      isMoved: 1
-      movementDistance: 5
-      movementTime: 0.2
-      sendsSignalToSelf: 0
-      hasSpecialCondition: 0
-      uxOnInteraction:
-        hasSound: 0
-        sound:
-          clip: {fileID: 0}
-          priority: 0
-          volume: 0
-          pitch: 0
-          stereoPan: 0
-          spatialBlend: 0
-          reverbZoneMix: 0
-          loop: 0
-          playOnAwake: 0
-          mixer: {fileID: 0}
-        hasSpriteColorChange: 0
-        spriteColorChange:
-          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-          spriteRef: {fileID: 0}
-          spriteColorChangeDuration: 0
-        hasCameraShake: 0
-        cameraShake:
-          shakeAmplitude: 0
-          shakeFrequency: 0
-          shakeDuration: 0
-          cinemachineCameraShakerRef: {fileID: 0}
-        soundParent: {fileID: 0}
-      uxOnInteractionInitialized: 0
-  namedInteractions: []
-  onDeathEnabled: 0
-  onDeathInteraction:
-    isDestroyed: 0
-    isTransformed: 0
-    transformedRef: {fileID: 0}
-    canSetObjectActiveStatus: 0
-    objectActiveStatus: 0
-    objectToSetActiveStatus: {fileID: 0}
-    canSpawnObject: 0
-    objectToSpawn: {fileID: 0}
-    objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
-    rotates: 0
-    objectToRotate: {fileID: 0}
-    rotateValue: 0
-    isMoved: 0
-    movementDistance: 0
-    movementTime: 0
-    sendsSignalToSelf: 0
-    hasSpecialCondition: 0
-    uxOnInteraction:
-      hasSound: 0
-      sound:
-        clip: {fileID: 0}
-        priority: 128
-        volume: 1
-        pitch: 1
-        stereoPan: 0
-        spatialBlend: 0
-        reverbZoneMix: 1
-        loop: 0
-        playOnAwake: 0
-        mixer: {fileID: 0}
-      hasSpriteColorChange: 0
-      spriteColorChange:
-        changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-        spriteRef: {fileID: 0}
-        spriteColorChangeDuration: 0
-      hasCameraShake: 0
-      cameraShake:
-        shakeAmplitude: 0
-        shakeFrequency: 0
-        shakeDuration: 0
-        cinemachineCameraShakerRef: {fileID: 0}
-      soundParent: {fileID: 0}
-    uxOnInteractionInitialized: 0
-  lightInteraction:
-    hasLightInteraction: 0
-    affectedByLightRef: {fileID: 0}
-    normalRefreshes: 0
-    normalOptions:
-      isDestroyed: 0
-      isTransformed: 0
-      transformedRef: {fileID: 0}
-      canSetObjectActiveStatus: 0
-      objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
-      canSpawnObject: 0
-      objectToSpawn: {fileID: 0}
-      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
-      rotates: 0
-      objectToRotate: {fileID: 0}
-      rotateValue: 0
-      isMoved: 0
-      movementDistance: 0
-      movementTime: 0
-      sendsSignalToSelf: 0
-      hasSpecialCondition: 0
-      uxOnInteraction:
-        hasSound: 0
-        sound:
-          clip: {fileID: 0}
-          priority: 128
-          volume: 1
-          pitch: 1
-          stereoPan: 0
-          spatialBlend: 0
-          reverbZoneMix: 1
-          loop: 0
-          playOnAwake: 0
-          mixer: {fileID: 0}
-        hasSpriteColorChange: 0
-        spriteColorChange:
-          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-          spriteRef: {fileID: 0}
-          spriteColorChangeDuration: 0
-        hasCameraShake: 0
-        cameraShake:
-          shakeAmplitude: 0
-          shakeFrequency: 0
-          shakeDuration: 0
-          cinemachineCameraShakerRef: {fileID: 0}
-        soundParent: {fileID: 0}
-      uxOnInteractionInitialized: 0
-    calmRefreshes: 0
-    calmOptions:
-      isDestroyed: 0
-      isTransformed: 0
-      transformedRef: {fileID: 0}
-      canSetObjectActiveStatus: 0
-      objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
-      canSpawnObject: 0
-      objectToSpawn: {fileID: 0}
-      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
-      rotates: 0
-      objectToRotate: {fileID: 0}
-      rotateValue: 0
-      isMoved: 0
-      movementDistance: 0
-      movementTime: 0
-      sendsSignalToSelf: 0
-      hasSpecialCondition: 0
-      uxOnInteraction:
-        hasSound: 0
-        sound:
-          clip: {fileID: 0}
-          priority: 128
-          volume: 1
-          pitch: 1
-          stereoPan: 0
-          spatialBlend: 0
-          reverbZoneMix: 1
-          loop: 0
-          playOnAwake: 0
-          mixer: {fileID: 0}
-        hasSpriteColorChange: 0
-        spriteColorChange:
-          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-          spriteRef: {fileID: 0}
-          spriteColorChangeDuration: 0
-        hasCameraShake: 0
-        cameraShake:
-          shakeAmplitude: 0
-          shakeFrequency: 0
-          shakeDuration: 0
-          cinemachineCameraShakerRef: {fileID: 0}
-        soundParent: {fileID: 0}
-      uxOnInteractionInitialized: 0
-    berserkRefreshes: 0
-    berserkOptions:
-      isDestroyed: 0
-      isTransformed: 0
-      transformedRef: {fileID: 0}
-      canSetObjectActiveStatus: 0
-      objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
-      canSpawnObject: 0
-      objectToSpawn: {fileID: 0}
-      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
-      rotates: 0
-      objectToRotate: {fileID: 0}
-      rotateValue: 0
-      isMoved: 0
-      movementDistance: 0
-      movementTime: 0
-      sendsSignalToSelf: 0
-      hasSpecialCondition: 0
-      uxOnInteraction:
-        hasSound: 0
-        sound:
-          clip: {fileID: 0}
-          priority: 128
-          volume: 1
-          pitch: 1
-          stereoPan: 0
-          spatialBlend: 0
-          reverbZoneMix: 1
-          loop: 0
-          playOnAwake: 0
-          mixer: {fileID: 0}
-        hasSpriteColorChange: 0
-        spriteColorChange:
-          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-          spriteRef: {fileID: 0}
-          spriteColorChangeDuration: 0
-        hasCameraShake: 0
-        cameraShake:
-          shakeAmplitude: 0
-          shakeFrequency: 0
-          shakeDuration: 0
-          cinemachineCameraShakerRef: {fileID: 0}
-        soundParent: {fileID: 0}
-      uxOnInteractionInitialized: 0
-  timeAfterStartInteraction:
-    hasTimeAfterStartInteraction: 0
-    timeAfterStart: 0
-    repeats: 0
-    options:
-      isDestroyed: 0
-      isTransformed: 0
-      transformedRef: {fileID: 0}
-      canSetObjectActiveStatus: 0
-      objectActiveStatus: 0
-      objectToSetActiveStatus: {fileID: 0}
-      canSpawnObject: 0
-      objectToSpawn: {fileID: 0}
-      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
-      rotates: 0
-      objectToRotate: {fileID: 0}
-      rotateValue: 0
-      isMoved: 0
-      movementDistance: 0
-      movementTime: 0
-      sendsSignalToSelf: 0
-      hasSpecialCondition: 0
-      uxOnInteraction:
-        hasSound: 0
-        sound:
-          clip: {fileID: 0}
-          priority: 128
-          volume: 1
-          pitch: 1
-          stereoPan: 0
-          spatialBlend: 0
-          reverbZoneMix: 1
-          loop: 0
-          playOnAwake: 0
-          mixer: {fileID: 0}
-        hasSpriteColorChange: 0
-        spriteColorChange:
-          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-          spriteRef: {fileID: 0}
-          spriteColorChangeDuration: 0
-        hasCameraShake: 0
-        cameraShake:
-          shakeAmplitude: 0
-          shakeFrequency: 0
-          shakeDuration: 0
-          cinemachineCameraShakerRef: {fileID: 0}
-        soundParent: {fileID: 0}
-      uxOnInteractionInitialized: 0
   setOfInteractions: {fileID: 11400000, guid: 47e4064cad9247648be7bb5e31ec56bf, type: 2}
+  affectedByLightRef: {fileID: 0}
+  rotator: {fileID: 0}
+  objectToSetActiveStatus: {fileID: 0}
   despawned: 0
 --- !u!114 &1353845484741870925
 MonoBehaviour:
@@ -804,6 +529,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &7331649009403438431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5801850938974234373}
+  m_Layer: 0
+  m_Name: Weapons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5801850938974234373
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7331649009403438431}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 526178401447173992}
+  - {fileID: 1956183960085526906}
+  m_Father: {fileID: 8940398980789769128}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8306503299098071827
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,8 +591,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 526178401447173992}
   - {fileID: 5309249015759442174}
+  - {fileID: 5801850938974234373}
   m_Father: {fileID: 7129377632901191473}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -924,7 +682,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 8940398980789769128}
+    m_TransformParent: {fileID: 5801850938974234373}
     m_Modifications:
     - target: {fileID: 5681984492148024441, guid: 48476aeea2666444b91a90023877e533, type: 3}
       propertyPath: m_RootOrder
@@ -948,15 +706,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5681984492148024441, guid: 48476aeea2666444b91a90023877e533, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5681984492148024441, guid: 48476aeea2666444b91a90023877e533, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5681984492148024441, guid: 48476aeea2666444b91a90023877e533, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5681984492148024441, guid: 48476aeea2666444b91a90023877e533, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -972,7 +730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6089379293536037342, guid: 48476aeea2666444b91a90023877e533, type: 3}
       propertyPath: m_Name
-      value: Weapon
+      value: PlayerMainWeapon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48476aeea2666444b91a90023877e533, type: 3}
@@ -981,3 +739,87 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5681984492148024441, guid: 48476aeea2666444b91a90023877e533, type: 3}
   m_PrefabInstance: {fileID: 5302754079292734225}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8286796455347018909 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4222045236405462924, guid: 48476aeea2666444b91a90023877e533, type: 3}
+  m_PrefabInstance: {fileID: 5302754079292734225}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81dec813fad57f74ab47ded6ae72d8c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &6196869764929035523
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5801850938974234373}
+    m_Modifications:
+    - target: {fileID: 5681984492148024441, guid: 39618821824a52640a5fe16e3ed90beb, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681984492148024441, guid: 39618821824a52640a5fe16e3ed90beb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681984492148024441, guid: 39618821824a52640a5fe16e3ed90beb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681984492148024441, guid: 39618821824a52640a5fe16e3ed90beb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681984492148024441, guid: 39618821824a52640a5fe16e3ed90beb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681984492148024441, guid: 39618821824a52640a5fe16e3ed90beb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681984492148024441, guid: 39618821824a52640a5fe16e3ed90beb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681984492148024441, guid: 39618821824a52640a5fe16e3ed90beb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681984492148024441, guid: 39618821824a52640a5fe16e3ed90beb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681984492148024441, guid: 39618821824a52640a5fe16e3ed90beb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681984492148024441, guid: 39618821824a52640a5fe16e3ed90beb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089379293536037342, guid: 39618821824a52640a5fe16e3ed90beb, type: 3}
+      propertyPath: m_Name
+      value: PlayerSecondaryWeapon
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 39618821824a52640a5fe16e3ed90beb, type: 3}
+--- !u!4 &1956183960085526906 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5681984492148024441, guid: 39618821824a52640a5fe16e3ed90beb, type: 3}
+  m_PrefabInstance: {fileID: 6196869764929035523}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8027670724915755663 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4222045236405462924, guid: 39618821824a52640a5fe16e3ed90beb, type: 3}
+  m_PrefabInstance: {fileID: 6196869764929035523}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81dec813fad57f74ab47ded6ae72d8c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
