@@ -10,6 +10,7 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
     [SerializeField] private string darkMistPlantName;
     [SerializeField] private GameObject baseSpike;
     [SerializeField] private GameObject[] extendedObjects;
+    [SerializeField] private GameObject[] expandedObjects;
     [SerializeField] private GameObject[] purityObjects;
     [SerializeField] private GameObject[] corruptionObjects;
     private Interaction thisInteraction;
@@ -70,17 +71,20 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
         if ((guidingLightPlantIn || guidingLightPlantInParent) && !(darkMistPlantIn || darkMistPlantInParent))
         {
             baseSpike.SetActive(true);
-            foreach (GameObject obj in extendedObjects) obj.SetActive(true);
+            ArraySetActiveStatusOfObjects(extendedObjects, true);
+            ArraySetActiveStatusOfObjects(expandedObjects, false);
         }
         else if (!(guidingLightPlantIn || guidingLightPlantInParent) && (darkMistPlantIn || darkMistPlantInParent))
         {
+            ArraySetActiveStatusOfObjects(expandedObjects, true);
             baseSpike.SetActive(false);
-            foreach (GameObject obj in extendedObjects) obj.SetActive(false);
+            ArraySetActiveStatusOfObjects(extendedObjects, false);
         }
         else
         {
             baseSpike.SetActive(true);
-            foreach (GameObject obj in extendedObjects) obj.SetActive(false);
+            ArraySetActiveStatusOfObjects(extendedObjects, false);
+            ArraySetActiveStatusOfObjects(expandedObjects, false);
         }
     }
 
@@ -88,18 +92,23 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
     {
         if ((lampPlantIn || lampPlantInParent) && !(corruptionPlantIn || corruptionPlantInParent))
         {
-            foreach (GameObject obj in purityObjects) obj.SetActive(true);
-            foreach (GameObject obj in corruptionObjects) obj.SetActive(false);
+            ArraySetActiveStatusOfObjects(purityObjects, true);
+            ArraySetActiveStatusOfObjects(corruptionObjects, false);
         }
         else if (!(lampPlantIn || lampPlantInParent) && (corruptionPlantIn || corruptionPlantInParent))
         {
-            foreach (GameObject obj in purityObjects) obj.SetActive(false);
-            foreach (GameObject obj in corruptionObjects) obj.SetActive(true);
+            ArraySetActiveStatusOfObjects(purityObjects, false);
+            ArraySetActiveStatusOfObjects(corruptionObjects, true);
         }
         else
         {
-            foreach (GameObject obj in purityObjects) obj.SetActive(false);
-            foreach (GameObject obj in corruptionObjects) obj.SetActive(false);
+            ArraySetActiveStatusOfObjects(purityObjects, false);
+            ArraySetActiveStatusOfObjects(corruptionObjects, false);
         }
+    }
+
+    private void ArraySetActiveStatusOfObjects(GameObject[] receivedArray, bool activeStatus)
+    {
+        foreach (GameObject receivedObject in receivedArray) receivedObject.SetActive(activeStatus);
     }
 }

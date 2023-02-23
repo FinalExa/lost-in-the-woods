@@ -80,13 +80,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Player Secondary Weapon
-  comboEndFramesDelay: 30
+  comboEndFramesDelay: 15
   comboCancelEnabled: 0
   comboCancelFrames: 0
   possibleTargets: 0100000002000000
   weaponAttacks:
   - damage: 0
-    frameDuration: 30
+    frameDuration: 15
     framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
@@ -95,13 +95,13 @@ MonoBehaviour:
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 5496394219624157946}
       activationFrame: 0
-      deactivationFrame: 10
+      deactivationFrame: 5
     - attackRef: {fileID: 2426973909178942697}
-      activationFrame: 10
-      deactivationFrame: 20
+      activationFrame: 5
+      deactivationFrame: 10
     - attackRef: {fileID: 7854458176627703682}
-      activationFrame: 20
-      deactivationFrame: 30
+      activationFrame: 10
+      deactivationFrame: 15
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
