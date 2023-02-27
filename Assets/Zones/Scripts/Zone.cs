@@ -10,9 +10,9 @@ public class Zone : MonoBehaviour
     [SerializeField] private float colliderReactivationDelay = 1f;
     [SerializeField] private float zoneHeartbeatCooldown;
     [SerializeField] private float zoneHeartbeatDuration;
-    [SerializeField] private GameObject zoneTriggersParent;
+    [SerializeField] private GameObject zoneGroundParent;
     public ZonePuzzle zonePuzzle;
-    private Collider[] zoneTriggers;
+    private List<ZoneGround> zoneGrounds;
     private PCController playerRef;
 
     private void Start()
@@ -27,6 +27,7 @@ public class Zone : MonoBehaviour
         playerRef.pcReferences.heartbeat.ChangeHeartbeatCooldownAndDuration(zoneHeartbeatCooldown, zoneHeartbeatDuration);
         SetZoneColliders(false);
         zonePuzzle.PlayerHasEntered();
+        print(zoneName);
     }
 
     public void SetPlayerOutOfZone()
@@ -36,25 +37,27 @@ public class Zone : MonoBehaviour
 
     private void ZoneStartup()
     {
+        zoneGrounds = new List<ZoneGround>();
         GetZoneColliders();
         zonePuzzle.ZonePuzzleStartup(this);
     }
 
     private void GetZoneColliders()
     {
-        zoneTriggers = zoneTriggersParent.GetComponentsInChildren<Collider>();
-        foreach (Collider collider in zoneTriggers)
+        Collider[] zoneGroundsCollider = zoneGroundParent.GetComponentsInChildren<Collider>();
+        foreach (Collider collider in zoneGroundsCollider)
         {
-            ZoneTrigger zoneTrigger = collider.gameObject.AddComponent<ZoneTrigger>();
-            zoneTrigger.SetZone(this);
+            ZoneGround zoneGround = collider.gameObject.AddComponent<ZoneGround>();
+            zoneGround.SetZone(this);
+            zoneGrounds.Add(zoneGround);
         }
     }
 
     private void SetZoneColliders(bool stateToSet)
     {
-        foreach (Collider collider in zoneTriggers)
+        foreach (ZoneGround zoneGround in zoneGrounds)
         {
-            collider.enabled = stateToSet;
+            zoneGround.checkActivated = stateToSet;
         }
     }
 
