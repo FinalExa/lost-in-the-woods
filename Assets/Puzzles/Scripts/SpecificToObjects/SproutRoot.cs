@@ -22,6 +22,9 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
     private bool guidingLightPlantInParent;
     private bool darkMistPlantIn;
     private bool darkMistPlantInParent;
+    private bool fullyLocked;
+    private bool extendLocked;
+    private bool expandLocked;
 
     private void Awake()
     {
@@ -68,13 +71,13 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
 
     private void PlantShapeStatus()
     {
-        if ((guidingLightPlantIn || guidingLightPlantInParent) && !(darkMistPlantIn || darkMistPlantInParent))
+        if (!fullyLocked && !extendLocked && (guidingLightPlantIn || guidingLightPlantInParent) && !(darkMistPlantIn || darkMistPlantInParent))
         {
             baseSpike.SetActive(true);
             ArraySetActiveStatusOfObjects(extendedObjects, true);
             ArraySetActiveStatusOfObjects(expandedObjects, false);
         }
-        else if (!(guidingLightPlantIn || guidingLightPlantInParent) && (darkMistPlantIn || darkMistPlantInParent))
+        else if (!fullyLocked && !expandLocked && !(guidingLightPlantIn || guidingLightPlantInParent) && (darkMistPlantIn || darkMistPlantInParent))
         {
             ArraySetActiveStatusOfObjects(expandedObjects, true);
             baseSpike.SetActive(false);
@@ -90,12 +93,12 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
 
     private void ClearingStatus()
     {
-        if ((lampPlantIn || lampPlantInParent) && !(corruptionPlantIn || corruptionPlantInParent))
+        if (!fullyLocked && (lampPlantIn || lampPlantInParent) && !(corruptionPlantIn || corruptionPlantInParent))
         {
             ArraySetActiveStatusOfObjects(purityObjects, true);
             ArraySetActiveStatusOfObjects(corruptionObjects, false);
         }
-        else if (!(lampPlantIn || lampPlantInParent) && (corruptionPlantIn || corruptionPlantInParent))
+        else if (!fullyLocked && !(lampPlantIn || lampPlantInParent) && (corruptionPlantIn || corruptionPlantInParent))
         {
             ArraySetActiveStatusOfObjects(purityObjects, false);
             ArraySetActiveStatusOfObjects(corruptionObjects, true);
