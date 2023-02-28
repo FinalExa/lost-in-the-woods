@@ -8,6 +8,7 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
     [SerializeField] private string corruptionPlantName;
     [SerializeField] private string guidingLightPlantName;
     [SerializeField] private string darkMistPlantName;
+    [SerializeField] private string[] fullyLockNames;
     [SerializeField] private GameObject baseSpike;
     [SerializeField] private GameObject[] extendedObjects;
     [SerializeField] private GameObject[] expandedObjects;
@@ -38,7 +39,28 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
 
     public void OnSignalReceived(GameObject source)
     {
+        SproutRootOperations();
+    }
+
+    private void SproutRootOperations()
+    {
+        CheckIfLocked();
         CheckPlantStatus();
+        if (!fullyLocked) SetCurrentSproutRootStatus();
+    }
+
+    private void CheckIfLocked()
+    {
+        bool check = false;
+        foreach (string lockName in fullyLockNames)
+        {
+            if (thisInteraction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(lockName))
+            {
+                check = true;
+                break;
+            }
+        }
+        fullyLocked = check;
     }
 
     private void CheckPlantStatus()
@@ -51,7 +73,6 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
         else guidingLightPlantIn = false;
         if (thisInteraction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(darkMistPlantName)) darkMistPlantIn = true;
         else darkMistPlantIn = false;
-        SetCurrentSproutRootStatus();
     }
 
     public void ReceiveSignalFromParent(bool lampPlantParent, bool corruptionPlantParent, bool guidingLightPlantParent, bool darkMistPlantParent)
@@ -71,13 +92,13 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
 
     private void PlantShapeStatus()
     {
-        if (!fullyLocked && !extendLocked && (guidingLightPlantIn || guidingLightPlantInParent) && !(darkMistPlantIn || darkMistPlantInParent))
+        if (!extendLocked && (guidingLightPlantIn || guidingLightPlantInParent) && !(darkMistPlantIn || darkMistPlantInParent))
         {
             baseSpike.SetActive(true);
             ArraySetActiveStatusOfObjects(extendedObjects, true);
             ArraySetActiveStatusOfObjects(expandedObjects, false);
         }
-        else if (!fullyLocked && !expandLocked && !(guidingLightPlantIn || guidingLightPlantInParent) && (darkMistPlantIn || darkMistPlantInParent))
+        else if (!expandLocked && !(guidingLightPlantIn || guidingLightPlantInParent) && (darkMistPlantIn || darkMistPlantInParent))
         {
             ArraySetActiveStatusOfObjects(expandedObjects, true);
             baseSpike.SetActive(false);
