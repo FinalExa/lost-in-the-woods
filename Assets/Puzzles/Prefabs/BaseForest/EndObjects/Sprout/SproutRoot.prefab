@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3923714dc792e4fbc5f363ad726537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neededName: 
+  neededName: Terrain
   bannedNames: []
 --- !u!1 &609238750807412820
 GameObject:
@@ -1376,7 +1376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3923714dc792e4fbc5f363ad726537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neededName: 
+  neededName: Terrain
   bannedNames: []
 --- !u!1 &7933312697054656603
 GameObject:
@@ -1436,7 +1436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3923714dc792e4fbc5f363ad726537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neededName: 
+  neededName: Terrain
   bannedNames: []
 --- !u!1 &8629875050853249739
 GameObject:
