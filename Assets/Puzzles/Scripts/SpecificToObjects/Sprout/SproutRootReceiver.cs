@@ -4,18 +4,34 @@ using UnityEngine;
 
 public class SproutRootReceiver : MonoBehaviour
 {
-    [SerializeField] private Vector3 sizeToCheck;
+    private Vector3 sizeToCheck;
+    private bool unableToWork;
     [SerializeField] private string neededName;
     [SerializeField] private string[] bannedNames;
 
+    private void Start()
+    {
+        BoxCollider boxCollider = this.gameObject.GetComponent<BoxCollider>();
+        if (boxCollider != null) sizeToCheck = boxCollider.size;
+        else unableToWork = true;
+    }
+
     public bool GetStatus()
     {
-        bool canOperate = false;
-        List<NamedInteractionExecutor> listOfNames = GetNamedInteractions();
-        bool neededNameIsPresent = GetNeededName(listOfNames);
-        bool bannedNamesArePresent = GetBannedNames(listOfNames);
-        if (neededNameIsPresent && !bannedNamesArePresent) canOperate = true;
-        return canOperate;
+        if (!unableToWork)
+        {
+            bool canOperate = false;
+            List<NamedInteractionExecutor> listOfNames = GetNamedInteractions();
+            bool neededNameIsPresent = GetNeededName(listOfNames);
+            bool bannedNamesArePresent = GetBannedNames(listOfNames);
+            if (neededNameIsPresent && !bannedNamesArePresent) canOperate = true;
+            return canOperate;
+        }
+        else
+        {
+            Debug.LogError("Error on " + this.gameObject.name + ": cannot find Box Collider!");
+            return false;
+        }
     }
 
     private List<NamedInteractionExecutor> GetNamedInteractions()
