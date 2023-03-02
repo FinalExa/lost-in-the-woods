@@ -18,17 +18,17 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
     [SerializeField] private GameObject[] purityObjects;
     [SerializeField] private GameObject[] corruptionObjects;
     private Interaction thisInteraction;
-    private bool lampPlantIn;
-    private bool lampPlantInParent;
-    private bool corruptionPlantIn;
-    private bool corruptionPlantInParent;
-    private bool guidingLightPlantIn;
-    private bool guidingLightPlantInParent;
-    private bool darkMistPlantIn;
-    private bool darkMistPlantInParent;
-    private bool fullyLocked;
-    private bool extendLocked;
-    private bool expandLocked;
+    [SerializeField] private bool lampPlantIn;
+    [SerializeField] private bool lampPlantInParent;
+    [SerializeField] private bool corruptionPlantIn;
+    [SerializeField] private bool corruptionPlantInParent;
+    [SerializeField] private bool guidingLightPlantIn;
+    [SerializeField] private bool guidingLightPlantInParent;
+    [SerializeField] private bool darkMistPlantIn;
+    [SerializeField] private bool darkMistPlantInParent;
+    [SerializeField] private bool fullyLocked;
+    [SerializeField] private bool extendLocked;
+    [SerializeField] private bool expandLocked;
 
     private void Awake()
     {
@@ -47,16 +47,15 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
 
     private void SproutRootOperations()
     {
-        CheckLocks();
         CheckPlantStatus();
         SetCurrentSproutRootStatus();
     }
 
     private void CheckLocks()
     {
-        fullyLocked = baseSpikeReceiver.GetStatus();
-        extendLocked = extendedSpikeReceiver.GetStatus();
-        expandLocked = expandedSpikeReceiver.GetStatus();
+        fullyLocked = !baseSpikeReceiver.GetStatus();
+        extendLocked = !extendedSpikeReceiver.GetStatus();
+        expandLocked = !expandedSpikeReceiver.GetStatus();
     }
 
     private void CheckPlantStatus()
@@ -78,49 +77,36 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
 
     private void SetCurrentSproutRootStatus()
     {
+        CheckLocks();
         PlantShapeStatus();
         ClearingStatus();
     }
 
     private void PlantShapeStatus()
     {
-        if (!fullyLocked && !extendLocked && (guidingLightPlantIn || guidingLightPlantInParent) && !(darkMistPlantIn || darkMistPlantInParent))
-        {
-            baseSpike.SetActive(true);
-            ArraySetActiveStatusOfObjects(extendedObjects, true);
-            ArraySetActiveStatusOfObjects(expandedObjects, false);
-        }
-        else if (!fullyLocked && !expandLocked && !(guidingLightPlantIn || guidingLightPlantInParent) && (darkMistPlantIn || darkMistPlantInParent))
-        {
-            ArraySetActiveStatusOfObjects(expandedObjects, true);
-            baseSpike.SetActive(false);
-            ArraySetActiveStatusOfObjects(extendedObjects, false);
-        }
-        else
-        {
-            baseSpike.SetActive(true);
-            ArraySetActiveStatusOfObjects(extendedObjects, false);
-            ArraySetActiveStatusOfObjects(expandedObjects, false);
-        }
+        if (!fullyLocked && !extendLocked && (guidingLightPlantIn || guidingLightPlantInParent) && !(darkMistPlantIn || darkMistPlantInParent)) SetShape(true, true, false);
+        else if (!fullyLocked && !expandLocked && !(guidingLightPlantIn || guidingLightPlantInParent) && (darkMistPlantIn || darkMistPlantInParent)) SetShape(false, false, true);
+        else SetShape(true, false, false);
+    }
+
+    private void SetShape(bool baseSpikeShape, bool extendedShape, bool expandedShape)
+    {
+        baseSpike.SetActive(baseSpikeShape);
+        ArraySetActiveStatusOfObjects(extendedObjects, extendedShape);
+        ArraySetActiveStatusOfObjects(expandedObjects, expandedShape);
     }
 
     private void ClearingStatus()
     {
-        if (!fullyLocked && (lampPlantIn || lampPlantInParent) && !(corruptionPlantIn || corruptionPlantInParent))
-        {
-            ArraySetActiveStatusOfObjects(purityObjects, true);
-            ArraySetActiveStatusOfObjects(corruptionObjects, false);
-        }
-        else if (!fullyLocked && !(lampPlantIn || lampPlantInParent) && (corruptionPlantIn || corruptionPlantInParent))
-        {
-            ArraySetActiveStatusOfObjects(purityObjects, false);
-            ArraySetActiveStatusOfObjects(corruptionObjects, true);
-        }
-        else
-        {
-            ArraySetActiveStatusOfObjects(purityObjects, false);
-            ArraySetActiveStatusOfObjects(corruptionObjects, false);
-        }
+        if (!fullyLocked && (lampPlantIn || lampPlantInParent) && !(corruptionPlantIn || corruptionPlantInParent)) SetSignals(true, false);
+        else if (!fullyLocked && !(lampPlantIn || lampPlantInParent) && (corruptionPlantIn || corruptionPlantInParent)) SetSignals(false, true);
+        else SetSignals(false, false);
+    }
+
+    private void SetSignals(bool puritySignal, bool corruptionSignal)
+    {
+        ArraySetActiveStatusOfObjects(purityObjects, puritySignal);
+        ArraySetActiveStatusOfObjects(corruptionObjects, corruptionSignal);
     }
 
     private void ArraySetActiveStatusOfObjects(GameObject[] receivedArray, bool activeStatus)

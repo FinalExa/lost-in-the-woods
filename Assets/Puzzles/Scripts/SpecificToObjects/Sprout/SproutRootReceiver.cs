@@ -12,7 +12,7 @@ public class SproutRootReceiver : MonoBehaviour
     private void Start()
     {
         BoxCollider boxCollider = this.gameObject.GetComponent<BoxCollider>();
-        if (boxCollider != null) sizeToCheck = boxCollider.size;
+        if (boxCollider != null) sizeToCheck = Vector3.Scale(boxCollider.size, this.gameObject.transform.localScale);
         else unableToWork = true;
     }
 

@@ -58,8 +58,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3923714dc792e4fbc5f363ad726537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neededName: Terrain
-  bannedNames: []
+  neededName: 
+  bannedNames:
+  - DeadTerrain
 --- !u!1 &609238750807412820
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,6 +1160,17 @@ MonoBehaviour:
   - {fileID: 609238750807412820}
   - {fileID: 4712150563699075392}
   - {fileID: 5170346438361871958}
+  lampPlantIn: 0
+  lampPlantInParent: 0
+  corruptionPlantIn: 0
+  corruptionPlantInParent: 0
+  guidingLightPlantIn: 0
+  guidingLightPlantInParent: 0
+  darkMistPlantIn: 0
+  darkMistPlantInParent: 0
+  fullyLocked: 0
+  extendLocked: 0
+  expandLocked: 0
 --- !u!114 &6454512075622090866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1377,7 +1389,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neededName: Terrain
-  bannedNames: []
+  bannedNames:
+  - DeadTerrain
 --- !u!1 &7933312697054656603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,7 +1450,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neededName: Terrain
-  bannedNames: []
+  bannedNames:
+  - DeadTerrain
 --- !u!1 &8629875050853249739
 GameObject:
   m_ObjectHideFlags: 0

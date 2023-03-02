@@ -29,7 +29,7 @@ public class Sprout : MonoBehaviour, ISendSignalToSelf
 
     public void OnSignalReceived(GameObject source)
     {
-        if (thisInteraction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(corruptionAuraSproutName)) CreateDeadSprout();
+        if (NameStatus(corruptionAuraSproutName)) CreateDeadSprout();
         else CheckPlantStatus();
     }
 
