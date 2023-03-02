@@ -48,6 +48,7 @@ public class SproutRootReceiver : MonoBehaviour
 
     private bool GetNeededName(List<NamedInteractionExecutor> listOfNames)
     {
+        if (neededName == string.Empty) return true;
         foreach (NamedInteractionExecutor namedInteraction in listOfNames)
         {
             if (namedInteraction.thisName == neededName) return true;
@@ -57,6 +58,7 @@ public class SproutRootReceiver : MonoBehaviour
 
     private bool GetBannedNames(List<NamedInteractionExecutor> listOfNames)
     {
+        if (bannedNames.Length < 1) return false;
         foreach (NamedInteractionExecutor namedInteraction in listOfNames)
         {
             for (int i = 0; i < bannedNames.Length; i++)

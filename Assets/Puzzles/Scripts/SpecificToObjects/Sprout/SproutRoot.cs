@@ -10,8 +10,11 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
     [SerializeField] private string darkMistPlantName;
     [SerializeField] private string[] fullyLockNames;
     [SerializeField] private GameObject baseSpike;
+    [SerializeField] private SproutRootReceiver baseSpikeReceiver;
     [SerializeField] private GameObject[] extendedObjects;
+    [SerializeField] private SproutRootReceiver extendedSpikeReceiver;
     [SerializeField] private GameObject[] expandedObjects;
+    [SerializeField] private SproutRootReceiver expandedSpikeReceiver;
     [SerializeField] private GameObject[] purityObjects;
     [SerializeField] private GameObject[] corruptionObjects;
     private Interaction thisInteraction;
@@ -44,35 +47,24 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
 
     private void SproutRootOperations()
     {
-        CheckIfLocked();
+        CheckLocks();
         CheckPlantStatus();
-        if (!fullyLocked) SetCurrentSproutRootStatus();
+        SetCurrentSproutRootStatus();
     }
 
-    private void CheckIfLocked()
+    private void CheckLocks()
     {
-        bool check = false;
-        foreach (string lockName in fullyLockNames)
-        {
-            if (thisInteraction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(lockName))
-            {
-                check = true;
-                break;
-            }
-        }
-        fullyLocked = check;
+        fullyLocked = baseSpikeReceiver.GetStatus();
+        extendLocked = extendedSpikeReceiver.GetStatus();
+        expandLocked = expandedSpikeReceiver.GetStatus();
     }
 
     private void CheckPlantStatus()
     {
-        if (thisInteraction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(lampPlantName)) lampPlantIn = true;
-        else lampPlantIn = false;
-        if (thisInteraction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(corruptionPlantName)) corruptionPlantIn = true;
-        else corruptionPlantIn = false;
-        if (thisInteraction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(guidingLightPlantName)) guidingLightPlantIn = true;
-        else guidingLightPlantIn = false;
-        if (thisInteraction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(darkMistPlantName)) darkMistPlantIn = true;
-        else darkMistPlantIn = false;
+        lampPlantIn = NameStatus(lampPlantName);
+        corruptionPlantIn = NameStatus(corruptionPlantName);
+        guidingLightPlantIn = NameStatus(guidingLightPlantName);
+        darkMistPlantIn = NameStatus(darkMistPlantName);
     }
 
     public void ReceiveSignalFromParent(bool lampPlantParent, bool corruptionPlantParent, bool guidingLightPlantParent, bool darkMistPlantParent)
@@ -92,13 +84,13 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
 
     private void PlantShapeStatus()
     {
-        if (!extendLocked && (guidingLightPlantIn || guidingLightPlantInParent) && !(darkMistPlantIn || darkMistPlantInParent))
+        if (!fullyLocked && !extendLocked && (guidingLightPlantIn || guidingLightPlantInParent) && !(darkMistPlantIn || darkMistPlantInParent))
         {
             baseSpike.SetActive(true);
             ArraySetActiveStatusOfObjects(extendedObjects, true);
             ArraySetActiveStatusOfObjects(expandedObjects, false);
         }
-        else if (!expandLocked && !(guidingLightPlantIn || guidingLightPlantInParent) && (darkMistPlantIn || darkMistPlantInParent))
+        else if (!fullyLocked && !expandLocked && !(guidingLightPlantIn || guidingLightPlantInParent) && (darkMistPlantIn || darkMistPlantInParent))
         {
             ArraySetActiveStatusOfObjects(expandedObjects, true);
             baseSpike.SetActive(false);
@@ -134,5 +126,10 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
     private void ArraySetActiveStatusOfObjects(GameObject[] receivedArray, bool activeStatus)
     {
         foreach (GameObject receivedObject in receivedArray) receivedObject.SetActive(activeStatus);
+    }
+
+    private bool NameStatus(string nameToCheck)
+    {
+        return thisInteraction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(nameToCheck);
     }
 }

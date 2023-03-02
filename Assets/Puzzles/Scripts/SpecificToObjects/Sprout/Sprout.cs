@@ -35,14 +35,10 @@ public class Sprout : MonoBehaviour, ISendSignalToSelf
 
     private void CheckPlantStatus()
     {
-        if (thisInteraction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(lampPlantName)) lampPlantIn = true;
-        else lampPlantIn = false;
-        if (thisInteraction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(corruptionPlantName)) corruptionPlantIn = true;
-        else corruptionPlantIn = false;
-        if (thisInteraction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(guidingLightPlantName)) guidingLightPlantIn = true;
-        else guidingLightPlantIn = false;
-        if (thisInteraction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(darkMistPlantName)) darkMistPlantIn = true;
-        else darkMistPlantIn = false;
+        lampPlantIn = NameStatus(lampPlantName);
+        corruptionPlantIn = NameStatus(corruptionPlantName);
+        guidingLightPlantIn = NameStatus(guidingLightPlantName);
+        darkMistPlantIn = NameStatus(darkMistPlantName);
         SetSproutRoots();
     }
 
@@ -64,5 +60,10 @@ public class Sprout : MonoBehaviour, ISendSignalToSelf
         DeadSprout deadSprout = Instantiate(deadSproutRef, this.transform.position, Quaternion.identity);
         deadSprout.sproutRoots = sproutRoots;
         GameObject.Destroy(this.gameObject);
+    }
+
+    private bool NameStatus(string nameToCheck)
+    {
+        return thisInteraction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(nameToCheck);
     }
 }
