@@ -22,6 +22,7 @@ public class SproutRootReceiver : MonoBehaviour
         {
             bool canOperate = false;
             List<NamedInteractionExecutor> listOfNames = GetNamedInteractions();
+            if (listOfNames.Count < 1) return false;
             bool neededNameIsPresent = GetNeededName(listOfNames);
             bool bannedNamesArePresent = GetBannedNames(listOfNames);
             if (neededNameIsPresent && !bannedNamesArePresent) canOperate = true;
