@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7090478176754581803}
-  - component: {fileID: 7362378625301049426}
   - component: {fileID: 8631790803540630347}
   m_Layer: 0
   m_Name: ExpandedSpikeReceiver
@@ -26,26 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534381392978371550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.01, z: 1}
-  m_LocalScale: {x: 8, y: 1, z: 8}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5404174652279290236}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &7362378625301049426
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534381392978371550}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 5, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8631790803540630347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3923714dc792e4fbc5f363ad726537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  referenceObjectCollider: {fileID: 5533824644139797187}
   neededName: 
   bannedNames:
   - DeadTerrain
@@ -624,7 +611,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4365228103494286335}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -1.01, z: 1}
   m_LocalScale: {x: 8, y: 1, z: 8}
   m_ConstrainProportionsScale: 0
@@ -1339,7 +1326,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2542005981723233596}
-  - component: {fileID: 8711322233984783427}
   - component: {fileID: 5430121156258541521}
   m_Layer: 0
   m_Name: ExtendedSpikeReceiver
@@ -1356,26 +1342,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6980480270088313367}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.01, z: 13}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5404174652279290236}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8711322233984783427
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6980480270088313367}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 5, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5430121156258541521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1388,6 +1361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3923714dc792e4fbc5f363ad726537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  referenceObjectCollider: {fileID: 5845678155223160880}
   neededName: Terrain
   bannedNames:
   - DeadTerrain
@@ -1400,7 +1374,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6925242558383518074}
-  - component: {fileID: 2847249179920203611}
   - component: {fileID: 439099101797909704}
   m_Layer: 0
   m_Name: BaseSpikeReceiver
@@ -1417,26 +1390,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7933312697054656603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.01, z: 1}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5404174652279290236}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2847249179920203611
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7933312697054656603}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 5, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &439099101797909704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1449,6 +1409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3923714dc792e4fbc5f363ad726537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  referenceObjectCollider: {fileID: 312719392091319580}
   neededName: Terrain
   bannedNames:
   - DeadTerrain

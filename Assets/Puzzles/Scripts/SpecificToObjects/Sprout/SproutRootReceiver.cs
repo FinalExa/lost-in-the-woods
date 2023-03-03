@@ -6,13 +6,13 @@ public class SproutRootReceiver : MonoBehaviour
 {
     private Vector3 sizeToCheck;
     private bool unableToWork;
+    [SerializeField] private BoxCollider referenceObjectCollider;
     [SerializeField] private string neededName;
     [SerializeField] private string[] bannedNames;
 
     private void Start()
     {
-        BoxCollider boxCollider = this.gameObject.GetComponent<BoxCollider>();
-        if (boxCollider != null) sizeToCheck = Vector3.Scale(boxCollider.size, this.gameObject.transform.localScale);
+        if (referenceObjectCollider != null) sizeToCheck = Vector3.Scale(referenceObjectCollider.size, referenceObjectCollider.gameObject.transform.localScale);
         else unableToWork = true;
     }
 
@@ -37,7 +37,7 @@ public class SproutRootReceiver : MonoBehaviour
 
     private List<NamedInteractionExecutor> GetNamedInteractions()
     {
-        Collider[] collidersInReceiver = Physics.OverlapBox(this.transform.position, sizeToCheck);
+        Collider[] collidersInReceiver = Physics.OverlapBox(referenceObjectCollider.gameObject.transform.position, sizeToCheck);
         List<NamedInteractionExecutor> listOfNames = new List<NamedInteractionExecutor>();
         foreach (Collider collider in collidersInReceiver)
         {
