@@ -90,7 +90,7 @@ MonoBehaviour:
     movementDistance: 0
     ignoresWalls: 0
     attackObject: {fileID: 1083629791230123650}
-    weaponAttackTypes: 07000000
+    weaponAttackTypes: 05000000
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 6942600250751048445}
       activationFrame: 0
@@ -137,7 +137,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8112838768348668354, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 0.23529412
       objectReference: {fileID: 0}
     - target: {fileID: 5269358908780119957, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
       propertyPath: m_RootOrder

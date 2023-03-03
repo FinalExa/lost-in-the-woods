@@ -94,8 +94,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7862594140558788726}
   - component: {fileID: 7957825094568495817}
-  - component: {fileID: 4395174570132556301}
   - component: {fileID: 5201706176777790050}
+  - component: {fileID: 4395174570132556301}
   - component: {fileID: 1853056172978285710}
   - component: {fileID: 8179742777429672632}
   - component: {fileID: 2793547763726862604}
@@ -141,6 +141,20 @@ MonoBehaviour:
   isInHeartbeatState: 0
   enemyController: {fileID: 0}
   interaction: {fileID: 0}
+--- !u!114 &5201706176777790050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3180470605036223843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aedb3eb057b16d146897207048a286c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisType: 2
+  ignoresDamage: 1
 --- !u!114 &4395174570132556301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,20 +172,6 @@ MonoBehaviour:
   rotator: {fileID: 7760869364746593540}
   objectToSetActiveStatus: {fileID: 0}
   despawned: 0
---- !u!114 &5201706176777790050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3180470605036223843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aedb3eb057b16d146897207048a286c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisType: 2
-  ignoresDamage: 1
 --- !u!65 &1853056172978285710
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -7,6 +7,9 @@ public class HoleSpawner : MonoBehaviour
     [SerializeField] private GameObject temporaryHoleRef;
     [SerializeField] private GameObject permanentHoleRef;
     [SerializeField] private string permanentHoleTerrainTag;
+    [SerializeField] private string baseTerrainName;
+    [SerializeField] private string deadTerrainName;
+    [SerializeField] private BoxCollider thisCollider;
 
     private void Start()
     {
@@ -15,19 +18,39 @@ public class HoleSpawner : MonoBehaviour
 
     private void CheckForTerrain()
     {
-        Collider[] colliders = Physics.OverlapSphere(this.transform.position, 0.1f);
-        bool check = false;
+        Collider[] colliders = Physics.OverlapBox(this.transform.position, thisCollider.transform.localScale);
+        bool checkForPermanent = false;
+        bool checkForSuitableTerrain = false;
+        foreach (Collider collider in colliders)
+        {
+            NamedInteractionExecutor namedInteractionExecutor = collider.gameObject.GetComponent<NamedInteractionExecutor>();
+            if (namedInteractionExecutor != null)
+            {
+                if (namedInteractionExecutor.thisName == deadTerrainName)
+                {
+                    checkForSuitableTerrain = false;
+                    break;
+                }
+                else if (namedInteractionExecutor.thisName == baseTerrainName) checkForSuitableTerrain = true;
+            }
+        }
+        if (!checkForSuitableTerrain)
+        {
+            GameObject.Destroy(this.gameObject);
+            return;
+        }
         foreach (Collider collider in colliders)
         {
             if (collider.gameObject.CompareTag(permanentHoleTerrainTag))
             {
                 SpawnHole(permanentHoleRef, collider.gameObject.GetComponent<PermanentHoleTerrain>());
-                check = true;
+                checkForPermanent = true;
                 break;
             }
         }
-        if (!check) SpawnHole(temporaryHoleRef);
+        if (!checkForPermanent) SpawnHole(temporaryHoleRef);
     }
+
 
     private void SpawnHole(GameObject holeToSpawn)
     {

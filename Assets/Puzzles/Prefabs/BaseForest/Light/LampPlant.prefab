@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2394176157025479845}
   - component: {fileID: -7724528199509443362}
+  - component: {fileID: 6593053221087840382}
   - component: {fileID: 8973399638895137025}
   - component: {fileID: 2394176157025479844}
   - component: {fileID: 7370849889846019568}
@@ -54,6 +55,20 @@ MonoBehaviour:
   isInHeartbeatState: 0
   enemyController: {fileID: 0}
   interaction: {fileID: 0}
+--- !u!114 &6593053221087840382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2394176157025479847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aedb3eb057b16d146897207048a286c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisType: 2
+  ignoresDamage: 1
 --- !u!114 &8973399638895137025
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -309,6 +309,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1046621855280953376}
     m_Modifications:
+    - target: {fileID: 4222045236405462924, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
+      propertyPath: weaponAttacks.Array.data[0].frameDuration
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222045236405462924, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
+      propertyPath: weaponAttacks.Array.data[0].weaponAttackTypes.Array.data[0]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222045236405462924, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
+      propertyPath: weaponAttacks.Array.data[0].weaponAttackHitboxSequence.Array.data[1].activationFrame
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222045236405462924, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
+      propertyPath: weaponAttacks.Array.data[0].weaponAttackHitboxSequence.Array.data[0].deactivationFrame
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222045236405462924, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
+      propertyPath: weaponAttacks.Array.data[0].weaponAttackHitboxSequence.Array.data[1].deactivationFrame
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 5681984492148024441, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
       propertyPath: m_RootOrder
       value: 1
