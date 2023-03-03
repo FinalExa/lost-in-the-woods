@@ -31,6 +31,11 @@ public class PCController : MonoBehaviour
         currentZone = zoneToSet;
     }
 
+    public Zone GetCurrentZone()
+    {
+        return currentZone;
+    }
+
     private void CheckStartingZone()
     {
         Collider[] collidersTouchingPlayerAtStart = Physics.OverlapBox(this.transform.position, new Vector3(0.1f, 2f, 0.1f));

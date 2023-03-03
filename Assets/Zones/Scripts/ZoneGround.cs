@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class ZoneGround : MonoBehaviour
 {
-    private Zone zoneRef;
+    public Zone ZoneRef { get; private set; }
     [HideInInspector] public bool checkActivated = true;
 
     public void SetZone(Zone zone)
     {
-        zoneRef = zone;
+        ZoneRef = zone;
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Player") && checkActivated) zoneRef.SetPlayerInZone(other.collider);
+        if (other.gameObject.CompareTag("Player") && checkActivated) ZoneRef.SetPlayerInZone(other.collider);
     }
 
     public void SetPlayerInZone(Collider playerCollider)
     {
-        zoneRef.SetPlayerInZone(playerCollider);
+        ZoneRef.SetPlayerInZone(playerCollider);
     }
 }

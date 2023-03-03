@@ -60,6 +60,17 @@ public class Zone : MonoBehaviour
         }
     }
 
+    public void AddZoneGround(ZoneGround zoneGround)
+    {
+        zoneGrounds.Add(zoneGround);
+        if (playerRef.GetCurrentZone() == this) zoneGround.checkActivated = true;
+        else zoneGround.checkActivated = false;
+    }
+    public void RemoveZoneGround(ZoneGround zoneGround)
+    {
+        zoneGrounds.Remove(zoneGround);
+    }
+
     private IEnumerator WaitToReactivateColliders()
     {
         yield return new WaitForSeconds(colliderReactivationDelay);
