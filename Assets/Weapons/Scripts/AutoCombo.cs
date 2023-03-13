@@ -6,6 +6,7 @@ public class AutoCombo : Combo
 {
     [SerializeField] private Weapon weaponToSet;
     [SerializeField] private bool resetsPositionAndRotationOnComboEnd;
+    [SerializeField] private bool destroyObjectOnComboEnd;
     private Vector3 startPosition;
     private Quaternion startRotation;
     protected override void Start()
@@ -27,6 +28,7 @@ public class AutoCombo : Combo
     public override void OnComboEnd()
     {
         if (resetsPositionAndRotationOnComboEnd) ResetPositionAndRotation();
+        if (destroyObjectOnComboEnd) GameObject.Destroy(this.gameObject);
     }
 
     private void ResetPositionAndRotation()

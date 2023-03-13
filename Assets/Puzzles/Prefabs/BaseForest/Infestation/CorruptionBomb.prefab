@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 1046621855832586627}
   - component: {fileID: 7496245093051717711}
   m_Layer: 0
-  m_Name: LightBomb
+  m_Name: CorruptionBomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -257,6 +257,7 @@ MonoBehaviour:
   frameValueTime: 0
   weaponToSet: {fileID: 5618523709540359774}
   resetsPositionAndRotationOnComboEnd: 0
+  destroyObjectOnComboEnd: 1
 --- !u!54 &1046621855832586624
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -309,26 +310,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1046621855280953376}
     m_Modifications:
-    - target: {fileID: 4222045236405462924, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
-      propertyPath: weaponAttacks.Array.data[0].frameDuration
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 4222045236405462924, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
-      propertyPath: weaponAttacks.Array.data[0].weaponAttackTypes.Array.data[0]
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4222045236405462924, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
-      propertyPath: weaponAttacks.Array.data[0].weaponAttackHitboxSequence.Array.data[1].activationFrame
-      value: 270
-      objectReference: {fileID: 0}
-    - target: {fileID: 4222045236405462924, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
-      propertyPath: weaponAttacks.Array.data[0].weaponAttackHitboxSequence.Array.data[0].deactivationFrame
-      value: 270
-      objectReference: {fileID: 0}
-    - target: {fileID: 4222045236405462924, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
-      propertyPath: weaponAttacks.Array.data[0].weaponAttackHitboxSequence.Array.data[1].deactivationFrame
-      value: 300
-      objectReference: {fileID: 0}
     - target: {fileID: 5681984492148024441, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -375,7 +356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6089379293536037342, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
       propertyPath: m_Name
-      value: LightBombWeapon
+      value: CorruptionBombWeapon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}

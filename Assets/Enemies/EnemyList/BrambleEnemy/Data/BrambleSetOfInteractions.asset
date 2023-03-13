@@ -59,12 +59,12 @@ MonoBehaviour:
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
   namedInteractions:
-  - name: InfestedBall
+  - name: PurityBall
     destroyNamedObjectOnInteraction: 1
     options:
-      isDestroyed: 0
-      isTransformed: 1
-      transformedRef: {fileID: 4482308801661457282, guid: 0c7522fe5f666d84ba9dae979d2291b9, type: 3}
+      isDestroyed: 1
+      isTransformed: 0
+      transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       canSpawnObject: 0
