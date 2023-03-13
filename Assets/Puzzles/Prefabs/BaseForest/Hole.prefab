@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 8177513707599143424}
   - component: {fileID: 8563865700636510004}
   m_Layer: 0
-  m_Name: HolePermanent
+  m_Name: Hole
   m_TagString: Hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnsOff: 0
   attackTypeInteractions:
-  - attackType: 10
+  - attackType: 6
     destroyAttackSourceObject: 0
     options:
       isDestroyed: 0

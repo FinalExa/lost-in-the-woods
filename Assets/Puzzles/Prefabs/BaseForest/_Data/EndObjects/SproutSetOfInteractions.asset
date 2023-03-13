@@ -455,7 +455,7 @@ MonoBehaviour:
           cinemachineCameraShakerRef: {fileID: 0}
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
-  - name: DeadTerrain
+  - name: InfertileTerrain
     destroyNamedObjectOnInteraction: 0
     options:
       isDestroyed: 0
@@ -499,7 +499,7 @@ MonoBehaviour:
           cinemachineCameraShakerRef: {fileID: 0}
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
-    hasNamedInteractionExitOptions: 0
+    hasNamedInteractionExitOptions: 1
     destroyNamedObjectOnInteractionExit: 0
     exitNamedInteractionOptions:
       isDestroyed: 0
@@ -515,7 +515,7 @@ MonoBehaviour:
       isMoved: 0
       movementDistance: 0
       movementTime: 0
-      sendsSignalToSelf: 0
+      sendsSignalToSelf: 1
       hasSpecialCondition: 0
       uxOnInteraction:
         hasSound: 0
@@ -587,7 +587,7 @@ MonoBehaviour:
           cinemachineCameraShakerRef: {fileID: 0}
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
-    hasNamedInteractionExitOptions: 0
+    hasNamedInteractionExitOptions: 1
     destroyNamedObjectOnInteractionExit: 0
     exitNamedInteractionOptions:
       isDestroyed: 0
@@ -603,7 +603,7 @@ MonoBehaviour:
       isMoved: 0
       movementDistance: 0
       movementTime: 0
-      sendsSignalToSelf: 0
+      sendsSignalToSelf: 1
       hasSpecialCondition: 0
       uxOnInteraction:
         hasSound: 0
