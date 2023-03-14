@@ -40,15 +40,31 @@ public class PCController : MonoBehaviour
 
     public void SetGrabbedObject(GrabbableByPlayer objectToSet)
     {
-        if (grabbedObject != null)
+        if (grabbedObject == null)
         {
             grabbedObject = objectToSet;
+            grabbedObject.SetGrabbed(grabPosition.transform);
         }
     }
 
-    public void RemoveGrabbedObject()
+    public void RemoveGrabbedObject(bool launch)
     {
+        grabbedObject.ReleaseFromBeingGrabbed();
+        if (launch) LaunchGrabbedObject();
         grabbedObject = null;
+    }
+
+    private void LaunchGrabbedObject()
+    {
+        Vector3 directionWithSpeed = (grabPosition.transform.position - this.gameObject.transform.position).normalized;
+        directionWithSpeed = directionWithSpeed * pcReferences.pcData.grabLaunchValue;
+        grabbedObject.thisRb.velocity = directionWithSpeed;
+    }
+
+    public bool GrabbedObjectExists()
+    {
+        if (grabbedObject != null) return true;
+        else return false;
     }
 
     private void CheckStartingZone()

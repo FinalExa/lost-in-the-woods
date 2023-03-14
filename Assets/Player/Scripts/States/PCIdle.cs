@@ -19,11 +19,22 @@ public class PCIdle : PCState
     private void Transitions()
     {
         Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
+        GoToGrabState(inputs);
         GoToMovementState(inputs);
         GoToAttackState(inputs);
         GoToDodgeState(inputs);
         GoToEnterLanternUpState(inputs);
     }
+    #region ToGrabState
+    private void GoToGrabState(Inputs inputs)
+    {
+        if (_pcStateMachine.pcController.GrabbedObjectExists())
+        {
+            if (inputs.MovementInput == Vector3.zero) _pcStateMachine.SetState(new PCIdleGrab(_pcStateMachine));
+            else _pcStateMachine.SetState(new PCMovingGrab(_pcStateMachine));
+        }
+    }
+    #endregion
     #region ToMovementState
     private void GoToMovementState(Inputs inputs)
     {

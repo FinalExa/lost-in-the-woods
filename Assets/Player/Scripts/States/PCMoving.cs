@@ -7,17 +7,15 @@ public class PCMoving : PCState
     }
     public override void Update()
     {
+        UpdateSpeedValue();
         Movement();
         Transitions();
-        UpdateSpeedValue();
     }
 
     #region Movement
     private void UpdateSpeedValue()
     {
-        PCData pcData = _pcStateMachine.pcController.pcReferences.pcData;
-        PCController pcController = _pcStateMachine.pcController;
-        pcController.actualSpeed = pcData.defaultMovementSpeed;
+        _pcStateMachine.pcController.actualSpeed = _pcStateMachine.pcController.pcReferences.pcData.defaultMovementSpeed;
     }
     private void Movement()
     {

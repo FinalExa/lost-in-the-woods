@@ -23,9 +23,10 @@ MonoBehaviour:
   lightUpMinLightRadius: 1
   defaultMovementSpeed: 5.7
   lightUpMovementSpeed: 4
+  grabObjectMovementSpeed: 10
   defaultDirection: {x: 0, y: 0, z: 1}
   invulnerabilityTag: Invulnerable
   dodgeDuration: 0.35
   dodgeDistance: 5
   dodgeStopTime: 0.7
-  dodgeColor: {r: 0.033018887, g: 0.59128296, b: 1, a: 1}
+  grabLaunchValue: 4

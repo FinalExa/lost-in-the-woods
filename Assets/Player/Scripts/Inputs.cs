@@ -25,12 +25,12 @@ public class Inputs : MonoBehaviour
     }
     private void GetLeftClickInput()
     {
-        if (Input.GetButton("Fire1")) LeftClickInput = true;
+        if (Input.GetButtonDown("Fire1")) LeftClickInput = true;
         else LeftClickInput = false;
     }
     private void GetRightClickInput()
     {
-        if (Input.GetButton("Fire2")) RightClickInput = true;
+        if (Input.GetButtonDown("Fire2")) RightClickInput = true;
         else RightClickInput = false;
     }
     private void GetMovementInput()
