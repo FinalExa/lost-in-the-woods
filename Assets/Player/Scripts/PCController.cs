@@ -8,6 +8,8 @@ public class PCController : MonoBehaviour
     [HideInInspector] public float actualSpeed;
     [HideInInspector] public PCReferences pcReferences;
     [HideInInspector] public Weapon thisWeapon;
+    [SerializeField] private GameObject grabPosition;
+    private GrabbableByPlayer grabbedObject;
     private Zone currentZone;
 
     private void Awake()
@@ -34,6 +36,19 @@ public class PCController : MonoBehaviour
     public Zone GetCurrentZone()
     {
         return currentZone;
+    }
+
+    public void SetGrabbedObject(GrabbableByPlayer objectToSet)
+    {
+        if (grabbedObject != null)
+        {
+            grabbedObject = objectToSet;
+        }
+    }
+
+    public void RemoveGrabbedObject()
+    {
+        grabbedObject = null;
     }
 
     private void CheckStartingZone()

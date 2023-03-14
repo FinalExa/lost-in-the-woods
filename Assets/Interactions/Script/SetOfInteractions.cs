@@ -66,6 +66,7 @@ public class SetOfInteractions : ScriptableObject
         [Header("For special functionalities, touch only if you script")]
         public bool sendsSignalToSelf;
         public bool hasSpecialCondition;
+        public bool secondaryAttackInteraction;
         [Header("UX Effects on Interaction")]
         public UXEffect uxOnInteraction;
         [HideInInspector] public bool uxOnInteractionInitialized;

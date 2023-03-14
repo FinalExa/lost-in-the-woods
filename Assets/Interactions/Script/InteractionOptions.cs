@@ -20,6 +20,7 @@ public class InteractionOptions
             else if (options.isTransformed && options.transformedRef != null) Transform(options, turnsOff);
             else if (options.canSpawnObject && options.objectToSpawn != null) SpawnObject(options.objectToSpawn, options.objectSpawnPositionOffset);
             else if (options.sendsSignalToSelf) SendSignalToSelf(source);
+            else if (options.secondaryAttackInteraction) SecondaryAttackInteraction();
             else if (options.isMoved) MoveObject(options, source.transform.position - selfObject.transform.position);
             else if (options.canSetObjectActiveStatus) SetObjectActiveStatus(options);
             else if (options.rotates) RotateObject(options);
@@ -51,6 +52,12 @@ public class InteractionOptions
     private void SetObjectActiveStatus(SetOfInteractions.Options options)
     {
         if (interaction.objectToSetActiveStatus != null) interaction.objectToSetActiveStatus.SetActive(options.objectActiveStatus);
+    }
+
+    private void SecondaryAttackInteraction()
+    {
+        GrabbableByPlayer grabbableByPlayer = selfObject.GetComponent<GrabbableByPlayer>();
+        if (grabbableByPlayer != null) grabbableByPlayer.ReceivedSecondary();
     }
 
     private void RotateObject(SetOfInteractions.Options options)
