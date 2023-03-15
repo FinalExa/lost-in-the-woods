@@ -27,11 +27,12 @@ MonoBehaviour:
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
       rotates: 0
       rotateValue: 0
-      isMoved: 1
-      movementDistance: 5
-      movementTime: 0.3
+      isMoved: 0
+      movementDistance: 0
+      movementTime: 0
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
+      secondaryAttackInteraction: 1
       uxOnInteraction:
         hasSound: 0
         sound:
@@ -76,6 +77,7 @@ MonoBehaviour:
       movementTime: 0
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
+      secondaryAttackInteraction: 0
       uxOnInteraction:
         hasSound: 0
         sound:
@@ -120,6 +122,7 @@ MonoBehaviour:
     movementTime: 0
     sendsSignalToSelf: 0
     hasSpecialCondition: 0
+    secondaryAttackInteraction: 0
     uxOnInteraction:
       hasSound: 0
       sound:
@@ -165,6 +168,7 @@ MonoBehaviour:
       movementTime: 0
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
+      secondaryAttackInteraction: 0
       uxOnInteraction:
         hasSound: 0
         sound:
@@ -208,6 +212,7 @@ MonoBehaviour:
       movementTime: 0
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
+      secondaryAttackInteraction: 0
       uxOnInteraction:
         hasSound: 0
         sound:
@@ -251,6 +256,7 @@ MonoBehaviour:
       movementTime: 0
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
+      secondaryAttackInteraction: 0
       uxOnInteraction:
         hasSound: 0
         sound:
@@ -297,6 +303,7 @@ MonoBehaviour:
       movementTime: 0
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
+      secondaryAttackInteraction: 0
       uxOnInteraction:
         hasSound: 0
         sound:

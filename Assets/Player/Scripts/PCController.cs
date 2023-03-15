@@ -52,11 +52,11 @@ public class PCController : MonoBehaviour
     {
         if (grabbedObject != null)
         {
+            StartCoroutine(LockPlayerAttack(pcReferences.pcData.afterLaunchLockAttackTime));
             grabbedObject.ReleaseFromBeingGrabbed();
             if (launch) LaunchGrabbedObject();
             grabbedObject = null;
         }
-
     }
 
     private void LaunchGrabbedObject()
@@ -64,7 +64,6 @@ public class PCController : MonoBehaviour
         Vector3 directionWithSpeed = (grabPosition.transform.position - this.gameObject.transform.position).normalized;
         directionWithSpeed = directionWithSpeed * pcReferences.pcData.grabLaunchValue;
         grabbedObject.thisRb.velocity = directionWithSpeed;
-        StartCoroutine(LockPlayerAttack(pcReferences.pcData.afterLaunchLockAttackTime));
     }
 
     public bool GrabbedObjectExists()
