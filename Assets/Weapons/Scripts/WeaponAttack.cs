@@ -10,7 +10,7 @@ public class WeaponAttack
     public float movementDistance;
     public bool ignoresWalls;
     public GameObject attackObject;
-    public enum WeaponAttackType { GENERIC, PLAYER, INFESTATION, LIGHT, WIND, LIGHT_BOMB, STRONG_PLANT, SHOOTER_PLANT, CORROSIVE_PLANT, INFECTION_PLANT, PLAYER_SECONDARY }
+    public enum WeaponAttackType { GENERIC, PLAYER, INFESTATION, LIGHT, WIND, CORRUPTION_BOMB, PLAYER_SECONDARY }
     public List<WeaponAttackType> weaponAttackTypes;
     [System.Serializable]
     public struct WeaponAttackHitboxSequence

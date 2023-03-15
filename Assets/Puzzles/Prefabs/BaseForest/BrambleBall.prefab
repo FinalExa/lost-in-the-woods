@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8758143008440390022}
   - component: {fileID: 4830499187636917438}
   - component: {fileID: 2867043437175303578}
-  - component: {fileID: 359752019594827067}
+  - component: {fileID: -5517505262360356275}
   - component: {fileID: 4014776901287296293}
   - component: {fileID: 4014776901287296294}
   - component: {fileID: 5852709638868262122}
@@ -104,8 +104,7 @@ MonoBehaviour:
   thisName: BrambleBall
   active: 1
   inLoop: 0
-  interactionDone: 0
---- !u!114 &359752019594827067
+--- !u!114 &-5517505262360356275
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,49 +113,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4014776901287296295}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e31d5fcfcd116e4449aeb82a334a7a02, type: 3}
+  m_Script: {fileID: 11500000, guid: dfddfc2ee42b1844a84c404571cc2023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWeapon: {fileID: 0}
-  currentAttack:
-    damage: 0
-    frameDuration: 0
-    framesOfDelay: 0
-    movementDistance: 0
-    ignoresWalls: 0
-    attackObject: {fileID: 0}
-    weaponAttackTypes: 
-    weaponAttackHitboxSequence: []
-    weaponSpawnsObjectDuringThisAttack: []
-    hasAnimation: 0
-    uxOnWeaponAttack:
-      hasSound: 0
-      sound:
-        clip: {fileID: 0}
-        priority: 128
-        volume: 1
-        pitch: 1
-        stereoPan: 0
-        spatialBlend: 0
-        reverbZoneMix: 1
-        loop: 0
-        playOnAwake: 0
-        mixer: {fileID: 0}
-      hasSpriteColorChange: 0
-      spriteColorChange:
-        changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-        spriteRef: {fileID: 0}
-        spriteColorChangeDuration: 0
-      hasCameraShake: 0
-      cameraShake:
-        shakeAmplitude: 0
-        shakeFrequency: 0
-        shakeDuration: 0
-        cinemachineCameraShakerRef: {fileID: 0}
-      soundParent: {fileID: 0}
-  frameValueTime: 0
-  weaponToSet: {fileID: 5205669587594269513}
-  resetsPositionAndRotationOnComboEnd: 0
+  playerRef: {fileID: 0}
+  thisRb: {fileID: 0}
 --- !u!54 &4014776901287296293
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -315,80 +276,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4014776902404493667}
-  - {fileID: 4355968097472827580}
   m_Father: {fileID: 4014776901287296292}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1001 &8262406765494121669
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 4014776902879149189}
-    m_Modifications:
-    - target: {fileID: 5681984492148024441, guid: db639873f1b8163478a1395d3944362e, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: db639873f1b8163478a1395d3944362e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: db639873f1b8163478a1395d3944362e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: db639873f1b8163478a1395d3944362e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: db639873f1b8163478a1395d3944362e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: db639873f1b8163478a1395d3944362e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: db639873f1b8163478a1395d3944362e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: db639873f1b8163478a1395d3944362e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: db639873f1b8163478a1395d3944362e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: db639873f1b8163478a1395d3944362e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: db639873f1b8163478a1395d3944362e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6089379293536037342, guid: db639873f1b8163478a1395d3944362e, type: 3}
-      propertyPath: m_Name
-      value: BrambleSpikesWeapon
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: db639873f1b8163478a1395d3944362e, type: 3}
---- !u!4 &4355968097472827580 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5681984492148024441, guid: db639873f1b8163478a1395d3944362e, type: 3}
-  m_PrefabInstance: {fileID: 8262406765494121669}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5205669587594269513 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4222045236405462924, guid: db639873f1b8163478a1395d3944362e, type: 3}
-  m_PrefabInstance: {fileID: 8262406765494121669}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81dec813fad57f74ab47ded6ae72d8c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

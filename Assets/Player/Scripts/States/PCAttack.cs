@@ -14,7 +14,8 @@ public class PCAttack : PCState
 
     public override void Start()
     {
-        playerCombo.StartHitOnWeapon(secondary);
+        if (!_pcStateMachine.pcController.pcLockedAttack) playerCombo.StartHitOnWeapon(secondary);
+        else Transitions();
     }
 
     public override void Update()
@@ -26,15 +27,26 @@ public class PCAttack : PCState
     private void Transitions()
     {
         Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
+        GoToGrabState(inputs);
         GoToIdleState(inputs);
         GoToMovementState(inputs);
         GoToDodgeState(inputs);
         GoToEnterLanternUpState(inputs);
     }
+    #region ToGrabState
+    private void GoToGrabState(Inputs inputs)
+    {
+        if (_pcStateMachine.pcController.GrabbedObjectExists())
+        {
+            if (inputs.MovementInput == Vector3.zero) _pcStateMachine.SetState(new PCIdleGrab(_pcStateMachine));
+            else _pcStateMachine.SetState(new PCMovingGrab(_pcStateMachine));
+        }
+    }
+    #endregion
     #region ToIdleState
     private void GoToIdleState(Inputs inputs)
     {
-        if (inputs.MovementInput == Vector3.zero) _pcStateMachine.SetState(new PCIdle(_pcStateMachine));
+        if (inputs.MovementInput == Vector3.zero) _pcStateMachine.SetState(new PCIdleGrab(_pcStateMachine));
     }
     #endregion
     #region ToMovementState

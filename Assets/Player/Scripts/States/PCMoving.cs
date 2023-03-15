@@ -7,17 +7,15 @@ public class PCMoving : PCState
     }
     public override void Update()
     {
+        UpdateSpeedValue();
         Movement();
         Transitions();
-        UpdateSpeedValue();
     }
 
     #region Movement
     private void UpdateSpeedValue()
     {
-        PCData pcData = _pcStateMachine.pcController.pcReferences.pcData;
-        PCController pcController = _pcStateMachine.pcController;
-        pcController.actualSpeed = pcData.defaultMovementSpeed;
+        _pcStateMachine.pcController.actualSpeed = _pcStateMachine.pcController.pcReferences.pcData.defaultMovementSpeed;
     }
     private void Movement()
     {
@@ -44,11 +42,22 @@ public class PCMoving : PCState
     private void Transitions()
     {
         Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
+        GoToGrabState(inputs);
         GoToIdleState(inputs);
         GoToAttackState(inputs);
         GoToDodgeState(inputs);
         GoToEnterLanternUpState(inputs);
     }
+    #region ToGrabState
+    private void GoToGrabState(Inputs inputs)
+    {
+        if (_pcStateMachine.pcController.GrabbedObjectExists())
+        {
+            if (inputs.MovementInput == Vector3.zero) _pcStateMachine.SetState(new PCIdleGrab(_pcStateMachine));
+            else _pcStateMachine.SetState(new PCMovingGrab(_pcStateMachine));
+        }
+    }
+    #endregion
     #region ToIdleState
     private void GoToIdleState(Inputs inputs)
     {

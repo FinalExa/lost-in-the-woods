@@ -18,10 +18,14 @@ public class PCData : ScriptableObject
     [Header("Movement")]
     public float defaultMovementSpeed;
     public float lightUpMovementSpeed;
+    public float grabObjectMovementSpeed;
     [Header("Dodge")]
     public Vector3 defaultDirection;
     public string invulnerabilityTag;
     public float dodgeDuration;
     public float dodgeDistance;
     public float dodgeStopTime;
+    [Header("Grab")]
+    public float grabLaunchValue;
+    public float afterLaunchLockAttackTime;
 }

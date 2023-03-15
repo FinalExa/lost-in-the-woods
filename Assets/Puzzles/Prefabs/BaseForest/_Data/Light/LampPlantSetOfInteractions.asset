@@ -19,7 +19,7 @@ MonoBehaviour:
     options:
       isDestroyed: 0
       isTransformed: 1
-      transformedRef: {fileID: 551186820573199659, guid: 0106b83c3fae11348b15d2d36a0e0c85, type: 3}
+      transformedRef: {fileID: 828246935292236319, guid: d8b14d083a12c0b40b402d683c37e6c3, type: 3}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       canSpawnObject: 0
@@ -62,9 +62,9 @@ MonoBehaviour:
   - name: InfertileTerrain
     destroyNamedObjectOnInteraction: 0
     options:
-      isDestroyed: 1
-      isTransformed: 0
-      transformedRef: {fileID: 0}
+      isDestroyed: 0
+      isTransformed: 1
+      transformedRef: {fileID: 828246935292236319, guid: d8b14d083a12c0b40b402d683c37e6c3, type: 3}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       canSpawnObject: 0
