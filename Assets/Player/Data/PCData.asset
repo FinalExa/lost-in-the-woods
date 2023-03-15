@@ -29,4 +29,5 @@ MonoBehaviour:
   dodgeDuration: 0.35
   dodgeDistance: 5
   dodgeStopTime: 0.7
-  grabLaunchValue: 4
+  grabLaunchValue: 10
+  afterLaunchLockAttackTime: 0.5

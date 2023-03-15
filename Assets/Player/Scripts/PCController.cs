@@ -9,6 +9,7 @@ public class PCController : MonoBehaviour
     [HideInInspector] public PCReferences pcReferences;
     [HideInInspector] public Weapon thisWeapon;
     [SerializeField] private GameObject grabPosition;
+    [HideInInspector] public bool pcLockedAttack;
     private GrabbableByPlayer grabbedObject;
     private Zone currentZone;
 
@@ -49,9 +50,13 @@ public class PCController : MonoBehaviour
 
     public void RemoveGrabbedObject(bool launch)
     {
-        grabbedObject.ReleaseFromBeingGrabbed();
-        if (launch) LaunchGrabbedObject();
-        grabbedObject = null;
+        if (grabbedObject != null)
+        {
+            grabbedObject.ReleaseFromBeingGrabbed();
+            if (launch) LaunchGrabbedObject();
+            grabbedObject = null;
+        }
+
     }
 
     private void LaunchGrabbedObject()
@@ -59,6 +64,7 @@ public class PCController : MonoBehaviour
         Vector3 directionWithSpeed = (grabPosition.transform.position - this.gameObject.transform.position).normalized;
         directionWithSpeed = directionWithSpeed * pcReferences.pcData.grabLaunchValue;
         grabbedObject.thisRb.velocity = directionWithSpeed;
+        StartCoroutine(LockPlayerAttack(pcReferences.pcData.afterLaunchLockAttackTime));
     }
 
     public bool GrabbedObjectExists()
@@ -75,5 +81,11 @@ public class PCController : MonoBehaviour
             ZoneGround zoneGround = collider.GetComponent<ZoneGround>();
             if (zoneGround != null) zoneGround.SetPlayerInZone(this.gameObject.GetComponent<Collider>());
         }
+    }
+    private IEnumerator LockPlayerAttack(float timeToWait)
+    {
+        pcLockedAttack = true;
+        yield return new WaitForSeconds(timeToWait);
+        pcLockedAttack = false;
     }
 }

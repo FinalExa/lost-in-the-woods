@@ -27,4 +27,5 @@ public class PCData : ScriptableObject
     public float dodgeStopTime;
     [Header("Grab")]
     public float grabLaunchValue;
+    public float afterLaunchLockAttackTime;
 }
