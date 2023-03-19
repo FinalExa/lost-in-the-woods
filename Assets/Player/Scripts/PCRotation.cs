@@ -21,7 +21,11 @@ public class PCRotation : MonoBehaviour
     private void Start()
     {
         this.transform.eulerAngles = rotation.forward;
-        if (isInGraphicsMode) spriteStartRotation = spriteRef.gameObject.transform.rotation;
+        if (isInGraphicsMode)
+        {
+            spriteStartRotation = spriteRef.gameObject.transform.rotation;
+            spriteRef.sprite = frontSprite;
+        }
     }
     private void Update()
     {
