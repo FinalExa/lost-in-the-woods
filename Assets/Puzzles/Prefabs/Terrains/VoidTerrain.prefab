@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -100
   m_Sprite: {fileID: 21300000, guid: ae1f1842033b3a346ad792a18dbae6bf, type: 3}
-  m_Color: {r: 0.20296422, g: 0.47058824, b: 0.18039218, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -108,7 +108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7593170472319334711}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0.0000000059604637}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0.0000000059604637}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -126,14 +126,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4811315696665080915}
   - component: {fileID: 4538220367932226767}
-  - component: {fileID: -1803685801130573678}
-  - component: {fileID: 8390776993204670986}
-  - component: {fileID: 4245525182970625206}
   - component: {fileID: 2627229323866192599}
-  - component: {fileID: 8478715095435266576}
-  - component: {fileID: 7977311028775035630}
+  - component: {fileID: 5654981573731540284}
+  - component: {fileID: 8424319156287993565}
   m_Layer: 6
-  m_Name: UnstableFertileTerrain
+  m_Name: VoidTerrain
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,7 +145,7 @@ Transform:
   m_GameObject: {fileID: 8401036359760750068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 0.5, z: 5}
+  m_LocalScale: {x: 5, y: 2, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8877405034869531499}
@@ -168,50 +165,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-1803685801130573678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8401036359760750068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1bb1c23deee69f4ea306459a6caf48d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transformationReference: {fileID: -5246019975622432092, guid: ad6810fbe9eb942469e3f3ed30930db5, type: 3}
---- !u!114 &8390776993204670986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8401036359760750068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aedb3eb057b16d146897207048a286c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisType: 2
-  ignoresDamage: 1
---- !u!114 &4245525182970625206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8401036359760750068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e17b331db98df9143ae63583c3486477, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  setOfInteractions: {fileID: 11400000, guid: 73bd3910ef7f87b45b2afa1611f61e51, type: 2}
-  affectedByLightRef: {fileID: 0}
-  rotator: {fileID: 0}
-  objectToSetActiveStatus: {fileID: 0}
-  despawned: 0
 --- !u!114 &2627229323866192599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +180,7 @@ MonoBehaviour:
   thisName: Terrain
   active: 1
   inLoop: 0
---- !u!33 &8478715095435266576
+--- !u!33 &5654981573731540284
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -235,7 +188,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8401036359760750068}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &7977311028775035630
+--- !u!23 &8424319156287993565
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

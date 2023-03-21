@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7608031596718095567}
   - component: {fileID: 5230813169740901807}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8877405034869531499}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 2627229323866192599}
   - component: {fileID: 5654981573731540284}
   - component: {fileID: 8424319156287993565}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain
   m_TagString: Ground
   m_Icon: {fileID: 0}
