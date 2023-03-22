@@ -195,7 +195,7 @@ MonoBehaviour:
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
   namedInteractions:
-  - name: Light
+  - name: Infestation
     destroyNamedObjectOnInteraction: 0
     options:
       isDestroyed: 0
@@ -285,7 +285,7 @@ MonoBehaviour:
           cinemachineCameraShakerRef: {fileID: 0}
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
-  - name: Infestation
+  - name: Light
     destroyNamedObjectOnInteraction: 0
     options:
       isDestroyed: 0
