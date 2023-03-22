@@ -8,6 +8,7 @@ public class PCData : ScriptableObject
     public float maxHP;
     public float healthRegenMaxTimer;
     public float healthRegenRatePerSecond;
+    public float damageOnFall;
     [Header("Light")]
     public float maxLightRadius;
     public float minLightRadius;
@@ -19,6 +20,7 @@ public class PCData : ScriptableObject
     public float defaultMovementSpeed;
     public float lightUpMovementSpeed;
     public float grabObjectMovementSpeed;
+    public float groundCheckTime;
     [Header("Dodge")]
     public Vector3 defaultDirection;
     public string invulnerabilityTag;

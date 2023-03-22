@@ -12,6 +12,7 @@ public class PCReferences : MonoBehaviour
     [HideInInspector] public PlayerCombo pcCombo;
     [HideInInspector] public PCRotation pcRotation;
     [HideInInspector] public PCHealth pcHealth;
+    [HideInInspector] public AttackReceived attackReceived;
     [HideInInspector] public PCLight pcLight;
     [HideInInspector] public Heartbeat heartbeat;
 
@@ -23,6 +24,7 @@ public class PCReferences : MonoBehaviour
         pcCombo = this.gameObject.GetComponent<PlayerCombo>();
         pcRotation = FindObjectOfType<PCRotation>();
         pcHealth = this.gameObject.GetComponent<PCHealth>();
+        attackReceived = this.gameObject.GetComponent<AttackReceived>();
         pcLight = this.gameObject.GetComponentInChildren<PCLight>();
         heartbeat = this.gameObject.GetComponent<Heartbeat>();
         uxOnDodge.UXEffectStartup();

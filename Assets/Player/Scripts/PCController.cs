@@ -12,6 +12,10 @@ public class PCController : MonoBehaviour
     [HideInInspector] public bool pcLockedAttack;
     private GrabbableByPlayer grabbedObject;
     private Zone currentZone;
+    private bool touchingGround;
+    private Vector3 lastGroundPosition;
+    private RigidbodyConstraints playerConstraints;
+    [SerializeField] private RigidbodyConstraints fallingConstraints;
 
     private void Awake()
     {
@@ -21,6 +25,9 @@ public class PCController : MonoBehaviour
     private void Start()
     {
         CheckStartingZone();
+        lastGroundPosition = this.transform.position;
+        playerConstraints = pcReferences.rb.constraints;
+        LaunchGroundCheck();
     }
 
     private void Update()
@@ -86,5 +93,47 @@ public class PCController : MonoBehaviour
         pcLockedAttack = true;
         yield return new WaitForSeconds(timeToWait);
         pcLockedAttack = false;
+    }
+
+    private void LaunchGroundCheck()
+    {
+        StartCoroutine(GroundCheck(pcReferences.pcData.groundCheckTime));
+    }
+
+    private IEnumerator GroundCheck(float timeInterval)
+    {
+        if (touchingGround) lastGroundPosition = this.transform.position;
+        yield return new WaitForSeconds(timeInterval);
+        LaunchGroundCheck();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            touchingGround = true;
+            pcReferences.rb.useGravity = false;
+            pcReferences.rb.constraints = playerConstraints;
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            touchingGround = false;
+            pcReferences.rb.useGravity = true;
+            pcReferences.rb.constraints = fallingConstraints;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("FallenZone")) ReturnToLastGroundPosition();
+    }
+
+    public void ReturnToLastGroundPosition()
+    {
+        this.gameObject.transform.position = lastGroundPosition;
+        pcReferences.attackReceived.DealDamage(false, pcReferences.pcData.damageOnFall);
     }
 }
