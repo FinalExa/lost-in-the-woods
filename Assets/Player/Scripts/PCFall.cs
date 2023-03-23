@@ -28,7 +28,7 @@ public class PCFall : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             lastGroundPosition = new Vector3(collision.gameObject.transform.position.x, 0f, collision.gameObject.transform.position.z);
-            if (Physics.Raycast(this.transform.position, fallTarget.transform.position - this.transform.position, out RaycastHit hit, groundMask)) if (!hit.collider.CompareTag("FallenZone")) SetOnGround();
+            if (Physics.Raycast(this.transform.position, fallTarget.transform.position - this.transform.position, out RaycastHit hit, groundMask)) if (!hit.collider.CompareTag("FallenZone") && !touchingGround) SetOnGround();
         }
     }
     private void OnCollisionExit(Collision collision)
