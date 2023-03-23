@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 7302242419852583486}
   - component: {fileID: 7621549938335928225}
   - component: {fileID: 3858997638449282005}
+  - component: {fileID: 7810060177191279882}
   - component: {fileID: 8706434170628328547}
   - component: {fileID: 1842269455413191640}
   - component: {fileID: 1353845484741870925}
@@ -219,11 +220,6 @@ MonoBehaviour:
   thisWeapon: {fileID: 0}
   grabPosition: {fileID: 4146050153730366334}
   pcLockedAttack: 0
-  fallingConstraints: 112
-  fallTarget: {fileID: 33830507689561493}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!114 &5618624451261787438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +364,23 @@ MonoBehaviour:
       shakeDuration: 0.1
       cinemachineCameraShakerRef: {fileID: 0}
     soundParent: {fileID: 0}
+--- !u!114 &7810060177191279882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7129377632901191479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0865ad568fb17d747833fae235bcd061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingConstraints: 112
+  fallTarget: {fileID: 33830507689561493}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &8706434170628328547
 MonoBehaviour:
   m_ObjectHideFlags: 0
