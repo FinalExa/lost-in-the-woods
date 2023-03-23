@@ -64,5 +64,6 @@ public class PCFall : MonoBehaviour
     {
         this.gameObject.transform.position = lastGroundPosition;
         pcReferences.attackReceived.DealDamage(false, pcReferences.pcData.damageOnFall);
+        SetOnGround();
     }
 }
