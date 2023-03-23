@@ -5600,18 +5600,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6423773216003442677, guid: c44e0394991c2c44597e45f504601056, type: 3}
-      propertyPath: m_Height
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6423773216003442677, guid: c44e0394991c2c44597e45f504601056, type: 3}
-      propertyPath: m_Center.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6423773216003442677, guid: c44e0394991c2c44597e45f504601056, type: 3}
-      propertyPath: m_Direction
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7129377632901191473, guid: c44e0394991c2c44597e45f504601056, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -5675,10 +5663,6 @@ PrefabInstance:
     - target: {fileID: 8706434170628328547, guid: c44e0394991c2c44597e45f504601056, type: 3}
       propertyPath: heartbeatDuration
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9077129311283975280, guid: c44e0394991c2c44597e45f504601056, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c44e0394991c2c44597e45f504601056, type: 3}

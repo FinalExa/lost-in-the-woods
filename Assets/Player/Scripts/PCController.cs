@@ -16,6 +16,8 @@ public class PCController : MonoBehaviour
     private Vector3 lastGroundPosition;
     private RigidbodyConstraints playerConstraints;
     [SerializeField] private RigidbodyConstraints fallingConstraints;
+    [SerializeField] private GameObject fallTarget;
+    [SerializeField] private LayerMask groundMask;
 
     private void Awake()
     {
@@ -99,25 +101,38 @@ public class PCController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             lastGroundPosition = new Vector3(collision.gameObject.transform.position.x, 0f, collision.gameObject.transform.position.z);
-            touchingGround = true;
-            pcReferences.rb.useGravity = false;
-            pcReferences.rb.constraints = playerConstraints;
+            if (Physics.Raycast(this.transform.position, fallTarget.transform.position - this.transform.position, out RaycastHit hit, groundMask)) if (!hit.collider.CompareTag("FallenZone")) SetOnGround();
         }
     }
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            print("exit");
-            touchingGround = false;
-            pcReferences.rb.useGravity = true;
-            pcReferences.rb.constraints = fallingConstraints;
+            bool check = true;
+            if (Physics.Raycast(this.transform.position, fallTarget.transform.position - this.transform.position, out RaycastHit hit, groundMask)) if (!hit.collider.CompareTag("FallenZone")) check = false;
+            if (check) SetNotOnGround();
         }
+    }
+
+    private void SetOnGround()
+    {
+        print("on ground");
+        touchingGround = true;
+        pcReferences.rb.useGravity = false;
+        pcReferences.rb.constraints = playerConstraints;
+    }
+
+    private void SetNotOnGround()
+    {
+        print("not on ground");
+        touchingGround = false;
+        pcReferences.rb.useGravity = true;
+        pcReferences.rb.constraints = fallingConstraints;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("FallenZone")) ReturnToLastGroundPosition();
+        if (other.gameObject.CompareTag("FallenZone") && !touchingGround) ReturnToLastGroundPosition();
     }
 
     public void ReturnToLastGroundPosition()

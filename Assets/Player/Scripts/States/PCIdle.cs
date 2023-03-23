@@ -12,7 +12,7 @@ public class PCIdle : PCState
 
     private void IdleSpeedStop()
     {
-        if (_pcStateMachine.pcController.pcReferences.rb.velocity != Vector3.zero) _pcStateMachine.pcController.pcReferences.rb.velocity = Vector3.zero;
+        if (_pcStateMachine.pcController.pcReferences.rb.velocity != Vector3.zero) _pcStateMachine.pcController.pcReferences.rb.velocity = new Vector3(0f, _pcStateMachine.pcController.pcReferences.rb.velocity.y, 0f);
     }
 
     #region Transitions

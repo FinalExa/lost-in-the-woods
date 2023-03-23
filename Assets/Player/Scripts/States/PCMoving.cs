@@ -27,7 +27,8 @@ public class PCMoving : PCState
             lastDirection = movementWithDirection;
             pcController.pcReferences.pcCombo.LastDirection = movementWithDirection;
         }
-        rigidbody.velocity = movementWithDirection * pcController.actualSpeed;
+        Vector3 partialVelocity = movementWithDirection * pcController.actualSpeed;
+        rigidbody.velocity = partialVelocity;
     }
 
     private Vector3 MovementDirection(Camera camera, Inputs inputs)
