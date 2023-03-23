@@ -174,9 +174,10 @@ GameObject:
   - component: {fileID: 1706741176912221245}
   - component: {fileID: 5486810777676121532}
   - component: {fileID: 1328374385819383931}
-  m_Layer: 0
+  - component: {fileID: 6443230689666183516}
+  m_Layer: 6
   m_Name: BasePath
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -255,6 +256,19 @@ BoxCollider:
   m_GameObject: {fileID: 1746884503605993951}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &6443230689666183516
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746884503605993951}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -385,9 +399,10 @@ GameObject:
   - component: {fileID: 5682759261454532265}
   - component: {fileID: 7536569423781775933}
   - component: {fileID: 5103853571364606477}
-  m_Layer: 0
+  - component: {fileID: 5751174515619025053}
+  m_Layer: 6
   m_Name: ExtendedPath
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -466,6 +481,19 @@ BoxCollider:
   m_GameObject: {fileID: 3646707982231453276}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &5751174515619025053
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3646707982231453276}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -597,9 +625,9 @@ GameObject:
   - component: {fileID: 8656542634766056632}
   - component: {fileID: 5533824644139797187}
   - component: {fileID: 3078125123952377711}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ExpandedSpike
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -824,9 +852,9 @@ GameObject:
   - component: {fileID: 3556860047271403723}
   - component: {fileID: 312719392091319580}
   - component: {fileID: 4751349751266063718}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BaseSpike
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1147,17 +1175,6 @@ MonoBehaviour:
   - {fileID: 609238750807412820}
   - {fileID: 4712150563699075392}
   - {fileID: 5170346438361871958}
-  lampPlantIn: 0
-  lampPlantInParent: 0
-  corruptionPlantIn: 0
-  corruptionPlantInParent: 0
-  guidingLightPlantIn: 0
-  guidingLightPlantInParent: 0
-  darkMistPlantIn: 0
-  darkMistPlantInParent: 0
-  fullyLocked: 0
-  extendLocked: 0
-  expandLocked: 0
 --- !u!114 &6454512075622090866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1217,9 +1234,9 @@ GameObject:
   - component: {fileID: 5675739266784081094}
   - component: {fileID: 5845678155223160880}
   - component: {fileID: 1575000344617793145}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ExtendedSpike
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

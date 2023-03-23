@@ -18,17 +18,17 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
     [SerializeField] private GameObject[] purityObjects;
     [SerializeField] private GameObject[] corruptionObjects;
     private Interaction thisInteraction;
-    [SerializeField] private bool lampPlantIn;
-    [SerializeField] private bool lampPlantInParent;
-    [SerializeField] private bool corruptionPlantIn;
-    [SerializeField] private bool corruptionPlantInParent;
-    [SerializeField] private bool guidingLightPlantIn;
-    [SerializeField] private bool guidingLightPlantInParent;
-    [SerializeField] private bool darkMistPlantIn;
-    [SerializeField] private bool darkMistPlantInParent;
-    [SerializeField] private bool fullyLocked;
-    [SerializeField] private bool extendLocked;
-    [SerializeField] private bool expandLocked;
+    private bool lampPlantIn;
+    private bool lampPlantInParent;
+    private bool corruptionPlantIn;
+    private bool corruptionPlantInParent;
+    private bool guidingLightPlantIn;
+    private bool guidingLightPlantInParent;
+    private bool darkMistPlantIn;
+    private bool darkMistPlantInParent;
+    private bool fullyLocked;
+    private bool extendLocked;
+    private bool expandLocked;
 
     private void Awake()
     {
