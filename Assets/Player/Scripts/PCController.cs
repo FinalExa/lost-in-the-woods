@@ -27,7 +27,6 @@ public class PCController : MonoBehaviour
         CheckStartingZone();
         lastGroundPosition = this.transform.position;
         playerConstraints = pcReferences.rb.constraints;
-        LaunchGroundCheck();
     }
 
     private void Update()
@@ -95,22 +94,11 @@ public class PCController : MonoBehaviour
         pcLockedAttack = false;
     }
 
-    private void LaunchGroundCheck()
-    {
-        StartCoroutine(GroundCheck(pcReferences.pcData.groundCheckTime));
-    }
-
-    private IEnumerator GroundCheck(float timeInterval)
-    {
-        if (touchingGround) lastGroundPosition = this.transform.position;
-        yield return new WaitForSeconds(timeInterval);
-        LaunchGroundCheck();
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
+            lastGroundPosition = new Vector3(collision.gameObject.transform.position.x, 0f, collision.gameObject.transform.position.z);
             touchingGround = true;
             pcReferences.rb.useGravity = false;
             pcReferences.rb.constraints = playerConstraints;
@@ -120,6 +108,7 @@ public class PCController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
+            print("exit");
             touchingGround = false;
             pcReferences.rb.useGravity = true;
             pcReferences.rb.constraints = fallingConstraints;
