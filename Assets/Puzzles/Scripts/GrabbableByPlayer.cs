@@ -23,11 +23,15 @@ public class GrabbableByPlayer : MonoBehaviour
         playerRef.SetGrabbedObject(this);
     }
 
-    public void SetGrabbed(Transform newParent)
+    public void SetGrabbed(GameObject newParent)
     {
-        if (thisRb != null) thisRb.constraints = RigidbodyConstraints.FreezeAll;
-        this.gameObject.transform.position = newParent.position;
-        this.gameObject.transform.parent = newParent;
+        if (thisRb != null)
+        {
+            thisRb.velocity = Vector3.zero;
+            thisRb.constraints = RigidbodyConstraints.FreezeAll;
+        }
+        this.gameObject.transform.position = newParent.transform.position;
+        this.gameObject.transform.parent = newParent.transform;
     }
 
     public void ReleaseFromBeingGrabbed()

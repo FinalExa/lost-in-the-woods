@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 6413767139371078842}
   - component: {fileID: 3575400320684914569}
   - component: {fileID: 7791339849050343980}
-  - component: {fileID: 3121891899807671160}
+  - component: {fileID: 15895906931757335}
   m_Layer: 0
   m_Name: FogPlant
   m_TagString: Untagged
@@ -380,8 +380,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!65 &3121891899807671160
-BoxCollider:
+--- !u!136 &15895906931757335
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -390,6 +390,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

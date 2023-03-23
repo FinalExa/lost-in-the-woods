@@ -45,7 +45,7 @@ public class PCController : MonoBehaviour
         if (grabbedObject == null)
         {
             grabbedObject = objectToSet;
-            grabbedObject.SetGrabbed(grabPosition.transform);
+            grabbedObject.SetGrabbed(grabPosition);
         }
     }
 
