@@ -23,21 +23,24 @@ public class PCFall : MonoBehaviour
         playerConstraints = pcReferences.rb.constraints;
     }
 
+    private void FixedUpdate()
+    {
+        CheckForGroundBelow();
+    }
+
+    private void CheckForGroundBelow()
+    {
+        float relativeSize = 1f / 20f;
+        Collider[] grounds = Physics.OverlapBox(fallTarget.transform.position, new Vector3(relativeSize, 0.5f, relativeSize), Quaternion.identity, groundMask);
+        if (grounds.Length > 0) SetOnGround();
+        else SetNotOnGround();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             lastGroundPosition = new Vector3(collision.gameObject.transform.position.x, 0f, collision.gameObject.transform.position.z);
-            if (Physics.Raycast(this.transform.position, fallTarget.transform.position - this.transform.position, out RaycastHit hit, groundMask)) if (!hit.collider.CompareTag("FallenZone") && !touchingGround) SetOnGround();
-        }
-    }
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            bool check = true;
-            if (Physics.Raycast(this.transform.position, fallTarget.transform.position - this.transform.position, out RaycastHit hit, groundMask)) if (!hit.collider.CompareTag("FallenZone")) check = false;
-            if (check) SetNotOnGround();
         }
     }
 
