@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Spawner : MonoBehaviour
 {
@@ -30,10 +31,11 @@ public class Spawner : MonoBehaviour
     private List<EnemiesToRespawn> activeEnemies;
     private List<EnemiesToRespawn> deadEnemies;
     private bool spawnerIsSet;
+    private bool startupDone;
 
     private void OnEnable()
     {
-        SpawnerStartup();
+        if (!startupDone) SpawnerStartup();
     }
 
     private void Update()
@@ -45,6 +47,7 @@ public class Spawner : MonoBehaviour
     {
         if (spawnPoints.Length > 0 && enemiesToSpawnInThisZone.Length > 0) SetupLists();
         else Debug.LogError("Error: No spawn points or enemies have been set for this zone");
+        startupDone = true;
     }
 
     private void SetupLists()
@@ -54,17 +57,12 @@ public class Spawner : MonoBehaviour
         deadEnemies = new List<EnemiesToRespawn>();
         foreach (SpawnerEnemies enemyToSpawn in enemiesToSpawnInThisZone)
         {
-            EnemyController enemyRef = Instantiate(enemyToSpawn.enemy, this.transform);
+            EnemyController enemyRef = Instantiate(enemyToSpawn.enemy, SetEnemyPosition(enemyToSpawn), Quaternion.identity, this.transform);
             EnemiesToRespawn enemyToRespawn = CreateEnemyToRespawn(enemyRef, enemyToSpawn.deathCooldown, enemyToSpawn.doesntRespawn, enemyToSpawn.hasFixedSpawnPositionOnRespawn, enemyToSpawn.fixedSpawnPosition);
             enemyRef.spawnerRef = this;
             enemyRef.spawnerEnemyInfo = enemyToRespawn;
             enemyRef.isAlerted = false;
-            if (enemyToSpawn.startsSpawned)
-            {
-                if (enemyToSpawn.firstSpawnPosition != null) enemyToSpawn.enemy.transform.position = enemyToSpawn.firstSpawnPosition.transform.position;
-                else RandomizeEnemyPosition(enemyToSpawn.enemy);
-                SetEnemyActive(enemyToRespawn);
-            }
+            if (enemyToSpawn.startsSpawned) SetEnemyActive(enemyToRespawn);
             else SetEnemyDead(enemyToRespawn, true);
         }
     }
@@ -95,9 +93,19 @@ public class Spawner : MonoBehaviour
         if (enemyRef.enemy.interaction != null) enemyRef.enemy.interaction.despawned = true;
         enemyRef.enemy.gameObject.SetActive(false);
     }
-    private void RandomizeEnemyPosition(EnemyController enemyRef)
+    private Vector3 SetEnemyPosition(SpawnerEnemies enemyToSpawn)
     {
-        enemyRef.transform.position = spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position;
+        Vector3 finalPosition = Vector3.zero;
+        if (enemyToSpawn.firstSpawnPosition != null) finalPosition = enemyToSpawn.firstSpawnPosition.transform.position;
+        else finalPosition = spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position;
+        return finalPosition;
+    }
+    private Vector3 SetEnemyPosition(EnemiesToRespawn enemyToRespawn)
+    {
+        Vector3 finalPosition = Vector3.zero;
+        if (enemyToRespawn.fixedSpawn && enemyToRespawn.fixedSpawnPosition != null) finalPosition = enemyToRespawn.fixedSpawnPosition.transform.position;
+        else finalPosition = spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position;
+        return finalPosition;
     }
     private void DeadEnemyRespawn()
     {
@@ -113,8 +121,7 @@ public class Spawner : MonoBehaviour
             {
                 enemyToRespawn.deathTimer = enemyToRespawn.maxTimer;
                 deadEnemies[i] = enemyToRespawn;
-                if (!enemyToRespawn.fixedSpawn || (enemyToRespawn.fixedSpawn && enemyToRespawn.fixedSpawnPosition == null)) RandomizeEnemyPosition(enemyToRespawn.enemy);
-                else enemyToRespawn.enemy.transform.position = enemyToRespawn.fixedSpawnPosition.transform.position;
+                enemyToRespawn.enemy.transform.position = SetEnemyPosition(enemyToRespawn);
                 SetEnemyActive(deadEnemies[i]);
             }
         }

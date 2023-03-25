@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 1499536932708734254}
   - component: {fileID: 6798857476549418956}
   - component: {fileID: 8595883062675126321}
-  - component: {fileID: 7001282123244882244}
+  - component: {fileID: 870482475112301395}
   - component: {fileID: 4166100610456823755}
   - component: {fileID: 4992552886037869941}
   m_Layer: 0
@@ -37,7 +37,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5477770951886658404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 78, y: 0, z: 52.25}
+  m_LocalPosition: {x: 7.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -299,8 +299,8 @@ MonoBehaviour:
   isInHeartbeatState: 0
   enemyController: {fileID: 0}
   interaction: {fileID: 0}
---- !u!65 &7001282123244882244
-BoxCollider:
+--- !u!136 &870482475112301395
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -309,8 +309,9 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &4166100610456823755
 Rigidbody:

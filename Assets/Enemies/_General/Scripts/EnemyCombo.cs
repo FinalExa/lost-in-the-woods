@@ -20,7 +20,7 @@ public class EnemyCombo : Combo
         target = this.gameObject.GetComponent<EnemyController>().playerTarget.transform;
     }
 
-    public void Update()
+    private void Update()
     {
         if (isInCombo) EnemyAutoCombo();
         else if (!GetIfIsAttacking()) Direction(target.position);

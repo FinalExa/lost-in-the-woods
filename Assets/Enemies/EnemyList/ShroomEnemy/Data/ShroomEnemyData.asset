@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyName: Shroom
   maxHP: 20
   normalMovementSpeed: 2.7
-  normalDistanceFromPlayer: 3
+  normalDistanceFromPlayer: 2
   normalDistanceTolerance: 0
   hasNormalWeapon: 1
   normalWeapon: {fileID: 4222045236405462924, guid: 7065d176beefb154a9e74bdef152c08c, type: 3}
