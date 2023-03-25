@@ -15,6 +15,19 @@ public class InvisibleObject : MonoBehaviour, ISendSignalToSelf
     private void Start()
     {
         objectToOperate.SetActive(baseActiveState);
+        SetSelfPosition();
+    }
+
+    private void SetSelfPosition()
+    {
+        GameObject objectToOperateChild = objectToOperate.transform.GetChild(0).gameObject;
+        if (objectToOperateChild != null)
+        {
+            this.gameObject.transform.position = objectToOperateChild.transform.position;
+            objectToOperateChild.transform.localPosition = Vector3.zero;
+            this.gameObject.transform.localScale = objectToOperateChild.transform.localScale;
+            objectToOperateChild.transform.localScale = Vector3.one;
+        }
     }
 
     public void OnSignalReceived(GameObject source)
