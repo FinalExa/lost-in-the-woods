@@ -28,7 +28,7 @@ public class PCIdle : PCState
     #region ToGrabState
     private void GoToGrabState(Inputs inputs)
     {
-        if (_pcStateMachine.pcController.GrabbedObjectExists())
+        if (_pcStateMachine.pcController.pcReferences.pcGrabbing.GrabbedObjectExists())
         {
             if (inputs.MovementInput == Vector3.zero) _pcStateMachine.SetState(new PCIdleGrab(_pcStateMachine));
             else _pcStateMachine.SetState(new PCMovingGrab(_pcStateMachine));

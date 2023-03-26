@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 7810060177191279882}
   - component: {fileID: 8706434170628328547}
   - component: {fileID: 1842269455413191640}
+  - component: {fileID: 7339095395031885410}
   - component: {fileID: 1353845484741870925}
   - component: {fileID: 7505057366491033951}
   - component: {fileID: 7489382080051731322}
@@ -203,6 +204,7 @@ MonoBehaviour:
   attackReceived: {fileID: 0}
   pcLight: {fileID: 0}
   heartbeat: {fileID: 0}
+  pcGrabbing: {fileID: 0}
 --- !u!114 &723867546203750364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +221,6 @@ MonoBehaviour:
   actualSpeed: 0
   pcReferences: {fileID: 0}
   thisWeapon: {fileID: 0}
-  grabPosition: {fileID: 4146050153730366334}
   pcLockedAttack: 0
 --- !u!114 &5618624451261787438
 MonoBehaviour:
@@ -490,6 +491,20 @@ MonoBehaviour:
   rotator: {fileID: 0}
   objectToSetActiveStatus: {fileID: 0}
   despawned: 0
+  locked: 0
+--- !u!114 &7339095395031885410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7129377632901191479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcc430f1e946595479f0b6a0354fc0d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabPosition: {fileID: 4146050153730366334}
 --- !u!114 &1353845484741870925
 MonoBehaviour:
   m_ObjectHideFlags: 0

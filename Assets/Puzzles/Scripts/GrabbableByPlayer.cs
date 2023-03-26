@@ -30,7 +30,7 @@ public class GrabbableByPlayer : MonoBehaviour
 
     public void ReceivedSecondary()
     {
-        playerRef.SetGrabbedObject(this);
+        playerRef.pcReferences.pcGrabbing.SetGrabbedObject(this);
     }
 
     public void SetGrabbed(GameObject newParent)

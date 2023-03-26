@@ -15,6 +15,7 @@ public class PCReferences : MonoBehaviour
     [HideInInspector] public AttackReceived attackReceived;
     [HideInInspector] public PCLight pcLight;
     [HideInInspector] public Heartbeat heartbeat;
+    [HideInInspector] public PCGrabbing pcGrabbing;
 
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class PCReferences : MonoBehaviour
         attackReceived = this.gameObject.GetComponent<AttackReceived>();
         pcLight = this.gameObject.GetComponentInChildren<PCLight>();
         heartbeat = this.gameObject.GetComponent<Heartbeat>();
+        pcGrabbing = this.gameObject.GetComponent<PCGrabbing>();
         uxOnDodge.UXEffectStartup();
     }
 }
