@@ -18,6 +18,16 @@ public class GrabbableByPlayer : MonoBehaviour
         if (thisRb != null) defaultConstraints = thisRb.constraints;
     }
 
+    private void Update()
+    {
+        ResetPosition();
+    }
+
+    private void ResetPosition()
+    {
+        if (this.gameObject.transform.parent != null && this.gameObject.transform.localPosition != Vector3.zero) this.gameObject.transform.localPosition = Vector3.zero;
+    }
+
     public void ReceivedSecondary()
     {
         playerRef.SetGrabbedObject(this);
