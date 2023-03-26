@@ -15,6 +15,7 @@ public class Interaction : MonoBehaviour
     public GameObject rotator;
     public GameObject objectToSetActiveStatus;
     [HideInInspector] public bool despawned;
+    [HideInInspector] public bool locked;
 
     private void Awake()
     {
@@ -23,8 +24,13 @@ public class Interaction : MonoBehaviour
 
     private void OnEnable()
     {
-        if (setOfInteractions.timeAfterStartInteraction.hasTimeAfterStartInteraction) LaunchTimeInteraction();
+        if (!locked && setOfInteractions.timeAfterStartInteraction.hasTimeAfterStartInteraction) LaunchTimeInteraction();
         despawned = false;
+    }
+
+    public void SetLocked(float lockedTime)
+    {
+        StartCoroutine(LockedTimer(lockedTime));
     }
 
     private void CreateAttackInteractionOptions()
@@ -122,5 +128,12 @@ public class Interaction : MonoBehaviour
         yield return new WaitForSeconds(setOfInteractions.timeAfterStartInteraction.timeAfterStart);
         interactionOptions.Interact(setOfInteractions.timeAfterStartInteraction.options, this.gameObject, setOfInteractions.turnsOff);
         if (setOfInteractions.timeAfterStartInteraction.repeats) LaunchTimeInteraction();
+    }
+
+    private IEnumerator LockedTimer(float lockedTime)
+    {
+        locked = true;
+        yield return new WaitForSeconds(lockedTime);
+        locked = false;
     }
 }

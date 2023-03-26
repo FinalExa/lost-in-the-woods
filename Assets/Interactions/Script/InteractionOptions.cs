@@ -13,7 +13,7 @@ public class InteractionOptions
     }
     public void Interact(SetOfInteractions.Options options, GameObject source, bool turnsOff)
     {
-        if (!options.hasSpecialCondition || SpecialConditionsCheck(options))
+        if (!interaction.locked && (!options.hasSpecialCondition || SpecialConditionsCheck(options)))
         {
             UXEffectExecute(options);
             if (options.isDestroyed) DestroyOrTurnOff(turnsOff);
