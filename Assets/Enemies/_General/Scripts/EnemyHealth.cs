@@ -39,9 +39,4 @@ public class EnemyHealth : Health
     {
         if (!deathDone && interaction != null) interaction.OnDeathInteraction();
     }
-
-    private void OnDisable()
-    {
-        OnDeath();
-    }
 }

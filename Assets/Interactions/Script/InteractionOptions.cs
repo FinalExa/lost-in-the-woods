@@ -40,7 +40,9 @@ public class InteractionOptions
 
     private void SpawnObject(GameObject objectToSpawn, Vector3 offset)
     {
-        GameObject.Instantiate(objectToSpawn, interaction.gameObject.transform.position + offset, Quaternion.identity);
+        GameObject instantiatedObject = GameObject.Instantiate(objectToSpawn, interaction.gameObject.transform.position + offset, Quaternion.identity);
+        Interaction interactionOfObject = instantiatedObject.GetComponent<Interaction>();
+        if (interactionOfObject != null) interactionOfObject.SetLocked(1f);
     }
 
     private void Transform(SetOfInteractions.Options options, bool turnsOff)
