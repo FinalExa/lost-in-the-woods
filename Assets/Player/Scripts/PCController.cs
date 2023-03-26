@@ -8,8 +8,8 @@ public class PCController : MonoBehaviour
     [HideInInspector] public float actualSpeed;
     [HideInInspector] public PCReferences pcReferences;
     [HideInInspector] public Weapon thisWeapon;
-    [SerializeField] private GameObject grabPosition;
     [HideInInspector] public bool pcLockedAttack;
+    [SerializeField] private GameObject grabPosition;
     private GrabbableByPlayer grabbedObject;
     private Zone currentZone;
 
