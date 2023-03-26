@@ -18,7 +18,7 @@ public class AutoCombo : Combo
     }
     public void Update()
     {
-        AutoComboExecute();
+        if (this != null) AutoComboExecute();
     }
     private void AutoComboExecute()
     {
@@ -28,7 +28,7 @@ public class AutoCombo : Combo
     public override void OnComboEnd()
     {
         if (resetsPositionAndRotationOnComboEnd) ResetPositionAndRotation();
-        if (destroyObjectOnComboEnd) GameObject.Destroy(this.gameObject);
+        if (destroyObjectOnComboEnd && this != null) GameObject.Destroy(this.gameObject);
     }
 
     private void ResetPositionAndRotation()
