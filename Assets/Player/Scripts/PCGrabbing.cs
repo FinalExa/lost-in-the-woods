@@ -22,9 +22,23 @@ public class PCGrabbing : MonoBehaviour
     {
         if (grabbedObject == null && grabPosition.transform.childCount > 0)
         {
-            GrabbableByPlayer grabbableByPlayer = grabPosition.transform.GetChild(0).gameObject.GetComponent<GrabbableByPlayer>();
-            if (grabbableByPlayer != null) SetGrabbedObject(grabbableByPlayer);
-            else grabPosition.transform.GetChild(0).transform.parent = null;
+            List<GameObject> objectsInGrabPosition = new List<GameObject>();
+            bool gotGrabbable = false;
+            for (int i = 0; i < grabPosition.transform.childCount; i++)
+            {
+                GameObject currentObject = grabPosition.transform.GetChild(i).gameObject;
+                objectsInGrabPosition.Add(currentObject);
+            }
+            foreach (GameObject objectInGrabPosition in objectsInGrabPosition)
+            {
+                GrabbableByPlayer grabbableByPlayer = objectInGrabPosition.GetComponent<GrabbableByPlayer>();
+                if (!gotGrabbable && grabbableByPlayer != null)
+                {
+                    SetGrabbedObject(grabbableByPlayer);
+                    gotGrabbable = true;
+                }
+                else objectInGrabPosition.transform.parent = null;
+            }
         }
     }
 
