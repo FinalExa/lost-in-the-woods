@@ -20,10 +20,10 @@ public class EnemyHealth : Health
         deathDone = false;
     }
 
-    public override void OnDeath()
+    public override void OnDeath(bool skipOnDeathInteraction)
     {
         OnDeathSound();
-        OnDeathInteraction();
+        if (!skipOnDeathInteraction) OnDeathInteraction();
         SetEnemyDead();
     }
     private void SetEnemyDead()

@@ -8,7 +8,6 @@ public class NamedInteractionExecutor : MonoBehaviour
     public bool active;
     private List<Interaction> interactingWith;
     [SerializeField] private bool inLoop;
-    [HideInInspector] public bool InteractionDone { get; set; }
 
     private void Start()
     {
@@ -36,7 +35,6 @@ public class NamedInteractionExecutor : MonoBehaviour
         {
             interaction.NamedInteractionExecute(this, this.gameObject);
             interactingWith.Add(interaction);
-            InteractionDone = true;
         }
     }
     private void ExecuteExitFromNamedInteraction(Interaction interaction)

@@ -25,11 +25,11 @@ public abstract class Health : MonoBehaviour
     {
         currentHP += healthToAdd;
         currentHP = Mathf.Clamp(currentHP, 0, maxHP);
-        if (currentHP <= 0) OnDeath();
+        if (currentHP <= 0) OnDeath(false);
         else if (healthToAdd < 0) OnHitReceived();
     }
 
-    public virtual void OnDeath()
+    public virtual void OnDeath(bool skipOnDeathInteraction)
     {
         OnDeathSound();
         this.gameObject.SetActive(false);

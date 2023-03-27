@@ -17,6 +17,7 @@ public class SetOfInteractions : ScriptableObject
     {
         public string name;
         public bool destroyNamedObjectOnInteraction;
+        public bool turnOffNamedObjectInsteadOfDestroy;
         public Options options;
         public bool hasNamedInteractionExitOptions;
         public bool destroyNamedObjectOnInteractionExit;
