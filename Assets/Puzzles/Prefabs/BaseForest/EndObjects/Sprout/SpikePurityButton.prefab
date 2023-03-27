@@ -126,6 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5331881725200173902}
   - component: {fileID: 5331881725200173903}
+  - component: {fileID: -7262835141048552377}
   m_Layer: 0
   m_Name: SpikePurityButton
   m_TagString: Untagged
@@ -166,3 +167,17 @@ MonoBehaviour:
   rotator: {fileID: 0}
   objectToSetActiveStatus: {fileID: 0}
   despawned: 0
+  locked: 0
+--- !u!65 &-7262835141048552377
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5331881725200173889}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3, y: 1.3, z: 1.3}
+  m_Center: {x: 0, y: 0, z: 0}

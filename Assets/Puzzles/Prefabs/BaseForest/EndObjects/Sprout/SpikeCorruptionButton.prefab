@@ -126,6 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5028716134645660465}
   - component: {fileID: 5028716134645660464}
+  - component: {fileID: -6593256024304619869}
   m_Layer: 0
   m_Name: SpikeCorruptionButton
   m_TagString: Untagged
@@ -166,3 +167,17 @@ MonoBehaviour:
   rotator: {fileID: 0}
   objectToSetActiveStatus: {fileID: 0}
   despawned: 0
+  locked: 0
+--- !u!65 &-6593256024304619869
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5028716134645660478}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3, y: 1.3, z: 1.3}
+  m_Center: {x: 0, y: 0, z: 0}
