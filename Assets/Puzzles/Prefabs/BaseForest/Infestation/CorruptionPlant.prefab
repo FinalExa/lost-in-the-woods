@@ -120,6 +120,7 @@ MonoBehaviour:
   rotator: {fileID: 0}
   objectToSetActiveStatus: {fileID: 0}
   despawned: 0
+  locked: 0
 --- !u!65 &2682943164122928591
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -20,7 +20,7 @@ public class NamedInteractionOperations
             {
                 if (!ActiveNamedInteractions.ContainsKey(interactionExecutor.thisName))
                 {
-                    if (interaction.destroyNamedObjectOnInteraction) interactionExecutor.DestroyOnDone();
+                    if (interaction.destroyNamedObjectOnInteraction) GameObject.Destroy(interactionExecutor.gameObject);
                     else ActiveNamedInteractions.Add(interactionExecutor.thisName, 1);
                     interactionRef.interactionOptions.Interact(interaction.options, sourceObject, interactionRef.setOfInteractions.turnsOff);
                 }

@@ -12,10 +12,10 @@ public class Sprout : MonoBehaviour, ISendSignalToSelf
     [SerializeField] private string corruptionAuraSproutName;
     [SerializeField] private DeadSprout deadSproutRef;
     private Interaction thisInteraction;
-    private bool lampPlantIn;
-    private bool corruptionPlantIn;
-    private bool guidingLightPlantIn;
-    private bool darkMistPlantIn;
+    [SerializeField] private bool lampPlantIn;
+    [SerializeField] private bool corruptionPlantIn;
+    [SerializeField] private bool guidingLightPlantIn;
+    [SerializeField] private bool darkMistPlantIn;
 
     private void Awake()
     {
