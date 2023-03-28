@@ -41,7 +41,7 @@ public class GrabbableByPlayer : MonoBehaviour
         {
             thisRb.velocity = Vector3.zero;
             thisRb.constraints = RigidbodyConstraints.FreezeAll;
-            thisRb.detectCollisions = false;
+            //thisRb.detectCollisions = false;
         }
         this.gameObject.transform.position = newParent.transform.position;
         this.gameObject.transform.parent = newParent.transform;
@@ -52,7 +52,7 @@ public class GrabbableByPlayer : MonoBehaviour
         if (thisRb != null)
         {
             thisRb.constraints = defaultConstraints;
-            thisRb.detectCollisions = true;
+            //thisRb.detectCollisions = true;
         }
         this.gameObject.transform.parent = startParent;
     }
