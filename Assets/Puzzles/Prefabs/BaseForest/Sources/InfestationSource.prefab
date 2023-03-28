@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 1938123555959556221}
   - component: {fileID: 5444856223166275214}
   - component: {fileID: 6114181717978539230}
-  - component: {fileID: 4087974674248891297}
+  - component: {fileID: 566257548639950931}
   m_Layer: 0
   m_Name: InfestationSource
   m_TagString: Untagged
@@ -216,8 +216,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!135 &4087974674248891297
-SphereCollider:
+--- !u!136 &566257548639950931
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -226,6 +226,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 0.5
+  m_Height: 10
+  m_Direction: 1
   m_Center: {x: 0, y: -0.5, z: 0}

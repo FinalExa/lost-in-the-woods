@@ -9,7 +9,7 @@ public class NamedInteractionExecutor : MonoBehaviour
     private List<Interaction> interactingWith;
     [SerializeField] private bool inLoop;
 
-    private void Start()
+    private void Awake()
     {
         interactingWith = new List<Interaction>();
     }
@@ -48,7 +48,7 @@ public class NamedInteractionExecutor : MonoBehaviour
         {
             foreach (Interaction interaction in interactingWith)
             {
-                if (this.gameObject != null) interaction.ExitFromNamedInteraction(this, this.gameObject);
+                if (this.gameObject != null && interaction != null) interaction.ExitFromNamedInteraction(this, this.gameObject);
             }
             interactingWith.Clear();
         }
