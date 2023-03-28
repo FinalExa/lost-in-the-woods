@@ -33,7 +33,8 @@ public class PCMovingGrab : PCState
             lastDirection = movementWithDirection;
             pcController.pcReferences.pcCombo.LastDirection = movementWithDirection;
         }
-        rigidbody.velocity = movementWithDirection * pcController.actualSpeed;
+        Vector3 partialVelocity = movementWithDirection * pcController.actualSpeed;
+        rigidbody.velocity = new Vector3(partialVelocity.x, rigidbody.velocity.y, partialVelocity.z);
     }
 
     private Vector3 MovementDirection(Camera camera, Inputs inputs)

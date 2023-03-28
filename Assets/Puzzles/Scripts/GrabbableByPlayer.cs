@@ -6,6 +6,7 @@ public class GrabbableByPlayer : MonoBehaviour
 {
     [HideInInspector] public PCController playerRef;
     [HideInInspector] public Rigidbody thisRb;
+    private Transform startParent;
     private RigidbodyConstraints defaultConstraints;
     private void Awake()
     {
@@ -16,6 +17,7 @@ public class GrabbableByPlayer : MonoBehaviour
     private void Start()
     {
         if (thisRb != null) defaultConstraints = thisRb.constraints;
+        startParent = this.gameObject.transform.parent;
     }
 
     private void Update()
@@ -39,6 +41,7 @@ public class GrabbableByPlayer : MonoBehaviour
         {
             thisRb.velocity = Vector3.zero;
             thisRb.constraints = RigidbodyConstraints.FreezeAll;
+            thisRb.detectCollisions = false;
         }
         this.gameObject.transform.position = newParent.transform.position;
         this.gameObject.transform.parent = newParent.transform;
@@ -46,7 +49,11 @@ public class GrabbableByPlayer : MonoBehaviour
 
     public void ReleaseFromBeingGrabbed()
     {
-        if (thisRb != null) thisRb.constraints = defaultConstraints;
-        this.gameObject.transform.parent = null;
+        if (thisRb != null)
+        {
+            thisRb.constraints = defaultConstraints;
+            thisRb.detectCollisions = true;
+        }
+        this.gameObject.transform.parent = startParent;
     }
 }
