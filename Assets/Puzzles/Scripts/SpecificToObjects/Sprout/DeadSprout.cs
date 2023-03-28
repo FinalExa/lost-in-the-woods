@@ -20,7 +20,8 @@ public class DeadSprout : MonoBehaviour, ISendSignalToSelf
 
     private void DeactivateSproutRoots()
     {
-        foreach (SproutRoot root in sproutRoots) root.gameObject.SetActive(false);
+        foreach (SproutRoot root in sproutRoots)
+            root.gameObject.SetActive(false);
     }
 
     public void OnSignalReceived(GameObject source)

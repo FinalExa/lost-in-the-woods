@@ -16,9 +16,11 @@ public class Interaction : MonoBehaviour
     public GameObject objectToSetActiveStatus;
     [HideInInspector] public bool despawned;
     [HideInInspector] public bool locked;
+    private Rigidbody thisRb;
 
     private void Awake()
     {
+        thisRb = this.gameObject.GetComponent<Rigidbody>();
         CreateAttackInteractionOptions();
     }
 

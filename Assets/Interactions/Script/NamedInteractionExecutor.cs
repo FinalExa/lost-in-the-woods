@@ -44,11 +44,14 @@ public class NamedInteractionExecutor : MonoBehaviour
 
     private void ExitFromAllInteractions()
     {
-        foreach (Interaction interaction in interactingWith)
+        if (interactingWith != null)
         {
-            if (this.gameObject != null) interaction.ExitFromNamedInteraction(this, this.gameObject);
+            foreach (Interaction interaction in interactingWith)
+            {
+                if (this.gameObject != null) interaction.ExitFromNamedInteraction(this, this.gameObject);
+            }
+            interactingWith.Clear();
         }
-        interactingWith.Clear();
     }
 
     private void OnDisable()
