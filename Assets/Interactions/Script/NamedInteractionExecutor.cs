@@ -39,7 +39,11 @@ public class NamedInteractionExecutor : MonoBehaviour
     }
     private void ExecuteExitFromNamedInteraction(Interaction interaction)
     {
-        if (interaction != null && active && interactingWith.Contains(interaction)) interaction.ExitFromNamedInteraction(this, this.gameObject);
+        if (interaction != null && active && interactingWith.Contains(interaction))
+        {
+            interaction.ExitFromNamedInteraction(this, this.gameObject);
+            interactingWith.Remove(interaction);
+        }
     }
 
     private void ExitFromAllInteractions()
