@@ -166,8 +166,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.25, z: 1}
+  m_Center: {x: 0, y: 0.375, z: 0}
 --- !u!114 &-1803685801130573678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +212,7 @@ MonoBehaviour:
   rotator: {fileID: 0}
   objectToSetActiveStatus: {fileID: 0}
   despawned: 0
+  locked: 0
 --- !u!114 &2627229323866192599
 MonoBehaviour:
   m_ObjectHideFlags: 0
