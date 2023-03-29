@@ -10,14 +10,20 @@ public class GrabbableByPlayer : MonoBehaviour
     private RigidbodyConstraints defaultConstraints;
     private void Awake()
     {
-        playerRef = FindObjectOfType<PCController>();
-        thisRb = this.gameObject.GetComponent<Rigidbody>();
+        if (playerRef == null) playerRef = FindObjectOfType<PCController>();
+        if (thisRb == null) thisRb = this.gameObject.GetComponent<Rigidbody>();
     }
 
     private void Start()
     {
         if (thisRb != null) defaultConstraints = thisRb.constraints;
         if (startParent == null) SetStartParent(this.gameObject.transform.parent);
+    }
+
+    public void ManualStartup()
+    {
+        playerRef = FindObjectOfType<PCController>();
+        thisRb = this.gameObject.GetComponent<Rigidbody>();
     }
 
     public void SetStartParent(Transform parent)
