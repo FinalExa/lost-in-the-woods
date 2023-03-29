@@ -24,6 +24,7 @@ public class GrabbableByPlayer : MonoBehaviour
     {
         playerRef = FindObjectOfType<PCController>();
         thisRb = this.gameObject.GetComponent<Rigidbody>();
+        if (thisRb != null) defaultConstraints = thisRb.constraints;
     }
 
     public void SetStartParent(Transform parent)
