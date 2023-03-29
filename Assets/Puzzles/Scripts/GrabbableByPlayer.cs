@@ -6,7 +6,7 @@ public class GrabbableByPlayer : MonoBehaviour
 {
     [HideInInspector] public PCController playerRef;
     [HideInInspector] public Rigidbody thisRb;
-    private Transform startParent;
+    [HideInInspector] public Transform startParent;
     private RigidbodyConstraints defaultConstraints;
     private void Awake()
     {
@@ -17,7 +17,12 @@ public class GrabbableByPlayer : MonoBehaviour
     private void Start()
     {
         if (thisRb != null) defaultConstraints = thisRb.constraints;
-        startParent = this.gameObject.transform.parent;
+        if (startParent == null) SetStartParent(this.gameObject.transform.parent);
+    }
+
+    public void SetStartParent(Transform parent)
+    {
+        startParent = parent;
     }
 
     private void Update()
