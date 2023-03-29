@@ -47,7 +47,7 @@ public class ComboAttack
         attackCountFrame++;
         AttackMovement();
         CheckActivatingHitboxes();
-        if (currentAttack.weaponSpawnsObjectDuringThisAttack.Length > 0) combo.comboObjectSpawner.CheckObjectsToSpawn(currentAttack, attackCountFrame, attackDirection);
+        if (currentAttack.weaponSpawnsObjectDuringThisAttack.Length > 0 && combo != null) combo.comboObjectSpawner.CheckObjectsToSpawn(currentAttack, attackCountFrame, attackDirection);
     }
 
     private void OnAttackEnd()
