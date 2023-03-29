@@ -73,6 +73,8 @@ public class SetOfInteractions : ScriptableObject
         [HideInInspector] public bool uxOnInteractionInitialized;
     }
     public bool turnsOff;
+    public bool startsLocked;
+    public float lockedTime;
     public AttackTypeInteraction[] attackTypeInteractions;
     public NamedInteraction[] namedInteractions;
     public bool onDeathEnabled;

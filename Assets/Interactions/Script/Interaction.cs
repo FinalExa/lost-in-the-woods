@@ -16,16 +16,15 @@ public class Interaction : MonoBehaviour
     public GameObject objectToSetActiveStatus;
     [HideInInspector] public bool despawned;
     [HideInInspector] public bool locked;
-    private Rigidbody thisRb;
 
     private void Awake()
     {
-        thisRb = this.gameObject.GetComponent<Rigidbody>();
         CreateAttackInteractionOptions();
     }
 
     private void OnEnable()
     {
+        if (setOfInteractions.startsLocked) SetLocked(setOfInteractions.lockedTime);
         if (!locked && setOfInteractions.timeAfterStartInteraction.hasTimeAfterStartInteraction) LaunchTimeInteraction();
         despawned = false;
     }

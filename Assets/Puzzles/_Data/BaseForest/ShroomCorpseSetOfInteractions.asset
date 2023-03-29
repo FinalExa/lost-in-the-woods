@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: ShroomCorpseSetOfInteractions
   m_EditorClassIdentifier: 
   turnsOff: 0
+  startsLocked: 1
+  lockedTime: 0.5
   attackTypeInteractions:
   - attackType: 1
     destroyAttackSourceObject: 0
@@ -197,6 +199,7 @@ MonoBehaviour:
   namedInteractions:
   - name: Light
     destroyNamedObjectOnInteraction: 0
+    turnOffNamedObjectInsteadOfDestroy: 0
     options:
       isDestroyed: 0
       isTransformed: 1
@@ -287,6 +290,7 @@ MonoBehaviour:
       uxOnInteractionInitialized: 0
   - name: Infestation
     destroyNamedObjectOnInteraction: 0
+    turnOffNamedObjectInsteadOfDestroy: 0
     options:
       isDestroyed: 0
       isTransformed: 1
