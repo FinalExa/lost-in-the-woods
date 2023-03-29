@@ -41,14 +41,17 @@ public class InteractionOptions
     private void SpawnObject(GameObject objectToSpawn, Vector3 offset)
     {
         GameObject instantiatedObject = GameObject.Instantiate(objectToSpawn, interaction.gameObject.transform.position + offset, Quaternion.identity, interaction.gameObject.transform.parent);
-        instantiatedObject.transform.position = interaction.gameObject.transform.position + offset;
         GrabbableByPlayer thisGrabbableByPlayer = interaction.gameObject.GetComponent<GrabbableByPlayer>();
         GrabbableByPlayer grabbableByPlayerOfSpawnedObject = instantiatedObject.GetComponent<GrabbableByPlayer>();
         if (grabbableByPlayerOfSpawnedObject != null)
         {
             grabbableByPlayerOfSpawnedObject.ManualStartup();
             grabbableByPlayerOfSpawnedObject.ReleaseFromBeingGrabbed();
-            if (thisGrabbableByPlayer != null) grabbableByPlayerOfSpawnedObject.SetStartParent(thisGrabbableByPlayer.startParent);
+            Transform parent;
+            if (thisGrabbableByPlayer != null) parent = thisGrabbableByPlayer.startParent;
+            else parent = interaction.gameObject.transform.parent;
+            grabbableByPlayerOfSpawnedObject.SetStartParent(parent);
+            instantiatedObject.transform.parent = parent;
         }
     }
 

@@ -17,6 +17,7 @@ TagManager:
   - PermanentHoleTerrain
   - Rotator
   - FallenZone
+  - PlayerGrab
   layers:
   - Default
   - TransparentFX

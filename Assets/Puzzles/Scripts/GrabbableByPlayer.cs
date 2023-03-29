@@ -39,7 +39,7 @@ public class GrabbableByPlayer : MonoBehaviour
 
     private void ResetPosition()
     {
-        if (this.gameObject.transform.parent != null && this.gameObject.transform.localPosition != Vector3.zero) this.gameObject.transform.localPosition = Vector3.zero;
+        if (this.gameObject.transform.parent != null && this.gameObject.transform.parent.gameObject.CompareTag("PlayerGrab") && this.gameObject.transform.localPosition != Vector3.zero) this.gameObject.transform.localPosition = Vector3.zero;
     }
 
     public void ReceivedSecondary()
