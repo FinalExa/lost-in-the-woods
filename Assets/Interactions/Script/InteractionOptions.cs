@@ -40,7 +40,7 @@ public class InteractionOptions
 
     private void SpawnObject(GameObject objectToSpawn, Vector3 offset)
     {
-        GameObject instantiatedObject = GameObject.Instantiate(objectToSpawn, interaction.gameObject.transform.position + offset, Quaternion.identity);
+        GameObject instantiatedObject = GameObject.Instantiate(objectToSpawn, interaction.gameObject.transform.position + offset, Quaternion.identity, interaction.gameObject.transform.parent);
         Interaction interactionOfObject = instantiatedObject.GetComponent<Interaction>();
         if (interactionOfObject != null) interactionOfObject.SetLocked(1f);
         GrabbableByPlayer thisGrabbableByPlayer = interaction.gameObject.GetComponent<GrabbableByPlayer>();
