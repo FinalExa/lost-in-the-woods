@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnsOff: 0
   startsLocked: 1
-  lockedTime: 0.3
+  lockedTime: 0.4
   attackTypeInteractions:
   - attackType: 1
     destroyAttackSourceObject: 0
