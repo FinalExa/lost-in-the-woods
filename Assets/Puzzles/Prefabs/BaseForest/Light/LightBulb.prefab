@@ -250,6 +250,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6041319375586110516}
+  - component: {fileID: 4117458333593637008}
   m_Layer: 0
   m_Name: Rotator
   m_TagString: Untagged
@@ -274,6 +275,19 @@ Transform:
   m_Father: {fileID: 6552628957484814743}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4117458333593637008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796220788007259571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8292276e691b248be601386783e7bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 2049634474330389795}
 --- !u!1 &2049634474330389795
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,6 +424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRef: {fileID: 0}
   thisRb: {fileID: 0}
+  startParent: {fileID: 0}
 --- !u!114 &-6554840796819847052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,6 +474,7 @@ MonoBehaviour:
   rotator: {fileID: 0}
   objectToSetActiveStatus: {fileID: 501519691259037643}
   despawned: 0
+  locked: 0
 --- !u!54 &6552628957484814742
 Rigidbody:
   m_ObjectHideFlags: 0

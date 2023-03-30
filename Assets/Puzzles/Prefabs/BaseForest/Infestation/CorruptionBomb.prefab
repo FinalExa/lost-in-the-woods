@@ -93,6 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1046621855280953376}
+  - component: {fileID: 6662949159697098631}
   m_Layer: 0
   m_Name: Rotator
   m_TagString: Rotator
@@ -117,6 +118,19 @@ Transform:
   m_Father: {fileID: 1046621855832586625}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &6662949159697098631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046621855280953379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8292276e691b248be601386783e7bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 1046621854420227545}
 --- !u!1 &1046621855832586626
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRef: {fileID: 0}
   thisRb: {fileID: 0}
+  startParent: {fileID: 0}
 --- !u!114 &1283443479848240081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +235,7 @@ MonoBehaviour:
   rotator: {fileID: 0}
   objectToSetActiveStatus: {fileID: 0}
   despawned: 0
+  locked: 0
 --- !u!114 &4453809154134266270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,7 +285,6 @@ MonoBehaviour:
         shakeDuration: 0
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
-  frameValueTime: 0
   weaponToSet: {fileID: 5618523709540359774}
   resetsPositionAndRotationOnComboEnd: 0
   destroyObjectOnComboEnd: 1
