@@ -11,6 +11,7 @@ public class PCFall : MonoBehaviour
     [SerializeField] private RigidbodyConstraints fallingConstraints;
     [SerializeField] private GameObject fallTarget;
     [SerializeField] private LayerMask groundMask;
+    [SerializeField] private Vector3 overlapBoxHalfExtents;
 
     private void Awake()
     {
@@ -30,10 +31,14 @@ public class PCFall : MonoBehaviour
 
     private void CheckForGroundBelow()
     {
-        float relativeSize = 1f / 20f;
-        Collider[] grounds = Physics.OverlapBox(fallTarget.transform.position, new Vector3(relativeSize, 0.5f, relativeSize), Quaternion.identity, groundMask);
+        Collider[] grounds = Physics.OverlapBox(fallTarget.transform.position, overlapBoxHalfExtents, Quaternion.identity, groundMask);
         if (grounds.Length > 0) SetOnGround();
         else SetNotOnGround();
+        SetLastGround(grounds);
+    }
+
+    private void SetLastGround(Collider[] grounds)
+    {
         if (touchingGround)
         {
             foreach (Collider ground in grounds)
