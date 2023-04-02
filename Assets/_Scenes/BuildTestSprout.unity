@@ -7481,7 +7481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3941403088353230797, guid: 8619e3b9233b4944fb877f2d1ae2a0e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3941403088353230797, guid: 8619e3b9233b4944fb877f2d1ae2a0e1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9396,8 +9396,10 @@ Transform:
   - {fileID: 954641800}
   - {fileID: 1210501840}
   - {fileID: 705842305}
-  - {fileID: 926259885}
   - {fileID: 584407658}
+  - {fileID: 1748971999}
+  - {fileID: 926259885}
+  - {fileID: 1242142809}
   - {fileID: 351873720}
   - {fileID: 1548200487}
   - {fileID: 2068702573}
@@ -9405,9 +9407,7 @@ Transform:
   - {fileID: 375839443}
   - {fileID: 442343696}
   - {fileID: 1421589774}
-  - {fileID: 1748971999}
   - {fileID: 52596043}
-  - {fileID: 1242142809}
   m_Father: {fileID: 3457580937090827257}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16236,11 +16236,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4811315696665080915, guid: 759e8b4adc10f234b82de03d94f68d73, type: 3}
       propertyPath: m_LocalScale.z
-      value: 40
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4811315696665080915, guid: 759e8b4adc10f234b82de03d94f68d73, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15
+      value: 15.25
       objectReference: {fileID: 0}
     - target: {fileID: 4811315696665080915, guid: 759e8b4adc10f234b82de03d94f68d73, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16248,7 +16248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4811315696665080915, guid: 759e8b4adc10f234b82de03d94f68d73, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.75
+      value: -9.5
       objectReference: {fileID: 0}
     - target: {fileID: 4811315696665080915, guid: 759e8b4adc10f234b82de03d94f68d73, type: 3}
       propertyPath: m_LocalRotation.w

@@ -4,55 +4,43 @@ using UnityEngine;
 
 public class EnemyWeaponSwitcher : MonoBehaviour
 {
-    private EnemyController enemyController;
+    protected EnemyController enemyController;
     [HideInInspector] public Weapon normalStateWeapon;
     [HideInInspector] public Weapon calmStateWeapon;
     [HideInInspector] public Weapon berserkStateWeapon;
-    [SerializeField] private GameObject enemyWeaponsSlot;
+    [SerializeField] protected GameObject enemyWeaponsSlot;
 
     private void Awake()
+    {
+        Startup();
+    }
+    private void Start()
+    {
+        SetEnemyWeaponByState();
+    }
+
+    protected virtual void Startup()
     {
         enemyController = this.gameObject.GetComponent<EnemyController>();
         GenerateEnemyWeapons();
     }
-
-    private void GenerateEnemyWeapons()
+    protected void GenerateEnemyWeapons()
     {
-        Weapon weapon;
-        if (enemyController.enemyData.hasNormalWeapon)
-        {
-            weapon = Instantiate(enemyController.enemyData.normalWeapon, enemyWeaponsSlot.transform);
-            normalStateWeapon = weapon;
-        }
-        if (enemyController.enemyData.hasCalmWeapon)
-        {
-            weapon = Instantiate(enemyController.enemyData.calmWeapon, enemyWeaponsSlot.transform);
-            calmStateWeapon = weapon;
-        }
-        if (enemyController.enemyData.hasBerserkWeapon)
-        {
-            weapon = Instantiate(enemyController.enemyData.berserkWeapon, enemyWeaponsSlot.transform);
-            berserkStateWeapon = weapon;
-        }
-        SetEnemyWeaponByState();
+        if (enemyController.enemyData.hasNormalWeapon) normalStateWeapon = GenerateWeapon(enemyController.enemyData.normalWeapon);
+        if (enemyController.enemyData.hasCalmWeapon) calmStateWeapon = GenerateWeapon(enemyController.enemyData.calmWeapon);
+        if (enemyController.enemyData.hasBerserkWeapon) berserkStateWeapon = GenerateWeapon(enemyController.enemyData.berserkWeapon);
     }
-
+    protected Weapon GenerateWeapon(Weapon weaponRef)
+    {
+        return Instantiate(weaponRef, enemyWeaponsSlot.transform);
+    }
     public void SetEnemyWeaponByState()
     {
-        switch (enemyController.affectedByLight.lightState)
-        {
-            case AffectedByLight.LightState.NORMAL:
-                if (enemyController.enemyData.hasNormalWeapon) SetEnemyWeapon(normalStateWeapon);
-                break;
-            case AffectedByLight.LightState.CALM:
-                if (enemyController.enemyData.hasCalmWeapon) SetEnemyWeapon(calmStateWeapon);
-                break;
-            case AffectedByLight.LightState.BERSERK:
-                if (enemyController.enemyData.hasBerserkWeapon) SetEnemyWeapon(berserkStateWeapon);
-                break;
-        }
+        if (enemyController.affectedByLight.lightState == AffectedByLight.LightState.NORMAL && enemyController.enemyData.hasNormalWeapon) SetEnemyWeapon(normalStateWeapon);
+        else if (enemyController.affectedByLight.lightState == AffectedByLight.LightState.CALM && enemyController.enemyData.hasCalmWeapon) SetEnemyWeapon(calmStateWeapon);
+        else if (enemyController.affectedByLight.lightState == AffectedByLight.LightState.BERSERK && enemyController.enemyData.hasBerserkWeapon) SetEnemyWeapon(berserkStateWeapon);
     }
-    private void SetEnemyWeapon(Weapon weaponToSet)
+    protected void SetEnemyWeapon(Weapon weaponToSet)
     {
         enemyController.currentWeapon = weaponToSet;
         enemyController.enemyCombo.SetWeapon(enemyController.currentWeapon);
