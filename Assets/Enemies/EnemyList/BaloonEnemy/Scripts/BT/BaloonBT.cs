@@ -21,6 +21,7 @@ public class BaloonBT : EnemyBT
             new Selector (new List<Node>
             {
                 new TaskIsInBerserkState(enemyController, enemyWeaponSwitcher),
+                new TaskBaloonBerserkOperations(baloonEnemyController),
                 new Sequence(new List<Node>
                 {
                     new Selector (new List<Node>
@@ -34,20 +35,29 @@ public class BaloonBT : EnemyBT
             new Selector (new List<Node>
             {
                 new TaskIsInNormalState(enemyController, enemyWeaponSwitcher),
-                new Sequence(new List<Node>
+                new Selector(new List<Node>
                 {
-                    new Selector(new List<Node>
+                    new TaskBaloonNormalOperations(baloonEnemyController),
+                    new Sequence(new List<Node>
                     {
-                        new TaskIsCloseToPlayer(enemyController, enemyController.enemyData.normalDistanceFromPlayer),
-                        new TaskMoveToPlayer(enemyController, enemyController.enemyData.normalMovementSpeed)
-                    }),
-                    new TaskAttackPlayer(enemyController)
-                })
+                        new Selector(new List<Node>
+                        {
+                            new TaskIsCloseToPlayer(enemyController, enemyController.enemyData.normalDistanceFromPlayer),
+                            new TaskMoveToPlayer(enemyController, enemyController.enemyData.normalMovementSpeed)
+                        }),
+                        new TaskAttackPlayer(enemyController)
+                    })
+                    }
+                )
             }),
             new Selector (new List<Node>
             {
                 new TaskIsInCalmState(enemyController, enemyWeaponSwitcher),
-                new TaskAttackPlayer(enemyController)
+                new Selector(new List<Node>
+                {
+                    new TaskBaloonCalmOperations(baloonEnemyController),
+                    new TaskAttackPlayer(enemyController)
+                })
             })
         });
         return root;

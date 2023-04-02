@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyRotator : MonoBehaviour
 {
+    [HideInInspector] public bool invertRotationLook;
     [SerializeField] private GameObject rotator;
     private EnemyController enemyController;
 
@@ -24,7 +25,9 @@ public class EnemyRotator : MonoBehaviour
 
     public void Rotate(Vector3 target)
     {
-        Vector3 direction = (this.gameObject.transform.position - target).normalized;
+        Vector3 direction = Vector3.zero;
+        if (!invertRotationLook) direction = (this.gameObject.transform.position - target).normalized;
+        else direction = (target - this.gameObject.transform.position).normalized;
         float xValue = 1f - Mathf.Abs(direction.x);
         float zValue = 1f - Mathf.Abs(direction.z);
         if (xValue < zValue) RotateHorizontally(direction);

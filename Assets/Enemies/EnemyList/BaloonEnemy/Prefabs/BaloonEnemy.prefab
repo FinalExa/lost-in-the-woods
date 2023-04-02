@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -8967726667995805398}
   - component: {fileID: -378901725506230216}
   - component: {fileID: -57584891418013859}
+  - component: {fileID: 8994391960753586928}
   - component: {fileID: 8690117516297040685}
   - component: {fileID: 249166922592196662}
   - component: {fileID: 1079639170565201830}
@@ -75,6 +76,9 @@ MonoBehaviour:
   affectedByLight: {fileID: 0}
   attackReceived: {fileID: 0}
   interaction: {fileID: 0}
+  enemyHealth: {fileID: 0}
+  vulnerable: 0
+  absorbed: 0
   spriteRef: {fileID: 6624776783331709772}
   absorbableTypes:
   - absorbableAttackType: 3
@@ -183,6 +187,23 @@ MonoBehaviour:
       shakeDuration: 0
       cinemachineCameraShakerRef: {fileID: 0}
     soundParent: {fileID: 0}
+  doesntTurnOffOnDeath: 1
+--- !u!114 &8994391960753586928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477770951886658404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b835b8aed2a46994ab2ede4e1306af39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRef: {fileID: 0}
+  thisRb: {fileID: 0}
+  startParent: {fileID: 0}
+  lockedGrabbable: 1
 --- !u!114 &8690117516297040685
 MonoBehaviour:
   m_ObjectHideFlags: 0

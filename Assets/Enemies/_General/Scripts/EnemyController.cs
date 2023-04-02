@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     public EnemyData enemyData;
     [HideInInspector] public Weapon currentWeapon;
     [HideInInspector] public bool isAlerted;
+    [HideInInspector] public PCController playerRef;
     [HideInInspector] public GameObject playerTarget;
     [HideInInspector] public EnemyCombo enemyCombo;
     [HideInInspector] public NavMeshAgent thisNavMeshAgent;
@@ -21,7 +22,8 @@ public class EnemyController : MonoBehaviour
 
     protected virtual void Awake()
     {
-        playerTarget = FindObjectOfType<PCController>().gameObject;
+        playerRef = FindObjectOfType<PCController>();
+        playerTarget = playerRef.gameObject;
         enemyCombo = this.gameObject.GetComponent<EnemyCombo>();
         thisNavMeshAgent = this.gameObject.GetComponent<NavMeshAgent>();
         affectedByLight = this.gameObject.GetComponent<AffectedByLight>();

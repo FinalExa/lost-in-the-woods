@@ -7,8 +7,9 @@ public class GrabbableByPlayer : MonoBehaviour
     [HideInInspector] public PCController playerRef;
     [HideInInspector] public Rigidbody thisRb;
     [HideInInspector] public Transform startParent;
+    public bool lockedGrabbable;
     private RigidbodyConstraints defaultConstraints;
-    private void Awake()
+    protected virtual void Awake()
     {
         if (playerRef == null) playerRef = FindObjectOfType<PCController>();
         if (thisRb == null) thisRb = this.gameObject.GetComponent<Rigidbody>();
@@ -34,12 +35,17 @@ public class GrabbableByPlayer : MonoBehaviour
 
     private void Update()
     {
-        ResetPosition();
+        UpdateOperations();
     }
 
-    private void ResetPosition()
+    private void UpdateOperations()
     {
-        if (this.gameObject.transform.parent != null && this.gameObject.transform.parent.gameObject.CompareTag("PlayerGrab") && this.gameObject.transform.localPosition != Vector3.zero) this.gameObject.transform.localPosition = Vector3.zero;
+        if (this.gameObject.transform.parent != null && this.gameObject.transform.parent.gameObject.CompareTag("PlayerGrab"))
+        {
+            if (this.gameObject.transform.localPosition != Vector3.zero) this.gameObject.transform.localPosition = Vector3.zero;
+            if (this.gameObject.transform.rotation != playerRef.gameObject.transform.rotation) this.gameObject.transform.rotation = playerRef.transform.rotation;
+            if (lockedGrabbable) this.ReleaseFromBeingGrabbed(playerRef.pcReferences.pcGrabbing);
+        }
     }
 
     public void ReceivedSecondary()
@@ -49,13 +55,26 @@ public class GrabbableByPlayer : MonoBehaviour
 
     public void SetGrabbed(GameObject newParent)
     {
+        if (!lockedGrabbable)
+        {
+            if (thisRb != null)
+            {
+                thisRb.velocity = Vector3.zero;
+                thisRb.constraints = RigidbodyConstraints.FreezeAll;
+            }
+            this.gameObject.transform.position = newParent.transform.position;
+            this.gameObject.transform.parent = newParent.transform;
+        }
+    }
+
+    public void ReleaseFromBeingGrabbed(PCGrabbing pcGrabbing)
+    {
         if (thisRb != null)
         {
-            thisRb.velocity = Vector3.zero;
-            thisRb.constraints = RigidbodyConstraints.FreezeAll;
+            thisRb.constraints = defaultConstraints;
         }
-        this.gameObject.transform.position = newParent.transform.position;
-        this.gameObject.transform.parent = newParent.transform;
+        this.gameObject.transform.parent = startParent;
+        pcGrabbing.SetGrabbedObjectNull();
     }
 
     public void ReleaseFromBeingGrabbed()
@@ -65,5 +84,11 @@ public class GrabbableByPlayer : MonoBehaviour
             thisRb.constraints = defaultConstraints;
         }
         this.gameObject.transform.parent = startParent;
+    }
+
+    public virtual void MainOperation(PCGrabbing pcGrabbing, Vector3 direction, float speed)
+    {
+        ReleaseFromBeingGrabbed(pcGrabbing);
+        thisRb.velocity = direction * speed;
     }
 }

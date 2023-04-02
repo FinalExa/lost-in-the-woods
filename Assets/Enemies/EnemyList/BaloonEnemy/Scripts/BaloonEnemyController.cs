@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWeaponAttackType
 {
-    private BaloonWeaponSwitcher baloonWeaponSwitcher;
+    [HideInInspector] public BaloonWeaponSwitcher baloonWeaponSwitcher;
+    [HideInInspector] public GrabbableByPlayer grabbableByPlayer;
+    [HideInInspector] public EnemyRotator enemyRotator;
     private Color baseColor;
+    [HideInInspector] public EnemyHealth enemyHealth;
+    [HideInInspector] public bool vulnerable;
     [HideInInspector] public bool absorbed;
     private bool executedFreeFromAbsorbAttack;
     [SerializeField] private SpriteRenderer spriteRef;
@@ -27,6 +31,9 @@ public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWe
     {
         base.Awake();
         baloonWeaponSwitcher = this.gameObject.GetComponent<BaloonWeaponSwitcher>();
+        grabbableByPlayer = this.gameObject.GetComponent<GrabbableByPlayer>();
+        enemyHealth = this.gameObject.GetComponent<EnemyHealth>();
+        enemyRotator = this.gameObject.GetComponent<EnemyRotator>();
     }
 
     private void Start()
@@ -67,5 +74,22 @@ public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWe
             baloonWeaponSwitcher.SetWeapons(WeaponAttack.WeaponAttackType.GENERIC);
             absorbed = false;
         }
+    }
+
+    public void HPDeplete()
+    {
+        thisNavMeshAgent.enabled = false;
+        enemyRotator.invertRotationLook = true;
+        grabbableByPlayer.lockedGrabbable = false;
+        vulnerable = true;
+    }
+
+    public void HPReset()
+    {
+        enemyHealth.HealthAddValue(enemyData.maxHP);
+        thisNavMeshAgent.enabled = true;
+        enemyRotator.invertRotationLook = false;
+        grabbableByPlayer.lockedGrabbable = true;
+        vulnerable = false;
     }
 }

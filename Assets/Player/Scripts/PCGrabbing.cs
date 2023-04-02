@@ -51,27 +51,30 @@ public class PCGrabbing : MonoBehaviour
         }
     }
 
-    public void RemoveGrabbedObject(bool launch)
+    public void RemoveGrabbedObject(bool mainOp)
     {
         if (grabbedObject != null)
         {
             StartCoroutine(pcController.LockPlayerAttack(pcController.pcReferences.pcData.afterLaunchLockAttackTime));
-            grabbedObject.ReleaseFromBeingGrabbed();
-            if (launch) LaunchGrabbedObject();
-            grabbedObject = null;
+            if (mainOp) ExecuteMainOperationOnObject();
+            else grabbedObject.ReleaseFromBeingGrabbed(this);
         }
     }
 
-    private void LaunchGrabbedObject()
+    private void ExecuteMainOperationOnObject()
     {
-        Vector3 directionWithSpeed = (grabPosition.transform.position - this.gameObject.transform.position).normalized;
-        directionWithSpeed = directionWithSpeed * pcController.pcReferences.pcData.grabLaunchValue;
-        grabbedObject.thisRb.velocity = directionWithSpeed;
+        Vector3 direction = (grabPosition.transform.position - this.gameObject.transform.position).normalized;
+        grabbedObject.MainOperation(this, direction, pcController.pcReferences.pcData.grabLaunchValue);
     }
 
     public bool GrabbedObjectExists()
     {
         if (grabbedObject != null) return true;
         else return false;
+    }
+
+    public void SetGrabbedObjectNull()
+    {
+        grabbedObject = null;
     }
 }
