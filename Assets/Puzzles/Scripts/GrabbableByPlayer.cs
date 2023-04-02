@@ -43,8 +43,6 @@ public class GrabbableByPlayer : MonoBehaviour
         if (this.gameObject.transform.parent != null && this.gameObject.transform.parent.gameObject.CompareTag("PlayerGrab"))
         {
             if (this.gameObject.transform.localPosition != Vector3.zero) this.gameObject.transform.localPosition = Vector3.zero;
-            if (this.gameObject.transform.rotation != playerRef.gameObject.transform.rotation) this.gameObject.transform.rotation = playerRef.transform.rotation;
-            if (lockedGrabbable) this.ReleaseFromBeingGrabbed(playerRef.pcReferences.pcGrabbing);
         }
     }
 

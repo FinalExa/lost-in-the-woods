@@ -44,7 +44,7 @@ public class PCGrabbing : MonoBehaviour
 
     public void SetGrabbedObject(GrabbableByPlayer objectToSet)
     {
-        if (grabbedObject == null)
+        if (grabbedObject == null && !objectToSet.lockedGrabbable)
         {
             grabbedObject = objectToSet;
             grabbedObject.SetGrabbed(grabPosition);

@@ -13,11 +13,11 @@ public class TaskBaloonBerserkOperations : Node
 
     public override NodeState Evaluate()
     {
-        if (baloonEnemyController.vulnerable ||
-            baloonEnemyController.enemyHealth.currentHP <= 0 ||
-            !baloonEnemyController.thisNavMeshAgent.enabled ||
-            baloonEnemyController.enemyRotator.invertRotationLook ||
-            !baloonEnemyController.grabbableByPlayer.lockedGrabbable) baloonEnemyController.HPReset();
-        return NodeState.SUCCESS;
+        if (baloonEnemyController.vulnerable || baloonEnemyController.enemyHealth.currentHP <= 0)
+        {
+            baloonEnemyController.grabbableByPlayer.ReleaseFromBeingGrabbed(baloonEnemyController.playerRef.pcReferences.pcGrabbing);
+            baloonEnemyController.HPReset();
+        }
+        return NodeState.FAILURE;
     }
 }
