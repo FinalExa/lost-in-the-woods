@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 8223040152231230918}
   - component: {fileID: 1647951088766125282}
   - component: {fileID: 477417064391332957}
-  - component: {fileID: 477417064391332958}
+  - component: {fileID: 7692730359286107424}
   - component: {fileID: 6930611499087050130}
   m_Layer: 0
   m_Name: PurityBall
@@ -185,6 +185,7 @@ MonoBehaviour:
   playerRef: {fileID: 0}
   thisRb: {fileID: 0}
   startParent: {fileID: 0}
+  lockedGrabbable: 0
 --- !u!114 &1867248137621188108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,8 +267,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!65 &477417064391332958
-BoxCollider:
+--- !u!135 &7692730359286107424
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -277,7 +278,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!208 &6930611499087050130
 NavMeshObstacle:
@@ -288,7 +289,7 @@ NavMeshObstacle:
   m_GameObject: {fileID: 477417064391332959}
   m_Enabled: 1
   serializedVersion: 3
-  m_Shape: 1
+  m_Shape: 0
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
   m_MoveThreshold: 0.1
   m_Carve: 0

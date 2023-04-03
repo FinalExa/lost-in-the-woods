@@ -62,6 +62,7 @@ MonoBehaviour:
   enemyData: {fileID: 11400000, guid: f4efc77ed94849546b5621d8631d68a8, type: 2}
   currentWeapon: {fileID: 0}
   isAlerted: 0
+  playerRef: {fileID: 0}
   playerTarget: {fileID: 0}
   enemyCombo: {fileID: 0}
   thisNavMeshAgent: {fileID: 0}
@@ -200,6 +201,7 @@ MonoBehaviour:
       shakeDuration: 0
       cinemachineCameraShakerRef: {fileID: 0}
     soundParent: {fileID: 0}
+  doesntTurnOffOnDeath: 0
 --- !u!114 &8690117516297040685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ac5936429b60842a75b0cd9bb8d77c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invertRotationLook: 0
   rotator: {fileID: 6982585701272724667}
 --- !u!114 &1079639170565201830
 MonoBehaviour:
@@ -555,7 +558,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7221850590940928337}
-  m_LocalRotation: {x: -0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -563,7 +566,7 @@ Transform:
   - {fileID: 2925628487519010014}
   m_Father: {fileID: 5935048982642156516}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8061350211423681150
 GameObject:
   m_ObjectHideFlags: 0
