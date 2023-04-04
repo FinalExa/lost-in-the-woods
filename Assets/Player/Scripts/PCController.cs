@@ -10,10 +10,12 @@ public class PCController : MonoBehaviour
     [HideInInspector] public Weapon thisWeapon;
     [HideInInspector] public bool pcLockedAttack;
     private Zone currentZone;
+    private AttackReceived attackReceived;
 
     private void Awake()
     {
         pcReferences = this.gameObject.GetComponent<PCReferences>();
+        attackReceived = this.gameObject.GetComponent<AttackReceived>();
     }
 
     private void Start()
@@ -25,6 +27,9 @@ public class PCController : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R)) UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        if (Input.GetKeyDown(KeyCode.I)) attackReceived.ignoresDamage = !attackReceived.ignoresDamage;
+        if (Input.GetKeyDown(KeyCode.B)) pcReferences.heartbeat.SetHeartbeatTimer(true);
+        if (Input.GetKeyDown(KeyCode.N)) pcReferences.heartbeat.SetHeartbeatTimer(false);
     }
 
     public void ChangePlayerZone(Zone zoneToSet)
