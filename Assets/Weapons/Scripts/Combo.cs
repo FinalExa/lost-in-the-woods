@@ -14,7 +14,7 @@ public class Combo : MonoBehaviour
     protected virtual void Awake()
     {
         ComboFrameMaster.frameIsBeingExecuted += ExecuteComboOperations;
-        comboObjectSpawner = new ComboObjectSpawner();
+        comboObjectSpawner = new ComboObjectSpawner(this);
         comboDelays = new ComboDelays(this);
         comboAttack = new ComboAttack(this);
     }

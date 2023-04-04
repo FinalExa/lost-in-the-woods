@@ -14,8 +14,8 @@ public class Heartbeat : MonoBehaviour
     [SerializeField] private Color globalLightHeartbeatColor;
     [SerializeField] private bool testScene;
     public static Action<bool> heartbeatSwitch;
-    [SerializeField] private UXEffect uxOnAnticipation;
     [SerializeField] private float anticipationTime;
+    [SerializeField] private UXEffect uxOnAnticipation;
     [SerializeField] private UXEffect uxOnHeartbeat;
     [SerializeField] private UXEffect uxWithoutHeartbeat;
 
@@ -38,9 +38,10 @@ public class Heartbeat : MonoBehaviour
         HeartbeatTimer();
     }
 
-    private void SetHeartbeatTimer(bool heartbeatState)
+    public void SetHeartbeatTimer(bool heartbeatState)
     {
         InHeartbeat = heartbeatState;
+        if (!testScene) heartbeatSwitch(InHeartbeat);
         HeartbeatStateSetup();
     }
     private void HeartbeatTimer()
@@ -54,11 +55,7 @@ public class Heartbeat : MonoBehaviour
             uxOnAnticipation.sound.PlayAudio();
         }
         if (heartbeatTimer > 0) heartbeatTimer -= Time.deltaTime;
-        else
-        {
-            SetHeartbeatTimer(!InHeartbeat);
-            if (!testScene) heartbeatSwitch(InHeartbeat);
-        }
+        else SetHeartbeatTimer(!InHeartbeat);
     }
 
     private void HeartbeatStateSetup()
