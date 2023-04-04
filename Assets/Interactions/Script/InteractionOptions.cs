@@ -13,7 +13,7 @@ public class InteractionOptions
     }
     public void Interact(SetOfInteractions.Options options, GameObject source, bool turnsOff)
     {
-        if (!options.hasSpecialCondition || SpecialConditionsCheck(options))
+        if (!interaction.locked && (!options.hasSpecialCondition || SpecialConditionsCheck(options)))
         {
             UXEffectExecute(options);
             if (options.isDestroyed) DestroyOrTurnOff(turnsOff);
@@ -40,12 +40,24 @@ public class InteractionOptions
 
     private void SpawnObject(GameObject objectToSpawn, Vector3 offset)
     {
-        GameObject.Instantiate(objectToSpawn, interaction.gameObject.transform.position + offset, Quaternion.identity);
+        GameObject instantiatedObject = GameObject.Instantiate(objectToSpawn, interaction.gameObject.transform.position + offset, Quaternion.identity, interaction.gameObject.transform.parent);
+        GrabbableByPlayer thisGrabbableByPlayer = interaction.gameObject.GetComponent<GrabbableByPlayer>();
+        GrabbableByPlayer grabbableByPlayerOfSpawnedObject = instantiatedObject.GetComponent<GrabbableByPlayer>();
+        if (grabbableByPlayerOfSpawnedObject != null)
+        {
+            grabbableByPlayerOfSpawnedObject.ManualStartup();
+            grabbableByPlayerOfSpawnedObject.ReleaseFromBeingGrabbed();
+            Transform parent;
+            if (thisGrabbableByPlayer != null) parent = thisGrabbableByPlayer.startParent;
+            else parent = interaction.gameObject.transform.parent;
+            grabbableByPlayerOfSpawnedObject.SetStartParent(parent);
+            instantiatedObject.transform.parent = parent;
+        }
     }
 
     private void Transform(SetOfInteractions.Options options, bool turnsOff)
     {
-        GameObject.Instantiate(options.transformedRef, interaction.gameObject.transform.position, interaction.gameObject.transform.rotation, interaction.gameObject.transform.parent);
+        SpawnObject(options.transformedRef, Vector3.zero);
         DestroyOrTurnOff(turnsOff);
     }
 

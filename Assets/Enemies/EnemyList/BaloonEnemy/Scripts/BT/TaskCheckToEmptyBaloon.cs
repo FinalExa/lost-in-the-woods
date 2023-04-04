@@ -13,7 +13,7 @@ public class TaskCheckToEmptyBaloon : Node
 
     public override NodeState Evaluate()
     {
-        baloonEnemyController.StopAbsorb();
+        if (baloonEnemyController.affectedByLight.lightState == AffectedByLight.LightState.CALM && baloonEnemyController && baloonEnemyController.absorbed) baloonEnemyController.EndAbsorb();
         return NodeState.SUCCESS;
     }
 }

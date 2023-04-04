@@ -88,7 +88,7 @@ MonoBehaviour:
     frameDuration: 900
     framesOfDelay: 0
     movementDistance: 0
-    ignoresWalls: 0
+    ignoresWalls: 1
     attackObject: {fileID: 1083629791230123650}
     weaponAttackTypes: 05000000
     weaponAttackHitboxSequence:

@@ -34,7 +34,7 @@ public class PCHealth : Health
         pcLight.LightRadiusUpdate(currentHP);
     }
 
-    public override void OnDeath()
+    public override void OnDeath(bool skipOnDeathInteraction)
     {
         if (uxOnDeath.hasSound) uxOnDeath.sound.PlayAudio();
         //TEMPORARY

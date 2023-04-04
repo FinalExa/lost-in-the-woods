@@ -12,8 +12,10 @@ public class PCReferences : MonoBehaviour
     [HideInInspector] public PlayerCombo pcCombo;
     [HideInInspector] public PCRotation pcRotation;
     [HideInInspector] public PCHealth pcHealth;
+    [HideInInspector] public AttackReceived attackReceived;
     [HideInInspector] public PCLight pcLight;
     [HideInInspector] public Heartbeat heartbeat;
+    [HideInInspector] public PCGrabbing pcGrabbing;
 
     private void Awake()
     {
@@ -23,8 +25,10 @@ public class PCReferences : MonoBehaviour
         pcCombo = this.gameObject.GetComponent<PlayerCombo>();
         pcRotation = FindObjectOfType<PCRotation>();
         pcHealth = this.gameObject.GetComponent<PCHealth>();
+        attackReceived = this.gameObject.GetComponent<AttackReceived>();
         pcLight = this.gameObject.GetComponentInChildren<PCLight>();
         heartbeat = this.gameObject.GetComponent<Heartbeat>();
+        pcGrabbing = this.gameObject.GetComponent<PCGrabbing>();
         uxOnDodge.UXEffectStartup();
     }
 }

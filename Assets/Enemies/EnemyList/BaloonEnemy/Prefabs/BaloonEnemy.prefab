@@ -11,14 +11,15 @@ GameObject:
   - component: {fileID: 6395110103217412864}
   - component: {fileID: -6213912900962634631}
   - component: {fileID: -8967726667995805398}
-  - component: {fileID: 3939637572597450188}
+  - component: {fileID: -378901725506230216}
   - component: {fileID: -57584891418013859}
+  - component: {fileID: 8994391960753586928}
   - component: {fileID: 8690117516297040685}
-  - component: {fileID: 249166922592196662}
   - component: {fileID: 1079639170565201830}
   - component: {fileID: -3714416512890541913}
-  - component: {fileID: 7001282123244882244}
+  - component: {fileID: 4458193498402729566}
   - component: {fileID: -9043955551362722132}
+  - component: {fileID: 7001282123244882244}
   - component: {fileID: 4992552886037869941}
   - component: {fileID: 4166100610456823755}
   m_Layer: 0
@@ -61,6 +62,7 @@ MonoBehaviour:
   enemyData: {fileID: 11400000, guid: c4262c1e48e3ad449824846e0d966d62, type: 2}
   currentWeapon: {fileID: 0}
   isAlerted: 0
+  playerRef: {fileID: 0}
   playerTarget: {fileID: 0}
   enemyCombo: {fileID: 0}
   thisNavMeshAgent: {fileID: 0}
@@ -75,13 +77,26 @@ MonoBehaviour:
   affectedByLight: {fileID: 0}
   attackReceived: {fileID: 0}
   interaction: {fileID: 0}
+  baloonWeaponSwitcher: {fileID: 0}
+  grabbableByPlayer: {fileID: 0}
+  baloonRotator: {fileID: 0}
+  enemyHealth: {fileID: 0}
+  vulnerable: 0
+  absorbed: 0
   spriteRef: {fileID: 6624776783331709772}
-  absorbableAttackTypes:
-  - attackType: 3
-    feedbackColor: {r: 1, g: 0.8021469, b: 0, a: 0.7058824}
-  - attackType: 2
-    feedbackColor: {r: 0.7717838, g: 0, b: 1, a: 0.7058824}
-  repelAttackTypes: 01000000
+  absorbableTypes:
+  - absorbableAttackType: 3
+    absorbableName: Light
+    thisTypeNormalWeapon: {fileID: 4222045236405462924, guid: c330f57b7c5cafc4da697565bfabc159, type: 3}
+    thisTypeCalmWeapon: {fileID: 4222045236405462924, guid: 952b2a24efe989046a5e5e3d1834c59e, type: 3}
+    thisTypeBerserkWeapon: {fileID: 4222045236405462924, guid: 5becdadbcd7b58148b2d24091a12d7a6, type: 3}
+    feedbackColor: {r: 1, g: 0.92332065, b: 0, a: 0.50980395}
+  - absorbableAttackType: 2
+    absorbableName: Infestation
+    thisTypeNormalWeapon: {fileID: 4222045236405462924, guid: e524049922a655d468842999b676a62b, type: 3}
+    thisTypeCalmWeapon: {fileID: 4222045236405462924, guid: c487c3ec4ca4d8f4f9f31b7114510142, type: 3}
+    thisTypeBerserkWeapon: {fileID: 4222045236405462924, guid: ffe969d7ac3aeaf44894159065abd84b, type: 3}
+    feedbackColor: {r: 0.6415094, g: 0.2208971, b: 0.6150398, a: 0.50980395}
 --- !u!114 &-8967726667995805398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyController: {fileID: 0}
   enemyWeaponSwitcher: {fileID: 0}
---- !u!114 &3939637572597450188
+--- !u!114 &-378901725506230216
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,7 +120,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5477770951886658404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be3f20ed514613244a1e31eb0719c4ba, type: 3}
+  m_Script: {fileID: 11500000, guid: e532a254c2486b142b249d713b9619cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   normalStateWeapon: {fileID: 0}
@@ -176,6 +191,23 @@ MonoBehaviour:
       shakeDuration: 0
       cinemachineCameraShakerRef: {fileID: 0}
     soundParent: {fileID: 0}
+  doesntTurnOffOnDeath: 1
+--- !u!114 &8994391960753586928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477770951886658404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b835b8aed2a46994ab2ede4e1306af39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRef: {fileID: 0}
+  thisRb: {fileID: 0}
+  startParent: {fileID: 0}
+  lockedGrabbable: 1
 --- !u!114 &8690117516297040685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,22 +257,8 @@ MonoBehaviour:
         shakeDuration: 0
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
-  frameValueTime: 0
   isInCombo: 0
   target: {fileID: 0}
---- !u!114 &249166922592196662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5477770951886658404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73ac5936429b60842a75b0cd9bb8d77c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotator: {fileID: 6982585701272724667}
 --- !u!114 &1079639170565201830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,19 +291,20 @@ MonoBehaviour:
   isInHeartbeatState: 0
   enemyController: {fileID: 0}
   interaction: {fileID: 0}
---- !u!65 &7001282123244882244
-BoxCollider:
+--- !u!114 &4458193498402729566
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5477770951886658404}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83465a42e38b894e983aec3c4be3893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotator: {fileID: 6982585701272724667}
+  followPlayerRotation: 0
 --- !u!114 &-9043955551362722132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,6 +322,20 @@ MonoBehaviour:
   rotator: {fileID: 0}
   objectToSetActiveStatus: {fileID: 0}
   despawned: 0
+  locked: 0
+--- !u!65 &7001282123244882244
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477770951886658404}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &4992552886037869941
 NavMeshAgent:
   m_ObjectHideFlags: 0

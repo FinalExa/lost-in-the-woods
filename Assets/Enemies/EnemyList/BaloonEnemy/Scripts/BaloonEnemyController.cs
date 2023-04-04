@@ -4,163 +4,92 @@ using UnityEngine;
 
 public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWeaponAttackType
 {
-    private EnemyWeaponSwitcher enemyWeaponSwitcher;
-    [SerializeField] private SpriteRenderer spriteRef;
+    [HideInInspector] public BaloonWeaponSwitcher baloonWeaponSwitcher;
+    [HideInInspector] public GrabbableByPlayer grabbableByPlayer;
+    [HideInInspector] public BaloonRotator baloonRotator;
     private Color baseColor;
+    [HideInInspector] public EnemyHealth enemyHealth;
+    [HideInInspector] public bool vulnerable;
+    [HideInInspector] public bool absorbed;
+    private bool executedFreeFromAbsorbAttack;
+    [SerializeField] private SpriteRenderer spriteRef;
     public WeaponAttack.WeaponAttackType ReceivedWeaponAttackType { get; set; }
     [System.Serializable]
-    public struct AbsorbableAttackTypes
+    public struct AbsorbableTypes
     {
-        public WeaponAttack.WeaponAttackType attackType;
+        public WeaponAttack.WeaponAttackType absorbableAttackType;
+        public string absorbableName;
+        public Weapon thisTypeNormalWeapon;
+        public Weapon thisTypeCalmWeapon;
+        public Weapon thisTypeBerserkWeapon;
         public Color feedbackColor;
     }
-    [SerializeField] private List<AbsorbableAttackTypes> absorbableAttackTypes;
-    [SerializeField] private List<WeaponAttack.WeaponAttackType> repelAttackTypes;
-    private bool absorbed;
-    [System.Serializable]
-    public struct AttackTypeStorage
-    {
-        public List<WeaponAttack.WeaponAttackType> attackTypes;
-    }
-    private List<AttackTypeStorage> normalWeaponAttackTypes;
-    private List<AttackTypeStorage> normalWeaponAttackAbsorbedTypes;
-    private List<AttackTypeStorage> calmWeaponAttackTypes;
-    private List<AttackTypeStorage> calmWeaponAttackAbsorbedTypes;
-    private List<AttackTypeStorage> berserkWeaponAttackTypes;
-    private List<AttackTypeStorage> berserkWeaponAttackAbsorbedTypes;
+    public List<AbsorbableTypes> absorbableTypes;
 
 
     protected override void Awake()
     {
         base.Awake();
-        enemyWeaponSwitcher = this.gameObject.GetComponent<EnemyWeaponSwitcher>();
+        baloonWeaponSwitcher = this.gameObject.GetComponent<BaloonWeaponSwitcher>();
+        grabbableByPlayer = this.gameObject.GetComponent<GrabbableByPlayer>();
+        enemyHealth = this.gameObject.GetComponent<EnemyHealth>();
+        baloonRotator = this.gameObject.GetComponent<BaloonRotator>();
     }
 
     private void Start()
     {
         baseColor = spriteRef.color;
-        PrepareLists();
+        executedFreeFromAbsorbAttack = false;
     }
 
     public void OnSignalReceived(GameObject source)
     {
-        int index = SearchAbsorbedAttack();
-        if (index >= 0) Absorb(index);
-        else if (repelAttackTypes.Contains(ReceivedWeaponAttackType) && !enemyCombo.isInCombo) Redirect();
-        else if (source.GetComponent<NamedInteractionExecutor>() != null)
-        {
-            index = SearchAbsorbedAttack(source.GetComponent<NamedInteractionExecutor>().thisName);
-            if (index >= 0) Absorb(index);
-        }
+        Absorb();
     }
 
-    private int SearchAbsorbedAttack()
+    private void Absorb()
     {
-        for (int i = 0; i < absorbableAttackTypes.Count; i++)
+        if (!absorbed && !enemyCombo.isInCombo)
         {
-            if (absorbableAttackTypes[i].attackType == ReceivedWeaponAttackType) return i;
-        }
-        return -1;
-    }
-
-    private int SearchAbsorbedAttack(string nameToSearch)
-    {
-        for (int i = 0; i < absorbableAttackTypes.Count; i++)
-        {
-            if (absorbableAttackTypes[i].attackType.ToString() == nameToSearch.ToUpper()) return i;
-        }
-        return -1;
-    }
-
-    private void PrepareLists()
-    {
-        normalWeaponAttackTypes = GetAttackTypesByList(enemyWeaponSwitcher.normalStateWeapon.weaponAttacks);
-        normalWeaponAttackAbsorbedTypes = CreateAbsorbedAttackTypeList(enemyWeaponSwitcher.normalStateWeapon.weaponAttacks);
-        calmWeaponAttackTypes = GetAttackTypesByList(enemyWeaponSwitcher.calmStateWeapon.weaponAttacks);
-        calmWeaponAttackAbsorbedTypes = CreateAbsorbedAttackTypeList(enemyWeaponSwitcher.calmStateWeapon.weaponAttacks);
-        berserkWeaponAttackTypes = GetAttackTypesByList(enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks);
-        berserkWeaponAttackAbsorbedTypes = CreateAbsorbedAttackTypeList(enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks);
-    }
-
-    private List<AttackTypeStorage> GetAttackTypesByList(List<WeaponAttack> referenceList)
-    {
-        List<AttackTypeStorage> attackTypeStorage = new List<AttackTypeStorage>();
-        for (int i = 0; i < referenceList.Count; i++)
-        {
-            AttackTypeStorage store = new AttackTypeStorage();
-            store.attackTypes = referenceList[i].weaponAttackTypes;
-            attackTypeStorage.Add(store);
-        }
-        return attackTypeStorage;
-    }
-
-    private List<AttackTypeStorage> CreateAbsorbedAttackTypeList(List<WeaponAttack> referenceList)
-    {
-        List<AttackTypeStorage> listToPass = new List<AttackTypeStorage>();
-        for (int attackTypeIndex = 0; attackTypeIndex < absorbableAttackTypes.Count; attackTypeIndex++)
-        {
-            for (int referenceIndex = 0; referenceIndex < referenceList.Count; referenceIndex++)
+            foreach (AbsorbableTypes absorbableType in absorbableTypes)
             {
-                AttackTypeStorage store = new AttackTypeStorage();
-                List<WeaponAttack.WeaponAttackType> attackTypesToAdd = new List<WeaponAttack.WeaponAttackType>();
-                attackTypesToAdd.Add(absorbableAttackTypes[attackTypeIndex].attackType);
-                store.attackTypes = attackTypesToAdd;
-                listToPass.Add(store);
+                if ((ReceivedWeaponAttackType != WeaponAttack.WeaponAttackType.GENERIC && ReceivedWeaponAttackType == absorbableType.absorbableAttackType) || interaction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(absorbableType.absorbableName))
+                {
+                    spriteRef.color = absorbableType.feedbackColor;
+                    baloonWeaponSwitcher.SetWeapons(absorbableType.absorbableAttackType);
+                    absorbed = true;
+                    executedFreeFromAbsorbAttack = false;
+                    break;
+                }
             }
         }
-        return listToPass;
     }
 
-    private List<WeaponAttack> SetAbsorbWeaponAttacks(List<WeaponAttack> listToSet, int indexOfAttackType, int baseLenghtOfAttacks)
+    public void EndAbsorb()
     {
-        int startPoint = indexOfAttackType * baseLenghtOfAttacks;
-        for (int i = startPoint; i < startPoint + baseLenghtOfAttacks; i++)
+        if (!executedFreeFromAbsorbAttack) executedFreeFromAbsorbAttack = true;
+        else
         {
-            List<WeaponAttack.WeaponAttackType> resetElement = new List<WeaponAttack.WeaponAttackType>();
-            resetElement.Add(absorbableAttackTypes[indexOfAttackType].attackType);
-            listToSet[i - startPoint].weaponAttackTypes = resetElement;
-        }
-        return listToSet;
-    }
-
-    private List<WeaponAttack> ResetWeaponAttacks(List<WeaponAttack> listToSet, List<AttackTypeStorage> storage)
-    {
-        for (int i = 0; i < listToSet.Count; i++)
-        {
-            listToSet[i].weaponAttackTypes = storage[i].attackTypes;
-        }
-        return listToSet;
-    }
-
-    private void Absorb(int indexOfAttackType)
-    {
-        if (!absorbed && affectedByLight.lightState != AffectedByLight.LightState.BERSERK && !enemyCombo.isInCombo)
-        {
-            enemyWeaponSwitcher.normalStateWeapon.weaponAttacks = SetAbsorbWeaponAttacks(enemyWeaponSwitcher.normalStateWeapon.weaponAttacks, indexOfAttackType, normalWeaponAttackTypes.Count);
-            enemyWeaponSwitcher.calmStateWeapon.weaponAttacks = SetAbsorbWeaponAttacks(enemyWeaponSwitcher.calmStateWeapon.weaponAttacks, indexOfAttackType, calmWeaponAttackTypes.Count);
-            enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks = SetAbsorbWeaponAttacks(enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks, indexOfAttackType, berserkWeaponAttackTypes.Count);
-            spriteRef.color = absorbableAttackTypes[indexOfAttackType].feedbackColor;
-            absorbed = true;
-        }
-    }
-
-    public void StopAbsorb()
-    {
-        if (absorbed && affectedByLight.lightState != AffectedByLight.LightState.BERSERK && attackDone)
-        {
-            enemyWeaponSwitcher.normalStateWeapon.weaponAttacks = ResetWeaponAttacks(enemyWeaponSwitcher.normalStateWeapon.weaponAttacks, normalWeaponAttackTypes);
-            enemyWeaponSwitcher.calmStateWeapon.weaponAttacks = ResetWeaponAttacks(enemyWeaponSwitcher.calmStateWeapon.weaponAttacks, calmWeaponAttackTypes);
-            enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks = ResetWeaponAttacks(enemyWeaponSwitcher.berserkStateWeapon.weaponAttacks, berserkWeaponAttackTypes);
             spriteRef.color = baseColor;
+            baloonWeaponSwitcher.SetWeapons(WeaponAttack.WeaponAttackType.GENERIC);
             absorbed = false;
-            attackDone = false;
         }
     }
 
-    private void Redirect()
+    public void HPDeplete()
     {
-        Vector3 pointDirection = (this.transform.position - playerTarget.transform.position);
-        Vector3 endPoint = this.transform.position + pointDirection * 5f;
-        if (!enemyCombo.isInCombo) enemyCombo.ActivateEnemyCombo(endPoint);
+        thisNavMeshAgent.enabled = false;
+        baloonRotator.followPlayerRotation = true;
+        grabbableByPlayer.lockedGrabbable = false;
+        vulnerable = true;
+    }
+
+    public void HPReset()
+    {
+        enemyHealth.HealthAddValue(enemyData.maxHP);
+        thisNavMeshAgent.enabled = true;
+        baloonRotator.followPlayerRotation = false;
+        grabbableByPlayer.lockedGrabbable = true;
+        vulnerable = false;
     }
 }

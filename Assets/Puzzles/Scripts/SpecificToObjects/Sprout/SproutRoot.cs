@@ -18,17 +18,13 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
     [SerializeField] private GameObject[] purityObjects;
     [SerializeField] private GameObject[] corruptionObjects;
     private Interaction thisInteraction;
-    [SerializeField] private bool lampPlantIn;
-    [SerializeField] private bool lampPlantInParent;
-    [SerializeField] private bool corruptionPlantIn;
-    [SerializeField] private bool corruptionPlantInParent;
-    [SerializeField] private bool guidingLightPlantIn;
-    [SerializeField] private bool guidingLightPlantInParent;
-    [SerializeField] private bool darkMistPlantIn;
-    [SerializeField] private bool darkMistPlantInParent;
-    [SerializeField] private bool fullyLocked;
-    [SerializeField] private bool extendLocked;
-    [SerializeField] private bool expandLocked;
+    private bool lampPlantInParent;
+    private bool corruptionPlantInParent;
+    private bool guidingLightPlantInParent;
+    private bool darkMistPlantInParent;
+    private bool fullyLocked;
+    private bool extendLocked;
+    private bool expandLocked;
 
     private void Awake()
     {
@@ -47,7 +43,6 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
 
     private void SproutRootOperations()
     {
-        CheckPlantStatus();
         SetCurrentSproutRootStatus();
     }
 
@@ -56,14 +51,6 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
         fullyLocked = !baseSpikeReceiver.GetStatus();
         extendLocked = !extendedSpikeReceiver.GetStatus();
         expandLocked = !expandedSpikeReceiver.GetStatus();
-    }
-
-    private void CheckPlantStatus()
-    {
-        lampPlantIn = NameStatus(lampPlantName);
-        corruptionPlantIn = NameStatus(corruptionPlantName);
-        guidingLightPlantIn = NameStatus(guidingLightPlantName);
-        darkMistPlantIn = NameStatus(darkMistPlantName);
     }
 
     public void ReceiveSignalFromParent(bool lampPlantParent, bool corruptionPlantParent, bool guidingLightPlantParent, bool darkMistPlantParent)
@@ -84,8 +71,8 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
 
     private void PlantShapeStatus()
     {
-        if (!fullyLocked && !extendLocked && (guidingLightPlantIn || guidingLightPlantInParent) && !(darkMistPlantIn || darkMistPlantInParent)) SetShape(true, true, false);
-        else if (!fullyLocked && !expandLocked && !(guidingLightPlantIn || guidingLightPlantInParent) && (darkMistPlantIn || darkMistPlantInParent)) SetShape(false, false, true);
+        if (!fullyLocked && !extendLocked && (NameStatus(guidingLightPlantName) || guidingLightPlantInParent) && !(NameStatus(darkMistPlantName) || darkMistPlantInParent)) SetShape(true, true, false);
+        else if (!fullyLocked && !expandLocked && !(NameStatus(guidingLightPlantName) || guidingLightPlantInParent) && (NameStatus(darkMistPlantName) || darkMistPlantInParent)) SetShape(false, false, true);
         else SetShape(true, false, false);
     }
 
@@ -98,8 +85,8 @@ public class SproutRoot : MonoBehaviour, ISendSignalToSelf
 
     private void ClearingStatus()
     {
-        if (!fullyLocked && (lampPlantIn || lampPlantInParent) && !(corruptionPlantIn || corruptionPlantInParent)) SetSignals(true, false);
-        else if (!fullyLocked && !(lampPlantIn || lampPlantInParent) && (corruptionPlantIn || corruptionPlantInParent)) SetSignals(false, true);
+        if (!fullyLocked && (NameStatus(lampPlantName) || lampPlantInParent) && !(NameStatus(corruptionPlantName) || corruptionPlantInParent)) SetSignals(true, false);
+        else if (!fullyLocked && !(NameStatus(lampPlantName) || lampPlantInParent) && (NameStatus(corruptionPlantName) || corruptionPlantInParent)) SetSignals(false, true);
         else SetSignals(false, false);
     }
 

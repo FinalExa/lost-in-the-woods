@@ -79,10 +79,13 @@ public class ComboDelays
 
     private void ComboCanceled()
     {
-        combo.currentWeapon.weaponAttacks[combo.currentWeapon.currentWeaponAttackIndex].attackObject.SetActive(false);
-        combo.currentWeapon.currentWeaponAttackIndex = 0;
-        combo.currentWeapon.weaponAttacks[combo.currentWeapon.currentWeaponAttackIndex].attackObject.SetActive(true);
-        comboCancelActive = false;
+        if (combo.currentWeapon.weaponAttacks[combo.currentWeapon.currentWeaponAttackIndex].attackObject != null)
+        {
+            combo.currentWeapon.weaponAttacks[combo.currentWeapon.currentWeaponAttackIndex].attackObject.SetActive(false);
+            combo.currentWeapon.currentWeaponAttackIndex = 0;
+            combo.currentWeapon.weaponAttacks[combo.currentWeapon.currentWeaponAttackIndex].attackObject.SetActive(true);
+            comboCancelActive = false;
+        }
     }
 
     public void SetComboEnd()

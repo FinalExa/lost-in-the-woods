@@ -17,6 +17,7 @@ public class SetOfInteractions : ScriptableObject
     {
         public string name;
         public bool destroyNamedObjectOnInteraction;
+        public bool turnOffNamedObjectInsteadOfDestroy;
         public Options options;
         public bool hasNamedInteractionExitOptions;
         public bool destroyNamedObjectOnInteractionExit;
@@ -72,6 +73,8 @@ public class SetOfInteractions : ScriptableObject
         [HideInInspector] public bool uxOnInteractionInitialized;
     }
     public bool turnsOff;
+    public bool startsLocked;
+    public float lockedTime;
     public AttackTypeInteraction[] attackTypeInteractions;
     public NamedInteraction[] namedInteractions;
     public bool onDeathEnabled;

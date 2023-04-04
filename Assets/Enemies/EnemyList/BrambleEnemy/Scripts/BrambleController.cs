@@ -7,42 +7,42 @@ public class BrambleController : EnemyController, ISendSignalToSelf
     [HideInInspector] public bool isRetracted;
     [HideInInspector] public BrambleData brambleData;
     [SerializeField] private GameObject brambleBallRef;
-    private BoxCollider boxCollider;
     [SerializeField] private float brambleBallStartSpeed;
     [SerializeField] GameObject spriteColliderObject;
-    private Vector3 startBoxColliderSize;
-    private Vector3 expandedBoxColliderSize;
-    private Vector3 currentColliderSize;
+    private SphereCollider sphereCollider;
+    private float startRadius;
+    private float expandedRadius;
+    private float currentRadius;
     private float retractTimer;
     [SerializeField] private UXEffect uxOnFullyRetracted;
 
     protected override void Awake()
     {
         base.Awake();
-        boxCollider = this.gameObject.GetComponent<BoxCollider>();
+        sphereCollider = this.gameObject.GetComponent<SphereCollider>();
     }
     private void Start()
     {
         brambleData = (BrambleData)enemyData;
-        startBoxColliderSize = boxCollider.size;
-        expandedBoxColliderSize = Vector3.one * brambleData.unretractedScaleSize;
+        startRadius = sphereCollider.radius;
+        expandedRadius = 1 * brambleData.unretractedScaleSize;
         spriteColliderObject.SetActive(true);
         spriteColliderObject.transform.localScale = Vector3.one * brambleData.unretractedScaleSize;
-        boxCollider.size = expandedBoxColliderSize;
-        currentColliderSize = expandedBoxColliderSize;
+        currentRadius = expandedRadius;
+        sphereCollider.radius = currentRadius / 2f;
     }
 
     private void Update()
     {
         if (isRetracted) RetractTimer();
-        else if (currentColliderSize != expandedBoxColliderSize) RetractionUpdate(brambleData.unretractedGrowthRatePerSecond * Time.deltaTime);
+        else if (currentRadius != expandedRadius) RetractionUpdate(brambleData.unretractedGrowthRatePerSecond * Time.deltaTime);
     }
     public void OnSignalReceived(GameObject source)
     {
         if (!isRetracted && affectedByLight.lightState != AffectedByLight.LightState.BERSERK)
         {
             RetractionUpdate(-brambleData.onHitRetractReduction);
-            Vector3 direction = this.gameObject.transform.position - source.transform.position;
+            Vector3 direction = source.transform.position - this.gameObject.transform.position;
             direction = new Vector3(direction.x, 0f, direction.z);
             ShootBrambleBall(direction);
             if (isRetracted) enemyCombo.EndCombo();
@@ -86,21 +86,19 @@ public class BrambleController : EnemyController, ISendSignalToSelf
 
     private void RetractionUpdate(float valueToAdd)
     {
-        Vector3 vectorToClamp = currentColliderSize + new Vector3(valueToAdd, valueToAdd, valueToAdd);
-        vectorToClamp.x = Mathf.Clamp(vectorToClamp.x, startBoxColliderSize.x, expandedBoxColliderSize.x);
-        vectorToClamp.y = Mathf.Clamp(vectorToClamp.y, startBoxColliderSize.y, expandedBoxColliderSize.y);
-        vectorToClamp.z = Mathf.Clamp(vectorToClamp.z, startBoxColliderSize.z, expandedBoxColliderSize.z);
-        currentColliderSize = vectorToClamp;
-        boxCollider.size = currentColliderSize;
-        spriteColliderObject.transform.localScale = currentColliderSize;
-        if (currentColliderSize == startBoxColliderSize) RetractSet(brambleData.onHitRetractTime);
+        float newRadius = Mathf.Clamp(currentRadius + valueToAdd, startRadius, expandedRadius);
+        currentRadius = newRadius;
+        sphereCollider.radius = currentRadius / 2f;
+        spriteColliderObject.transform.localScale = Vector3.one * currentRadius;
+        if (currentRadius == startRadius) RetractSet(brambleData.onHitRetractTime);
     }
 
     private void ShootBrambleBall(Vector3 direction)
     {
-        GameObject brambleBall = Instantiate(brambleBallRef, this.transform.position, this.transform.rotation);
-        brambleBall.transform.position = this.transform.position + Vector3.Scale(direction, currentColliderSize + (Vector3.one * 2f));
-        Rigidbody brambleBallRb = brambleBall.GetComponent<Rigidbody>();
-        if (brambleBallRb != null) brambleBallRb.velocity = direction * brambleBallStartSpeed;
+        GameObject brambleBall = Instantiate(brambleBallRef, this.transform.position + Vector3.Scale(direction, (Vector3.one * currentRadius / 2f)), Quaternion.identity, spawnerRef.transform);
+        GrabbableByPlayer grabbableByPlayer = brambleBall.gameObject.GetComponent<GrabbableByPlayer>();
+        grabbableByPlayer.ManualStartup();
+        grabbableByPlayer.SetStartParent(spawnerRef.transform);
+        grabbableByPlayer.ReleaseFromBeingGrabbed();
     }
 }

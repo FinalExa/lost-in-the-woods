@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7608031596718095567}
   - component: {fileID: 5230813169740901807}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8877405034869531499}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 2627229323866192599}
   - component: {fileID: 8478715095435266576}
   - component: {fileID: 7977311028775035630}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: UnstableFertileTerrain
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -166,8 +166,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.25, z: 1}
+  m_Center: {x: 0, y: 0.375, z: 0}
 --- !u!114 &-1803685801130573678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +212,7 @@ MonoBehaviour:
   rotator: {fileID: 0}
   objectToSetActiveStatus: {fileID: 0}
   despawned: 0
+  locked: 0
 --- !u!114 &2627229323866192599
 MonoBehaviour:
   m_ObjectHideFlags: 0

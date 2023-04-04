@@ -16,6 +16,8 @@ TagManager:
   - SoundParent
   - PermanentHoleTerrain
   - Rotator
+  - FallenZone
+  - PlayerGrab
   layers:
   - Default
   - TransparentFX

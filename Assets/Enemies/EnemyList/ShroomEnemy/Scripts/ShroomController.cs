@@ -12,11 +12,6 @@ public class ShroomController : EnemyController
         namedInteraction = this.gameObject.GetComponent<NamedInteractionExecutor>();
     }
 
-    private void Update()
-    {
-        if (namedInteraction.interactionDone) this.gameObject.SetActive(false);
-    }
-
     public override void LightStateUpdate()
     {
         if (affectedByLight.lightState == AffectedByLight.LightState.NORMAL) namedInteraction.active = false;

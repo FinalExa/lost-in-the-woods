@@ -33,7 +33,8 @@ public class PCMovingGrab : PCState
             lastDirection = movementWithDirection;
             pcController.pcReferences.pcCombo.LastDirection = movementWithDirection;
         }
-        rigidbody.velocity = movementWithDirection * pcController.actualSpeed;
+        Vector3 partialVelocity = movementWithDirection * pcController.actualSpeed;
+        rigidbody.velocity = new Vector3(partialVelocity.x, rigidbody.velocity.y, partialVelocity.z);
     }
 
     private Vector3 MovementDirection(Camera camera, Inputs inputs)
@@ -46,18 +47,18 @@ public class PCMovingGrab : PCState
 
     private void GetReleaseInput()
     {
-        if (_pcStateMachine.pcController.pcReferences.inputs.RightClickInput) _pcStateMachine.pcController.RemoveGrabbedObject(false);
+        if (_pcStateMachine.pcController.pcReferences.inputs.RightClickInput) _pcStateMachine.pcController.pcReferences.pcGrabbing.RemoveGrabbedObject(false);
     }
 
     private void GetLaunchInput()
     {
-        if (_pcStateMachine.pcController.pcReferences.inputs.LeftClickInput) _pcStateMachine.pcController.RemoveGrabbedObject(true);
+        if (_pcStateMachine.pcController.pcReferences.inputs.LeftClickInput) _pcStateMachine.pcController.pcReferences.pcGrabbing.RemoveGrabbedObject(true);
     }
 
     private void Transitions()
     {
         Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
-        if (!_pcStateMachine.pcController.GrabbedObjectExists())
+        if (!_pcStateMachine.pcController.pcReferences.pcGrabbing.GrabbedObjectExists())
         {
             GoToIdleState(inputs);
             GoToMovingState(inputs);

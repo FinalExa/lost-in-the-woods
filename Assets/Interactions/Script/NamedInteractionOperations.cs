@@ -20,13 +20,24 @@ public class NamedInteractionOperations
             {
                 if (!ActiveNamedInteractions.ContainsKey(interactionExecutor.thisName))
                 {
-                    if (interaction.destroyNamedObjectOnInteraction) interactionExecutor.DestroyOnDone();
+                    if (interaction.destroyNamedObjectOnInteraction) DestroyObjectAfterInteraction(interaction.turnOffNamedObjectInsteadOfDestroy, interactionExecutor.gameObject);
                     else ActiveNamedInteractions.Add(interactionExecutor.thisName, 1);
                     interactionRef.interactionOptions.Interact(interaction.options, sourceObject, interactionRef.setOfInteractions.turnsOff);
                 }
                 else ActiveNamedInteractions[interactionExecutor.thisName]++;
                 break;
             }
+        }
+    }
+
+    private void DestroyObjectAfterInteraction(bool turnOff, GameObject objectToDestroy)
+    {
+        Health health = objectToDestroy.GetComponent<Health>();
+        if (health != null) health.OnDeath(true);
+        else
+        {
+            if (turnOff) objectToDestroy.SetActive(false);
+            else GameObject.Destroy(objectToDestroy);
         }
     }
 

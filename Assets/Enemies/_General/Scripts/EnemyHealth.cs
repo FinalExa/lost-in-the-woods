@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : Health
 {
+    [SerializeField] private bool doesntTurnOffOnDeath;
     protected EnemyController enemyController;
     protected Interaction interaction;
     protected bool deathDone;
@@ -20,11 +21,11 @@ public class EnemyHealth : Health
         deathDone = false;
     }
 
-    public override void OnDeath()
+    public override void OnDeath(bool skipOnDeathInteraction)
     {
         OnDeathSound();
-        OnDeathInteraction();
-        SetEnemyDead();
+        if (!doesntTurnOffOnDeath && !skipOnDeathInteraction) OnDeathInteraction();
+        if (!doesntTurnOffOnDeath) SetEnemyDead();
     }
     private void SetEnemyDead()
     {
@@ -38,10 +39,5 @@ public class EnemyHealth : Health
     protected virtual void OnDeathInteraction()
     {
         if (!deathDone && interaction != null) interaction.OnDeathInteraction();
-    }
-
-    private void OnDisable()
-    {
-        OnDeath();
     }
 }

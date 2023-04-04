@@ -19,7 +19,7 @@ public class ComboAttack
 
     public void StartAttack(WeaponAttack attackRef, Vector3 receivedDirection)
     {
-        if (!IsAttacking)
+        if (!IsAttacking && attackRef != null)
         {
             currentAttack = attackRef;
             attackCountdownFrame = currentAttack.frameDuration;
@@ -47,7 +47,7 @@ public class ComboAttack
         attackCountFrame++;
         AttackMovement();
         CheckActivatingHitboxes();
-        if (currentAttack.weaponSpawnsObjectDuringThisAttack.Length > 0) combo.comboObjectSpawner.CheckObjectsToSpawn(currentAttack, attackCountFrame, attackDirection);
+        if (currentAttack.weaponSpawnsObjectDuringThisAttack.Length > 0 && combo != null) combo.comboObjectSpawner.CheckObjectsToSpawn(currentAttack, attackCountFrame, attackDirection);
     }
 
     private void OnAttackEnd()
@@ -55,21 +55,25 @@ public class ComboAttack
         CheckActivatingHitboxes();
         if (currentAttack.weaponSpawnsObjectDuringThisAttack.Length > 0) combo.comboObjectSpawner.ResetObjectsToSpawn(currentAttack);
         IsAttacking = false;
-        currentAttack.attackObject.SetActive(false);
+        if (currentAttack.attackObject != null) currentAttack.attackObject.SetActive(false);
         EndComboHit();
     }
 
     private void AttackMovement()
     {
-        if (currentAttack.movementDistance != 0) combo.transform.position += (attackDirection * movementSpeed);
+        if (currentAttack.movementDistance != 0 && combo!=null) combo.transform.position += (attackDirection * movementSpeed);
     }
     private void CheckActivatingHitboxes()
     {
         int count = 0;
         foreach (WeaponAttack.WeaponAttackHitboxSequence hitboxToCheck in currentAttack.weaponAttackHitboxSequence)
         {
-            if (attackCountFrame >= hitboxToCheck.activationFrame && attackCountFrame < hitboxToCheck.deactivationFrame) hitboxToCheck.attackRef.gameObject.SetActive(true);
-            if (attackCountFrame >= hitboxToCheck.deactivationFrame) hitboxToCheck.attackRef.gameObject.SetActive(false);
+            if (hitboxToCheck.attackRef != null)
+            {
+                if (attackCountFrame >= hitboxToCheck.activationFrame && attackCountFrame < hitboxToCheck.deactivationFrame) hitboxToCheck.attackRef.gameObject.SetActive(true);
+                if (attackCountFrame >= hitboxToCheck.deactivationFrame) hitboxToCheck.attackRef.gameObject.SetActive(false);
+
+            }
             count++;
         }
     }

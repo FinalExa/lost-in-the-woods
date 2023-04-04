@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 4830499187636917438}
   - component: {fileID: 2867043437175303578}
   - component: {fileID: -5517505262360356275}
+  - component: {fileID: 2114393513771127108}
   - component: {fileID: 4014776901287296293}
-  - component: {fileID: 4014776901287296294}
   - component: {fileID: 5852709638868262122}
   m_Layer: 0
   m_Name: BrambleBall
@@ -89,6 +89,7 @@ MonoBehaviour:
   rotator: {fileID: 0}
   objectToSetActiveStatus: {fileID: 0}
   despawned: 0
+  locked: 0
 --- !u!114 &2867043437175303578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +119,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRef: {fileID: 0}
   thisRb: {fileID: 0}
+  startParent: {fileID: 0}
+--- !u!135 &2114393513771127108
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4014776901287296295}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &4014776901287296293
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -134,19 +149,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!65 &4014776901287296294
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4014776901287296295}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!208 &5852709638868262122
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -156,7 +158,7 @@ NavMeshObstacle:
   m_GameObject: {fileID: 4014776901287296295}
   m_Enabled: 1
   serializedVersion: 3
-  m_Shape: 1
+  m_Shape: 0
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
   m_MoveThreshold: 0.1
   m_Carve: 0
@@ -256,6 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4014776902879149189}
+  - component: {fileID: 7750432226074720640}
   m_Layer: 0
   m_Name: Rotator
   m_TagString: Untagged
@@ -279,3 +282,16 @@ Transform:
   m_Father: {fileID: 4014776901287296292}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &7750432226074720640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4014776902879149190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8292276e691b248be601386783e7bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 4014776902404493692}

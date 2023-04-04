@@ -6,42 +6,60 @@ public class NamedInteractionExecutor : MonoBehaviour
 {
     public string thisName;
     public bool active;
+    private List<Interaction> interactingWith;
     [SerializeField] private bool inLoop;
-    [HideInInspector] public bool interactionDone { get; set; }
+
+    private void Awake()
+    {
+        interactingWith = new List<Interaction>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!inLoop) ExecuteNamedInteraction(other);
+        if (!inLoop) ExecuteNamedInteraction(other.GetComponent<Interaction>());
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (inLoop) ExecuteNamedInteraction(other);
+        if (inLoop) ExecuteNamedInteraction(other.GetComponent<Interaction>());
     }
 
     private void OnTriggerExit(Collider other)
     {
-        ExecuteExitFromNamedInteraction(other);
+        ExecuteExitFromNamedInteraction(other.GetComponent<Interaction>());
     }
 
-    private void ExecuteNamedInteraction(Collider other)
+    private void ExecuteNamedInteraction(Interaction interaction)
     {
-        Interaction interaction = other.GetComponent<Interaction>();
-        if (interaction != null && active)
+        if (interaction != null && active && !interactingWith.Contains(interaction))
         {
             interaction.NamedInteractionExecute(this, this.gameObject);
-            interactionDone = true;
+            interactingWith.Add(interaction);
         }
     }
-    private void ExecuteExitFromNamedInteraction(Collider other)
+    private void ExecuteExitFromNamedInteraction(Interaction interaction)
     {
-        Interaction interaction = other.GetComponent<Interaction>();
-        if (interaction != null && active) interaction.ExitFromNamedInteraction(this, this.gameObject);
+        if (interaction != null && active && interactingWith.Contains(interaction))
+        {
+            interaction.ExitFromNamedInteraction(this, this.gameObject);
+            interactingWith.Remove(interaction);
+        }
     }
 
-    public void DestroyOnDone()
+    private void ExitFromAllInteractions()
     {
-        GameObject.Destroy(this.gameObject);
+        if (interactingWith != null)
+        {
+            foreach (Interaction interaction in interactingWith)
+            {
+                if (this.gameObject != null && interaction != null) interaction.ExitFromNamedInteraction(this, this.gameObject);
+            }
+            interactingWith.Clear();
+        }
     }
 
+    private void OnDisable()
+    {
+        ExitFromAllInteractions();
+    }
 }

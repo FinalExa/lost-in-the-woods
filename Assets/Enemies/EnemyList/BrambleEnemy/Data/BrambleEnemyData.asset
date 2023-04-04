@@ -26,12 +26,12 @@ MonoBehaviour:
   calmWeapon: {fileID: 0}
   berserkMovementSpeed: 0
   berserkDistanceFromPlayer: 10
-  berserDistanceTolerance: 0
+  berserkDistanceTolerance: 0
   hasBerserkWeapon: 1
   berserkWeapon: {fileID: 4222045236405462924, guid: a8f57e22c5105c7409867de85dcd527f, type: 3}
   firstAggroDistance: 20
   stopAggroDistance: 40
-  unretractedScaleSize: 5
+  unretractedScaleSize: 4
   unretractedGrowthRatePerSecond: 1
   onHitRetractReduction: 2
   onHitRetractTime: 5

@@ -28,7 +28,8 @@ public class PCMovingLanternUp : PCState
         PCController pcController = _pcStateMachine.pcController;
         Vector3 movementWithDirection = MovementDirection(_pcStateMachine.pcController.pcReferences.cam, _pcStateMachine.pcController.pcReferences.inputs);
         if (movementWithDirection != Vector3.zero) lastDirection = movementWithDirection;
-        rigidbody.velocity = movementWithDirection * pcController.actualSpeed;
+        Vector3 partialVelocity = movementWithDirection * pcController.actualSpeed;
+        rigidbody.velocity = new Vector3(partialVelocity.x, rigidbody.velocity.y, partialVelocity.z);
     }
 
     private Vector3 MovementDirection(Camera camera, Inputs inputs)

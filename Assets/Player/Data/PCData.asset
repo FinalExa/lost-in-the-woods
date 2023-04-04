@@ -15,6 +15,7 @@ MonoBehaviour:
   maxHP: 100
   healthRegenMaxTimer: 5
   healthRegenRatePerSecond: 20
+  damageOnFall: 0
   maxLightRadius: 6
   minLightRadius: 1
   enterLanternUpTimer: 0
@@ -24,6 +25,7 @@ MonoBehaviour:
   defaultMovementSpeed: 5.7
   lightUpMovementSpeed: 4
   grabObjectMovementSpeed: 10
+  groundCheckTime: 3
   defaultDirection: {x: 0, y: 0, z: 1}
   invulnerabilityTag: Invulnerable
   dodgeDuration: 0.35

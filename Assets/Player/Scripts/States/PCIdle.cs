@@ -12,7 +12,7 @@ public class PCIdle : PCState
 
     private void IdleSpeedStop()
     {
-        if (_pcStateMachine.pcController.pcReferences.rb.velocity != Vector3.zero) _pcStateMachine.pcController.pcReferences.rb.velocity = Vector3.zero;
+        if (_pcStateMachine.pcController.pcReferences.rb.velocity != Vector3.zero) _pcStateMachine.pcController.pcReferences.rb.velocity = new Vector3(0f, _pcStateMachine.pcController.pcReferences.rb.velocity.y, 0f);
     }
 
     #region Transitions
@@ -28,7 +28,7 @@ public class PCIdle : PCState
     #region ToGrabState
     private void GoToGrabState(Inputs inputs)
     {
-        if (_pcStateMachine.pcController.GrabbedObjectExists())
+        if (_pcStateMachine.pcController.pcReferences.pcGrabbing.GrabbedObjectExists())
         {
             if (inputs.MovementInput == Vector3.zero) _pcStateMachine.SetState(new PCIdleGrab(_pcStateMachine));
             else _pcStateMachine.SetState(new PCMovingGrab(_pcStateMachine));
