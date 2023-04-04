@@ -33,6 +33,11 @@ public class EnemyCombo : Combo
         Direction(target);
     }
 
+    public void ActivateEnemyCombo()
+    {
+        isInCombo = true;
+    }
+
     private void EnemyAutoCombo()
     {
         StartComboHitCheck();

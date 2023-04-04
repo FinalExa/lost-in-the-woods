@@ -14,6 +14,6 @@ public class BaloonGrabbable : GrabbableByPlayer
 
     public override void MainOperation(PCGrabbing pcGrabbing, Vector3 direction, float speed)
     {
-        baloonEnemyController.enemyCombo.ActivateEnemyCombo((baloonEnemyController.playerTarget.transform.position - baloonEnemyController.transform.position).normalized);
+        baloonEnemyController.enemyCombo.ActivateEnemyCombo();
     }
 }

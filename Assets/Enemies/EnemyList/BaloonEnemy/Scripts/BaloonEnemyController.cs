@@ -6,7 +6,7 @@ public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWe
 {
     [HideInInspector] public BaloonWeaponSwitcher baloonWeaponSwitcher;
     [HideInInspector] public GrabbableByPlayer grabbableByPlayer;
-    [HideInInspector] public EnemyRotator enemyRotator;
+    [HideInInspector] public BaloonRotator baloonRotator;
     private Color baseColor;
     [HideInInspector] public EnemyHealth enemyHealth;
     [HideInInspector] public bool vulnerable;
@@ -33,7 +33,7 @@ public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWe
         baloonWeaponSwitcher = this.gameObject.GetComponent<BaloonWeaponSwitcher>();
         grabbableByPlayer = this.gameObject.GetComponent<GrabbableByPlayer>();
         enemyHealth = this.gameObject.GetComponent<EnemyHealth>();
-        enemyRotator = this.gameObject.GetComponent<EnemyRotator>();
+        baloonRotator = this.gameObject.GetComponent<BaloonRotator>();
     }
 
     private void Start()
@@ -79,7 +79,7 @@ public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWe
     public void HPDeplete()
     {
         thisNavMeshAgent.enabled = false;
-        enemyRotator.invertRotationLook = true;
+        baloonRotator.followPlayerRotation = true;
         grabbableByPlayer.lockedGrabbable = false;
         vulnerable = true;
     }
@@ -88,7 +88,7 @@ public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWe
     {
         enemyHealth.HealthAddValue(enemyData.maxHP);
         thisNavMeshAgent.enabled = true;
-        enemyRotator.invertRotationLook = false;
+        baloonRotator.followPlayerRotation = false;
         grabbableByPlayer.lockedGrabbable = true;
         vulnerable = false;
     }
