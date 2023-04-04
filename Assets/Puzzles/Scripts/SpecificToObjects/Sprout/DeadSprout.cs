@@ -31,7 +31,7 @@ public class DeadSprout : MonoBehaviour, ISendSignalToSelf
 
     private void CreateSprout()
     {
-        Sprout sprout = Instantiate(sproutRef, this.transform.position, Quaternion.identity);
+        Sprout sprout = Instantiate(sproutRef, this.transform.position, Quaternion.identity, this.transform.parent);
         sprout.sproutRoots = sproutRoots;
         GameObject.Destroy(this.gameObject);
     }

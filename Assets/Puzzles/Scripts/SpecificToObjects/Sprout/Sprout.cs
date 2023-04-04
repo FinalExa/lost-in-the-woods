@@ -25,6 +25,7 @@ public class Sprout : MonoBehaviour, ISendSignalToSelf
     private void Start()
     {
         ActivateSproutRoots();
+        CheckPlantStatus();
     }
 
     public void OnSignalReceived(GameObject source)
@@ -57,7 +58,7 @@ public class Sprout : MonoBehaviour, ISendSignalToSelf
 
     private void CreateDeadSprout()
     {
-        DeadSprout deadSprout = Instantiate(deadSproutRef, this.transform.position, Quaternion.identity);
+        DeadSprout deadSprout = Instantiate(deadSproutRef, this.transform.position, Quaternion.identity, this.transform.parent);
         deadSprout.sproutRoots = sproutRoots;
         GameObject.Destroy(this.gameObject);
     }
