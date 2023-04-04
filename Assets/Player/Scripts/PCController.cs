@@ -21,7 +21,6 @@ public class PCController : MonoBehaviour
     private void Start()
     {
         CheckStartingZone();
-
     }
 
     private void Update()
