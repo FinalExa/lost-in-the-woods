@@ -6,15 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/ArtBuildScene.unity
-    guid: 2f0c0414b0cb45f48b18c66555842f17
-  - enabled: 0
-    path: Assets/_Scenes/TestPuzzleScene.unity
-    guid: c9ae4a20308dde44193921f386018978
-  - enabled: 0
-    path: Assets/_Scenes/TestScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/_Scenes/CameraScene.unity
-    guid: 18c921fe1d8c1e642890efb4a2686b41
+    path: Assets/_Scenes/BuildTestSprout.unity
+    guid: 050254bd8d2d8214a8ac3a9c3675defc
   m_configObjects: {}
