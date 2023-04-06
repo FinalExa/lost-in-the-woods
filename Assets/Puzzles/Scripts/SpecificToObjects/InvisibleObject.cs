@@ -6,8 +6,8 @@ public class InvisibleObject : MonoBehaviour, ISendSignalToSelf
 {
     [SerializeField] private bool baseActiveState;
     [SerializeField] private GameObject objectToOperate;
-    [SerializeField] private string lightBulbName;
-    [SerializeField] private string fogPlantName;
+    [SerializeField] private string activateName;
+    [SerializeField] private string deactivateName;
     [SerializeField] private Interaction thisInteraction;
     private bool lightBulbIn;
     private bool fogPlantIn;
@@ -37,9 +37,9 @@ public class InvisibleObject : MonoBehaviour, ISendSignalToSelf
 
     private void CheckPlantStatus()
     {
-        if (thisInteraction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(lightBulbName)) lightBulbIn = true;
+        if (thisInteraction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(activateName)) lightBulbIn = true;
         else lightBulbIn = false;
-        if (thisInteraction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(fogPlantName)) fogPlantIn = true;
+        if (thisInteraction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(deactivateName)) fogPlantIn = true;
         else fogPlantIn = false;
         SetInvisibilityStatus();
     }

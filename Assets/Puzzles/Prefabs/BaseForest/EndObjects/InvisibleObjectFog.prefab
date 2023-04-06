@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.2994922, g: 0.21693665, b: 0.7075472, a: 0.6313726}
+  m_Color: {r: 0.29803923, g: 0.21568628, b: 0.7058824, a: 0.6313726}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 4624396839684339723}
   - component: {fileID: 4624396839684339722}
   m_Layer: 0
-  m_Name: InvisibleObject
+  m_Name: InvisibleObjectFog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,8 +136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseActiveState: 0
   objectToOperate: {fileID: 4766915637023766283}
-  lightBulbName: LightBulb
-  fogPlantName: FogPlant
+  activateName: FogPlant
+  deactivateName: LightBulb
   thisInteraction: {fileID: 4335180116937786929}
 --- !u!114 &389422873496877872
 MonoBehaviour:
@@ -170,6 +170,7 @@ MonoBehaviour:
   rotator: {fileID: 0}
   objectToSetActiveStatus: {fileID: 4766915637023766283}
   despawned: 0
+  locked: 0
 --- !u!65 &4624396839684339723
 BoxCollider:
   m_ObjectHideFlags: 0
