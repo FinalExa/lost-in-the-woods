@@ -29,6 +29,7 @@ public class PCController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I)) attackReceived.ignoresDamage = !attackReceived.ignoresDamage;
         if (Input.GetKeyDown(KeyCode.B)) pcReferences.heartbeat.SetHeartbeatTimer(true);
         if (Input.GetKeyDown(KeyCode.N)) pcReferences.heartbeat.SetHeartbeatTimer(false);
+        if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
     }
 
     public void ChangePlayerZone(Zone zoneToSet)
