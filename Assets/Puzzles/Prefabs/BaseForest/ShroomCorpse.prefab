@@ -53,6 +53,7 @@ MonoBehaviour:
   playerRef: {fileID: 0}
   thisRb: {fileID: 0}
   startParent: {fileID: 0}
+  lockedGrabbable: 0
 --- !u!114 &911349247788159816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,7 +182,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0931932f260cf5a449a0aa1105fff808, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
