@@ -20,7 +20,6 @@ public class PCData : ScriptableObject
     public float defaultMovementSpeed;
     public float lightUpMovementSpeed;
     public float grabObjectMovementSpeed;
-    public float groundCheckTime;
     [Header("Dodge")]
     public Vector3 defaultDirection;
     public string invulnerabilityTag;

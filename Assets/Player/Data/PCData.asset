@@ -23,8 +23,8 @@ MonoBehaviour:
   lightUpMaxLightRadius: 12
   lightUpMinLightRadius: 1
   defaultMovementSpeed: 5.7
-  lightUpMovementSpeed: 4
-  grabObjectMovementSpeed: 10
+  lightUpMovementSpeed: 5
+  grabObjectMovementSpeed: 4
   groundCheckTime: 3
   defaultDirection: {x: 0, y: 0, z: 1}
   invulnerabilityTag: Invulnerable
