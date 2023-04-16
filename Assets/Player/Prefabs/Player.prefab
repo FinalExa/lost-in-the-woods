@@ -222,6 +222,7 @@ MonoBehaviour:
   pcReferences: {fileID: 0}
   thisWeapon: {fileID: 0}
   pcLockedAttack: 0
+  framerate: 60
 --- !u!114 &5618624451261787438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,6 +400,7 @@ MonoBehaviour:
   heartbeatDuration: 15
   globalLightHeartbeatColor: {r: 1, g: 0, b: 0, a: 1}
   testScene: 0
+  anticipationTime: 5
   uxOnAnticipation:
     hasSound: 0
     sound:
@@ -424,7 +426,6 @@ MonoBehaviour:
       shakeDuration: 0
       cinemachineCameraShakerRef: {fileID: 0}
     soundParent: {fileID: 0}
-  anticipationTime: 5
   uxOnHeartbeat:
     hasSound: 1
     sound:

@@ -11,9 +11,12 @@ public class PCController : MonoBehaviour
     [HideInInspector] public bool pcLockedAttack;
     private Zone currentZone;
     private AttackReceived attackReceived;
+    [SerializeField] private int framerate;
 
     private void Awake()
     {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = framerate;
         pcReferences = this.gameObject.GetComponent<PCReferences>();
         attackReceived = this.gameObject.GetComponent<AttackReceived>();
     }

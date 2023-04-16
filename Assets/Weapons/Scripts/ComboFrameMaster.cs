@@ -30,10 +30,17 @@ public class ComboFrameMaster : MonoBehaviour
     private void ComboFrameTimer()
     {
         if (countTimer < frameValueTime) countTimer += Time.deltaTime;
-        else
-        {
-            frameIsBeingExecuted();
-            countTimer = 0f;
-        }
+        else LaunchFrame();
+    }
+
+    private void LaunchFrame()
+    {
+        countTimer -= frameValueTime;
+        frameIsBeingExecuted();
+        CheckForRelaunch();
+    }
+    private void CheckForRelaunch()
+    {
+        if (countTimer >= frameValueTime) LaunchFrame();
     }
 }
