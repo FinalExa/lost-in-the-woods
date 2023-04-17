@@ -14,7 +14,7 @@ public class ShroomController : EnemyController
 
     public override void LightStateUpdate()
     {
-        if (affectedByLight.lightState == AffectedByLight.LightState.NORMAL) namedInteraction.active = false;
-        else namedInteraction.active = true;
+        if (affectedByLight.lightState == AffectedByLight.LightState.CALM) namedInteraction.active = true;
+        else namedInteraction.active = false;
     }
 }
