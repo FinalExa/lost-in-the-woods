@@ -12,7 +12,6 @@ public class Heartbeat : MonoBehaviour
     private Light globalLight;
     private Color globalLightBaseColor;
     [SerializeField] private Color globalLightHeartbeatColor;
-    [SerializeField] private bool testScene;
     public static Action<bool> heartbeatSwitch;
     [SerializeField] private float anticipationTime;
     [SerializeField] private UXEffect uxOnAnticipation;
@@ -41,7 +40,7 @@ public class Heartbeat : MonoBehaviour
     public void SetHeartbeatTimer(bool heartbeatState)
     {
         InHeartbeat = heartbeatState;
-        if (!testScene) heartbeatSwitch(InHeartbeat);
+        if (heartbeatSwitch != null) heartbeatSwitch(InHeartbeat);
         HeartbeatStateSetup();
     }
     private void HeartbeatTimer()
