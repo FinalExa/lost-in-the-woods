@@ -6,6 +6,7 @@ public class PlayerCombo : Combo
 {
     [SerializeField] private Weapon playerMainWeapon;
     [SerializeField] private Weapon playerSecondaryWeapon;
+    [HideInInspector] public bool pcLockedAttack;
 
     public void StartHitOnWeapon(bool isSecondary)
     {
@@ -29,6 +30,13 @@ public class PlayerCombo : Combo
             SetPlayerWeapon(weaponToSet);
             StartComboHitCheck();
         }
+    }
+
+    public IEnumerator LockPlayerAttack(float timeToWait)
+    {
+        pcLockedAttack = true;
+        yield return new WaitForSeconds(timeToWait);
+        pcLockedAttack = false;
     }
 
     protected override void Start()

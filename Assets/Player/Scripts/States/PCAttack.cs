@@ -14,7 +14,7 @@ public class PCAttack : PCState
 
     public override void Start()
     {
-        if (!_pcStateMachine.pcController.pcLockedAttack) playerCombo.StartHitOnWeapon(secondary);
+        if (!playerCombo.pcLockedAttack) playerCombo.StartHitOnWeapon(secondary);
         else Transitions();
     }
 
