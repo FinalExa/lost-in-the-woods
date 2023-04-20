@@ -23,7 +23,7 @@ public class Zone : MonoBehaviour
     public void SetPlayerInZone(Collider other)
     {
         if (playerRef == null) playerRef = other.gameObject.GetComponent<PCController>();
-        playerRef.ChangePlayerZone(this);
+        playerRef.pcReferences.pcZoneManager.ChangePlayerZone(this);
         playerRef.pcReferences.heartbeat.ChangeHeartbeatCooldownAndDuration(zoneHeartbeatCooldown, zoneHeartbeatDuration);
         SetZoneColliders(false);
         zonePuzzle.PlayerHasEntered();
@@ -63,7 +63,7 @@ public class Zone : MonoBehaviour
     public void AddZoneGround(ZoneGround zoneGround)
     {
         zoneGrounds.Add(zoneGround);
-        if (playerRef.GetCurrentZone() == this) zoneGround.checkActivated = true;
+        if (playerRef.pcReferences.pcZoneManager.GetCurrentZone() == this) zoneGround.checkActivated = true;
         else zoneGround.checkActivated = false;
     }
     public void RemoveZoneGround(ZoneGround zoneGround)

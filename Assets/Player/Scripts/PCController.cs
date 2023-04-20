@@ -7,58 +7,9 @@ public class PCController : MonoBehaviour
     [HideInInspector] public string curState;
     [HideInInspector] public float actualSpeed;
     [HideInInspector] public PCReferences pcReferences;
-    [HideInInspector] public Weapon thisWeapon;
-    [HideInInspector] public bool pcLockedAttack;
-    private Zone currentZone;
-    private AttackReceived attackReceived;
-    [SerializeField] private int framerate;
 
     private void Awake()
     {
-        QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = framerate;
         pcReferences = this.gameObject.GetComponent<PCReferences>();
-        attackReceived = this.gameObject.GetComponent<AttackReceived>();
-    }
-
-    private void Start()
-    {
-        CheckStartingZone();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R)) UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
-        if (Input.GetKeyDown(KeyCode.I)) attackReceived.ignoresDamage = !attackReceived.ignoresDamage;
-        if (Input.GetKeyDown(KeyCode.B)) pcReferences.heartbeat.SetHeartbeatTimer(true);
-        if (Input.GetKeyDown(KeyCode.N)) pcReferences.heartbeat.SetHeartbeatTimer(false);
-        if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
-    }
-
-    public void ChangePlayerZone(Zone zoneToSet)
-    {
-        if (currentZone != null) currentZone.SetPlayerOutOfZone();
-        currentZone = zoneToSet;
-    }
-
-    public Zone GetCurrentZone()
-    {
-        return currentZone;
-    }
-
-    private void CheckStartingZone()
-    {
-        Collider[] collidersTouchingPlayerAtStart = Physics.OverlapBox(this.transform.position, new Vector3(0.1f, 2f, 0.1f));
-        foreach (Collider collider in collidersTouchingPlayerAtStart)
-        {
-            ZoneGround zoneGround = collider.GetComponent<ZoneGround>();
-            if (zoneGround != null) zoneGround.SetPlayerInZone(this.gameObject.GetComponent<Collider>());
-        }
-    }
-    public IEnumerator LockPlayerAttack(float timeToWait)
-    {
-        pcLockedAttack = true;
-        yield return new WaitForSeconds(timeToWait);
-        pcLockedAttack = false;
     }
 }

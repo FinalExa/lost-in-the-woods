@@ -29,8 +29,8 @@ public class ComboFrameMaster : MonoBehaviour
 
     private void ComboFrameTimer()
     {
-        if (countTimer < frameValueTime) countTimer += Time.deltaTime;
-        else LaunchFrame();
+        countTimer += Time.deltaTime;
+        if (countTimer >= frameValueTime) LaunchFrame();
     }
 
     private void LaunchFrame()
