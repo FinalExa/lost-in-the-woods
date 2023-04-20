@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameData", menuName = "ScriptableObjects/GameData", order = 0)]
+[System.Serializable]
 public class GameData : ScriptableObject
 {
-    public int count = 0;
+    public GameObject map;
 }

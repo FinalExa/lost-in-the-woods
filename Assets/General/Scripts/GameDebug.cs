@@ -22,11 +22,7 @@ public class GameDebug : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B) && pcReferences != null) pcReferences.heartbeat.SetHeartbeatTimer(true);
         if (Input.GetKeyDown(KeyCode.N) && pcReferences != null) pcReferences.heartbeat.SetHeartbeatTimer(false);
         if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
-        if (Input.GetKeyDown(KeyCode.KeypadPlus))
-        {
-            gameData.count++;
-            print(gameData.count);
-        }
-        if (Input.GetKeyDown(KeyCode.K)) gameSave.Save();
+        if (Input.GetKeyDown(KeyCode.K)) gameSave.SaveData();
+        if (Input.GetKeyDown(KeyCode.L)) gameSave.LoadData();
     }
 }
