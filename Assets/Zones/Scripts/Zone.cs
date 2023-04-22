@@ -14,6 +14,13 @@ public class Zone : MonoBehaviour
     public ZonePuzzle zonePuzzle;
     private List<ZoneGround> zoneGrounds;
     private PCController playerRef;
+    [System.Serializable]
+    public struct ZoneImportantObjects
+    {
+        public GameObject objectRef;
+        public Vector3 objectPos;
+    }
+    public List<ZoneImportantObjects> zoneImportantObjects;
 
     private void Start()
     {
@@ -27,6 +34,7 @@ public class Zone : MonoBehaviour
         playerRef.pcReferences.heartbeat.ChangeHeartbeatCooldownAndDuration(zoneHeartbeatCooldown, zoneHeartbeatDuration);
         SetZoneColliders(false);
         zonePuzzle.PlayerHasEntered();
+        zoneImportantObjects = new List<ZoneImportantObjects>();
     }
 
     public void SetPlayerOutOfZone()
@@ -75,5 +83,13 @@ public class Zone : MonoBehaviour
     {
         yield return new WaitForSeconds(colliderReactivationDelay);
         SetZoneColliders(true);
+    }
+
+    public void UpdateZoneImportantObjects(List<ZoneImportantObjects> newZoneImportantObjects)
+    {
+        foreach (ZoneImportantObjects objectInZone in zoneImportantObjects)
+        {
+            //objectInZone
+        }
     }
 }

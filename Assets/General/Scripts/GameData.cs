@@ -8,15 +8,17 @@ public class GameData
 {
     public Vector3 playerPosition;
     [Serializable]
-    public struct MapSave
+    public struct ZoneSave
     {
-        public Zone zone;
+        public string zoneId;
+        public bool zone;
         public GameObject zoneStateObject;
     }
-    public List<MapSave> mapSave;
+    public ZoneSave[] zoneSave;
 
     public GameData(Vector3 playerPos, Zone[] zones)
     {
+        zoneSave = new ZoneSave[zones.Length];
         SetGameData(playerPos, zones);
     }
 
@@ -29,13 +31,13 @@ public class GameData
 
     private void SetZones(Zone[] zones)
     {
-        mapSave = new List<MapSave>();
+        /*mapSave = new List<MapSave>();
         foreach (Zone zone in zones)
         {
             MapSave singleZone = new MapSave();
             singleZone.zone = zone;
             singleZone.zoneStateObject = zone.gameObject;
             mapSave.Add(singleZone);
-        }
+        }*/
     }
 }

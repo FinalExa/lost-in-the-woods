@@ -65,7 +65,7 @@ public class GameSave : MonoBehaviour
     private void ApplyLoadedData(GameData dataToApply)
     {
         gameData = dataToApply;
-        List<GameData.MapSave> tempMapSave = new List<GameData.MapSave>();
+        /*List<GameData.MapSave> tempMapSave = new List<GameData.MapSave>();
         tempMapSave = gameData.mapSave;
         playerRef.transform.position = gameData.playerPosition;
         for (int i = 0; i < zoneTracker.Length; i++)
@@ -80,6 +80,6 @@ public class GameSave : MonoBehaviour
                     break;
                 }
             }
-        }
+        }*/
     }
 }
