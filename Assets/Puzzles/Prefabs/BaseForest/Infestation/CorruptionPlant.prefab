@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 5550848055058136057}
   - component: {fileID: 1893894147386765389}
   - component: {fileID: 3940226935868848403}
+  - component: {fileID: 5534683492921413055}
   m_Layer: 0
   m_Name: CorruptionPlant
   m_TagString: Untagged
@@ -179,6 +180,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &5534683492921413055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202346169983452194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17c23234d0e5434c8a38588de7ffee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseRef: {fileID: 1202346169983452194}
+  rotator: {fileID: 6285054493797489733}
+  destroyedByZone: 0
+  id: -1
 --- !u!1 &1849067142207564591
 GameObject:
   m_ObjectHideFlags: 0

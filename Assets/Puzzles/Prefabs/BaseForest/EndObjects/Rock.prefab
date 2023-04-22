@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 2808389217281501169}
   - component: {fileID: -4810670453804740282}
   - component: {fileID: 6874555392783175961}
+  - component: {fileID: -11704285923488014}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Untagged
@@ -151,6 +152,7 @@ MonoBehaviour:
   rotator: {fileID: 0}
   objectToSetActiveStatus: {fileID: 0}
   despawned: 0
+  locked: 0
 --- !u!65 &-4810670453804740282
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -180,6 +182,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &-11704285923488014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2808389217281501171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17c23234d0e5434c8a38588de7ffee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseRef: {fileID: 2808389217281501171}
+  rotator: {fileID: 2808389218384936831}
+  destroyedByZone: 0
+  id: -1
 --- !u!1 &2808389218384936831
 GameObject:
   m_ObjectHideFlags: 0

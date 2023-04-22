@@ -292,6 +292,7 @@ GameObject:
   - component: {fileID: 3575400320684914569}
   - component: {fileID: 7791339849050343980}
   - component: {fileID: 15895906931757335}
+  - component: {fileID: -7098864248538824151}
   m_Layer: 0
   m_Name: FogPlant
   m_TagString: Untagged
@@ -411,3 +412,19 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-7098864248538824151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7791339849050343983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17c23234d0e5434c8a38588de7ffee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseRef: {fileID: 7791339849050343983}
+  rotator: {fileID: 4450477310392112649}
+  destroyedByZone: 0
+  id: -1

@@ -387,6 +387,7 @@ GameObject:
   - component: {fileID: 527383757885418547}
   - component: {fileID: 6552628957484814742}
   - component: {fileID: 4334707138704412721}
+  - component: {fileID: 8667516665438043082}
   m_Layer: 0
   m_Name: LightBulb
   m_TagString: Untagged
@@ -425,6 +426,7 @@ MonoBehaviour:
   playerRef: {fileID: 0}
   thisRb: {fileID: 0}
   startParent: {fileID: 0}
+  lockedGrabbable: 0
 --- !u!114 &-6554840796819847052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -505,3 +507,19 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8667516665438043082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6552628957484814741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17c23234d0e5434c8a38588de7ffee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseRef: {fileID: 6552628957484814741}
+  rotator: {fileID: 796220788007259571}
+  destroyedByZone: 0
+  id: -1
