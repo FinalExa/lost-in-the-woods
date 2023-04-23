@@ -16,17 +16,17 @@ public class GameData
     }
     public ZoneSave[] zoneSave;
 
-    public GameData(Vector3 playerPos, Zone[] zones)
+    public GameData(Vector3 playerPos)
     {
-        zoneSave = new ZoneSave[zones.Length];
-        SetGameData(playerPos, zones);
+        //zoneSave = new ZoneSave[zones.Length];
+        SetGameData(playerPos);
     }
 
 
-    public void SetGameData(Vector3 playerPos, Zone[] zones)
+    public void SetGameData(Vector3 playerPos)
     {
         playerPosition = playerPos;
-        if (zones.Length > 0) SetZones(zones);
+        //if (zones.Length > 0) SetZones(zones);
     }
 
     private void SetZones(Zone[] zones)

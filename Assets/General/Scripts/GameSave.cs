@@ -8,30 +8,22 @@ public class GameSave : MonoBehaviour
 {
     private string path = string.Empty;
     private string persistentPath = string.Empty;
-    public Zone[] zoneTracker;
-    public GameObject[] zoneObjectsTracker;
     public PCController playerRef;
     public GameData gameData;
 
     private void Awake()
     {
         playerRef = FindObjectOfType<PCController>();
-        zoneTracker = FindObjectsOfType<Zone>();
         SetZoneObjectsTracker();
     }
 
     private void SetZoneObjectsTracker()
     {
-        zoneObjectsTracker = new GameObject[zoneTracker.Length];
-        for (int i = 0; i < zoneObjectsTracker.Length; i++)
-        {
-            zoneObjectsTracker[i] = zoneTracker[i].gameObject;
-        }
     }
 
     private void Start()
     {
-        gameData = new GameData(playerRef.transform.position, zoneTracker);
+        gameData = new GameData(playerRef.transform.position);
         SetPaths();
         //LoadData();
     }
@@ -45,7 +37,7 @@ public class GameSave : MonoBehaviour
 
     public void SaveData()
     {
-        gameData.SetGameData(playerRef.transform.position, zoneTracker);
+        gameData.SetGameData(playerRef.transform.position);
         string savePath = path;
 
         string json = JsonUtility.ToJson(gameData);

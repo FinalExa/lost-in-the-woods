@@ -8,11 +8,13 @@ public class GameDebug : MonoBehaviour
     [SerializeField] private GameData gameData;
     private GameSave gameSave;
     private PCController pcController;
+    private ZoneTracker zoneTracker;
 
     private void Awake()
     {
         pcController = FindObjectOfType<PCController>();
         gameSave = this.gameObject.GetComponent<GameSave>();
+        zoneTracker = this.gameObject.GetComponent<ZoneTracker>();
     }
 
     private void Update()
@@ -24,6 +26,6 @@ public class GameDebug : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
         if (Input.GetKeyDown(KeyCode.K)) gameSave.SaveData();
         if (Input.GetKeyDown(KeyCode.L)) gameSave.LoadData();
-        if (Input.GetKeyDown(KeyCode.O) && pcController != null) pcController.pcReferences.pcZoneManager.GetCurrentZone().zoneObjects.GenerateImportantObjectData();
+        if (Input.GetKeyDown(KeyCode.O) && zoneTracker != null) zoneTracker.CompileZoneInformation();
     }
 }

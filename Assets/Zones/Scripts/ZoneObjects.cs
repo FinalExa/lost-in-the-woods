@@ -16,7 +16,6 @@ public class ZoneObjects
         public Vector3 objectPosition;
         public Vector3 objectRotatorEulerAngles;
     }
-    public List<ImportantObjectData> importantObjectsData;
 
     public ZoneObjects(Zone zone)
     {
@@ -27,7 +26,6 @@ public class ZoneObjects
     public void Initialize()
     {
         zoneImportantObjects = new List<ZoneImportantObject>();
-        importantObjectsData = new List<ImportantObjectData>();
     }
 
     public void UpdateImportantObjectsFromSave(List<ImportantObjectData> receivedImportantObjectData)
@@ -76,9 +74,9 @@ public class ZoneObjects
         }
     }
 
-    public void GenerateImportantObjectData()
+    public List<ImportantObjectData> GenerateImportantObjectData()
     {
-        importantObjectsData.Clear();
+        List<ImportantObjectData> importantObjectsData = new List<ImportantObjectData>();
         foreach (ZoneImportantObject zoneImportantObject in zoneImportantObjects)
         {
             ImportantObjectData importantObjectData = new ImportantObjectData();
@@ -87,5 +85,6 @@ public class ZoneObjects
             importantObjectData.objectRotatorEulerAngles = zoneImportantObject.rotator.transform.eulerAngles;
             importantObjectsData.Add(importantObjectData);
         }
+        return importantObjectsData;
     }
 }

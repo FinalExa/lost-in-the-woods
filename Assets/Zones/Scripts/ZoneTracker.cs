@@ -6,13 +6,12 @@ public class ZoneTracker : MonoBehaviour
 {
     public Zone[] gameZones;
     [System.Serializable]
-    public struct ZoneInformation
+    public struct VisitedZoneInformation
     {
-        public string zoneId;
-        public bool zoneCompleted;
-        //public ZoneObjects.ZoneImportantObjectsRefs zoneImportantObjectRefs;
+        public int zoneId;
+        public List<ZoneObjects.ImportantObjectData> zoneImportantObjectData;
     }
-    public ZoneInformation[] zoneInformation;
+    public List<VisitedZoneInformation> visitedZonesInformation;
 
     private void Awake()
     {
@@ -21,14 +20,32 @@ public class ZoneTracker : MonoBehaviour
 
     private void Start()
     {
-
+        InitializeVisitedZoneInformation();
     }
 
-    private void CompileZoneInformation()
+    private void InitializeVisitedZoneInformation()
     {
-        zoneInformation = new ZoneInformation[gameZones.Length];
-        foreach (Zone zone in gameZones)
+        visitedZonesInformation = new List<VisitedZoneInformation>();
+    }
+
+    public void CompileZoneInformation()
+    {
+        visitedZonesInformation.Clear();
+        for (int i = 0; i < gameZones.Length; i++)
         {
+            if (gameZones[i].visitedByPlayer && GetIfZoneIsCompleted(gameZones[i]))
+            {
+                VisitedZoneInformation visitedZoneInformation = new VisitedZoneInformation();
+                visitedZoneInformation.zoneId = i;
+                visitedZoneInformation.zoneImportantObjectData = gameZones[i].zoneObjects.GenerateImportantObjectData();
+                visitedZonesInformation.Add(visitedZoneInformation);
+            }
         }
+    }
+
+    private bool GetIfZoneIsCompleted(Zone zone)
+    {
+        if ((!zone.zonePuzzle.zoneHasPuzzle) || (zone.zonePuzzle.zoneHasPuzzle && zone.zonePuzzle.puzzleDone)) return true;
+        return false;
     }
 }

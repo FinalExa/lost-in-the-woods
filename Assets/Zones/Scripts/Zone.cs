@@ -37,6 +37,7 @@ public class Zone : MonoBehaviour
         playerRef.pcReferences.heartbeat.ChangeHeartbeatCooldownAndDuration(zoneHeartbeatCooldown, zoneHeartbeatDuration);
         SetZoneColliders(false);
         zonePuzzle.PlayerHasEntered();
+        visitedByPlayer = true;
     }
 
     public void SetPlayerOutOfZone()
