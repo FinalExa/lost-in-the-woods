@@ -10,7 +10,7 @@ public class ZoneTracker : MonoBehaviour
     {
         public string zoneId;
         public bool zoneCompleted;
-        public Zone.ZoneImportantObjectsRefs zoneImportantObjectRefs;
+        //public ZoneObjects.ZoneImportantObjectsRefs zoneImportantObjectRefs;
     }
     public ZoneInformation[] zoneInformation;
 

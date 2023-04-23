@@ -1657,7 +1657,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1836440368378709402}
-  m_RootOrder: 30
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &383689752
 BoxCollider:
@@ -7388,7 +7388,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1836440368378709402}
-  m_RootOrder: 29
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1716840821
 BoxCollider:
@@ -11697,6 +11697,7 @@ Transform:
   - {fileID: 500304021}
   - {fileID: 98076125}
   - {fileID: 1136415834}
+  - {fileID: 1716840820}
   - {fileID: 1661854345}
   - {fileID: 1657106290}
   - {fileID: 1613080045}
@@ -11707,6 +11708,7 @@ Transform:
   - {fileID: 418774723}
   - {fileID: 360533660}
   - {fileID: 1713154876}
+  - {fileID: 383689751}
   - {fileID: 584407658}
   - {fileID: 1748971999}
   - {fileID: 926259885}
@@ -11723,8 +11725,6 @@ Transform:
   - {fileID: 1239689421}
   - {fileID: 176780334}
   - {fileID: 47552574}
-  - {fileID: 1716840820}
-  - {fileID: 383689751}
   m_Father: {fileID: 3457580937090827257}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13444,12 +13444,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7458f27d6e9b4428bbd22ac6f4e544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoneImportantObjectSpawnData: {fileID: 11400000, guid: 3ab5dc356bcbda542a6add22761b717f, type: 2}
   zoneName: SampleZone
   thisZoneType: 5
   colliderReactivationDelay: 0
   zoneHeartbeatCooldown: 40
   zoneHeartbeatDuration: 10
   zoneGroundParent: {fileID: 2816802377941124426}
+  visitedByPlayer: 0
   zonePuzzle:
     zoneRef: {fileID: 0}
     zoneHasPuzzle: 1
@@ -13458,6 +13460,9 @@ MonoBehaviour:
     puzzleExit: {fileID: 1265750727595227906}
     activateOnPuzzleEnd: {fileID: 0}
     deactivateOnPuzzleEnd: {fileID: 0}
+  zoneObjects:
+    zoneRef: {fileID: 0}
+    zoneImportantObjects: []
 --- !u!4 &2816802378994967315
 Transform:
   m_ObjectHideFlags: 0
@@ -13858,12 +13863,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7458f27d6e9b4428bbd22ac6f4e544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoneImportantObjectSpawnData: {fileID: 11400000, guid: 3ab5dc356bcbda542a6add22761b717f, type: 2}
   zoneName: SampleZone
   thisZoneType: 5
   colliderReactivationDelay: 0
   zoneHeartbeatCooldown: 40
   zoneHeartbeatDuration: 10
   zoneGroundParent: {fileID: 3457580937090827142}
+  visitedByPlayer: 0
   zonePuzzle:
     zoneRef: {fileID: 0}
     zoneHasPuzzle: 1
@@ -13872,6 +13879,9 @@ MonoBehaviour:
     puzzleExit: {fileID: 514521143}
     activateOnPuzzleEnd: {fileID: 0}
     deactivateOnPuzzleEnd: {fileID: 0}
+  zoneObjects:
+    zoneRef: {fileID: 0}
+    zoneImportantObjects: []
 --- !u!4 &3457580938150962655
 Transform:
   m_ObjectHideFlags: 0
@@ -14445,12 +14455,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7458f27d6e9b4428bbd22ac6f4e544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoneImportantObjectSpawnData: {fileID: 11400000, guid: 3ab5dc356bcbda542a6add22761b717f, type: 2}
   zoneName: SampleZone
   thisZoneType: 5
   colliderReactivationDelay: 0
   zoneHeartbeatCooldown: 40
   zoneHeartbeatDuration: 10
   zoneGroundParent: {fileID: 4713152297633910688}
+  visitedByPlayer: 0
   zonePuzzle:
     zoneRef: {fileID: 0}
     zoneHasPuzzle: 1
@@ -14459,6 +14471,9 @@ MonoBehaviour:
     puzzleExit: {fileID: 8642381611032103749}
     activateOnPuzzleEnd: {fileID: 0}
     deactivateOnPuzzleEnd: {fileID: 0}
+  zoneObjects:
+    zoneRef: {fileID: 0}
+    zoneImportantObjects: []
 --- !u!4 &4713152298712918521
 Transform:
   m_ObjectHideFlags: 0
@@ -14927,12 +14942,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7458f27d6e9b4428bbd22ac6f4e544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoneImportantObjectSpawnData: {fileID: 11400000, guid: 3ab5dc356bcbda542a6add22761b717f, type: 2}
   zoneName: SampleZone
   thisZoneType: 5
   colliderReactivationDelay: 0
   zoneHeartbeatCooldown: 40
   zoneHeartbeatDuration: 10
   zoneGroundParent: {fileID: 4744678264324235803}
+  visitedByPlayer: 0
   zonePuzzle:
     zoneRef: {fileID: 0}
     zoneHasPuzzle: 1
@@ -14941,6 +14958,9 @@ MonoBehaviour:
     puzzleExit: {fileID: 1831519064}
     activateOnPuzzleEnd: {fileID: 0}
     deactivateOnPuzzleEnd: {fileID: 0}
+  zoneObjects:
+    zoneRef: {fileID: 0}
+    zoneImportantObjects: []
 --- !u!4 &4744678265513273696
 Transform:
   m_ObjectHideFlags: 0

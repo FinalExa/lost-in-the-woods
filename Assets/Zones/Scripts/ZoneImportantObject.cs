@@ -4,18 +4,31 @@ using UnityEngine;
 
 public class ZoneImportantObject : MonoBehaviour
 {
-    [SerializeField] private GameObject baseRef;
+    public string spawnDataName;
     public GameObject rotator;
     [HideInInspector] public bool destroyedByZone;
     [HideInInspector] public int id = -1;
     private Zone thisZone;
 
-
-    public void ImportantObjectRegistration(Zone parentZone)
+    private void Awake()
     {
-        thisZone = parentZone;
-        if (id == -1) id = thisZone.RegisterImportantObject(this.gameObject, baseRef, rotator);
-        else thisZone.UpdateImportantObject(this.gameObject, rotator, id);
+        thisZone = this.gameObject.transform.GetComponentInParent<Zone>();
+        ImportantObjectRegistration();
+    }
+
+    public void ImportantObjectRegistration()
+    {
+        if (thisZone != null && id == -1) id = thisZone.zoneObjects.RegisterImportantObject(this);
+    }
+
+    public void ChangeId(int newId)
+    {
+        id = newId;
+    }
+
+    public void SetRotator(Vector3 newRotatorAngles)
+    {
+        rotator.transform.eulerAngles = newRotatorAngles;
     }
 
     private void OnDisable()
@@ -25,6 +38,6 @@ public class ZoneImportantObject : MonoBehaviour
 
     public void ImportantObjectRemoval()
     {
-        if (thisZone != null && id != -1 && !destroyedByZone) thisZone.RemoveImportantObject(id);
+        if (thisZone != null && id != -1 && !destroyedByZone) thisZone.zoneObjects.RemoveImportantObject(id);
     }
 }

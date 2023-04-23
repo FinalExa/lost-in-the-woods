@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
 
 public class GameSave : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class GameSave : MonoBehaviour
     {
         gameData = new GameData(playerRef.transform.position, zoneTracker);
         SetPaths();
-        LoadData();
+        //LoadData();
     }
 
     private void SetPaths()
@@ -65,21 +66,5 @@ public class GameSave : MonoBehaviour
     private void ApplyLoadedData(GameData dataToApply)
     {
         gameData = dataToApply;
-        /*List<GameData.MapSave> tempMapSave = new List<GameData.MapSave>();
-        tempMapSave = gameData.mapSave;
-        playerRef.transform.position = gameData.playerPosition;
-        for (int i = 0; i < zoneTracker.Length; i++)
-        {
-            for (int y = 0; y < tempMapSave.Count; y++)
-            {
-                if (zoneTracker[i].gameObject == tempMapSave[y].zoneStateObject)
-                {
-                    zoneTracker[i] = tempMapSave[y].zone;
-                    zoneObjectsTracker[i] = tempMapSave[y].zoneStateObject;
-                    tempMapSave.RemoveAt(y);
-                    break;
-                }
-            }
-        }*/
     }
 }

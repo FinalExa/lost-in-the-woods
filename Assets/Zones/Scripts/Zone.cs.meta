@@ -3,7 +3,9 @@ guid: 5b7458f27d6e9b4428bbd22ac6f4e544
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - zoneImportantObjectSpawnData: {fileID: 11400000, guid: 3ab5dc356bcbda542a6add22761b717f, type: 2}
+  - zoneGroundParent: {instanceID: 0}
   executionOrder: 185
   icon: {instanceID: 0}
   userData: 

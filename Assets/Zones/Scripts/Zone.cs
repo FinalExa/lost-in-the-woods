@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Zone : MonoBehaviour
 {
+    public ZoneImportantObjectSpawnData zoneImportantObjectSpawnData;
     public enum ZoneType { GENERIC_FOREST, MONSTROUS_FOREST, DENSE_FOREST, ABANDONED_VILLAGE, FOREST_CENTER, TEST }
     [SerializeField] private string zoneName;
     [SerializeField] private ZoneType thisZoneType;
@@ -12,28 +13,16 @@ public class Zone : MonoBehaviour
     [SerializeField] private float zoneHeartbeatCooldown;
     [SerializeField] private float zoneHeartbeatDuration;
     [SerializeField] private GameObject zoneGroundParent;
+    public bool visitedByPlayer;
     public ZonePuzzle zonePuzzle;
     private List<ZoneGround> zoneGrounds;
     private PCController playerRef;
-    [System.Serializable]
-    public struct ZoneImportantObjectsRefs
-    {
-        public GameObject objectRef;
-        public Vector3 objectPos;
-        public Vector3 objectRotatorEulerAngles;
-    }
-    [System.Serializable]
-    public struct ZoneImportantObjects
-    {
-        public ZoneImportantObjectsRefs zoneImportantObjectRef;
-        public GameObject zoneImportantObjectInstance;
-    }
-    public List<ZoneImportantObjects> zoneImportantObjects;
-    public ZoneImportantObject[] zoneImportantObjectInstances;
+    public ZoneObjects zoneObjects;
+
 
     private void Awake()
     {
-        zoneImportantObjectInstances = this.transform.GetComponentsInChildren<ZoneImportantObject>();
+        zoneObjects = new ZoneObjects(this);
     }
 
     private void Start()
@@ -50,11 +39,6 @@ public class Zone : MonoBehaviour
         zonePuzzle.PlayerHasEntered();
     }
 
-    private void CallForImportantObjectRegistration()
-    {
-        foreach (ZoneImportantObject zoneImportantObjectInstance in zoneImportantObjectInstances) zoneImportantObjectInstance.ImportantObjectRegistration(this);
-    }
-
     public void SetPlayerOutOfZone()
     {
         StartCoroutine(WaitToReactivateColliders());
@@ -65,8 +49,6 @@ public class Zone : MonoBehaviour
         zoneGrounds = new List<ZoneGround>();
         GetZoneColliders();
         zonePuzzle.ZonePuzzleStartup(this);
-        zoneImportantObjects = new List<ZoneImportantObjects>();
-        CallForImportantObjectRegistration();
     }
 
     private void GetZoneColliders()
@@ -103,61 +85,5 @@ public class Zone : MonoBehaviour
     {
         yield return new WaitForSeconds(colliderReactivationDelay);
         SetZoneColliders(true);
-    }
-
-    public void LoadingImportantObjects(List<ZoneImportantObjects> zoneImportantObjects)
-    {
-        List<ZoneImportantObjectsRefs> zoneImportantObjectsRefs = new List<ZoneImportantObjectsRefs>();
-        foreach (ZoneImportantObjects zoneImportantObject in zoneImportantObjects)
-        {
-            zoneImportantObjectsRefs.Add(zoneImportantObject.zoneImportantObjectRef);
-        }
-        ReloadZoneImportantObjects(zoneImportantObjectsRefs);
-    }
-
-    private void ReloadZoneImportantObjects(List<ZoneImportantObjectsRefs> newZoneImportantObjectsRefs)
-    {
-        foreach (ZoneImportantObjects objectInZone in zoneImportantObjects)
-        {
-            objectInZone.zoneImportantObjectInstance.GetComponent<ZoneImportantObject>().destroyedByZone = true;
-            GameObject.Destroy(objectInZone.zoneImportantObjectInstance);
-            zoneImportantObjects.Remove(objectInZone);
-        }
-        foreach (ZoneImportantObjectsRefs zoneImportantObjectsRef in newZoneImportantObjectsRefs)
-        {
-            ZoneImportantObjects zoneImportantObject = new ZoneImportantObjects();
-            zoneImportantObject.zoneImportantObjectRef = zoneImportantObjectsRef;
-            zoneImportantObject.zoneImportantObjectInstance = Instantiate(zoneImportantObjectsRef.objectRef, zoneImportantObjectsRef.objectPos, Quaternion.identity, this.gameObject.transform);
-            zoneImportantObject.zoneImportantObjectInstance.GetComponent<ZoneImportantObject>().rotator.transform.eulerAngles = zoneImportantObjectsRef.objectRotatorEulerAngles;
-            zoneImportantObjects.Add(zoneImportantObject);
-        }
-    }
-
-    public int RegisterImportantObject(GameObject objectInstance, GameObject objectRef, GameObject rotator)
-    {
-        ZoneImportantObjects zoneImportantObject = new ZoneImportantObjects();
-        zoneImportantObject.zoneImportantObjectInstance = objectInstance;
-        zoneImportantObject.zoneImportantObjectRef.objectRef = objectRef;
-        zoneImportantObject.zoneImportantObjectRef.objectPos = objectInstance.transform.position;
-        zoneImportantObject.zoneImportantObjectRef.objectRotatorEulerAngles = rotator.transform.eulerAngles;
-        zoneImportantObjects.Add(zoneImportantObject);
-        return (zoneImportantObjects.IndexOf(zoneImportantObject));
-    }
-
-    public void UpdateImportantObject(GameObject objectInstance, GameObject rotator, int id)
-    {
-        ZoneImportantObjects zoneImportantObject = zoneImportantObjects[id];
-        zoneImportantObject.zoneImportantObjectRef.objectPos = objectInstance.transform.position;
-        zoneImportantObject.zoneImportantObjectRef.objectRotatorEulerAngles = rotator.transform.eulerAngles;
-        zoneImportantObjects[id] = zoneImportantObject;
-    }
-
-    public void RemoveImportantObject(int id)
-    {
-        zoneImportantObjects.RemoveAt(id);
-        for (int i = 0; i < zoneImportantObjects.Count; i++)
-        {
-            zoneImportantObjects[i].zoneImportantObjectInstance.GetComponent<ZoneImportantObject>().id = i;
-        }
     }
 }
