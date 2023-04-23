@@ -18,6 +18,8 @@ TagManager:
   - Rotator
   - FallenZone
   - PlayerGrab
+  - DestroyWhenPlayerEnters
+  - SaveTrigger
   layers:
   - Default
   - TransparentFX

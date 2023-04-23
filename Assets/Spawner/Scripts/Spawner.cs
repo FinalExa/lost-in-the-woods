@@ -126,4 +126,12 @@ public class Spawner : MonoBehaviour
             }
         }
     }
+
+    public void SetAllEnemiesDead()
+    {
+        for (int i = 0; i < activeEnemies.Count; i++)
+        {
+            SetEnemyDead(activeEnemies[i], false);
+        }
+    }
 }

@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: -58871985665383649}
   - component: {fileID: 4155213851668882284}
   - component: {fileID: 2543241011686762446}
+  - component: {fileID: -7643373644104333637}
   m_Layer: 6
   m_Name: UnstableInfertileTerrain
   m_TagString: Ground
@@ -309,3 +310,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-7643373644104333637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8401036359760750068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17c23234d0e5434c8a38588de7ffee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnDataName: UnstableInfertileTerrain
+  rotator: {fileID: 7593170472319334711}
+  destroyedByZone: 0
+  id: -1
+  thisZone: {fileID: 0}

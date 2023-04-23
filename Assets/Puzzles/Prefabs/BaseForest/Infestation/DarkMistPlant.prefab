@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 8179742777429672632}
   - component: {fileID: 2793547763726862604}
   - component: {fileID: -1665770304255581068}
+  - component: {fileID: -8560853669800207642}
   m_Layer: 0
   m_Name: DarkMistPlant
   m_TagString: Untagged
@@ -231,6 +232,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &-8560853669800207642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3180470605036223843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17c23234d0e5434c8a38588de7ffee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnDataName: DarkMistPlant
+  rotator: {fileID: 7760869364746593540}
+  destroyedByZone: 0
+  id: -1
+  thisZone: {fileID: 0}
 --- !u!1 &3633513208515824121
 GameObject:
   m_ObjectHideFlags: 0

@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 7469769978296397409}
   - component: {fileID: 8177513707599143424}
   - component: {fileID: 8563865700636510004}
+  - component: {fileID: 513323888714948837}
   m_Layer: 0
   m_Name: Hole
   m_TagString: Hole
@@ -137,6 +138,7 @@ MonoBehaviour:
   rotator: {fileID: 0}
   objectToSetActiveStatus: {fileID: 0}
   despawned: 0
+  locked: 0
 --- !u!65 &7469769978296397409
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -179,6 +181,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &513323888714948837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828246935292236319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17c23234d0e5434c8a38588de7ffee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnDataName: Hole
+  rotator: {fileID: 4020663268664562308}
+  destroyedByZone: 0
+  id: -1
+  thisZone: {fileID: 0}
 --- !u!1 &4020663268664562308
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5272849021281915197}
   m_Layer: 0
-  m_Name: Rotation
+  m_Name: Rotator
   m_TagString: Rotator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

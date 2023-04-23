@@ -10,10 +10,12 @@ public class PCHealth : Health
     private bool regenWait;
     private float regenWaitTimer;
     private bool regen;
+    private GameSave gameSave;
     private void Awake()
     {
         pcReferences = this.gameObject.GetComponent<PCReferences>();
         pcLight = this.gameObject.GetComponentInChildren<PCLight>();
+        gameSave = FindObjectOfType<GameSave>();
     }
 
     protected override void Start()
@@ -37,8 +39,8 @@ public class PCHealth : Health
     public override void OnDeath(bool skipOnDeathInteraction)
     {
         if (uxOnDeath.hasSound) uxOnDeath.sound.PlayAudio();
-        //TEMPORARY
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        gameSave.LoadData();
+        HealthAddValue(maxHP);
     }
 
     public override void OnHitReceived()

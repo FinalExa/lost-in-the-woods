@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Zone : MonoBehaviour
 {
+    public ZoneImportantObjectSpawnData zoneImportantObjectSpawnData;
     public enum ZoneType { GENERIC_FOREST, MONSTROUS_FOREST, DENSE_FOREST, ABANDONED_VILLAGE, FOREST_CENTER, TEST }
     [SerializeField] private string zoneName;
     [SerializeField] private ZoneType thisZoneType;
@@ -11,9 +13,18 @@ public class Zone : MonoBehaviour
     [SerializeField] private float zoneHeartbeatCooldown;
     [SerializeField] private float zoneHeartbeatDuration;
     [SerializeField] private GameObject zoneGroundParent;
+    public bool visitedByPlayer;
     public ZonePuzzle zonePuzzle;
     private List<ZoneGround> zoneGrounds;
     private PCController playerRef;
+    public ZoneObjects zoneObjects;
+    private Spawner[] zoneSpawners;
+
+    private void Awake()
+    {
+        zoneSpawners = this.gameObject.transform.GetComponentsInChildren<Spawner>();
+        zoneObjects = new ZoneObjects(this);
+    }
 
     private void Start()
     {
@@ -27,6 +38,7 @@ public class Zone : MonoBehaviour
         playerRef.pcReferences.heartbeat.ChangeHeartbeatCooldownAndDuration(zoneHeartbeatCooldown, zoneHeartbeatDuration);
         SetZoneColliders(false);
         zonePuzzle.PlayerHasEntered();
+        visitedByPlayer = true;
     }
 
     public void SetPlayerOutOfZone()
@@ -75,5 +87,13 @@ public class Zone : MonoBehaviour
     {
         yield return new WaitForSeconds(colliderReactivationDelay);
         SetZoneColliders(true);
+    }
+
+    public void TurnOffAllEnemiesInZone()
+    {
+        foreach (Spawner spawner in zoneSpawners)
+        {
+            spawner.SetAllEnemiesDead();
+        }
     }
 }
