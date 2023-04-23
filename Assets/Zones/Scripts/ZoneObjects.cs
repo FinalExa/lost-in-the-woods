@@ -30,12 +30,13 @@ public class ZoneObjects
 
     public void UpdateImportantObjectsFromSave(List<ImportantObjectData> receivedImportantObjectData)
     {
-        foreach (ZoneImportantObject zoneImportantObject in zoneImportantObjects)
+        for (int i = zoneImportantObjects.Count - 1; i >= 0; i--)
         {
-            zoneImportantObjects.Remove(zoneImportantObject);
-            GameObject.Destroy(zoneImportantObject.gameObject);
+            GameObject objectRef = zoneImportantObjects[i].gameObject;
+            zoneImportantObjects[i].destroyedByZone = true;
+            zoneImportantObjects.RemoveAt(i);
+            GameObject.Destroy(objectRef);
         }
-        zoneImportantObjects.Clear();
         foreach (ImportantObjectData importantObjectData in receivedImportantObjectData)
         {
             GameObject objectToSpawn = GetObjectToSpawnReference(importantObjectData.spawnDataName);

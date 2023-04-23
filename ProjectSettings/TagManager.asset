@@ -19,6 +19,7 @@ TagManager:
   - FallenZone
   - PlayerGrab
   - DestroyWhenPlayerEnters
+  - SaveTrigger
   layers:
   - Default
   - TransparentFX

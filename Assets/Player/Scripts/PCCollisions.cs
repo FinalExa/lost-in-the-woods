@@ -8,6 +8,7 @@ public class PCCollisions : MonoBehaviour
     {
         if (other.CompareTag("EnemyAggroRange")) other.GetComponent<EnemyAggro>().PlayerAggroInteraction(true, this.transform);
         if (other.CompareTag("DestroyWhenPlayerEnters")) GameObject.Destroy(other.gameObject);
+        if (other.CompareTag("SaveTrigger")) other.GetComponent<SaveTrigger>().Save();
     }
 
     private void OnTriggerExit(Collider other)

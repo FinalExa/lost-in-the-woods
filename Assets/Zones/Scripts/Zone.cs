@@ -18,10 +18,11 @@ public class Zone : MonoBehaviour
     private List<ZoneGround> zoneGrounds;
     private PCController playerRef;
     public ZoneObjects zoneObjects;
-
+    private Spawner[] zoneSpawners;
 
     private void Awake()
     {
+        zoneSpawners = this.gameObject.transform.GetComponentsInChildren<Spawner>();
         zoneObjects = new ZoneObjects(this);
     }
 
@@ -86,5 +87,13 @@ public class Zone : MonoBehaviour
     {
         yield return new WaitForSeconds(colliderReactivationDelay);
         SetZoneColliders(true);
+    }
+
+    public void TurnOffAllEnemiesInZone()
+    {
+        foreach (Spawner spawner in zoneSpawners)
+        {
+            spawner.SetAllEnemiesDead();
+        }
     }
 }

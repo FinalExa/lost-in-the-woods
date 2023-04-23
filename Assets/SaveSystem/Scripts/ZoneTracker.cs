@@ -11,26 +11,25 @@ public class ZoneTracker : MonoBehaviour
         public int zoneId;
         public List<ZoneObjects.ImportantObjectData> zoneImportantObjectData;
     }
-    public List<VisitedZoneInformation> visitedZonesInformation;
 
     private void Awake()
     {
         gameZones = FindObjectsOfType<Zone>();
     }
 
-    private void Start()
+    public void ApplyZoneInformation(List<VisitedZoneInformation> zoneInformationToApply)
     {
-        InitializeVisitedZoneInformation();
+        for (int i = 0; i < zoneInformationToApply.Count; i++)
+        {
+            Zone zoneToOperate = gameZones[zoneInformationToApply[i].zoneId];
+            if (zoneToOperate.zonePuzzle.zoneHasPuzzle) zoneToOperate.zonePuzzle.puzzleDone = true;
+            zoneToOperate.zoneObjects.UpdateImportantObjectsFromSave(zoneInformationToApply[i].zoneImportantObjectData);
+        }
     }
 
-    private void InitializeVisitedZoneInformation()
+    public List<VisitedZoneInformation> CompileZoneInformation()
     {
-        visitedZonesInformation = new List<VisitedZoneInformation>();
-    }
-
-    public void CompileZoneInformation()
-    {
-        visitedZonesInformation.Clear();
+        List<VisitedZoneInformation> visitedZonesInformation = new List<VisitedZoneInformation>();
         for (int i = 0; i < gameZones.Length; i++)
         {
             if (gameZones[i].visitedByPlayer && GetIfZoneIsCompleted(gameZones[i]))
@@ -41,6 +40,7 @@ public class ZoneTracker : MonoBehaviour
                 visitedZonesInformation.Add(visitedZoneInformation);
             }
         }
+        return visitedZonesInformation;
     }
 
     private bool GetIfZoneIsCompleted(Zone zone)
