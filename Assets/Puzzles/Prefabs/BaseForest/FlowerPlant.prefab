@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 6723917482868418914}
   - component: {fileID: 4750160047936148845}
   - component: {fileID: 308852702177060982}
+  - component: {fileID: -2463490879988249639}
   m_Layer: 0
   m_Name: FlowerPlant
   m_TagString: Untagged
@@ -244,3 +245,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &-2463490879988249639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9205835231336190723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17c23234d0e5434c8a38588de7ffee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnDataName: FlowerPlant
+  rotator: {fileID: 1194781146457562327}
+  destroyedByZone: 0
+  id: -1
+  thisZone: {fileID: 0}

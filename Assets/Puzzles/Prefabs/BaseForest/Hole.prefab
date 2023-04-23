@@ -193,10 +193,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17c23234d0e5434c8a38588de7ffee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseRef: {fileID: 828246935292236319}
+  spawnDataName: Hole
   rotator: {fileID: 4020663268664562308}
   destroyedByZone: 0
   id: -1
+  thisZone: {fileID: 0}
 --- !u!1 &4020663268664562308
 GameObject:
   m_ObjectHideFlags: 0

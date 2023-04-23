@@ -194,10 +194,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17c23234d0e5434c8a38588de7ffee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseRef: {fileID: 2808389217281501171}
+  spawnDataName: Rock
   rotator: {fileID: 2808389218384936831}
   destroyedByZone: 0
   id: -1
+  thisZone: {fileID: 0}
 --- !u!1 &2808389218384936831
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,11 +8,15 @@ public class ZoneImportantObject : MonoBehaviour
     public GameObject rotator;
     [HideInInspector] public bool destroyedByZone;
     [HideInInspector] public int id = -1;
-    private Zone thisZone;
+    [HideInInspector] public Zone thisZone;
 
     private void Awake()
     {
         thisZone = this.gameObject.transform.GetComponentInParent<Zone>();
+    }
+
+    private void Start()
+    {
         ImportantObjectRegistration();
     }
 

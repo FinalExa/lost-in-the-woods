@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public class ZoneObjects
 {
-    public Zone zoneRef;
+    [HideInInspector] public Zone zoneRef;
 
     public List<ZoneImportantObject> zoneImportantObjects;
     [Serializable]
@@ -16,6 +16,7 @@ public class ZoneObjects
         public Vector3 objectPosition;
         public Vector3 objectRotatorEulerAngles;
     }
+    public List<ImportantObjectData> importantObjectsData;
 
     public ZoneObjects(Zone zone)
     {
@@ -26,6 +27,7 @@ public class ZoneObjects
     public void Initialize()
     {
         zoneImportantObjects = new List<ZoneImportantObject>();
+        importantObjectsData = new List<ImportantObjectData>();
     }
 
     public void UpdateImportantObjectsFromSave(List<ImportantObjectData> receivedImportantObjectData)
@@ -71,6 +73,19 @@ public class ZoneObjects
             {
                 zoneImportantObjects[i].ChangeId(i);
             }
+        }
+    }
+
+    public void GenerateImportantObjectData()
+    {
+        importantObjectsData.Clear();
+        foreach (ZoneImportantObject zoneImportantObject in zoneImportantObjects)
+        {
+            ImportantObjectData importantObjectData = new ImportantObjectData();
+            importantObjectData.spawnDataName = zoneImportantObject.spawnDataName;
+            importantObjectData.objectPosition = zoneImportantObject.gameObject.transform.position;
+            importantObjectData.objectRotatorEulerAngles = zoneImportantObject.rotator.transform.eulerAngles;
+            importantObjectsData.Add(importantObjectData);
         }
     }
 }

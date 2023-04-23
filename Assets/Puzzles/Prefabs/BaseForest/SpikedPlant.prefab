@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 1381524191882185111}
   - component: {fileID: 4930540795384726051}
   - component: {fileID: 1680639575209966092}
+  - component: {fileID: 5216385043812465561}
   m_Layer: 0
   m_Name: SpikedPlant
   m_TagString: Untagged
@@ -263,6 +264,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &5216385043812465561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5659667328879375948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17c23234d0e5434c8a38588de7ffee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnDataName: SpikedPlant
+  rotator: {fileID: 656476373578346027}
+  destroyedByZone: 0
+  id: -1
+  thisZone: {fileID: 0}
 --- !u!1 &5819976016809607894
 GameObject:
   m_ObjectHideFlags: 0
