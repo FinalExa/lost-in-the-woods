@@ -8,10 +8,19 @@ public class NamedInteractionExecutor : MonoBehaviour
     public bool active;
     private List<Interaction> interactingWith;
     [SerializeField] private bool inLoop;
+    private BoxCollider thisBoxCollider;
+    private SphereCollider thisSphereCollider;
 
     private void Awake()
     {
         interactingWith = new List<Interaction>();
+        thisBoxCollider = this.gameObject.GetComponent<BoxCollider>();
+        thisSphereCollider = this.gameObject.GetComponent<SphereCollider>();
+    }
+
+    private void Start()
+    {
+        ForceCheck();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,10 +38,25 @@ public class NamedInteractionExecutor : MonoBehaviour
         ExecuteExitFromNamedInteraction(other.GetComponent<Interaction>());
     }
 
+    private void ForceCheck()
+    {
+        if (thisBoxCollider != null) ForceLaunchInteractions(Physics.OverlapBox(this.transform.position, thisBoxCollider.size / 2));
+        else if (thisSphereCollider != null) ForceLaunchInteractions(Physics.OverlapSphere(this.transform.position, thisSphereCollider.radius));
+    }
+
+    private void ForceLaunchInteractions(Collider[] arrayOfColliders)
+    {
+        foreach (Collider collider in arrayOfColliders)
+        {
+            ExecuteNamedInteraction(collider.gameObject.GetComponent<Interaction>());
+        }
+    }
+
     public void NameAndStateChange(string newName, bool newState)
     {
         thisName = newName;
         active = newState;
+        ForceCheck();
         ExecuteAllInteractions();
     }
 
