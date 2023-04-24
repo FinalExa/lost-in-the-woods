@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b8ba380e9e293547bc8a7fe8620c4d1, type: 3}
-  m_Name: ZoneImportantObjectSpawnData
+  m_Name: ImportantObjectSpawnData
   m_EditorClassIdentifier: 
   spawnData:
   - spawnDataName: Hole
@@ -19,20 +19,12 @@ MonoBehaviour:
     spawnDataRef: {fileID: 8401036359760750068, guid: 28d8d14118317fd488bce26479af4188, type: 3}
   - spawnDataName: UnstableInfertileTerrain
     spawnDataRef: {fileID: 8401036359760750068, guid: ad6810fbe9eb942469e3f3ed30930db5, type: 3}
-  - spawnDataName: FlowerPlant
+  - spawnDataName: LampPlant
     spawnDataRef: {fileID: 9205835231336190723, guid: d139de3dad10e0b4e80d53ebcdff097c, type: 3}
-  - spawnDataName: SpikedPlant
+  - spawnDataName: GuidingPlant
     spawnDataRef: {fileID: 5659667328879375948, guid: 52d2f9558fbbacc46a85f4225d8b7826, type: 3}
-  - spawnDataName: CorruptionPlant
-    spawnDataRef: {fileID: 1202346169983452194, guid: b78738b9e5d720b48acb882515260ab4, type: 3}
-  - spawnDataName: DarkMistPlant
-    spawnDataRef: {fileID: 3180470605036223843, guid: ab08f170506b990478562f865b03601e, type: 3}
   - spawnDataName: FogPlant
     spawnDataRef: {fileID: 7791339849050343983, guid: 077cf2652ec047d488056ed402d81cff, type: 3}
-  - spawnDataName: GuidingLightPlant
-    spawnDataRef: {fileID: 8367560830519902439, guid: 3584af820b6387049a476ceba4327258, type: 3}
-  - spawnDataName: LampPlant
-    spawnDataRef: {fileID: 2394176157025479847, guid: 57a5dfd38c79da44ebd007114a8c7012, type: 3}
   - spawnDataName: LightBulb
     spawnDataRef: {fileID: 6552628957484814741, guid: 32a28184350f49a4da7af54d294e555f, type: 3}
   - spawnDataName: Rock

@@ -5,12 +5,12 @@ using UnityEngine;
 public class SaveTrigger : MonoBehaviour
 {
     private Zone thisZone;
-    private GameSave gameSave;
+    private GameSaveSystem gameSave;
 
     private void Awake()
     {
         thisZone = this.transform.GetComponentInParent<Zone>();
-        gameSave = FindObjectOfType<GameSave>();
+        gameSave = FindObjectOfType<GameSaveSystem>();
     }
     public void Save()
     {

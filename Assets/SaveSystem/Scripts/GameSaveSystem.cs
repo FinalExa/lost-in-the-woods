@@ -4,7 +4,7 @@ using UnityEngine;
 using System.IO;
 using System;
 
-public class GameSave : MonoBehaviour
+public class GameSaveSystem : MonoBehaviour
 {
     private string path = string.Empty;
     private string persistentPath = string.Empty;

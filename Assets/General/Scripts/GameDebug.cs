@@ -6,14 +6,14 @@ using UnityEngine.SceneManagement;
 public class GameDebug : MonoBehaviour
 {
     [SerializeField] private GameData gameData;
-    private GameSave gameSave;
+    private GameSaveSystem gameSave;
     private PCController pcController;
     private ZoneTracker zoneTracker;
 
     private void Awake()
     {
         pcController = FindObjectOfType<PCController>();
-        gameSave = this.gameObject.GetComponent<GameSave>();
+        gameSave = this.gameObject.GetComponent<GameSaveSystem>();
         zoneTracker = this.gameObject.GetComponent<ZoneTracker>();
     }
 

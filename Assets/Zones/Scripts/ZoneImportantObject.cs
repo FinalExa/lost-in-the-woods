@@ -9,6 +9,7 @@ public class ZoneImportantObject : MonoBehaviour
     [HideInInspector] public bool destroyedByZone;
     [HideInInspector] public int id = -1;
     [HideInInspector] public Zone thisZone;
+    public PlantSignalSet plantSignalSet;
 
     private void Awake()
     {

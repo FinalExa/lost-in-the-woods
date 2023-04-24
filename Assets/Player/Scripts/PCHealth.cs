@@ -10,12 +10,12 @@ public class PCHealth : Health
     private bool regenWait;
     private float regenWaitTimer;
     private bool regen;
-    private GameSave gameSave;
+    private GameSaveSystem gameSave;
     private void Awake()
     {
         pcReferences = this.gameObject.GetComponent<PCReferences>();
         pcLight = this.gameObject.GetComponentInChildren<PCLight>();
-        gameSave = FindObjectOfType<GameSave>();
+        gameSave = FindObjectOfType<GameSaveSystem>();
     }
 
     protected override void Start()

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ZoneImportantObjectSpawnData", menuName = "ScriptableObjects/ZoneImportantObjectSpawnData", order = 5)]
-public class ZoneImportantObjectSpawnData : ScriptableObject
+public class ImportantObjectSpawnData : ScriptableObject
 {
     [Serializable]
     public struct SpawnData

@@ -29,6 +29,24 @@ public class NamedInteractionExecutor : MonoBehaviour
         ExecuteExitFromNamedInteraction(other.GetComponent<Interaction>());
     }
 
+    public void NameAndStateChange(string newName, bool newState)
+    {
+        thisName = newName;
+        active = newState;
+        ExecuteAllInteractions();
+    }
+
+    private void ExecuteAllInteractions()
+    {
+        if (active)
+        {
+            foreach (Interaction interaction in interactingWith)
+            {
+                interaction.NamedInteractionExecute(this, this.gameObject);
+            }
+        }
+    }
+
     private void ExecuteNamedInteraction(Interaction interaction)
     {
         if (interaction != null && active && !interactingWith.Contains(interaction))

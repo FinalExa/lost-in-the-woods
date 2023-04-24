@@ -157,8 +157,8 @@ MonoBehaviour:
     turnOffNamedObjectInsteadOfDestroy: 0
     options:
       isDestroyed: 0
-      isTransformed: 1
-      transformedRef: {fileID: 8367560830519902439, guid: 3584af820b6387049a476ceba4327258, type: 3}
+      isTransformed: 0
+      transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       canSpawnObject: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
       isMoved: 0
       movementDistance: 0
       movementTime: 0
-      sendsSignalToSelf: 0
+      sendsSignalToSelf: 1
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
       uxOnInteraction:
@@ -248,8 +248,8 @@ MonoBehaviour:
     turnOffNamedObjectInsteadOfDestroy: 0
     options:
       isDestroyed: 0
-      isTransformed: 1
-      transformedRef: {fileID: 3180470605036223843, guid: ab08f170506b990478562f865b03601e, type: 3}
+      isTransformed: 0
+      transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       canSpawnObject: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
       isMoved: 0
       movementDistance: 0
       movementTime: 0
-      sendsSignalToSelf: 0
+      sendsSignalToSelf: 1
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
       uxOnInteraction:

@@ -412,18 +412,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingState: 0
+  currentState: 0
   plantSignalStates:
   - stateRequiredName: None
     stateSignalName: 
-    stateNameActive: 0
+    stateActive: 0
     stateSprite: {fileID: 21300000, guid: 52e5955ce1a3f64488cad9b046fe3cef, type: 3}
   - stateRequiredName: Light
     stateSignalName: LampPlant
-    stateNameActive: 1
+    stateActive: 1
     stateSprite: {fileID: 21300000, guid: 3e0969875311e7e4ca6921209e48b3d5, type: 3}
   - stateRequiredName: Infestation
     stateSignalName: CorruptionPlant
-    stateNameActive: 1
+    stateActive: 1
     stateSprite: {fileID: 21300000, guid: d73fdc4597bf7ee459d5c0ed977bb14a, type: 3}
   namedInteractionExecutor: {fileID: 1229690009868339921}
   spriteRenderer: {fileID: 4975206902373831515}
@@ -489,11 +490,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17c23234d0e5434c8a38588de7ffee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnDataName: FlowerPlant
+  spawnDataName: LampPlant
   rotator: {fileID: 1194781146457562327}
   destroyedByZone: 0
   id: -1
   thisZone: {fileID: 0}
+  plantSignalSet: {fileID: -4562460343035606137}
 --- !u!65 &5165072695889249846
 BoxCollider:
   m_ObjectHideFlags: 0

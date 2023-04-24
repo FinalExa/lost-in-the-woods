@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Zone : MonoBehaviour
 {
-    public ZoneImportantObjectSpawnData zoneImportantObjectSpawnData;
+    public ImportantObjectSpawnData zoneImportantObjectSpawnData;
     public enum ZoneType { GENERIC_FOREST, MONSTROUS_FOREST, DENSE_FOREST, ABANDONED_VILLAGE, FOREST_CENTER, TEST }
     [SerializeField] private string zoneName;
     [SerializeField] private ZoneType thisZoneType;

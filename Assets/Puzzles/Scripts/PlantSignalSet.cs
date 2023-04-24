@@ -5,12 +5,13 @@ using UnityEngine;
 public class PlantSignalSet : MonoBehaviour, ISendSignalToSelf
 {
     [SerializeField] private int startingState;
+    [HideInInspector] public int currentState;
     [System.Serializable]
     public struct PlantSignalState
     {
         public string stateRequiredName;
         public string stateSignalName;
-        public bool stateNameActive;
+        public bool stateActive;
         public Sprite stateSprite;
     }
     [SerializeField] private PlantSignalState[] plantSignalStates;
@@ -33,17 +34,17 @@ public class PlantSignalSet : MonoBehaviour, ISendSignalToSelf
     {
         for (int i = 0; i < plantSignalStates.Length; i++)
         {
-            if (interaction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(plantSignalStates[i].stateRequiredName))
+            if (interaction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(plantSignalStates[i].stateRequiredName) && currentState != i)
             {
                 SetPlantState(i);
             }
         }
     }
 
-    private void SetPlantState(int stateIndex)
+    public void SetPlantState(int stateIndex)
     {
-        namedInteractionExecutor.active = plantSignalStates[stateIndex].stateNameActive;
-        namedInteractionExecutor.thisName = plantSignalStates[stateIndex].stateSignalName;
+        currentState = stateIndex;
+        namedInteractionExecutor.NameAndStateChange(plantSignalStates[stateIndex].stateSignalName, plantSignalStates[stateIndex].stateActive);
         spriteRenderer.sprite = plantSignalStates[stateIndex].stateSprite;
     }
 }
