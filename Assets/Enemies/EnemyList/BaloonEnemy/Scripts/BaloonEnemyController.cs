@@ -86,7 +86,7 @@ public class BaloonEnemyController : EnemyController, ISendSignalToSelf, ISendWe
 
     public void HPReset()
     {
-        enemyHealth.HealthAddValue(enemyData.maxHP);
+        enemyHealth.HealthAddValue(enemyData.maxHP, true);
         thisNavMeshAgent.enabled = true;
         baloonRotator.followPlayerRotation = false;
         grabbableByPlayer.lockedGrabbable = true;

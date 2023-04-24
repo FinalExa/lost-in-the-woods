@@ -30,6 +30,7 @@ Transform:
   m_Children:
   - {fileID: 7903710342563535199}
   - {fileID: 3334869998409254712}
+  - {fileID: 4772405256471373579}
   m_Father: {fileID: 9205835231336190722}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -372,6 +373,7 @@ GameObject:
   - component: {fileID: -4652598443744011705}
   - component: {fileID: 8136261613599677755}
   - component: {fileID: -2463490879988249639}
+  - component: {fileID: 8300972749420553090}
   - component: {fileID: 5165072695889249846}
   - component: {fileID: 6723917482868418914}
   - component: {fileID: 4750160047936148845}
@@ -496,6 +498,57 @@ MonoBehaviour:
   id: -1
   thisZone: {fileID: 0}
   plantSignalSet: {fileID: -4562460343035606137}
+--- !u!114 &8300972749420553090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9205835231336190723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d08d033bf154ff4e925f72b8ce3e405, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeapon: {fileID: 0}
+  currentAttack:
+    damage: 0
+    frameDuration: 0
+    framesOfDelay: 0
+    movementDistance: 0
+    ignoresWalls: 0
+    attackObject: {fileID: 0}
+    weaponAttackTypes: 
+    weaponAttackHitboxSequence: []
+    weaponSpawnsObjectDuringThisAttack: []
+    hasAnimation: 0
+    uxOnWeaponAttack:
+      hasSound: 0
+      sound:
+        clip: {fileID: 0}
+        priority: 128
+        volume: 1
+        pitch: 1
+        stereoPan: 0
+        spatialBlend: 0
+        reverbZoneMix: 1
+        loop: 0
+        playOnAwake: 0
+        mixer: {fileID: 0}
+      hasSpriteColorChange: 0
+      spriteColorChange:
+        changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        spriteRef: {fileID: 0}
+        spriteColorChangeDuration: 0
+      hasCameraShake: 0
+      cameraShake:
+        shakeAmplitude: 0
+        shakeFrequency: 0
+        shakeDuration: 0
+        cinemachineCameraShakerRef: {fileID: 0}
+      soundParent: {fileID: 0}
+  comboActive: 0
+  weaponToSet: {fileID: 3924671866261726462}
 --- !u!65 &5165072695889249846
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -554,3 +607,80 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!1001 &927894910175806322
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8505164120320330540}
+    m_Modifications:
+    - target: {fileID: 5681984492148024441, guid: b8299fc5ed2e1bb4885d772dcb44f7ca, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681984492148024441, guid: b8299fc5ed2e1bb4885d772dcb44f7ca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681984492148024441, guid: b8299fc5ed2e1bb4885d772dcb44f7ca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681984492148024441, guid: b8299fc5ed2e1bb4885d772dcb44f7ca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681984492148024441, guid: b8299fc5ed2e1bb4885d772dcb44f7ca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681984492148024441, guid: b8299fc5ed2e1bb4885d772dcb44f7ca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681984492148024441, guid: b8299fc5ed2e1bb4885d772dcb44f7ca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681984492148024441, guid: b8299fc5ed2e1bb4885d772dcb44f7ca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681984492148024441, guid: b8299fc5ed2e1bb4885d772dcb44f7ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681984492148024441, guid: b8299fc5ed2e1bb4885d772dcb44f7ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681984492148024441, guid: b8299fc5ed2e1bb4885d772dcb44f7ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089379293536037342, guid: b8299fc5ed2e1bb4885d772dcb44f7ca, type: 3}
+      propertyPath: m_Name
+      value: LampPlantWeapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 6264565899052774331, guid: b8299fc5ed2e1bb4885d772dcb44f7ca, type: 3}
+      propertyPath: m_Color.a
+      value: 0.078431375
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b8299fc5ed2e1bb4885d772dcb44f7ca, type: 3}
+--- !u!114 &3924671866261726462 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4222045236405462924, guid: b8299fc5ed2e1bb4885d772dcb44f7ca, type: 3}
+  m_PrefabInstance: {fileID: 927894910175806322}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81dec813fad57f74ab47ded6ae72d8c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &4772405256471373579 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5681984492148024441, guid: b8299fc5ed2e1bb4885d772dcb44f7ca, type: 3}
+  m_PrefabInstance: {fileID: 927894910175806322}
+  m_PrefabAsset: {fileID: 0}

@@ -30,9 +30,9 @@ public class PCHealth : Health
         RegenWait();
         Regen();
     }
-    public override void HealthAddValue(float healthToAdd)
+    public override void HealthAddValue(float healthToAdd, bool feedbackActive)
     {
-        base.HealthAddValue(healthToAdd);
+        base.HealthAddValue(healthToAdd, feedbackActive);
         pcLight.LightRadiusUpdate(currentHP);
     }
 
@@ -40,12 +40,12 @@ public class PCHealth : Health
     {
         if (uxOnDeath.hasSound) uxOnDeath.sound.PlayAudio();
         gameSave.LoadData();
-        HealthAddValue(maxHP);
+        HealthAddValue(maxHP, true);
     }
 
-    public override void OnHitReceived()
+    public override void OnHitReceived(bool feedbackActive)
     {
-        base.OnHitReceived();
+        base.OnHitReceived(feedbackActive);
         regenWait = false;
         regen = false;
     }
@@ -78,7 +78,7 @@ public class PCHealth : Health
         if (regen)
         {
             float valueToRegen = pcReferences.pcData.healthRegenRatePerSecond * Time.deltaTime;
-            HealthAddValue(valueToRegen);
+            HealthAddValue(valueToRegen, true);
             if (currentHP == pcReferences.pcData.maxHP) regen = false;
         }
     }

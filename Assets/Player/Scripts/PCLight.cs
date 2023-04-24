@@ -11,13 +11,16 @@ public class PCLight : MonoBehaviour
     private Light playerLight;
     private SphereCollider lightTrigger;
     public List<AffectedByLight> entitiesAffectedByLight;
+    public List<LightPayCombo> entitiesWithLightPayCombo;
     [HideInInspector] public bool lanternUp;
     [SerializeField] private UXEffect uxOnLanternSwitch;
+    private PCHealth pcHealth;
 
     private void Awake()
     {
         playerLight = this.gameObject.GetComponent<Light>();
         lightTrigger = this.gameObject.GetComponent<SphereCollider>();
+        pcHealth = this.gameObject.transform.GetComponentInParent<PCHealth>();
     }
     private void Start()
     {
@@ -25,11 +28,27 @@ public class PCLight : MonoBehaviour
         lightRange = new Vector3(1f, 1f, 0f);
         lightTrigger.enabled = false;
         entitiesAffectedByLight = new List<AffectedByLight>();
+        entitiesWithLightPayCombo = new List<LightPayCombo>();
     }
     private void Update()
     {
         LightTriggerSet();
     }
+
+    public void LightPay(bool receivedState)
+    {
+        if (entitiesWithLightPayCombo.Count > 0)
+        {
+            if (receivedState)
+            {
+                float healthToRemove = pcData.receivedDamagePerSecond * Time.deltaTime;
+                pcHealth.HealthAddValue(-healthToRemove, false);
+                foreach (LightPayCombo lightPayCombo in entitiesWithLightPayCombo) lightPayCombo.ExecuteLightPayCombo();
+            }
+            else foreach (LightPayCombo lightPayCombo in entitiesWithLightPayCombo) lightPayCombo.StopLightPayCombo();
+        }
+    }
+
     public void LightRadiusUpdate(float currentHP)
     {
         float hpPercentage = (100f * currentHP) / pcData.maxHP;
@@ -48,7 +67,7 @@ public class PCLight : MonoBehaviour
         else if (lightTrigger.enabled)
         {
             lightTrigger.enabled = false;
-            ClearLightList();
+            ClearLightLists();
         }
     }
     private float LanternModeCheck()
@@ -67,34 +86,34 @@ public class PCLight : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         AffectedByLight affectedByLight = other.gameObject.GetComponent<AffectedByLight>();
-        if (affectedByLight != null)
+        if (affectedByLight != null && !entitiesAffectedByLight.Contains(affectedByLight))
         {
-            if (!entitiesAffectedByLight.Contains(affectedByLight))
-            {
-                entitiesAffectedByLight.Add(affectedByLight);
-                affectedByLight.isInsideLight = true;
-                affectedByLight.LightStateChange();
-            }
+            entitiesAffectedByLight.Add(affectedByLight);
+            affectedByLight.isInsideLight = true;
+            affectedByLight.LightStateChange();
+            LightPayCombo lightPayCombo = affectedByLight.gameObject.GetComponent<LightPayCombo>();
+            if (lightPayCombo != null && !entitiesWithLightPayCombo.Contains(lightPayCombo)) entitiesWithLightPayCombo.Add(lightPayCombo);
         }
     }
     private void OnTriggerExit(Collider other)
     {
         AffectedByLight affectedByLight = other.gameObject.GetComponent<AffectedByLight>();
-        if (affectedByLight != null)
+        if (affectedByLight != null && entitiesAffectedByLight.Contains(affectedByLight))
         {
-            if (entitiesAffectedByLight.Contains(affectedByLight))
-            {
-                entitiesAffectedByLight.Remove(affectedByLight);
-                EntityExitLight(affectedByLight);
-            }
+            entitiesAffectedByLight.Remove(affectedByLight);
+            EntityExitLight(affectedByLight);
+            LightPayCombo lightPayCombo = affectedByLight.gameObject.GetComponent<LightPayCombo>();
+            if (lightPayCombo != null && entitiesWithLightPayCombo.Contains(lightPayCombo)) entitiesWithLightPayCombo.Remove(lightPayCombo);
         }
     }
 
-    private void ClearLightList()
+    private void ClearLightLists()
     {
         AffectedByLight[] affectedByLightArray = entitiesAffectedByLight.ToArray();
         entitiesAffectedByLight.Clear();
         foreach (AffectedByLight affectedByLight in affectedByLightArray) EntityExitLight(affectedByLight);
+        LightPayCombo[] lightPayComboArray = entitiesWithLightPayCombo.ToArray();
+        entitiesWithLightPayCombo.Clear();
     }
 
     private void EntityExitLight(AffectedByLight affectedByLight)

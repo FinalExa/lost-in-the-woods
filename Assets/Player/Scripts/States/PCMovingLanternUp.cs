@@ -10,9 +10,14 @@ public class PCMovingLanternUp : PCState
     }
     public override void Update()
     {
+        CheckForLightPay();
         Movement();
         Transitions();
         UpdateSpeedValue();
+    }
+    private void CheckForLightPay()
+    {
+        _pcStateMachine.pcController.pcReferences.pcLight.LightPay(_pcStateMachine.pcController.pcReferences.inputs.LeftClickInput);
     }
 
     #region Movement

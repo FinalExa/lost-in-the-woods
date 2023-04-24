@@ -21,12 +21,12 @@ public abstract class Health : MonoBehaviour
         currentHP = maxHP;
     }
 
-    public virtual void HealthAddValue(float healthToAdd)
+    public virtual void HealthAddValue(float healthToAdd, bool feedbackActive)
     {
         currentHP += healthToAdd;
         currentHP = Mathf.Clamp(currentHP, 0, maxHP);
         if (currentHP <= 0) OnDeath(false);
-        else if (healthToAdd < 0) OnHitReceived();
+        else if (healthToAdd < 0) OnHitReceived(feedbackActive);
     }
 
     public virtual void OnDeath(bool skipOnDeathInteraction)
@@ -40,11 +40,14 @@ public abstract class Health : MonoBehaviour
         if (uxOnHit.hasSpriteColorChange && uxOnHit.spriteColorChange.spriteRef != null) uxOnHit.spriteColorChange.StartColorChange();
     }
 
-    public virtual void OnHitReceived()
+    public virtual void OnHitReceived(bool feedbackActive)
     {
-        OnHitSetSpriteColorChange();
-        OnHitSound();
-        OnHitCameraShake();
+        if (feedbackActive)
+        {
+            OnHitSetSpriteColorChange();
+            OnHitSound();
+            OnHitCameraShake();
+        }
     }
 
     public void OnHitSound()
