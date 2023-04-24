@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b8ba380e9e293547bc8a7fe8620c4d1, type: 3}
+  m_Name: ImportantObjectSpawnData
+  m_EditorClassIdentifier: 
+  spawnData:
+  - spawnDataName: Hole
+    spawnDataRef: {fileID: 828246935292236319, guid: d8b14d083a12c0b40b402d683c37e6c3, type: 3}
+  - spawnDataName: UnstableFertileTerrain
+    spawnDataRef: {fileID: 8401036359760750068, guid: 28d8d14118317fd488bce26479af4188, type: 3}
+  - spawnDataName: UnstableInfertileTerrain
+    spawnDataRef: {fileID: 8401036359760750068, guid: ad6810fbe9eb942469e3f3ed30930db5, type: 3}
+  - spawnDataName: LampPlant
+    spawnDataRef: {fileID: 9205835231336190723, guid: d139de3dad10e0b4e80d53ebcdff097c, type: 3}
+  - spawnDataName: GuidingPlant
+    spawnDataRef: {fileID: 5659667328879375948, guid: 52d2f9558fbbacc46a85f4225d8b7826, type: 3}
+  - spawnDataName: FogPlant
+    spawnDataRef: {fileID: 7791339849050343983, guid: 077cf2652ec047d488056ed402d81cff, type: 3}
+  - spawnDataName: LightBulb
+    spawnDataRef: {fileID: 6552628957484814741, guid: 32a28184350f49a4da7af54d294e555f, type: 3}
+  - spawnDataName: Rock
+    spawnDataRef: {fileID: 2808389217281501171, guid: 4ade526af26fe5c44823ee2244ef4425, type: 3}
+  - spawnDataName: InfestationSource
+    spawnDataRef: {fileID: 6114181717978539228, guid: 7a34ba8dbe3a1764f9f300ef02268980, type: 3}
+  - spawnDataName: LightSource
+    spawnDataRef: {fileID: 3941403088353230800, guid: 8619e3b9233b4944fb877f2d1ae2a0e1, type: 3}

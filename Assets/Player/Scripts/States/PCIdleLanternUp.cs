@@ -9,7 +9,13 @@ public class PCIdleLanternUp : PCState
     }
     public override void Update()
     {
+        CheckForLightPay();
         Transitions();
+    }
+
+    private void CheckForLightPay()
+    {
+        _pcStateMachine.pcController.pcReferences.pcLight.LightPay(_pcStateMachine.pcController.pcReferences.inputs.LeftClickInput);
     }
 
     #region Transitions

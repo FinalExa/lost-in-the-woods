@@ -6,7 +6,7 @@ public class AttackReceived : MonoBehaviour
 {
     private Health health;
     private Interaction interaction;
-    public enum GameTargets { PLAYER, ENEMY, PUZZLE_ELEMENT}
+    public enum GameTargets { PLAYER, ENEMY, PUZZLE_ELEMENT }
     [SerializeField] private GameTargets thisType;
     public bool ignoresDamage;
 
@@ -32,7 +32,7 @@ public class AttackReceived : MonoBehaviour
 
     public void DealDamage(bool invulnerable, float damage)
     {
-        if (health != null && !invulnerable) health.HealthAddValue(-damage);
+        if (health != null && !invulnerable) health.HealthAddValue(-damage, true);
     }
 
     public void SetInvincibility(bool invincibility)
