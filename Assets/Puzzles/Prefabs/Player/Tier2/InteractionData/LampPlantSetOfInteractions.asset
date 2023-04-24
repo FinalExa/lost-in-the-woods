@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f17a2fc026ebd8040acf9f11d5d67083, type: 3}
-  m_Name: SpikedPlantSetOfInteractions
+  m_Name: LampPlantSetOfInteractions
   m_EditorClassIdentifier: 
   turnsOff: 0
+  startsLocked: 0
+  lockedTime: 0
   attackTypeInteractions:
   - attackType: 1
     destroyAttackSourceObject: 0
@@ -63,8 +65,8 @@ MonoBehaviour:
     destroyAttackSourceObject: 0
     options:
       isDestroyed: 0
-      isTransformed: 1
-      transformedRef: {fileID: 8367560830519902439, guid: 3584af820b6387049a476ceba4327258, type: 3}
+      isTransformed: 0
+      transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       canSpawnObject: 0
@@ -75,7 +77,7 @@ MonoBehaviour:
       isMoved: 0
       movementDistance: 0
       movementTime: 0
-      sendsSignalToSelf: 0
+      sendsSignalToSelf: 1
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
       uxOnInteraction:
@@ -108,8 +110,8 @@ MonoBehaviour:
     destroyAttackSourceObject: 0
     options:
       isDestroyed: 0
-      isTransformed: 1
-      transformedRef: {fileID: 3180470605036223843, guid: ab08f170506b990478562f865b03601e, type: 3}
+      isTransformed: 0
+      transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       canSpawnObject: 0
@@ -120,7 +122,7 @@ MonoBehaviour:
       isMoved: 0
       movementDistance: 0
       movementTime: 0
-      sendsSignalToSelf: 0
+      sendsSignalToSelf: 1
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
       uxOnInteraction:
@@ -155,8 +157,8 @@ MonoBehaviour:
     turnOffNamedObjectInsteadOfDestroy: 0
     options:
       isDestroyed: 0
-      isTransformed: 1
-      transformedRef: {fileID: 8367560830519902439, guid: 3584af820b6387049a476ceba4327258, type: 3}
+      isTransformed: 0
+      transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       canSpawnObject: 0
@@ -167,7 +169,7 @@ MonoBehaviour:
       isMoved: 0
       movementDistance: 0
       movementTime: 0
-      sendsSignalToSelf: 0
+      sendsSignalToSelf: 1
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
       uxOnInteraction:
@@ -246,8 +248,8 @@ MonoBehaviour:
     turnOffNamedObjectInsteadOfDestroy: 0
     options:
       isDestroyed: 0
-      isTransformed: 1
-      transformedRef: {fileID: 3180470605036223843, guid: ab08f170506b990478562f865b03601e, type: 3}
+      isTransformed: 0
+      transformedRef: {fileID: 0}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       canSpawnObject: 0
@@ -258,7 +260,7 @@ MonoBehaviour:
       isMoved: 0
       movementDistance: 0
       movementTime: 0
-      sendsSignalToSelf: 0
+      sendsSignalToSelf: 1
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
       uxOnInteraction:
@@ -336,9 +338,9 @@ MonoBehaviour:
     destroyNamedObjectOnInteraction: 0
     turnOffNamedObjectInsteadOfDestroy: 0
     options:
-      isDestroyed: 1
-      isTransformed: 0
-      transformedRef: {fileID: 0}
+      isDestroyed: 0
+      isTransformed: 1
+      transformedRef: {fileID: 828246935292236319, guid: d8b14d083a12c0b40b402d683c37e6c3, type: 3}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       canSpawnObject: 0
@@ -468,14 +470,14 @@ MonoBehaviour:
       soundParent: {fileID: 0}
     uxOnInteractionInitialized: 0
   lightInteraction:
-    hasLightInteraction: 0
+    hasLightInteraction: 1
     normalRefreshes: 0
     normalOptions:
       isDestroyed: 0
       isTransformed: 0
       transformedRef: {fileID: 0}
-      canSetObjectActiveStatus: 0
-      objectActiveStatus: 0
+      canSetObjectActiveStatus: 1
+      objectActiveStatus: 1
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
@@ -518,8 +520,8 @@ MonoBehaviour:
       isDestroyed: 0
       isTransformed: 0
       transformedRef: {fileID: 0}
-      canSetObjectActiveStatus: 0
-      objectActiveStatus: 0
+      canSetObjectActiveStatus: 1
+      objectActiveStatus: 1
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}
       objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
@@ -562,7 +564,7 @@ MonoBehaviour:
       isDestroyed: 0
       isTransformed: 0
       transformedRef: {fileID: 0}
-      canSetObjectActiveStatus: 0
+      canSetObjectActiveStatus: 1
       objectActiveStatus: 0
       canSpawnObject: 0
       objectToSpawn: {fileID: 0}

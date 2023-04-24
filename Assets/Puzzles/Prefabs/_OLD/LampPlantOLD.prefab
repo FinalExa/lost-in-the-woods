@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7370849889846019568}
   - component: {fileID: -2822098192642244932}
   m_Layer: 0
-  m_Name: LampPlant
+  m_Name: LampPlantOLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
