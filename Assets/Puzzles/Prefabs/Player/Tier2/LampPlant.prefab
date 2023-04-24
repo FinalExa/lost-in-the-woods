@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8505164120320330540}
+  - component: {fileID: 2532080610254410106}
   m_Layer: 0
   m_Name: Rotator
   m_TagString: Rotator
@@ -34,6 +35,19 @@ Transform:
   m_Father: {fileID: 9205835231336190722}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2532080610254410106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194781146457562327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8292276e691b248be601386783e7bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 2080994432828816678}
 --- !u!1 &1475414377037834373
 GameObject:
   m_ObjectHideFlags: 0
