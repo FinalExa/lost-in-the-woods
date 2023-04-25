@@ -34,7 +34,6 @@ public class PlantSignalSet : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttac
 
     public void OnSignalReceived(GameObject source)
     {
-        print(source.name);
         for (int i = 0; i < plantSignalStates.Length; i++)
         {
             if ((interaction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(plantSignalStates[i].stateRequiredName) || (ReceivedWeaponAttackType == plantSignalStates[i].stateRequiredAttackType)) && currentState != i)
