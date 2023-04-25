@@ -38,7 +38,7 @@ public class InteractionOptions
         return check;
     }
 
-    private void SpawnObject(GameObject objectToSpawn, Vector3 offset)
+    private GameObject SpawnObject(GameObject objectToSpawn, Vector3 offset)
     {
         GameObject instantiatedObject = GameObject.Instantiate(objectToSpawn, interaction.gameObject.transform.position + offset, Quaternion.identity, interaction.gameObject.transform.parent);
         GrabbableByPlayer thisGrabbableByPlayer = interaction.gameObject.GetComponent<GrabbableByPlayer>();
@@ -53,11 +53,15 @@ public class InteractionOptions
             grabbableByPlayerOfSpawnedObject.SetStartParent(parent);
             instantiatedObject.transform.parent = parent;
         }
+        return instantiatedObject;
     }
 
     private void Transform(SetOfInteractions.Options options, bool turnsOff)
     {
-        SpawnObject(options.transformedRef, Vector3.zero);
+        GameObject spawnedObject = SpawnObject(options.transformedRef, Vector3.zero);
+        PlantSignalSet plantSignalSetOfThisObject = interaction.gameObject.GetComponent<PlantSignalSet>();
+        PlantSignalSet plantSignalSetOfSpawnedObject = spawnedObject.gameObject.GetComponent<PlantSignalSet>();
+        if (plantSignalSetOfThisObject != null && plantSignalSetOfSpawnedObject != null) plantSignalSetOfSpawnedObject.startingState = plantSignalSetOfThisObject.currentState;
         DestroyOrTurnOff(turnsOff);
     }
 

@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 809524107923366735}
+  - component: {fileID: -2361714631901064415}
   - component: {fileID: 6715597373821316857}
   - component: {fileID: 911349247788159816}
-  - component: {fileID: 2576409215562440935}
   - component: {fileID: 6233606446062444267}
   - component: {fileID: 809524107923366734}
   - component: {fileID: 7454403387121205158}
@@ -38,6 +38,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-2361714631901064415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809524107923366733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1ec755f32b237742a145b82f10d362b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingState: 0
+  interactAfterSet: 1
+  currentState: 0
+  plantSignalStates:
+  - stateRequiredName: Light
+    stateRequiredAttackType: 3
+    stateSignalName: Shroom
+    stateActive: 1
+    stateSprite: {fileID: 0}
+  - stateRequiredName: Infestation
+    stateRequiredAttackType: 2
+    stateSignalName: Shroom
+    stateActive: 1
+    stateSprite: {fileID: 0}
+  namedInteractionExecutor: {fileID: 4898548957459434192}
+  spriteRenderer: {fileID: 0}
 --- !u!114 &6715597373821316857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,21 +96,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisType: 2
   ignoresDamage: 1
---- !u!114 &2576409215562440935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809524107923366733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0eca4a9e1534ba4f944878999c913a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisName: Shroom
-  active: 1
-  inLoop: 0
 --- !u!114 &6233606446062444267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,7 +111,7 @@ MonoBehaviour:
   setOfInteractions: {fileID: 11400000, guid: f54af912036c669438ce08154cbf120d, type: 2}
   affectedByLightRef: {fileID: 0}
   rotator: {fileID: 0}
-  objectToSetActiveStatus: {fileID: 0}
+  objectToSetActiveStatus: {fileID: 8742029492706074805}
   despawned: 0
   locked: 0
 --- !u!54 &809524107923366734
@@ -244,6 +257,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2139941466638179529}
+  - {fileID: 8962467033806600848}
   m_Father: {fileID: 809524107923366735}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -260,3 +274,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 5594138154642329595}
+--- !u!1 &8742029492706074805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8962467033806600848}
+  - component: {fileID: 4898548957459434192}
+  - component: {fileID: 5191887635611377056}
+  m_Layer: 0
+  m_Name: Named
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8962467033806600848
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8742029492706074805}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 145398612053958380}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4898548957459434192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8742029492706074805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0eca4a9e1534ba4f944878999c913a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisName: 
+  active: 0
+  inLoop: 0
+--- !u!135 &5191887635611377056
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8742029492706074805}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.55
+  m_Center: {x: 0, y: 0, z: 0}

@@ -1,5 +1,66 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3580342556629631476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4853018077968639403}
+  - component: {fileID: 6247962414153552932}
+  - component: {fileID: 5311571350929220277}
+  m_Layer: 0
+  m_Name: Named
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4853018077968639403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3580342556629631476}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4014776902879149189}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6247962414153552932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3580342556629631476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0eca4a9e1534ba4f944878999c913a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisName: 
+  active: 0
+  inLoop: 0
+--- !u!135 &5311571350929220277
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3580342556629631476}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.55
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4014776901287296295
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,10 +70,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4014776901287296292}
+  - component: {fileID: 508959630724326563}
   - component: {fileID: -6269373168636999820}
   - component: {fileID: 8758143008440390022}
   - component: {fileID: 4830499187636917438}
-  - component: {fileID: 2867043437175303578}
   - component: {fileID: -5517505262360356275}
   - component: {fileID: 2114393513771127108}
   - component: {fileID: 4014776901287296293}
@@ -40,6 +101,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &508959630724326563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4014776901287296295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1ec755f32b237742a145b82f10d362b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingState: 0
+  interactAfterSet: 1
+  currentState: 0
+  plantSignalStates:
+  - stateRequiredName: Light
+    stateRequiredAttackType: 3
+    stateSignalName: BrambleBall
+    stateActive: 1
+    stateSprite: {fileID: 0}
+  - stateRequiredName: Infestation
+    stateRequiredAttackType: 2
+    stateSignalName: BrambleBall
+    stateActive: 1
+    stateSprite: {fileID: 0}
+  namedInteractionExecutor: {fileID: 6247962414153552932}
+  spriteRenderer: {fileID: 0}
 --- !u!114 &-6269373168636999820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,24 +176,9 @@ MonoBehaviour:
   setOfInteractions: {fileID: 11400000, guid: 27e7406f6b78d1f459aab8dffcc2469a, type: 2}
   affectedByLightRef: {fileID: 0}
   rotator: {fileID: 0}
-  objectToSetActiveStatus: {fileID: 0}
+  objectToSetActiveStatus: {fileID: 3580342556629631476}
   despawned: 0
   locked: 0
---- !u!114 &2867043437175303578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4014776901287296295}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0eca4a9e1534ba4f944878999c913a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisName: BrambleBall
-  active: 1
-  inLoop: 0
 --- !u!114 &-5517505262360356275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +194,7 @@ MonoBehaviour:
   playerRef: {fileID: 0}
   thisRb: {fileID: 0}
   startParent: {fileID: 0}
+  lockedGrabbable: 0
 --- !u!135 &2114393513771127108
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -279,6 +354,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4014776902404493667}
+  - {fileID: 4853018077968639403}
   m_Father: {fileID: 4014776901287296292}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}

@@ -9,7 +9,7 @@ public class ShroomController : EnemyController
     protected override void Awake()
     {
         base.Awake();
-        namedInteraction = this.gameObject.GetComponent<NamedInteractionExecutor>();
+        namedInteraction = this.gameObject.transform.GetComponentInChildren<NamedInteractionExecutor>();
     }
 
     public override void LightStateUpdate()

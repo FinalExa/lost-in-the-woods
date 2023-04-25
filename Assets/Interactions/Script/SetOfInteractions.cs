@@ -81,4 +81,5 @@ public class SetOfInteractions : ScriptableObject
     public Options onDeathInteraction;
     public LightInteraction lightInteraction;
     public TimeAfterStartInteraction timeAfterStartInteraction;
+    public Options callByCodeInteraction;
 }
