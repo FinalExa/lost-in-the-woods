@@ -54,6 +54,7 @@ public class NamedInteractionExecutor : MonoBehaviour
 
     public void NameAndStateChange(string newName, bool newState)
     {
+        ExitFromAllInteractions();
         thisName = newName;
         active = newState;
         ForceCheck();
