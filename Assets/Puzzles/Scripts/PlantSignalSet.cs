@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlantSignalSet : MonoBehaviour, ISendSignalToSelf
 {
     public int startingState;
-    [HideInInspector] public int currentState;
+    public int currentState;
     [System.Serializable]
     public struct PlantSignalState
     {
@@ -46,5 +46,7 @@ public class PlantSignalSet : MonoBehaviour, ISendSignalToSelf
         currentState = stateIndex;
         namedInteractionExecutor.NameAndStateChange(plantSignalStates[stateIndex].stateSignalName, plantSignalStates[stateIndex].stateActive);
         spriteRenderer.sprite = plantSignalStates[stateIndex].stateSprite;
+        interaction.objectToSetActiveStatus.SetActive(false);
+        interaction.objectToSetActiveStatus.SetActive(true);
     }
 }

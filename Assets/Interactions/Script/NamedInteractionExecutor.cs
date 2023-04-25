@@ -78,7 +78,7 @@ public class NamedInteractionExecutor : MonoBehaviour
 
     private void ExitFromAllInteractions()
     {
-        if (interactingWith != null)
+        if (interactingWith != null && interactingWith.Count > 0 && active)
         {
             foreach (Interaction interaction in interactingWith)
             {
