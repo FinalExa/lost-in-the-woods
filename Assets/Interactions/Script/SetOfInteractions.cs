@@ -68,6 +68,8 @@ public class SetOfInteractions : ScriptableObject
         public bool sendsSignalToSelf;
         public bool hasSpecialCondition;
         public bool secondaryAttackInteraction;
+        public bool hasPlantId;
+        public int plantId;
         [Header("UX Effects on Interaction")]
         public UXEffect uxOnInteraction;
         [HideInInspector] public bool uxOnInteractionInitialized;

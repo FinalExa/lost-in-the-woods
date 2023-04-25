@@ -59,9 +59,13 @@ public class InteractionOptions
     private void Transform(SetOfInteractions.Options options, bool turnsOff)
     {
         GameObject spawnedObject = SpawnObject(options.transformedRef, Vector3.zero);
-        PlantSignalSet plantSignalSetOfThisObject = interaction.gameObject.GetComponent<PlantSignalSet>();
         PlantSignalSet plantSignalSetOfSpawnedObject = spawnedObject.gameObject.GetComponent<PlantSignalSet>();
-        if (plantSignalSetOfThisObject != null && plantSignalSetOfSpawnedObject != null) plantSignalSetOfSpawnedObject.startingState = plantSignalSetOfThisObject.currentState;
+        if (!options.hasPlantId)
+        {
+            PlantSignalSet plantSignalSetOfThisObject = interaction.gameObject.GetComponent<PlantSignalSet>();
+            if (plantSignalSetOfThisObject != null && plantSignalSetOfSpawnedObject != null) plantSignalSetOfSpawnedObject.startingState = plantSignalSetOfThisObject.currentState;
+        }
+        else if (plantSignalSetOfSpawnedObject != null) plantSignalSetOfSpawnedObject.startingState = options.plantId;
         DestroyOrTurnOff(turnsOff);
     }
 

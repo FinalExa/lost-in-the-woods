@@ -1,66 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4232737279013433999
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5059472602834362321}
-  - component: {fileID: 9009708427711880560}
-  - component: {fileID: 3136219952177735704}
-  m_Layer: 0
-  m_Name: Named
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5059472602834362321
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4232737279013433999}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3703071539599798944}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9009708427711880560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4232737279013433999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0eca4a9e1534ba4f944878999c913a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisName: 
-  active: 0
-  inLoop: 0
---- !u!135 &3136219952177735704
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4232737279013433999}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.55
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5477770951886658404
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6395110103217412864}
-  - component: {fileID: 8740155358795675170}
   - component: {fileID: 1051971502567804650}
   - component: {fileID: 6031758856537235096}
   - component: {fileID: 3939637572597450188}
@@ -107,34 +45,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8740155358795675170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5477770951886658404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1ec755f32b237742a145b82f10d362b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingState: 0
-  interactAfterSet: 0
-  currentState: 0
-  plantSignalStates:
-  - stateRequiredName: Light
-    stateRequiredAttackType: 3
-    stateSignalName: Shroom
-    stateActive: 0
-    stateSprite: {fileID: 0}
-  - stateRequiredName: Infestation
-    stateRequiredAttackType: 2
-    stateSignalName: Shroom
-    stateActive: 0
-    stateSprite: {fileID: 0}
-  namedInteractionExecutor: {fileID: 9009708427711880560}
-  spriteRenderer: {fileID: 0}
 --- !u!114 &1051971502567804650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,7 +265,7 @@ MonoBehaviour:
   setOfInteractions: {fileID: 11400000, guid: ae69a235a27bca041a61da291775c10c, type: 2}
   affectedByLightRef: {fileID: 0}
   rotator: {fileID: 0}
-  objectToSetActiveStatus: {fileID: 4232737279013433999}
+  objectToSetActiveStatus: {fileID: 0}
   despawned: 0
   locked: 0
 --- !u!114 &8595883062675126321
@@ -458,7 +368,6 @@ Transform:
   m_Children:
   - {fileID: 8123433773573123154}
   - {fileID: 7447005443702111619}
-  - {fileID: 5059472602834362321}
   m_Father: {fileID: 6395110103217412864}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

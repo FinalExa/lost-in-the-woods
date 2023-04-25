@@ -95,10 +95,13 @@ public class BrambleController : EnemyController, ISendSignalToSelf
 
     private void ShootBrambleBall(Vector3 direction)
     {
-        GameObject brambleBall = Instantiate(brambleBallRef, this.transform.position + Vector3.Scale(direction, (Vector3.one * currentRadius / 2f)), Quaternion.identity, spawnerRef.transform);
+        Transform parent;
+        if (spawnerRef != null) parent = spawnerRef.transform;
+        else parent = null;
+        GameObject brambleBall = Instantiate(brambleBallRef, this.transform.position + Vector3.Scale(direction, (Vector3.one * currentRadius / 2f)), Quaternion.identity, parent);
         GrabbableByPlayer grabbableByPlayer = brambleBall.gameObject.GetComponent<GrabbableByPlayer>();
         grabbableByPlayer.ManualStartup();
-        grabbableByPlayer.SetStartParent(spawnerRef.transform);
+        grabbableByPlayer.SetStartParent(parent);
         grabbableByPlayer.ReleaseFromBeingGrabbed();
     }
 }
