@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlantSignalSet : MonoBehaviour, ISendSignalToSelf
+public class PlantSignalSet : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttackType
 {
     public int startingState;
     public int currentState;
@@ -10,6 +10,7 @@ public class PlantSignalSet : MonoBehaviour, ISendSignalToSelf
     public struct PlantSignalState
     {
         public string stateRequiredName;
+        public WeaponAttack.WeaponAttackType stateRequiredAttackType;
         public string stateSignalName;
         public bool stateActive;
         public Sprite stateSprite;
@@ -18,6 +19,7 @@ public class PlantSignalSet : MonoBehaviour, ISendSignalToSelf
     [SerializeField] private NamedInteractionExecutor namedInteractionExecutor;
     [SerializeField] private SpriteRenderer spriteRenderer;
     private Interaction interaction;
+    public WeaponAttack.WeaponAttackType ReceivedWeaponAttackType { get; set; }
 
     private void Awake()
     {
@@ -32,9 +34,10 @@ public class PlantSignalSet : MonoBehaviour, ISendSignalToSelf
 
     public void OnSignalReceived(GameObject source)
     {
+        print(source.name);
         for (int i = 0; i < plantSignalStates.Length; i++)
         {
-            if (interaction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(plantSignalStates[i].stateRequiredName) && currentState != i)
+            if ((interaction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(plantSignalStates[i].stateRequiredName) || (ReceivedWeaponAttackType == plantSignalStates[i].stateRequiredAttackType)) && currentState != i)
             {
                 SetPlantState(i);
             }

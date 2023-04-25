@@ -431,14 +431,17 @@ MonoBehaviour:
   currentState: 0
   plantSignalStates:
   - stateRequiredName: None
+    stateRequiredAttackType: 0
     stateSignalName: 
     stateActive: 0
     stateSprite: {fileID: 21300000, guid: 52e5955ce1a3f64488cad9b046fe3cef, type: 3}
   - stateRequiredName: Light
+    stateRequiredAttackType: 3
     stateSignalName: LampPlant
     stateActive: 1
     stateSprite: {fileID: 21300000, guid: 3e0969875311e7e4ca6921209e48b3d5, type: 3}
   - stateRequiredName: Infestation
+    stateRequiredAttackType: 2
     stateSignalName: CorruptionPlant
     stateActive: 1
     stateSprite: {fileID: 21300000, guid: d73fdc4597bf7ee459d5c0ed977bb14a, type: 3}
