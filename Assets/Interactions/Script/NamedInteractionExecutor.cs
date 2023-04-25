@@ -57,20 +57,7 @@ public class NamedInteractionExecutor : MonoBehaviour
         thisName = newName;
         active = newState;
         ForceCheck();
-        ExecuteAllInteractions();
     }
-
-    private void ExecuteAllInteractions()
-    {
-        if (active)
-        {
-            foreach (Interaction interaction in interactingWith)
-            {
-                interaction.NamedInteractionExecute(this, this.gameObject);
-            }
-        }
-    }
-
     private void ExecuteNamedInteraction(Interaction interaction)
     {
         if (interaction != null && active && !interactingWith.Contains(interaction))
