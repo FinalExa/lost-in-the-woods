@@ -46,7 +46,7 @@ public class ZoneObjects
                 GameObject spawnedObjectRef = GameObject.Instantiate(objectToSpawn, importantObjectData.objectPosition, Quaternion.identity, zoneRef.transform);
                 ZoneImportantObject zoneImportantObject = spawnedObjectRef.GetComponent<ZoneImportantObject>();
                 zoneImportantObject.rotator.transform.eulerAngles = importantObjectData.objectRotatorEulerAngles;
-                if (zoneImportantObject.plantSignalSet != null) zoneImportantObject.plantSignalSet.SetPlantState(importantObjectData.plantSignalState);
+                if (zoneImportantObject.plantSignalSet != null) zoneImportantObject.plantSignalSet.startingState = importantObjectData.plantSignalState;
             }
         }
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlantSignalSet : MonoBehaviour, ISendSignalToSelf
 {
-    [SerializeField] private int startingState;
+    public int startingState;
     [HideInInspector] public int currentState;
     [System.Serializable]
     public struct PlantSignalState
