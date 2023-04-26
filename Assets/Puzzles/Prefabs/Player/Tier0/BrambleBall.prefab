@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: -6269373168636999820}
   - component: {fileID: 8758143008440390022}
   - component: {fileID: 4830499187636917438}
-  - component: {fileID: 2867043437175303578}
   - component: {fileID: -5517505262360356275}
   - component: {fileID: 2114393513771127108}
   - component: {fileID: 4014776901287296293}
@@ -90,21 +89,6 @@ MonoBehaviour:
   objectToSetActiveStatus: {fileID: 0}
   despawned: 0
   locked: 0
---- !u!114 &2867043437175303578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4014776901287296295}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0eca4a9e1534ba4f944878999c913a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisName: BrambleBall
-  active: 1
-  inLoop: 0
 --- !u!114 &-5517505262360356275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +104,7 @@ MonoBehaviour:
   playerRef: {fileID: 0}
   thisRb: {fileID: 0}
   startParent: {fileID: 0}
+  lockedGrabbable: 0
 --- !u!135 &2114393513771127108
 SphereCollider:
   m_ObjectHideFlags: 0

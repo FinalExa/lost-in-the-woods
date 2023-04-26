@@ -125,7 +125,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4811315696665080915}
-  - component: {fileID: 4538220367932226767}
   - component: {fileID: -1803685801130573678}
   - component: {fileID: 8390776993204670986}
   - component: {fileID: 4245525182970625206}
@@ -133,6 +132,7 @@ GameObject:
   - component: {fileID: 8478715095435266576}
   - component: {fileID: 7977311028775035630}
   - component: {fileID: -2364141553781317849}
+  - component: {fileID: 4538220367932226767}
   m_Layer: 6
   m_Name: UnstableFertileTerrain
   m_TagString: Ground
@@ -156,19 +156,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4538220367932226767
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8401036359760750068}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.25, z: 1}
-  m_Center: {x: 0, y: 0.375, z: 0}
 --- !u!114 &-1803685801130573678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,3 +283,17 @@ MonoBehaviour:
   destroyedByZone: 0
   id: -1
   thisZone: {fileID: 0}
+  plantSignalSet: {fileID: 0}
+--- !u!65 &4538220367932226767
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8401036359760750068}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.25, z: 1}
+  m_Center: {x: 0, y: 0.375, z: 0}

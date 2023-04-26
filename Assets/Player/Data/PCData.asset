@@ -23,6 +23,7 @@ MonoBehaviour:
   lightUpMaxLightRadius: 12
   lightUpMinLightRadius: 1
   receivedDamagePerSecond: 10
+  healthLimit: 10
   defaultMovementSpeed: 5.7
   lightUpMovementSpeed: 5
   grabObjectMovementSpeed: 4

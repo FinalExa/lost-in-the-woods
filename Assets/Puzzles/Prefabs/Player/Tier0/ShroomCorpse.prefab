@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 809524107923366735}
   - component: {fileID: 6715597373821316857}
   - component: {fileID: 911349247788159816}
-  - component: {fileID: 2576409215562440935}
   - component: {fileID: 6233606446062444267}
   - component: {fileID: 809524107923366734}
   - component: {fileID: 7454403387121205158}
@@ -68,21 +67,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisType: 2
   ignoresDamage: 1
---- !u!114 &2576409215562440935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809524107923366733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0eca4a9e1534ba4f944878999c913a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisName: Shroom
-  active: 1
-  inLoop: 0
 --- !u!114 &6233606446062444267
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -137,4 +137,9 @@ public class Interaction : MonoBehaviour
         yield return new WaitForSeconds(lockedTime);
         locked = false;
     }
+
+    public void ExecuteCallByCodeInteraction()
+    {
+        interactionOptions.Interact(setOfInteractions.callByCodeInteraction, this.gameObject, setOfInteractions.turnsOff);
+    }
 }

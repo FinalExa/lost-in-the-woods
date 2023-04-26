@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlantSignalSet : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttackType
 {
     public int startingState;
-    public int currentState;
+    [SerializeField] private bool interactAfterSet;
+    [HideInInspector] public int currentState;
     [System.Serializable]
     public struct PlantSignalState
     {
@@ -36,10 +37,7 @@ public class PlantSignalSet : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttac
     {
         for (int i = 0; i < plantSignalStates.Length; i++)
         {
-            if ((interaction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(plantSignalStates[i].stateRequiredName) || (ReceivedWeaponAttackType == plantSignalStates[i].stateRequiredAttackType)) && currentState != i)
-            {
-                SetPlantState(i);
-            }
+            if ((interaction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(plantSignalStates[i].stateRequiredName) || (ReceivedWeaponAttackType == plantSignalStates[i].stateRequiredAttackType)) && currentState != i) SetPlantState(i);
         }
     }
 
@@ -47,8 +45,9 @@ public class PlantSignalSet : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttac
     {
         currentState = stateIndex;
         namedInteractionExecutor.NameAndStateChange(plantSignalStates[stateIndex].stateSignalName, plantSignalStates[stateIndex].stateActive);
-        spriteRenderer.sprite = plantSignalStates[stateIndex].stateSprite;
+        if (plantSignalStates[stateIndex].stateSprite != null && spriteRenderer != null) spriteRenderer.sprite = plantSignalStates[stateIndex].stateSprite;
         interaction.objectToSetActiveStatus.SetActive(false);
         interaction.objectToSetActiveStatus.SetActive(true);
+        if (interactAfterSet) interaction.ExecuteCallByCodeInteraction();
     }
 }

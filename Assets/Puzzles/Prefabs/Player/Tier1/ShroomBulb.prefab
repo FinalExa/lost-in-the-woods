@@ -60,8 +60,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0eca4a9e1534ba4f944878999c913a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisName: LightBulb
-  active: 1
+  thisName: 
+  active: 0
   inLoop: 0
 --- !u!1 &501519691474062153
 GameObject:
@@ -381,15 +381,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6552628957484814743}
-  - component: {fileID: -3820361783045568981}
+  - component: {fileID: 8744801258281481636}
+  - component: {fileID: -2858914042082743359}
   - component: {fileID: -6554840796819847052}
   - component: {fileID: 864091193381167550}
   - component: {fileID: 527383757885418547}
+  - component: {fileID: 8667516665438043082}
   - component: {fileID: 6552628957484814742}
   - component: {fileID: 4334707138704412721}
-  - component: {fileID: 8667516665438043082}
   m_Layer: 0
-  m_Name: LightBulb
+  m_Name: ShroomBulb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -411,7 +412,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-3820361783045568981
+--- !u!114 &8744801258281481636
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -420,7 +421,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 6552628957484814741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfddfc2ee42b1844a84c404571cc2023, type: 3}
+  m_Script: {fileID: 11500000, guid: c1ec755f32b237742a145b82f10d362b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingState: 0
+  currentState: 0
+  plantSignalStates:
+  - stateRequiredName: Light
+    stateRequiredAttackType: 3
+    stateSignalName: LightBulb
+    stateActive: 1
+    stateSprite: {fileID: 21300000, guid: b679c6ab00296ab4989f716528bcac77, type: 3}
+  - stateRequiredName: Infestation
+    stateRequiredAttackType: 2
+    stateSignalName: FogPlant
+    stateActive: 1
+    stateSprite: {fileID: 21300000, guid: 95dd4c7dc52050c4db485d3bbb922b4c, type: 3}
+  namedInteractionExecutor: {fileID: 501519691259037640}
+  spriteRenderer: {fileID: 130143543159225049}
+--- !u!114 &-2858914042082743359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6552628957484814741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8f8473b8ee35c84dbe683e99b3f1c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerRef: {fileID: 0}
@@ -477,6 +505,24 @@ MonoBehaviour:
   objectToSetActiveStatus: {fileID: 501519691259037643}
   despawned: 0
   locked: 0
+--- !u!114 &8667516665438043082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6552628957484814741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17c23234d0e5434c8a38588de7ffee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnDataName: ShroomBulb
+  rotator: {fileID: 796220788007259571}
+  destroyedByZone: 0
+  id: -1
+  thisZone: {fileID: 0}
+  plantSignalSet: {fileID: 8744801258281481636}
 --- !u!54 &6552628957484814742
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -507,20 +553,3 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8667516665438043082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6552628957484814741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e17c23234d0e5434c8a38588de7ffee3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnDataName: LightBulb
-  rotator: {fileID: 796220788007259571}
-  destroyedByZone: 0
-  id: -1
-  thisZone: {fileID: 0}

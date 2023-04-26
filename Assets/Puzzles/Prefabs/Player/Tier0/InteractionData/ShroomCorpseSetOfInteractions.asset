@@ -35,96 +35,8 @@ MonoBehaviour:
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
-      uxOnInteraction:
-        hasSound: 0
-        sound:
-          clip: {fileID: 0}
-          priority: 0
-          volume: 0
-          pitch: 0
-          stereoPan: 0
-          spatialBlend: 0
-          reverbZoneMix: 0
-          loop: 0
-          playOnAwake: 0
-          mixer: {fileID: 0}
-        hasSpriteColorChange: 0
-        spriteColorChange:
-          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-          spriteRef: {fileID: 0}
-          spriteColorChangeDuration: 0
-        hasCameraShake: 0
-        cameraShake:
-          shakeAmplitude: 0
-          shakeFrequency: 0
-          shakeDuration: 0
-          cinemachineCameraShakerRef: {fileID: 0}
-        soundParent: {fileID: 0}
-      uxOnInteractionInitialized: 0
-  - attackType: 3
-    destroyAttackSourceObject: 0
-    options:
-      isDestroyed: 0
-      isTransformed: 1
-      transformedRef: {fileID: 6552628957484814741, guid: 32a28184350f49a4da7af54d294e555f, type: 3}
-      canSetObjectActiveStatus: 0
-      objectActiveStatus: 0
-      canSpawnObject: 0
-      objectToSpawn: {fileID: 0}
-      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
-      rotates: 0
-      rotateValue: 0
-      isMoved: 0
-      movementDistance: 0
-      movementTime: 0
-      sendsSignalToSelf: 0
-      hasSpecialCondition: 0
-      secondaryAttackInteraction: 0
-      uxOnInteraction:
-        hasSound: 0
-        sound:
-          clip: {fileID: 0}
-          priority: 0
-          volume: 0
-          pitch: 0
-          stereoPan: 0
-          spatialBlend: 0
-          reverbZoneMix: 0
-          loop: 0
-          playOnAwake: 0
-          mixer: {fileID: 0}
-        hasSpriteColorChange: 0
-        spriteColorChange:
-          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-          spriteRef: {fileID: 0}
-          spriteColorChangeDuration: 0
-        hasCameraShake: 0
-        cameraShake:
-          shakeAmplitude: 0
-          shakeFrequency: 0
-          shakeDuration: 0
-          cinemachineCameraShakerRef: {fileID: 0}
-        soundParent: {fileID: 0}
-      uxOnInteractionInitialized: 0
-  - attackType: 2
-    destroyAttackSourceObject: 0
-    options:
-      isDestroyed: 0
-      isTransformed: 1
-      transformedRef: {fileID: 7791339849050343983, guid: 077cf2652ec047d488056ed402d81cff, type: 3}
-      canSetObjectActiveStatus: 0
-      objectActiveStatus: 0
-      canSpawnObject: 0
-      objectToSpawn: {fileID: 0}
-      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
-      rotates: 0
-      rotateValue: 0
-      isMoved: 0
-      movementDistance: 0
-      movementTime: 0
-      sendsSignalToSelf: 0
-      hasSpecialCondition: 0
-      secondaryAttackInteraction: 0
+      hasPlantId: 0
+      plantId: 0
       uxOnInteraction:
         hasSound: 0
         sound:
@@ -170,6 +82,102 @@ MonoBehaviour:
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
       secondaryAttackInteraction: 1
+      hasPlantId: 0
+      plantId: 0
+      uxOnInteraction:
+        hasSound: 0
+        sound:
+          clip: {fileID: 0}
+          priority: 0
+          volume: 0
+          pitch: 0
+          stereoPan: 0
+          spatialBlend: 0
+          reverbZoneMix: 0
+          loop: 0
+          playOnAwake: 0
+          mixer: {fileID: 0}
+        hasSpriteColorChange: 0
+        spriteColorChange:
+          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+          spriteRef: {fileID: 0}
+          spriteColorChangeDuration: 0
+        hasCameraShake: 0
+        cameraShake:
+          shakeAmplitude: 0
+          shakeFrequency: 0
+          shakeDuration: 0
+          cinemachineCameraShakerRef: {fileID: 0}
+        soundParent: {fileID: 0}
+      uxOnInteractionInitialized: 0
+  - attackType: 3
+    destroyAttackSourceObject: 0
+    options:
+      isDestroyed: 0
+      isTransformed: 1
+      transformedRef: {fileID: 6552628957484814741, guid: 32a28184350f49a4da7af54d294e555f, type: 3}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
+      rotates: 0
+      rotateValue: 0
+      isMoved: 0
+      movementDistance: 0
+      movementTime: 0
+      sendsSignalToSelf: 0
+      hasSpecialCondition: 0
+      secondaryAttackInteraction: 0
+      hasPlantId: 1
+      plantId: 0
+      uxOnInteraction:
+        hasSound: 0
+        sound:
+          clip: {fileID: 0}
+          priority: 0
+          volume: 0
+          pitch: 0
+          stereoPan: 0
+          spatialBlend: 0
+          reverbZoneMix: 0
+          loop: 0
+          playOnAwake: 0
+          mixer: {fileID: 0}
+        hasSpriteColorChange: 0
+        spriteColorChange:
+          changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+          spriteRef: {fileID: 0}
+          spriteColorChangeDuration: 0
+        hasCameraShake: 0
+        cameraShake:
+          shakeAmplitude: 0
+          shakeFrequency: 0
+          shakeDuration: 0
+          cinemachineCameraShakerRef: {fileID: 0}
+        soundParent: {fileID: 0}
+      uxOnInteractionInitialized: 0
+  - attackType: 2
+    destroyAttackSourceObject: 0
+    options:
+      isDestroyed: 0
+      isTransformed: 1
+      transformedRef: {fileID: 6552628957484814741, guid: 32a28184350f49a4da7af54d294e555f, type: 3}
+      canSetObjectActiveStatus: 0
+      objectActiveStatus: 0
+      canSpawnObject: 0
+      objectToSpawn: {fileID: 0}
+      objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
+      rotates: 0
+      rotateValue: 0
+      isMoved: 0
+      movementDistance: 0
+      movementTime: 0
+      sendsSignalToSelf: 0
+      hasSpecialCondition: 0
+      secondaryAttackInteraction: 0
+      hasPlantId: 1
+      plantId: 1
       uxOnInteraction:
         hasSound: 0
         sound:
@@ -217,6 +225,8 @@ MonoBehaviour:
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
+      hasPlantId: 1
+      plantId: 0
       uxOnInteraction:
         hasSound: 0
         sound:
@@ -262,6 +272,8 @@ MonoBehaviour:
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
+      hasPlantId: 0
+      plantId: 0
       uxOnInteraction:
         hasSound: 0
         sound:
@@ -294,7 +306,7 @@ MonoBehaviour:
     options:
       isDestroyed: 0
       isTransformed: 1
-      transformedRef: {fileID: 7791339849050343983, guid: 077cf2652ec047d488056ed402d81cff, type: 3}
+      transformedRef: {fileID: 6552628957484814741, guid: 32a28184350f49a4da7af54d294e555f, type: 3}
       canSetObjectActiveStatus: 0
       objectActiveStatus: 0
       canSpawnObject: 0
@@ -308,6 +320,8 @@ MonoBehaviour:
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
+      hasPlantId: 1
+      plantId: 1
       uxOnInteraction:
         hasSound: 0
         sound:
@@ -353,6 +367,8 @@ MonoBehaviour:
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
+      hasPlantId: 0
+      plantId: 0
       uxOnInteraction:
         hasSound: 0
         sound:
@@ -397,6 +413,8 @@ MonoBehaviour:
     sendsSignalToSelf: 0
     hasSpecialCondition: 0
     secondaryAttackInteraction: 0
+    hasPlantId: 0
+    plantId: 0
     uxOnInteraction:
       hasSound: 0
       sound:
@@ -443,6 +461,8 @@ MonoBehaviour:
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
+      hasPlantId: 0
+      plantId: 0
       uxOnInteraction:
         hasSound: 0
         sound:
@@ -487,6 +507,8 @@ MonoBehaviour:
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
+      hasPlantId: 0
+      plantId: 0
       uxOnInteraction:
         hasSound: 0
         sound:
@@ -531,6 +553,8 @@ MonoBehaviour:
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
+      hasPlantId: 0
+      plantId: 0
       uxOnInteraction:
         hasSound: 0
         sound:
@@ -578,6 +602,8 @@ MonoBehaviour:
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
+      hasPlantId: 0
+      plantId: 0
       uxOnInteraction:
         hasSound: 0
         sound:
@@ -604,3 +630,48 @@ MonoBehaviour:
           cinemachineCameraShakerRef: {fileID: 0}
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
+  callByCodeInteraction:
+    isDestroyed: 0
+    isTransformed: 1
+    transformedRef: {fileID: 6552628957484814741, guid: 32a28184350f49a4da7af54d294e555f, type: 3}
+    canSetObjectActiveStatus: 0
+    objectActiveStatus: 0
+    canSpawnObject: 0
+    objectToSpawn: {fileID: 0}
+    objectSpawnPositionOffset: {x: 0, y: 0, z: 0}
+    rotates: 0
+    rotateValue: 0
+    isMoved: 0
+    movementDistance: 0
+    movementTime: 0
+    sendsSignalToSelf: 0
+    hasSpecialCondition: 0
+    secondaryAttackInteraction: 0
+    hasPlantId: 0
+    plantId: 0
+    uxOnInteraction:
+      hasSound: 0
+      sound:
+        clip: {fileID: 0}
+        priority: 128
+        volume: 1
+        pitch: 1
+        stereoPan: 0
+        spatialBlend: 0
+        reverbZoneMix: 1
+        loop: 0
+        playOnAwake: 0
+        mixer: {fileID: 0}
+      hasSpriteColorChange: 0
+      spriteColorChange:
+        changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+        spriteRef: {fileID: 0}
+        spriteColorChangeDuration: 0
+      hasCameraShake: 0
+      cameraShake:
+        shakeAmplitude: 0
+        shakeFrequency: 0
+        shakeDuration: 0
+        cinemachineCameraShakerRef: {fileID: 0}
+      soundParent: {fileID: 0}
+    uxOnInteractionInitialized: 0

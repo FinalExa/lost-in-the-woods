@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 249166922592196662}
   - component: {fileID: 1079639170565201830}
   - component: {fileID: 1499536932708734254}
-  - component: {fileID: 6798857476549418956}
   - component: {fileID: 8595883062675126321}
   - component: {fileID: 870482475112301395}
   - component: {fileID: 4166100610456823755}
@@ -221,6 +220,7 @@ MonoBehaviour:
         shakeDuration: 0
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
+  comboActive: 0
   isInCombo: 0
   target: {fileID: 0}
 --- !u!114 &249166922592196662
@@ -235,7 +235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ac5936429b60842a75b0cd9bb8d77c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invertRotationLook: 0
   rotator: {fileID: 6982585701272724667}
 --- !u!114 &1079639170565201830
 MonoBehaviour:
@@ -269,21 +268,6 @@ MonoBehaviour:
   objectToSetActiveStatus: {fileID: 0}
   despawned: 0
   locked: 0
---- !u!114 &6798857476549418956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5477770951886658404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0eca4a9e1534ba4f944878999c913a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisName: Shroom
-  active: 0
-  inLoop: 0
 --- !u!114 &8595883062675126321
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -80,7 +80,7 @@ MonoBehaviour:
   isRetracted: 0
   brambleData: {fileID: 0}
   brambleBallRef: {fileID: 4014776901287296295, guid: c89ec9ec48c88a94ab08433039e855bb, type: 3}
-  brambleBallStartSpeed: 0.1
+  brambleBallStartSpeed: 0
   spriteColliderObject: {fileID: 7200053106513421008}
   uxOnFullyRetracted:
     hasSound: 0
@@ -251,6 +251,7 @@ MonoBehaviour:
         shakeDuration: 0
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
+  comboActive: 0
   isInCombo: 0
   target: {fileID: 0}
 --- !u!114 &249166922592196662
@@ -265,7 +266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ac5936429b60842a75b0cd9bb8d77c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invertRotationLook: 0
   rotator: {fileID: 6982585701272724667}
 --- !u!114 &1079639170565201830
 MonoBehaviour:
@@ -516,6 +516,7 @@ MonoBehaviour:
         shakeDuration: 0
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
+  comboActive: 0
   weaponToSet: {fileID: 581327821958723364}
   resetsPositionAndRotationOnComboEnd: 0
   destroyObjectOnComboEnd: 0

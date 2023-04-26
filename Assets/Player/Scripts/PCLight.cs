@@ -39,7 +39,7 @@ public class PCLight : MonoBehaviour
     {
         if (entitiesWithLightPayCombo.Count > 0)
         {
-            if (receivedState)
+            if (receivedState && pcHealth.currentHP > pcData.healthLimit)
             {
                 foreach (LightPayCombo lightPayCombo in entitiesWithLightPayCombo)
                 {
