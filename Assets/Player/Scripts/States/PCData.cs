@@ -18,6 +18,7 @@ public class PCData : ScriptableObject
     public float lightUpMinLightRadius;
     [Header("Light Pay")]
     public float receivedDamagePerSecond;
+    public float healthLimit;
     [Header("Movement")]
     public float defaultMovementSpeed;
     public float lightUpMovementSpeed;

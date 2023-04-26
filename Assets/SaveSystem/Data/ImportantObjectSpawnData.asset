@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: ImportantObjectSpawnData
   m_EditorClassIdentifier: 
   spawnData:
-  - spawnDataName: Hole
-    spawnDataRef: {fileID: 828246935292236319, guid: d8b14d083a12c0b40b402d683c37e6c3, type: 3}
   - spawnDataName: UnstableFertileTerrain
     spawnDataRef: {fileID: 8401036359760750068, guid: 28d8d14118317fd488bce26479af4188, type: 3}
   - spawnDataName: UnstableInfertileTerrain
