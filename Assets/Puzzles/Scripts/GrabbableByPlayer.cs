@@ -45,9 +45,24 @@ public class GrabbableByPlayer : MonoBehaviour
 
     private void UpdateOperations()
     {
+        RepositionWhileGrabbed();
+        CheckForActiveParent();
+    }
+
+    private void RepositionWhileGrabbed()
+    {
         if (this.gameObject.transform.parent != null && this.gameObject.transform.parent.gameObject.CompareTag("PlayerGrab"))
         {
             if (this.gameObject.transform.localPosition != Vector3.zero) this.gameObject.transform.localPosition = Vector3.zero;
+        }
+    }
+
+    private void CheckForActiveParent()
+    {
+        if (!startParent.gameObject.activeInHierarchy && this.gameObject.transform.parent.gameObject.CompareTag("PlayerGrab"))
+        {
+            ReleaseFromBeingGrabbed();
+            ObjectEnd();
         }
     }
 
@@ -101,8 +116,13 @@ public class GrabbableByPlayer : MonoBehaviour
     {
         if (other.gameObject.CompareTag("FallenZone") && this.gameObject.transform.parent == startParent)
         {
-            if (this.gameObject.GetComponent<EnemyController>() == null) GameObject.Destroy(this.gameObject);
-            else this.gameObject.SetActive(false);
+            ObjectEnd();
         }
+    }
+
+    private void ObjectEnd()
+    {
+        if (this.gameObject.GetComponent<EnemyController>() == null) GameObject.Destroy(this.gameObject);
+        else this.gameObject.SetActive(false);
     }
 }
