@@ -59,6 +59,7 @@ public class GrabbableByPlayer : MonoBehaviour
             {
                 thisRb.velocity = Vector3.zero;
                 thisRb.constraints = RigidbodyConstraints.FreezeAll;
+                thisRb.useGravity = false;
             }
             this.gameObject.transform.position = newParent.transform.position;
             this.gameObject.transform.parent = newParent.transform;
@@ -70,6 +71,7 @@ public class GrabbableByPlayer : MonoBehaviour
         if (thisRb != null)
         {
             thisRb.constraints = defaultConstraints;
+            thisRb.useGravity = true;
         }
         this.gameObject.transform.parent = startParent;
         pcGrabbing.SetGrabbedObjectNull();
@@ -88,5 +90,14 @@ public class GrabbableByPlayer : MonoBehaviour
     {
         ReleaseFromBeingGrabbed(pcGrabbing);
         thisRb.velocity = direction * speed;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("FallenZone") && this.gameObject.transform.parent == startParent)
+        {
+            if (this.gameObject.GetComponent<EnemyController>() == null) GameObject.Destroy(this.gameObject);
+            else this.gameObject.SetActive(false);
+        }
     }
 }
