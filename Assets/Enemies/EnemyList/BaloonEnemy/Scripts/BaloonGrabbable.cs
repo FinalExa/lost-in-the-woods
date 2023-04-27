@@ -16,4 +16,9 @@ public class BaloonGrabbable : GrabbableByPlayer
     {
         baloonEnemyController.enemyCombo.ActivateEnemyCombo();
     }
+
+    protected override void DeactivateByFall(GameObject other)
+    {
+        return;
+    }
 }

@@ -48,7 +48,11 @@ public class InteractionOptions
             grabbableByPlayerOfSpawnedObject.ManualStartup();
             grabbableByPlayerOfSpawnedObject.ReleaseFromBeingGrabbed();
             Transform parent;
-            if (thisGrabbableByPlayer != null) parent = thisGrabbableByPlayer.startParent;
+            if (thisGrabbableByPlayer != null)
+            {
+                parent = thisGrabbableByPlayer.startParent;
+                if (interaction.pcGrabbing != null && interaction.pcGrabbing.grabbedObject == thisGrabbableByPlayer) grabbableByPlayerOfSpawnedObject.needsToBeGrabbedAgainByPlayer = true;
+            }
             else parent = interaction.gameObject.transform.parent;
             grabbableByPlayerOfSpawnedObject.SetStartParent(parent);
             instantiatedObject.transform.parent = parent;

@@ -6,7 +6,7 @@ public class PCGrabbing : MonoBehaviour
 {
     private PCController pcController;
     [SerializeField] private GameObject grabPosition;
-    private GrabbableByPlayer grabbedObject;
+    [HideInInspector] public GrabbableByPlayer grabbedObject;
 
     private void Awake()
     {

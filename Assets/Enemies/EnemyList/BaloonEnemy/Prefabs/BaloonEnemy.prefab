@@ -19,9 +19,9 @@ GameObject:
   - component: {fileID: -3714416512890541913}
   - component: {fileID: 4458193498402729566}
   - component: {fileID: -9043955551362722132}
-  - component: {fileID: 7001282123244882244}
   - component: {fileID: 4992552886037869941}
   - component: {fileID: 4166100610456823755}
+  - component: {fileID: 1402380933829028205}
   m_Layer: 0
   m_Name: BaloonEnemy
   m_TagString: Enemy
@@ -258,6 +258,7 @@ MonoBehaviour:
         shakeDuration: 0
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
+  comboActive: 0
   isInCombo: 0
   target: {fileID: 0}
 --- !u!114 &1079639170565201830
@@ -324,19 +325,6 @@ MonoBehaviour:
   objectToSetActiveStatus: {fileID: 0}
   despawned: 0
   locked: 0
---- !u!65 &7001282123244882244
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5477770951886658404}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &4992552886037869941
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -375,6 +363,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!135 &1402380933829028205
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477770951886658404}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6982585701272724667
 GameObject:
   m_ObjectHideFlags: 0

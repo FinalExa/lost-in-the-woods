@@ -7,6 +7,7 @@ public class GrabbableByPlayer : MonoBehaviour
     [HideInInspector] public PCController playerRef;
     [HideInInspector] public Rigidbody thisRb;
     [HideInInspector] public Transform startParent;
+    [HideInInspector] public bool needsToBeGrabbedAgainByPlayer;
     public bool lockedGrabbable;
     private RigidbodyConstraints defaultConstraints;
     private bool defaultGravityActive;
@@ -20,6 +21,12 @@ public class GrabbableByPlayer : MonoBehaviour
     {
         if (thisRb != null) defaultConstraints = thisRb.constraints;
         if (startParent == null) SetStartParent(this.gameObject.transform.parent);
+    }
+
+    public void SetGrabbedByPlayer()
+    {
+        playerRef.pcReferences.pcGrabbing.SetGrabbedObject(this);
+        needsToBeGrabbedAgainByPlayer = false;
     }
 
     public void ManualStartup()
@@ -45,6 +52,7 @@ public class GrabbableByPlayer : MonoBehaviour
 
     private void UpdateOperations()
     {
+        if (needsToBeGrabbedAgainByPlayer) SetGrabbedByPlayer();
         RepositionWhileGrabbed();
         CheckForActiveParent();
     }
@@ -59,10 +67,9 @@ public class GrabbableByPlayer : MonoBehaviour
 
     private void CheckForActiveParent()
     {
-        if (!startParent.gameObject.activeInHierarchy && this.gameObject.transform.parent.gameObject.CompareTag("PlayerGrab"))
+        if (startParent != null && !startParent.gameObject.activeSelf && this.gameObject.transform.parent.gameObject.CompareTag("PlayerGrab"))
         {
             ReleaseFromBeingGrabbed();
-            ObjectEnd();
         }
     }
 
@@ -88,13 +95,13 @@ public class GrabbableByPlayer : MonoBehaviour
 
     public void ReleaseFromBeingGrabbed(PCGrabbing pcGrabbing)
     {
+        pcGrabbing.SetGrabbedObjectNull();
         if (thisRb != null)
         {
             thisRb.constraints = defaultConstraints;
             thisRb.useGravity = defaultGravityActive;
         }
         this.gameObject.transform.parent = startParent;
-        pcGrabbing.SetGrabbedObjectNull();
     }
 
     public void ReleaseFromBeingGrabbed()
@@ -114,7 +121,12 @@ public class GrabbableByPlayer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("FallenZone") && this.gameObject.transform.parent == startParent)
+        DeactivateByFall(other.gameObject);
+    }
+
+    protected virtual void DeactivateByFall(GameObject other)
+    {
+        if (other.CompareTag("FallenZone") && this.gameObject.transform.parent == startParent)
         {
             ObjectEnd();
         }
