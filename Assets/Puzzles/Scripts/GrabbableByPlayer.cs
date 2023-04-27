@@ -9,6 +9,7 @@ public class GrabbableByPlayer : MonoBehaviour
     [HideInInspector] public Transform startParent;
     public bool lockedGrabbable;
     private RigidbodyConstraints defaultConstraints;
+    private bool defaultGravityActive;
     protected virtual void Awake()
     {
         if (playerRef == null) playerRef = FindObjectOfType<PCController>();
@@ -25,7 +26,11 @@ public class GrabbableByPlayer : MonoBehaviour
     {
         playerRef = FindObjectOfType<PCController>();
         thisRb = this.gameObject.GetComponent<Rigidbody>();
-        if (thisRb != null) defaultConstraints = thisRb.constraints;
+        if (thisRb != null)
+        {
+            defaultConstraints = thisRb.constraints;
+            defaultGravityActive = thisRb.useGravity;
+        }
     }
 
     public void SetStartParent(Transform parent)
@@ -71,7 +76,7 @@ public class GrabbableByPlayer : MonoBehaviour
         if (thisRb != null)
         {
             thisRb.constraints = defaultConstraints;
-            thisRb.useGravity = true;
+            thisRb.useGravity = defaultGravityActive;
         }
         this.gameObject.transform.parent = startParent;
         pcGrabbing.SetGrabbedObjectNull();
