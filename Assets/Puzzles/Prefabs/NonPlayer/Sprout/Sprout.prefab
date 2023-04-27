@@ -172,6 +172,10 @@ MonoBehaviour:
   darkMistPlantName: DarkMistPlant
   corruptionAuraSproutName: CorruptionAuraSprout
   deadSproutRef: {fileID: -3825658328938008349, guid: 0d4bc8a1779ef5446bfff08e993cd8e6, type: 3}
+  lampPlantIn: 0
+  corruptionPlantIn: 0
+  guidingLightPlantIn: 0
+  darkMistPlantIn: 0
 --- !u!114 &2996341008025685492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +193,7 @@ MonoBehaviour:
   rotator: {fileID: 0}
   objectToSetActiveStatus: {fileID: 0}
   despawned: 0
+  locked: 0
 --- !u!65 &3699790399310125317
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -227,7 +232,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
