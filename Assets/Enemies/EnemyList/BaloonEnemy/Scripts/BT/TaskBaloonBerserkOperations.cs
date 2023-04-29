@@ -15,7 +15,7 @@ public class TaskBaloonBerserkOperations : Node
     {
         if (baloonEnemyController.vulnerable || baloonEnemyController.enemyHealth.currentHP <= 0)
         {
-            baloonEnemyController.grabbableByPlayer.ReleaseFromBeingGrabbed(baloonEnemyController.playerRef.pcReferences.pcGrabbing);
+            baloonEnemyController.grabbableByPlayer.ReleaseFromBeingGrabbed();
             baloonEnemyController.HPReset();
         }
         return NodeState.FAILURE;

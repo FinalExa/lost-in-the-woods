@@ -11,16 +11,39 @@ public class GrabbableByPlayer : MonoBehaviour
     public bool lockedGrabbable;
     private RigidbodyConstraints defaultConstraints;
     private bool defaultGravityActive;
+    private Zone zoneRef;
+    private List<GameObject> parentOrder;
+    private bool parentOrderEnabled;
+    private PCGrabbing pcGrabbing;
     protected virtual void Awake()
     {
+        ZonePuzzle.deactivatingPuzzleObject += CheckForActiveParent;
         if (playerRef == null) playerRef = FindObjectOfType<PCController>();
         if (thisRb == null) thisRb = this.gameObject.GetComponent<Rigidbody>();
+        pcGrabbing = FindObjectOfType<PCGrabbing>();
+        zoneRef = this.gameObject.transform.GetComponentInParent<Zone>();
+        SetupParentOrder();
     }
 
     private void Start()
     {
         if (thisRb != null) defaultConstraints = thisRb.constraints;
         if (startParent == null) SetStartParent(this.gameObject.transform.parent);
+    }
+
+    private void SetupParentOrder()
+    {
+        if (zoneRef != null)
+        {
+            parentOrder = new List<GameObject>();
+            parentOrderEnabled = true;
+            Transform parent = this.gameObject.transform.parent;
+            while (parent.gameObject != zoneRef.gameObject)
+            {
+                parentOrder.Add(parent.gameObject);
+                parent = parent.parent;
+            }
+        }
     }
 
     public void SetGrabbedByPlayer()
@@ -54,7 +77,6 @@ public class GrabbableByPlayer : MonoBehaviour
     {
         if (needsToBeGrabbedAgainByPlayer) SetGrabbedByPlayer();
         RepositionWhileGrabbed();
-        CheckForActiveParent();
     }
 
     private void RepositionWhileGrabbed()
@@ -65,11 +87,18 @@ public class GrabbableByPlayer : MonoBehaviour
         }
     }
 
-    private void CheckForActiveParent()
+    private void CheckForActiveParent(Zone receivedZone, GameObject receivedObject)
     {
-        if (startParent != null && !startParent.gameObject.activeSelf && this.gameObject.transform.parent.gameObject.CompareTag("PlayerGrab"))
+        if (parentOrderEnabled && receivedZone != null && receivedZone == zoneRef)
         {
-            ReleaseFromBeingGrabbed();
+            foreach (GameObject parent in parentOrder)
+            {
+                if (parent == receivedObject)
+                {
+                    pcGrabbing.RemoveGrabbedObject(false);
+                    break;
+                }
+            }
         }
     }
 
@@ -93,9 +122,9 @@ public class GrabbableByPlayer : MonoBehaviour
         }
     }
 
-    public void ReleaseFromBeingGrabbed(PCGrabbing pcGrabbing)
+    public void ReleaseFromBeingGrabbed()
     {
-        pcGrabbing.SetGrabbedObjectNull();
+        if (pcGrabbing.grabbedObject == this) pcGrabbing.SetGrabbedObjectNull();
         if (thisRb != null)
         {
             thisRb.constraints = defaultConstraints;
@@ -104,18 +133,9 @@ public class GrabbableByPlayer : MonoBehaviour
         this.gameObject.transform.parent = startParent;
     }
 
-    public void ReleaseFromBeingGrabbed()
-    {
-        if (thisRb != null)
-        {
-            thisRb.constraints = defaultConstraints;
-        }
-        this.gameObject.transform.parent = startParent;
-    }
-
     public virtual void MainOperation(PCGrabbing pcGrabbing, Vector3 direction, float speed)
     {
-        ReleaseFromBeingGrabbed(pcGrabbing);
+        ReleaseFromBeingGrabbed();
         thisRb.velocity = direction * speed;
     }
 

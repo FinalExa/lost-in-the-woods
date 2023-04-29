@@ -57,9 +57,11 @@ public class PCMovingGrab : PCState
 
     private void Transitions()
     {
+        Debug.Log("In State");
         Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
-        if (!_pcStateMachine.pcController.pcReferences.pcGrabbing.GrabbedObjectExists())
+        if (_pcStateMachine.pcController.pcReferences.pcGrabbing.grabbedObject == null)
         {
+            Debug.Log("Should Exit");
             GoToIdleState(inputs);
             GoToMovingState(inputs);
         }

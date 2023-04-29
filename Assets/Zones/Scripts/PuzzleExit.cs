@@ -8,6 +8,6 @@ public class PuzzleExit : MonoBehaviour
 
     private void OnDisable()
     {
-        zoneRef.zonePuzzle.ZonePuzzleEnd();
+        if (zoneRef.zonePuzzle.puzzleActive) zoneRef.zonePuzzle.ZonePuzzleEnd();
     }
 }

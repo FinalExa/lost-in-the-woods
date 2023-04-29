@@ -57,7 +57,7 @@ public class PCGrabbing : MonoBehaviour
         {
             StartCoroutine(pcController.pcReferences.pcCombo.LockPlayerAttack(pcController.pcReferences.pcData.afterLaunchLockAttackTime));
             if (mainOp) ExecuteMainOperationOnObject();
-            else grabbedObject.ReleaseFromBeingGrabbed(this);
+            else grabbedObject.ReleaseFromBeingGrabbed();
         }
     }
 
