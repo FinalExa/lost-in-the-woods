@@ -187,6 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingState: 0
+  interactAfterSet: 0
   currentState: 0
   plantSignalStates:
   - stateRequiredName: Light

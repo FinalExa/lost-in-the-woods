@@ -28,7 +28,7 @@ public class PCIdleGrab : PCState
     private void Transitions()
     {
         Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
-        if (!_pcStateMachine.pcController.pcReferences.pcGrabbing.GrabbedObjectExists())
+        if (_pcStateMachine.pcController.pcReferences.pcGrabbing.grabbedObject == null)
         {
             GoToIdleState(inputs);
             GoToMovingState(inputs);

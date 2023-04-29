@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class ZonePuzzle
     [Header("Filling these is not mandatory, do it if you want to activate/deactivate stuff when the puzzle ends.")]
     [SerializeField] private GameObject activateOnPuzzleEnd;
     [SerializeField] private GameObject deactivateOnPuzzleEnd;
+    public static Action<Zone, GameObject> deactivatingPuzzleObject;
 
     public void ZonePuzzleStartup(Zone zone)
     {
@@ -44,10 +46,15 @@ public class ZonePuzzle
     {
         if (zoneHasPuzzle)
         {
+            if (deactivatingPuzzleObject != null) deactivatingPuzzleObject(zoneRef, puzzleActiveParent);
             puzzleActiveParent.SetActive(false);
             puzzleInactiveParent.SetActive(true);
             if (activateOnPuzzleEnd != null) activateOnPuzzleEnd.SetActive(true);
-            if (deactivateOnPuzzleEnd != null) deactivateOnPuzzleEnd.SetActive(false);
+            if (deactivateOnPuzzleEnd != null)
+            {
+                if (deactivatingPuzzleObject != null) deactivatingPuzzleObject(zoneRef, deactivateOnPuzzleEnd);
+                deactivateOnPuzzleEnd.SetActive(false);
+            }
             puzzleDone = true;
             puzzleActive = false;
         }

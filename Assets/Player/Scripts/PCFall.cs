@@ -56,14 +56,12 @@ public class PCFall : MonoBehaviour
     {
         touchingGround = true;
         pcReferences.rb.useGravity = false;
-        //pcReferences.rb.constraints = playerConstraints;
     }
 
     private void SetNotOnGround()
     {
         touchingGround = false;
         pcReferences.rb.useGravity = true;
-        //pcReferences.rb.constraints = fallingConstraints;
     }
 
     private void OnTriggerEnter(Collider other)

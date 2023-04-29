@@ -6,7 +6,7 @@ public class PCGrabbing : MonoBehaviour
 {
     private PCController pcController;
     [SerializeField] private GameObject grabPosition;
-    private GrabbableByPlayer grabbedObject;
+    [HideInInspector] public GrabbableByPlayer grabbedObject;
 
     private void Awake()
     {
@@ -57,7 +57,7 @@ public class PCGrabbing : MonoBehaviour
         {
             StartCoroutine(pcController.pcReferences.pcCombo.LockPlayerAttack(pcController.pcReferences.pcData.afterLaunchLockAttackTime));
             if (mainOp) ExecuteMainOperationOnObject();
-            else grabbedObject.ReleaseFromBeingGrabbed(this);
+            else grabbedObject.ReleaseFromBeingGrabbed();
         }
     }
 

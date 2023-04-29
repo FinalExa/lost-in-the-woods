@@ -16,9 +16,11 @@ public class Interaction : MonoBehaviour
     public GameObject objectToSetActiveStatus;
     [HideInInspector] public bool despawned;
     [HideInInspector] public bool locked;
+    [HideInInspector] public PCGrabbing pcGrabbing;
 
     private void Awake()
     {
+        pcGrabbing = FindObjectOfType<PCGrabbing>();
         CreateAttackInteractionOptions();
     }
 
