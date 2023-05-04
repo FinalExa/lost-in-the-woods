@@ -26,5 +26,6 @@ public class GameDebug : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
         if (Input.GetKeyDown(KeyCode.L)) gameSave.LoadData();
         if (Input.GetKeyDown(KeyCode.K)) pcController.pcReferences.pcHealth.OnDeath(true);
+        if (Input.GetKeyDown(KeyCode.P)) gameSave.DeleteLoadedData();
     }
 }

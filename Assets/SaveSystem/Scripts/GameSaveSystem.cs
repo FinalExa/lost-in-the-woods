@@ -52,9 +52,7 @@ public class GameSaveSystem : MonoBehaviour
             string json = reader.ReadToEnd();
             GameData dataToApply = JsonUtility.FromJson<GameData>(json);
             if (dataToApply != null && dataToApply.sceneName == SceneManager.GetActiveScene().name) ApplyLoadedData(dataToApply);
-            else print("No Save Data or Wrong Scene");
         }
-        else print("Save Doesn't Exist");
     }
 
     private void ApplyLoadedData(GameData dataToApply)
@@ -64,5 +62,10 @@ public class GameSaveSystem : MonoBehaviour
         playerRef.pcReferences.heartbeat.SetHeartbeatTimer(false);
         if (playerRef.pcReferences.pcZoneManager.GetCurrentZone() != null) playerRef.pcReferences.pcZoneManager.GetCurrentZone().TurnOffAllEnemiesInZone();
         zoneTracker.ApplyZoneInformation(gameData.visitedZonesInformation);
+    }
+
+    public void DeleteLoadedData()
+    {
+        if (File.Exists(path)) File.Delete(path);
     }
 }
