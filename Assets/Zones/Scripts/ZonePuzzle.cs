@@ -8,7 +8,7 @@ public class ZonePuzzle
 {
     [HideInInspector] public Zone zoneRef;
     public bool zoneHasPuzzle;
-    [HideInInspector] public bool puzzleDone;
+    public bool puzzleDone;
     [HideInInspector] public bool puzzleActive;
     [Header("You must fill these with GameObjects.")]
     [SerializeField] private GameObject puzzleActiveParent;

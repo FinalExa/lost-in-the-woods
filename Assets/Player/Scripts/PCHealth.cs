@@ -39,8 +39,7 @@ public class PCHealth : Health
     public override void OnDeath(bool skipOnDeathInteraction)
     {
         if (uxOnDeath.hasSound) uxOnDeath.sound.PlayAudio();
-        gameSave.LoadData();
-        HealthAddValue(maxHP, true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public override void OnHitReceived(bool feedbackActive)
