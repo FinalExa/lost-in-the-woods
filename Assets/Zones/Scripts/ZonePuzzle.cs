@@ -8,7 +8,7 @@ public class ZonePuzzle
 {
     [HideInInspector] public Zone zoneRef;
     public bool zoneHasPuzzle;
-    [HideInInspector] public bool puzzleDone;
+    public bool puzzleDone;
     [HideInInspector] public bool puzzleActive;
     [Header("You must fill these with GameObjects.")]
     [SerializeField] private GameObject puzzleActiveParent;
@@ -35,10 +35,19 @@ public class ZonePuzzle
 
     public void PlayerHasEntered()
     {
-        if (zoneHasPuzzle && !puzzleDone)
+        if (zoneHasPuzzle)
         {
-            puzzleActiveParent.SetActive(true);
-            puzzleActive = true;
+            if (!puzzleDone)
+            {
+                puzzleInactiveParent.SetActive(false);
+                puzzleActiveParent.SetActive(true);
+                puzzleActive = true;
+            }
+            else
+            {
+                puzzleActiveParent.SetActive(false);
+                puzzleInactiveParent.SetActive(true);
+            }
         }
     }
 

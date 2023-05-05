@@ -22,7 +22,8 @@ public class ZoneTracker : MonoBehaviour
         for (int i = 0; i < zoneInformationToApply.Count; i++)
         {
             Zone zoneToOperate = gameZones[zoneInformationToApply[i].zoneId];
-            if (zoneToOperate.zonePuzzle.zoneHasPuzzle) zoneToOperate.zonePuzzle.puzzleDone = true;
+            zoneToOperate.visitedByPlayer = true;
+            zoneToOperate.zonePuzzle.puzzleDone = true;
             zoneToOperate.zoneObjects.UpdateImportantObjectsFromSave(zoneInformationToApply[i].zoneImportantObjectData);
         }
     }

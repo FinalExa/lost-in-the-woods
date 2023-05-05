@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.IO;
 using System;
 
@@ -20,8 +21,9 @@ public class GameSaveSystem : MonoBehaviour
 
     private void Start()
     {
-        gameData = new GameData(playerRef.transform.position, new List<ZoneTracker.VisitedZoneInformation>());
+        gameData = new GameData(SceneManager.GetActiveScene().name, playerRef.transform.position, new List<ZoneTracker.VisitedZoneInformation>());
         SetPaths();
+        LoadData();
     }
 
     private void SetPaths()
@@ -33,7 +35,7 @@ public class GameSaveSystem : MonoBehaviour
 
     public void SaveData(Vector3 playerPosition)
     {
-        gameData.SetGameData(playerPosition, zoneTracker.CompileZoneInformation());
+        gameData.SetGameData(SceneManager.GetActiveScene().name, playerPosition, zoneTracker.CompileZoneInformation());
         string savePath = path;
 
         string json = JsonUtility.ToJson(gameData);
@@ -44,11 +46,13 @@ public class GameSaveSystem : MonoBehaviour
 
     public void LoadData()
     {
-        using StreamReader reader = new StreamReader(path);
-        string json = reader.ReadToEnd();
-
-        GameData dataToApply = JsonUtility.FromJson<GameData>(json);
-        if (dataToApply != null) ApplyLoadedData(dataToApply);
+        if (File.Exists(path))
+        {
+            using StreamReader reader = new StreamReader(path);
+            string json = reader.ReadToEnd();
+            GameData dataToApply = JsonUtility.FromJson<GameData>(json);
+            if (dataToApply != null && dataToApply.sceneName == SceneManager.GetActiveScene().name) ApplyLoadedData(dataToApply);
+        }
     }
 
     private void ApplyLoadedData(GameData dataToApply)
@@ -56,7 +60,12 @@ public class GameSaveSystem : MonoBehaviour
         gameData = dataToApply;
         playerRef.transform.position = gameData.playerPosition;
         playerRef.pcReferences.heartbeat.SetHeartbeatTimer(false);
-        playerRef.pcReferences.pcZoneManager.GetCurrentZone().TurnOffAllEnemiesInZone();
+        if (playerRef.pcReferences.pcZoneManager.GetCurrentZone() != null) playerRef.pcReferences.pcZoneManager.GetCurrentZone().TurnOffAllEnemiesInZone();
         zoneTracker.ApplyZoneInformation(gameData.visitedZonesInformation);
+    }
+
+    public void DeleteLoadedData()
+    {
+        if (File.Exists(path)) File.Delete(path);
     }
 }
