@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7090478176754581803}
   - component: {fileID: 8631790803540630347}
   m_Layer: 0
-  m_Name: ExpandedSpikeReceiver
+  m_Name: ExpandedPlatformReceiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 7104768088363192654}
   - component: {fileID: 2681508507116809974}
   m_Layer: 0
-  m_Name: CorruptionAuraBaseSpike
+  m_Name: CorruptionAuraBasePlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 5603068068628118011}
   - component: {fileID: 1463416287622464708}
   m_Layer: 0
-  m_Name: PurityAuraExtendedSpike
+  m_Name: PurityAuraExtendedPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 7342748894965249653}
   - component: {fileID: 5867415163819454633}
   m_Layer: 0
-  m_Name: PurityAuraBaseSpike
+  m_Name: PurityAuraBasePlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -626,7 +626,7 @@ GameObject:
   - component: {fileID: 5533824644139797187}
   - component: {fileID: 3078125123952377711}
   m_Layer: 6
-  m_Name: ExpandedSpike
+  m_Name: ExpandedPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -738,7 +738,7 @@ GameObject:
   - component: {fileID: 1896304920499612974}
   - component: {fileID: 4497583454200147063}
   m_Layer: 0
-  m_Name: CorruptionAuraExtendedSpike
+  m_Name: CorruptionAuraExtendedPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -853,7 +853,7 @@ GameObject:
   - component: {fileID: 312719392091319580}
   - component: {fileID: 4751349751266063718}
   m_Layer: 6
-  m_Name: BaseSpike
+  m_Name: BasePlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -965,7 +965,7 @@ GameObject:
   - component: {fileID: 4909700948897905554}
   - component: {fileID: 2421595981695902883}
   m_Layer: 0
-  m_Name: CorruptionAuraExpandedSpike
+  m_Name: CorruptionAuraExpandedPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1090,7 +1090,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5797876138440523846}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1103,7 +1103,7 @@ Transform:
   - {fileID: 342753675067324274}
   - {fileID: 7090478176754581803}
   m_Father: {fileID: 6454512075622090764}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6454512075622090767
 GameObject:
@@ -1137,6 +1137,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5901893267613666696}
   - {fileID: 5404174652279290236}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1153,10 +1154,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6da50f9babf4849a4b03e6ffd50f97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lampPlantName: LampPlant
-  corruptionPlantName: CorruptionPlant
-  guidingLightPlantName: GuidingLightPlant
-  darkMistPlantName: DarkMistPlant
+  puritySignalName: LampPlant
+  corruptionSignalName: CorruptionPlant
+  extendRootName: GuidingLightPlant
+  expandRootName: DarkMistPlant
   fullyLockNames: []
   baseSpike: {fileID: 5020971955251011031}
   baseSpikeReceiver: {fileID: 439099101797909704}
@@ -1193,6 +1194,7 @@ MonoBehaviour:
   objectToSetActiveStatus: {fileID: 0}
   despawned: 0
   locked: 0
+  pcGrabbing: {fileID: 0}
 --- !u!54 &6454512075622090765
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1236,7 +1238,7 @@ GameObject:
   - component: {fileID: 5845678155223160880}
   - component: {fileID: 1575000344617793145}
   m_Layer: 6
-  m_Name: ExtendedSpike
+  m_Name: ExtendedPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1346,7 +1348,7 @@ GameObject:
   - component: {fileID: 2542005981723233596}
   - component: {fileID: 5430121156258541521}
   m_Layer: 0
-  m_Name: ExtendedSpikeReceiver
+  m_Name: ExtendedPlatformReceiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1394,7 +1396,7 @@ GameObject:
   - component: {fileID: 6925242558383518074}
   - component: {fileID: 439099101797909704}
   m_Layer: 0
-  m_Name: BaseSpikeReceiver
+  m_Name: BasePlatformReceiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1431,6 +1433,103 @@ MonoBehaviour:
   neededName: 
   bannedNames:
   - DeadTerrain
+--- !u!1 &8615271668837500506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5901893267613666696}
+  - component: {fileID: 5609825167281073331}
+  - component: {fileID: 1710063414019022703}
+  - component: {fileID: 4822201738399148596}
+  m_Layer: 0
+  m_Name: Spike
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5901893267613666696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8615271668837500506}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.25, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6454512075622090764}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &5609825167281073331
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8615271668837500506}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1710063414019022703
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8615271668837500506}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 412e7f8d8c635504991bee6f15ddbad1, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4822201738399148596
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8615271668837500506}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8629875050853249739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1444,7 +1543,7 @@ GameObject:
   - component: {fileID: 425876932147194063}
   - component: {fileID: 8840391347291723965}
   m_Layer: 0
-  m_Name: PurityAuraExpandedSpike
+  m_Name: PurityAuraExpandedPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
