@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class Sprout : MonoBehaviour, ISendSignalToSelf
 {
-    public SproutRoot[] sproutRoots;
-    [SerializeField] private string lampPlantName;
-    [SerializeField] private string corruptionPlantName;
-    [SerializeField] private string guidingLightPlantName;
-    [SerializeField] private string darkMistPlantName;
-    [SerializeField] private string corruptionAuraSproutName;
-    [SerializeField] private DeadSprout deadSproutRef;
+    [SerializeField] private string puritySignalName;
+    [SerializeField] private string corruptionSignalName;
+    [SerializeField] private string extendRootName;
+    [SerializeField] private string expandRootName;
+    [SerializeField] private string[] fullyLockNames;
+    [SerializeField] private GameObject baseSpike;
+    [SerializeField] private SproutRootReceiver baseSpikeReceiver;
+    [SerializeField] private GameObject[] extendedObjects;
+    [SerializeField] private SproutRootReceiver extendedSpikeReceiver;
+    [SerializeField] private GameObject[] expandedObjects;
+    [SerializeField] private SproutRootReceiver expandedSpikeReceiver;
+    [SerializeField] private GameObject[] purityObjects;
+    [SerializeField] private GameObject[] corruptionObjects;
     private Interaction thisInteraction;
-    [SerializeField] private bool lampPlantIn;
-    [SerializeField] private bool corruptionPlantIn;
-    [SerializeField] private bool guidingLightPlantIn;
-    [SerializeField] private bool darkMistPlantIn;
+    private bool fullyLocked;
+    private bool extendLocked;
+    private bool expandLocked;
 
     private void Awake()
     {
@@ -24,43 +29,63 @@ public class Sprout : MonoBehaviour, ISendSignalToSelf
 
     private void Start()
     {
-        ActivateSproutRoots();
-        CheckPlantStatus();
+        SetCurrentSproutRootStatus();
     }
 
     public void OnSignalReceived(GameObject source)
     {
-        if (NameStatus(corruptionAuraSproutName)) CreateDeadSprout();
-        else CheckPlantStatus();
+        SproutRootOperations();
     }
 
-    private void CheckPlantStatus()
+    private void SproutRootOperations()
     {
-        lampPlantIn = NameStatus(lampPlantName);
-        corruptionPlantIn = NameStatus(corruptionPlantName);
-        guidingLightPlantIn = NameStatus(guidingLightPlantName);
-        darkMistPlantIn = NameStatus(darkMistPlantName);
-        SetSproutRoots();
+        SetCurrentSproutRootStatus();
     }
 
-    private void SetSproutRoots()
+    private void CheckLocks()
     {
-        if (sproutRoots.Length > 0)
-        {
-            foreach (SproutRoot sproutRoot in sproutRoots) sproutRoot.ReceiveSignalFromParent(lampPlantIn, corruptionPlantIn, guidingLightPlantIn, darkMistPlantIn);
-        }
+        fullyLocked = !baseSpikeReceiver.GetStatus();
+        extendLocked = !extendedSpikeReceiver.GetStatus();
+        expandLocked = !expandedSpikeReceiver.GetStatus();
     }
 
-    private void ActivateSproutRoots()
+    private void SetCurrentSproutRootStatus()
     {
-        foreach (SproutRoot root in sproutRoots) root.gameObject.SetActive(true);
+        CheckLocks();
+        PlantShapeStatus();
+        ClearingStatus();
     }
 
-    private void CreateDeadSprout()
+    private void PlantShapeStatus()
     {
-        DeadSprout deadSprout = Instantiate(deadSproutRef, this.transform.position, Quaternion.identity, this.transform.parent);
-        deadSprout.sproutRoots = sproutRoots;
-        GameObject.Destroy(this.gameObject);
+        if (!fullyLocked && !extendLocked && NameStatus(extendRootName) && !NameStatus(expandRootName)) SetShape(true, true, false);
+        else if (!fullyLocked && !expandLocked && !NameStatus(extendRootName) && NameStatus(expandRootName)) SetShape(false, false, true);
+        else SetShape(true, false, false);
+    }
+
+    private void SetShape(bool baseSpikeShape, bool extendedShape, bool expandedShape)
+    {
+        baseSpike.SetActive(baseSpikeShape);
+        ArraySetActiveStatusOfObjects(extendedObjects, extendedShape);
+        ArraySetActiveStatusOfObjects(expandedObjects, expandedShape);
+    }
+
+    private void ClearingStatus()
+    {
+        if (!fullyLocked && NameStatus(puritySignalName) && !NameStatus(corruptionSignalName)) SetSignals(true, false);
+        else if (!fullyLocked && !NameStatus(puritySignalName) && NameStatus(corruptionSignalName)) SetSignals(false, true);
+        else SetSignals(false, false);
+    }
+
+    private void SetSignals(bool puritySignal, bool corruptionSignal)
+    {
+        ArraySetActiveStatusOfObjects(purityObjects, puritySignal);
+        ArraySetActiveStatusOfObjects(corruptionObjects, corruptionSignal);
+    }
+
+    private void ArraySetActiveStatusOfObjects(GameObject[] receivedArray, bool activeStatus)
+    {
+        foreach (GameObject receivedObject in receivedArray) receivedObject.SetActive(activeStatus);
     }
 
     private bool NameStatus(string nameToCheck)
