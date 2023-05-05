@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6715597373821316857}
   - component: {fileID: 911349247788159816}
   - component: {fileID: 6233606446062444267}
+  - component: {fileID: 3870312678193140667}
   - component: {fileID: 809524107923366734}
   - component: {fileID: 7454403387121205158}
   m_Layer: 0
@@ -52,6 +53,7 @@ MonoBehaviour:
   playerRef: {fileID: 0}
   thisRb: {fileID: 0}
   startParent: {fileID: 0}
+  needsToBeGrabbedAgainByPlayer: 0
   lockedGrabbable: 0
 --- !u!114 &911349247788159816
 MonoBehaviour:
@@ -85,6 +87,22 @@ MonoBehaviour:
   objectToSetActiveStatus: {fileID: 0}
   despawned: 0
   locked: 0
+  pcGrabbing: {fileID: 0}
+--- !u!114 &3870312678193140667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809524107923366733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e42f9d32989cc4e9dab2219f3e3456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  namesToActivate:
+  - SourceLight
+  - SourceInfestation
 --- !u!54 &809524107923366734
 Rigidbody:
   m_ObjectHideFlags: 0
