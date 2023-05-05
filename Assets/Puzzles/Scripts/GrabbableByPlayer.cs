@@ -146,10 +146,7 @@ public class GrabbableByPlayer : MonoBehaviour
 
     protected virtual void DeactivateByFall(GameObject other)
     {
-        if (other.CompareTag("FallenZone") && this.gameObject.transform.parent == startParent)
-        {
-            ObjectEnd();
-        }
+        if (other.CompareTag("FallenZone") && this.gameObject.transform.parent == startParent) ObjectEnd();
     }
 
     private void ObjectEnd()
