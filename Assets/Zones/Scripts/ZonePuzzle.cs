@@ -35,10 +35,19 @@ public class ZonePuzzle
 
     public void PlayerHasEntered()
     {
-        if (zoneHasPuzzle && !puzzleDone)
+        if (zoneHasPuzzle)
         {
-            puzzleActiveParent.SetActive(true);
-            puzzleActive = true;
+            if (!puzzleDone)
+            {
+                puzzleInactiveParent.SetActive(false);
+                puzzleActiveParent.SetActive(true);
+                puzzleActive = true;
+            }
+            else
+            {
+                puzzleActiveParent.SetActive(false);
+                puzzleInactiveParent.SetActive(true);
+            }
         }
     }
 
