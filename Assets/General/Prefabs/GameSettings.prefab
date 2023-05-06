@@ -105,7 +105,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa6be50822d05044bba84bda15da388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentRef: {fileID: 0}
   currentAdaptiveLight: []
+  defaultFeedbackList:
+  - BrambleBall
+  - ShroomCorpse
 --- !u!114 &5071093499760673984
 MonoBehaviour:
   m_ObjectHideFlags: 0

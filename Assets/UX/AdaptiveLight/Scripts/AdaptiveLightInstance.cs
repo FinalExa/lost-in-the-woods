@@ -22,6 +22,6 @@ public class AdaptiveLightInstance : MonoBehaviour
 
     private void QueryForActivation()
     {
-        thisLight.enabled = adaptiveLightFeedback.QueryCurrentAdaptiveLight(adaptiveLightName);
+        if (thisLight != null) thisLight.enabled = adaptiveLightFeedback.QueryCurrentAdaptiveLight(adaptiveLightName);
     }
 }

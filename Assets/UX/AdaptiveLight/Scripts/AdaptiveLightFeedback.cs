@@ -7,11 +7,13 @@ public class AdaptiveLightFeedback : MonoBehaviour
 {
     public AdaptiveLightActivator currentRef;
     public List<string> currentAdaptiveLight;
+    public List<string> defaultFeedbackList;
     public static Action adaptiveLightCheck;
 
     private void Start()
     {
         currentAdaptiveLight = new List<string>();
+        SetList(defaultFeedbackList);
     }
 
     public void ChangeAdaptiveLightList(AdaptiveLightActivator refToSet, List<string> receivedList)
@@ -23,6 +25,7 @@ public class AdaptiveLightFeedback : MonoBehaviour
 
     private void SetList(List<string> receivedList)
     {
+        currentAdaptiveLight.Clear();
         foreach (string nameToInsert in receivedList)
         {
             currentAdaptiveLight.Add(nameToInsert);
@@ -32,7 +35,7 @@ public class AdaptiveLightFeedback : MonoBehaviour
     public void ClearAdaptiveLightList()
     {
         currentRef = null;
-        currentAdaptiveLight.Clear();
+        SetList(defaultFeedbackList);
         if (adaptiveLightCheck != null) adaptiveLightCheck();
     }
 
