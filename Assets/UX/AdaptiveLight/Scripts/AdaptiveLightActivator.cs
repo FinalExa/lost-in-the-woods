@@ -25,4 +25,9 @@ public class AdaptiveLightActivator : MonoBehaviour
             else if ((this.gameObject.transform.parent == null || !this.gameObject.transform.parent.gameObject.CompareTag("PlayerGrab")) && adaptiveLightFeedback.currentRef == this) adaptiveLightFeedback.ClearAdaptiveLightList();
         }
     }
+
+    private void OnDisable()
+    {
+        if (adaptiveLightFeedback != null && adaptiveLightFeedback.currentRef == this) adaptiveLightFeedback.ClearAdaptiveLightList();
+    }
 }
