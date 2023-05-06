@@ -541,6 +541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   namesToActivate:
   - Sprout
+  - Invisibility
 --- !u!54 &6552628957484814742
 Rigidbody:
   m_ObjectHideFlags: 0
