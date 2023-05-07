@@ -208,6 +208,7 @@ MonoBehaviour:
   playerRef: {fileID: 0}
   thisRb: {fileID: 0}
   startParent: {fileID: 0}
+  needsToBeGrabbedAgainByPlayer: 0
   lockedGrabbable: 1
 --- !u!114 &8690117516297040685
 MonoBehaviour:
@@ -325,6 +326,7 @@ MonoBehaviour:
   objectToSetActiveStatus: {fileID: 0}
   despawned: 0
   locked: 0
+  pcGrabbing: {fileID: 0}
 --- !u!195 &4992552886037869941
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -333,7 +335,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5477770951886658404}
   m_Enabled: 1
-  m_AgentTypeID: -1372625422
+  m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 1000
