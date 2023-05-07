@@ -1652,6 +1652,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6454512075622090764}
     m_Modifications:
+    - target: {fileID: 5867220197069658144, guid: fff97cb1230d846408f304b120c216c6, type: 3}
+      propertyPath: m_Range
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5867220197069658146, guid: fff97cb1230d846408f304b120c216c6, type: 3}
       propertyPath: adaptiveLightName
       value: Sprout
@@ -1666,11 +1670,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5867220197069658147, guid: fff97cb1230d846408f304b120c216c6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5867220197069658147, guid: fff97cb1230d846408f304b120c216c6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.000000029802319
       objectReference: {fileID: 0}
     - target: {fileID: 5867220197069658147, guid: fff97cb1230d846408f304b120c216c6, type: 3}
       propertyPath: m_LocalRotation.w
