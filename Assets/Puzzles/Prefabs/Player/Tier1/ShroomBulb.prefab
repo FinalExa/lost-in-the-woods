@@ -458,6 +458,11 @@ MonoBehaviour:
   startParent: {fileID: 0}
   needsToBeGrabbedAgainByPlayer: 0
   lockedGrabbable: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  downOffset: 1
+  halfExtent: 0.5
 --- !u!114 &-6554840796819847052
 MonoBehaviour:
   m_ObjectHideFlags: 0
