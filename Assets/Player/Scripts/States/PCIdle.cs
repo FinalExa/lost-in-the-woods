@@ -56,7 +56,7 @@ public class PCIdle : PCState
     {
         if (inputs.DodgeInput)
         {
-            _pcStateMachine.SetState(new PCDodge(_pcStateMachine, _pcStateMachine.pcController.pcReferences.pcData.defaultDirection));
+            _pcStateMachine.SetState(new PCDodge(_pcStateMachine, _pcStateMachine.pcController.lookDirection));
         }
     }
     #endregion

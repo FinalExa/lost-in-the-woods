@@ -33,6 +33,7 @@ public class PCDodge : PCState
         _pcStateMachine.gameObject.tag = pcData.invulnerabilityTag;
         dodgeTimer = pcData.dodgeDuration;
         dodgeSpeed = pcData.dodgeDistance / pcData.dodgeDuration;
+        _pcStateMachine.pcController.pcReferences.pcRotation.rotationLocked = true;
         if (_pcStateMachine.pcController.pcReferences.uxOnDodge.hasSpriteColorChange) _pcStateMachine.pcController.pcReferences.uxOnDodge.spriteColorChange.StartColorChange();
         if (_pcStateMachine.pcController.pcReferences.uxOnDodge.hasSound) _pcStateMachine.pcController.pcReferences.uxOnDodge.sound.PlayAudio();
         startDodge = true;
@@ -65,6 +66,7 @@ public class PCDodge : PCState
         if (dodgeTimer > 0) dodgeTimer -= Time.fixedDeltaTime;
         else
         {
+            _pcStateMachine.pcController.pcReferences.pcRotation.rotationLocked = false;
             wait = false;
             Transitions();
         }
