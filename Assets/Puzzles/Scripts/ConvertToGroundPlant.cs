@@ -29,11 +29,7 @@ public class ConvertToGroundPlant : GrabbableByPlayer
         Collider[] collidersBelow = Physics.OverlapBox(downPos, new Vector3(0.05f, halfExtent, 0.05f));
         foreach (Collider colliderBelow in collidersBelow)
         {
-            if (IsInLayerMask(colliderBelow.gameObject, groundLayer))
-            {
-                print("Valid");
-                return true;
-            }
+            if (IsInLayerMask(colliderBelow.gameObject, groundLayer)) return true;
         }
         return false;
     }
