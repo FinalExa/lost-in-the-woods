@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5867220197069658147}
-  - component: {fileID: 5867220197069658146}
   - component: {fileID: 5867220197069658144}
   m_Layer: 0
   m_Name: AdaptiveLightInstance
@@ -33,19 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &5867220197069658146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5867220197069658149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2e9a213772c55d46bdc88db6b7ba039, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  adaptiveLightName: 
 --- !u!108 &5867220197069658144
 Light:
   m_ObjectHideFlags: 0
