@@ -64,15 +64,13 @@ public class PCFall : MonoBehaviour
         pcReferences.rb.useGravity = true;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("FallenZone") && !touchingGround) ReturnToLastGroundPosition();
-    }
-
     public void ReturnToLastGroundPosition()
     {
-        this.gameObject.transform.position = lastGroundPosition;
-        pcReferences.attackReceived.DealDamage(false, pcReferences.pcData.damageOnFall);
-        SetOnGround();
+        if (!touchingGround)
+        {
+            this.gameObject.transform.position = lastGroundPosition;
+            pcReferences.attackReceived.DealDamage(false, pcReferences.pcData.damageOnFall);
+            SetOnGround();
+        }
     }
 }
