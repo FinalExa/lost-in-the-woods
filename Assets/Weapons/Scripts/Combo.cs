@@ -78,7 +78,7 @@ public class Combo : MonoBehaviour
         return comboDelays.CheckIfHitIsOver();
     }
 
-    public void EndCombo()
+    public virtual void EndCombo()
     {
         comboAttack.EndCombo();
         comboActive = false;
