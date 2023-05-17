@@ -13,6 +13,7 @@ public class PCRotation : MonoBehaviour
     [SerializeField] private Sprite faceLeftSprite;
     [SerializeField] private SpriteRenderer spriteRef;
     private Quaternion spriteStartRotation;
+    [HideInInspector] public bool rotationLocked;
 
     void Awake()
     {
@@ -29,7 +30,7 @@ public class PCRotation : MonoBehaviour
     }
     private void Update()
     {
-        if (!pcReferences.pcCombo.GetIfIsAttacking()) Rotation();
+        if (!pcReferences.pcCombo.GetIfIsAttacking() && !rotationLocked) Rotation();
     }
     private void Rotation()
     {

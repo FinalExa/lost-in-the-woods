@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6182857432863965999}
   - component: {fileID: 6946797179678673120}
   - component: {fileID: 1598349335096165616}
-  - component: {fileID: 8103436424805651011}
   - component: {fileID: 5071093499760673984}
   m_Layer: 0
   m_Name: GameSettings
@@ -93,23 +92,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameZones: []
---- !u!114 &8103436424805651011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7593572401342649558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa6be50822d05044bba84bda15da388, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentRef: {fileID: 0}
-  currentAdaptiveLight: []
-  defaultFeedbackList:
-  - BrambleBall
-  - ShroomCorpse
 --- !u!114 &5071093499760673984
 MonoBehaviour:
   m_ObjectHideFlags: 0

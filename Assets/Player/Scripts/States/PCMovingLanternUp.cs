@@ -31,9 +31,14 @@ public class PCMovingLanternUp : PCState
     {
         Rigidbody rigidbody = _pcStateMachine.pcController.pcReferences.rb;
         PCController pcController = _pcStateMachine.pcController;
-        Vector3 movementWithDirection = MovementDirection(_pcStateMachine.pcController.pcReferences.cam, _pcStateMachine.pcController.pcReferences.inputs);
-        if (movementWithDirection != Vector3.zero) lastDirection = movementWithDirection;
-        Vector3 partialVelocity = movementWithDirection * pcController.actualSpeed;
+        Vector3 movementDirection = MovementDirection(_pcStateMachine.pcController.pcReferences.cam, _pcStateMachine.pcController.pcReferences.inputs);
+        if (movementDirection != Vector3.zero)
+        {
+            lastDirection = movementDirection;
+            pcController.pcReferences.pcCombo.LastDirection = movementDirection;
+            pcController.lookDirection = movementDirection;
+        }
+        Vector3 partialVelocity = movementDirection * pcController.actualSpeed;
         rigidbody.velocity = new Vector3(partialVelocity.x, rigidbody.velocity.y, partialVelocity.z);
     }
 
