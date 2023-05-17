@@ -17,8 +17,7 @@ public class WallPlant : MonoBehaviour, ISendSignalToSelf
 
     public void OnSignalReceived(GameObject source)
     {
-        NamedInteractionOperations namedOps = interaction.namedInteractionOperations;
-        SetCurrentPlantState(namedOps);
+        SetCurrentPlantState(interaction.namedInteractionOperations);
     }
 
     private void SetCurrentPlantState(NamedInteractionOperations namedOps)
