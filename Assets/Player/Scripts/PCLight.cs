@@ -43,7 +43,7 @@ public class PCLight : MonoBehaviour
             {
                 foreach (LightPayCombo lightPayCombo in entitiesWithLightPayCombo)
                 {
-                    if (lightPayCombo.gameObject.GetComponent<AffectedByLight>().lightState == AffectedByLight.LightState.CALM)
+                    if (lightPayCombo.affectedByLight.lightState == AffectedByLight.LightState.CALM && lightPayCombo.currentWeapon != null)
                     {
                         float healthToRemove = pcData.receivedDamagePerSecond * Time.deltaTime;
                         pcHealth.HealthAddValue(-healthToRemove, false);

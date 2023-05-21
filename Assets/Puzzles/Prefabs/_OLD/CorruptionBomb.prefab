@@ -114,7 +114,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1046621854420227526}
-  - {fileID: 4158160032511450539}
   m_Father: {fileID: 1046621855832586625}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -144,7 +143,6 @@ GameObject:
   - component: {fileID: 1283443479848240081}
   - component: {fileID: 4664093087109911843}
   - component: {fileID: 8806897035263004699}
-  - component: {fileID: 4453809154134266270}
   - component: {fileID: 1046621855832586624}
   - component: {fileID: 1046621855832586627}
   - component: {fileID: 7496245093051717711}
@@ -186,6 +184,8 @@ MonoBehaviour:
   playerRef: {fileID: 0}
   thisRb: {fileID: 0}
   startParent: {fileID: 0}
+  needsToBeGrabbedAgainByPlayer: 0
+  lockedGrabbable: 0
 --- !u!114 &1283443479848240081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,58 +236,7 @@ MonoBehaviour:
   objectToSetActiveStatus: {fileID: 0}
   despawned: 0
   locked: 0
---- !u!114 &4453809154134266270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046621855832586626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e31d5fcfcd116e4449aeb82a334a7a02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentWeapon: {fileID: 0}
-  currentAttack:
-    damage: 0
-    frameDuration: 0
-    framesOfDelay: 0
-    movementDistance: 0
-    ignoresWalls: 0
-    attackObject: {fileID: 0}
-    weaponAttackTypes: 
-    weaponAttackHitboxSequence: []
-    weaponSpawnsObjectDuringThisAttack: []
-    hasAnimation: 0
-    uxOnWeaponAttack:
-      hasSound: 0
-      sound:
-        clip: {fileID: 0}
-        priority: 128
-        volume: 1
-        pitch: 1
-        stereoPan: 0
-        spatialBlend: 0
-        reverbZoneMix: 1
-        loop: 0
-        playOnAwake: 0
-        mixer: {fileID: 0}
-      hasSpriteColorChange: 0
-      spriteColorChange:
-        changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-        spriteRef: {fileID: 0}
-        spriteColorChangeDuration: 0
-      hasCameraShake: 0
-      cameraShake:
-        shakeAmplitude: 0
-        shakeFrequency: 0
-        shakeDuration: 0
-        cinemachineCameraShakerRef: {fileID: 0}
-      soundParent: {fileID: 0}
-  weaponToSet: {fileID: 5618523709540359774}
-  resetsPositionAndRotationOnComboEnd: 0
-  destroyObjectOnComboEnd: 1
+  pcGrabbing: {fileID: 0}
 --- !u!54 &1046621855832586624
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -333,76 +282,3 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
---- !u!1001 &8606016385162721746
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1046621855280953376}
-    m_Modifications:
-    - target: {fileID: 5681984492148024441, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6089379293536037342, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
-      propertyPath: m_Name
-      value: CorruptionBombWeapon
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
---- !u!4 &4158160032511450539 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5681984492148024441, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
-  m_PrefabInstance: {fileID: 8606016385162721746}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5618523709540359774 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4222045236405462924, guid: 580cb7861f7a7cb418f4011fb8dafae2, type: 3}
-  m_PrefabInstance: {fileID: 8606016385162721746}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81dec813fad57f74ab47ded6ae72d8c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
