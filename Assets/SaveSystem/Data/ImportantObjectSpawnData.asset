@@ -23,7 +23,7 @@ MonoBehaviour:
     spawnDataRef: {fileID: 5659667328879375948, guid: 52d2f9558fbbacc46a85f4225d8b7826, type: 3}
   - spawnDataName: ShroomBulb
     spawnDataRef: {fileID: 6552628957484814741, guid: 32a28184350f49a4da7af54d294e555f, type: 3}
-  - spawnDataName: Rock
+  - spawnDataName: RestorativeObject
     spawnDataRef: {fileID: 2808389217281501171, guid: 4ade526af26fe5c44823ee2244ef4425, type: 3}
   - spawnDataName: InfestationSource
     spawnDataRef: {fileID: 6114181717978539228, guid: 7a34ba8dbe3a1764f9f300ef02268980, type: 3}

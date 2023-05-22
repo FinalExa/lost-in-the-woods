@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1206323795615975612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7526495724018957469}
+  m_Layer: 0
+  m_Name: DirectionObj
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7526495724018957469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206323795615975612}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.0000001, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3210673373303465303}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1336568462314495649
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,9 +180,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rejuvenateName: LampPlant
-  rejuvenateWeapon: {fileID: 2498703859571819517}
+  rejuvenateWeaponRef: {fileID: 4222045236405462924, guid: 876f7dec96aaf2c44aaed4cd79b7bb5c, type: 3}
   destroyName: CorruptionPlant
-  destroyWeapon: {fileID: 355909036623246673}
+  destroyWeaponRef: {fileID: 4222045236405462924, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
+  weaponParent: {fileID: 4153912320967089899}
+  directionObj: {fileID: 1206323795615975612}
 --- !u!114 &4153912320102995741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +255,7 @@ MonoBehaviour:
       soundParent: {fileID: 0}
   comboActive: 0
   weaponToSet: {fileID: 0}
+  affectedByLight: {fileID: 0}
 --- !u!114 &3192234769521418435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,11 +344,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6260263948339904520}
-  - {fileID: 8123843286924703396}
+  m_Children: []
   m_Father: {fileID: 3210673373303465303}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4384604573624353045
 GameObject:
@@ -441,6 +473,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7526495724018957469}
   - {fileID: 4153912320967089896}
   - {fileID: 8933578889329066842}
   m_Father: {fileID: 4153912320102995738}
@@ -477,151 +510,5 @@ Transform:
   - {fileID: 2177100760723241295}
   - {fileID: 508201960915524283}
   m_Father: {fileID: 3210673373303465303}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1745877327939560561
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 4153912320967089896}
-    m_Modifications:
-    - target: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6089379293536037342, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_Name
-      value: PetrifyingPlantDestroyWeapon
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
---- !u!114 &2498703859571819517 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4222045236405462924, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-  m_PrefabInstance: {fileID: 1745877327939560561}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81dec813fad57f74ab47ded6ae72d8c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &6260263948339904520 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-  m_PrefabInstance: {fileID: 1745877327939560561}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &4496781177706009309
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 4153912320967089896}
-    m_Modifications:
-    - target: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6089379293536037342, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-      propertyPath: m_Name
-      value: PetrifyingPlantDestroyWeapon
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
---- !u!114 &355909036623246673 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4222045236405462924, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-  m_PrefabInstance: {fileID: 4496781177706009309}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81dec813fad57f74ab47ded6ae72d8c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &8123843286924703396 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5681984492148024441, guid: 98e0f217cd16dbb44993709023304ca4, type: 3}
-  m_PrefabInstance: {fileID: 4496781177706009309}
-  m_PrefabAsset: {fileID: 0}

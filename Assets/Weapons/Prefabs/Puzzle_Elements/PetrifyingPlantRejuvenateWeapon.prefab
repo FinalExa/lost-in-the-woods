@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4585282783213072919
 Transform:
   m_ObjectHideFlags: 0
@@ -48,7 +48,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6484911658124812781
 Transform:
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
       activationFrame: 0
       deactivationFrame: 10
     weaponSpawnsObjectDuringThisAttack:
-    - objectRef: {fileID: 6089379293536037342}
+    - objectRef: {fileID: 4985850856629122337, guid: 25d376149c563ee478b314faffa99543, type: 3}
       objectStartPosition: {fileID: 9110296578501289804}
       launchFrame: 9
       launchSpeed: 0
@@ -283,6 +283,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PreparationHitbox
       objectReference: {fileID: 0}
+    - target: {fileID: 9054417579223923074, guid: 281800e47905d084bbadedf8ef1c7de2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 281800e47905d084bbadedf8ef1c7de2, type: 3}
 --- !u!114 &269824956347697873 stripped
@@ -376,6 +380,10 @@ PrefabInstance:
     - target: {fileID: 9054417579223923074, guid: 281800e47905d084bbadedf8ef1c7de2, type: 3}
       propertyPath: m_Name
       value: PreparationHitbox
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054417579223923074, guid: 281800e47905d084bbadedf8ef1c7de2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 281800e47905d084bbadedf8ef1c7de2, type: 3}
@@ -473,6 +481,10 @@ PrefabInstance:
     - target: {fileID: 9054417579223923074, guid: 281800e47905d084bbadedf8ef1c7de2, type: 3}
       propertyPath: m_Name
       value: PreparationHitbox (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054417579223923074, guid: 281800e47905d084bbadedf8ef1c7de2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 281800e47905d084bbadedf8ef1c7de2, type: 3}
