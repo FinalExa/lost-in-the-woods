@@ -20,6 +20,7 @@ TagManager:
   - PlayerGrab
   - DestroyWhenPlayerEnters
   - SaveTrigger
+  - SeedPillar
   layers:
   - Default
   - TransparentFX

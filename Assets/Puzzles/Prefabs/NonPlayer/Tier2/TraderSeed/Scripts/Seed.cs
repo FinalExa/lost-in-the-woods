@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Seed : MonoBehaviour, ISendSignalToSelf
 {
-    private int signalState;
-    private int explorationState;
+    [HideInInspector] public int signalState;
+    [HideInInspector] public int explorationState;
     [SerializeField] private NamedInteractionExecutor signalNamedInteractionExecutor;
     [SerializeField] private string signalPositiveName;
     [SerializeField] private string signalNegativeName;
