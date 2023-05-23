@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 447720723286487263}
   - component: {fileID: 6287875380912956973}
   - component: {fileID: 7908682251196293909}
-  - component: {fileID: 2136337639316205030}
+  - component: {fileID: -3260798718088982154}
   - component: {fileID: 3719969183109441263}
   - component: {fileID: 1837314321013049998}
   - component: {fileID: 9219195652249742145}
@@ -184,6 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 659a178059b4df744b732192befaca6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  signalState: 0
+  explorationState: 0
   signalNamedInteractionExecutor: {fileID: 4127695392448808083}
   signalPositiveName: SeedPositiveSignal
   signalNegativeName: SeedNegativeSignal
@@ -241,7 +243,7 @@ MonoBehaviour:
   despawned: 0
   locked: 0
   pcGrabbing: {fileID: 0}
---- !u!114 &2136337639316205030
+--- !u!114 &-3260798718088982154
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -250,7 +252,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1837314321013049996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfddfc2ee42b1844a84c404571cc2023, type: 3}
+  m_Script: {fileID: 11500000, guid: 4daea01f12e71bc42aec07b966d0999d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerRef: {fileID: 0}

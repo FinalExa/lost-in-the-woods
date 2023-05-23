@@ -46,7 +46,7 @@ public class GrabbableByPlayer : MonoBehaviour
         }
     }
 
-    public void SetGrabbedByPlayer()
+    public virtual void SetGrabbedByPlayer()
     {
         playerRef.pcReferences.pcGrabbing.SetGrabbedObject(this);
         needsToBeGrabbedAgainByPlayer = false;
