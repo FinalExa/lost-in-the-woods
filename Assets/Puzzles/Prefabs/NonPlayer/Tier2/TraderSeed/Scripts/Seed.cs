@@ -12,6 +12,14 @@ public class Seed : MonoBehaviour, ISendSignalToSelf
     [SerializeField] private NamedInteractionExecutor explorationNamedInteractionExecutor;
     [SerializeField] private string explorationPositiveName;
     [SerializeField] private string explorationNegativeName;
+    private Rigidbody thisRb;
+    private RigidbodyConstraints savedConstraints;
+
+    private void Awake()
+    {
+        thisRb = this.gameObject.GetComponent<Rigidbody>();
+        savedConstraints = thisRb.constraints;
+    }
 
     public void OnSignalReceived(GameObject source)
     {
@@ -62,5 +70,15 @@ public class Seed : MonoBehaviour, ISendSignalToSelf
             explorationNamedInteractionExecutor.thisName = explorationNegativeName;
             explorationNamedInteractionExecutor.active = true;
         }
+    }
+
+    public void LockRb()
+    {
+        thisRb.constraints = RigidbodyConstraints.FreezeAll;
+    }
+
+    public void UnlockRb()
+    {
+        thisRb.constraints = savedConstraints;
     }
 }

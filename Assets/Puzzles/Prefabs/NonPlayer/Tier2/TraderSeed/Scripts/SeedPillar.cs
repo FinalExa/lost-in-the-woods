@@ -23,11 +23,27 @@ public class SeedPillar : MonoBehaviour
         seedRef = seed;
         savedSignal = seed.signalState;
         savedExploration = seed.explorationState;
+        SetSignals();
+        seedRef.gameObject.transform.parent = seedSpace.transform;
+        seedRef.gameObject.transform.localPosition = Vector3.zero;
+        seedRef.LockRb();
+    }
+
+    public void RemoveSeed()
+    {
+        seedRef.signalState = savedSignal;
+        savedSignal = 0;
+        seedRef.explorationState = savedExploration;
+        savedExploration = 0;
+        SetSignals();
+        seedRef.UnlockRb();
+    }
+
+    private void SetSignals()
+    {
         if (savedSignal == 1) SetObjects(true, false);
         else if (savedSignal == -1) SetObjects(false, true);
         else SetObjects(false, false);
-        seedRef.gameObject.transform.parent = seedSpace.transform;
-        seedRef.gameObject.transform.localPosition = Vector3.zero;
     }
 
     private void SetObjects(bool lightObjState, bool corruptionObjState)
