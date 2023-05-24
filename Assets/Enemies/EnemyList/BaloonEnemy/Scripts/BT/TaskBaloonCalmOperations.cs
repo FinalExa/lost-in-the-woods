@@ -15,7 +15,11 @@ public class TaskBaloonCalmOperations : Node
         if (baloonEnemyController.enemyHealth.currentHP <= 0)
         {
             if (!baloonEnemyController.vulnerable) baloonEnemyController.HPDeplete();
-            if (baloonEnemyController.affectedByLight.lightState == AffectedByLight.LightState.CALM && baloonEnemyController.vulnerable && baloonEnemyController.absorbed) baloonEnemyController.enemyCombo.ActivateEnemyCombo(baloonEnemyController.playerTarget.transform.position);
+            return NodeState.SUCCESS;
+        }
+        else if (baloonEnemyController.affectedByLight.lightState == AffectedByLight.LightState.CALM && !baloonEnemyController.vulnerable)
+        {
+            baloonEnemyController.enemyCombo.ActivateEnemyCombo(baloonEnemyController.playerTarget.transform.position);
             return NodeState.SUCCESS;
         }
         return NodeState.FAILURE;
