@@ -21,17 +21,14 @@ public class TaskLeap : Node
     private NodeState LeapAction()
     {
         float distance = Vector3.Distance(_witchEnemyController.transform.position, _witchEnemyController.leapDestination);
-        if (distance > _witchEnemyController.witchEnemyData.leapTolerance)
+        if (distance > _witchEnemyController.leapTolerance)
         {
-            if (_witchEnemyController.thisNavMeshAgent.speed != _witchEnemyController.witchEnemyData.leapSpeed) _witchEnemyController.thisNavMeshAgent.speed = _witchEnemyController.witchEnemyData.leapSpeed;
-            if (_witchEnemyController.thisNavMeshAgent.isStopped) _witchEnemyController.thisNavMeshAgent.isStopped = false;
-            _witchEnemyController.thisNavMeshAgent.SetDestination(_witchEnemyController.leapDestination);
+            _witchEnemyController.StartLeap();
             return NodeState.RUNNING;
         }
         else
         {
-            _witchEnemyController.attackDone = false;
-            _witchEnemyController.canLeap = false;
+            _witchEnemyController.EndLeap();
             return NodeState.SUCCESS;
         }
     }

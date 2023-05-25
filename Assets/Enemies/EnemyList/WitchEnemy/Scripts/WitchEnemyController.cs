@@ -1,24 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class WitchEnemyController : EnemyController
+public class WitchEnemyController : EnemyController, ISendSignalToSelf
 {
-    [HideInInspector] public WitchEnemyData witchEnemyData;
+    [SerializeField] private string[] weakNames;
+    [HideInInspector] public bool witchWeak;
+    [HideInInspector] public EnemyData witchEnemyData;
     [HideInInspector] public bool canLeap;
     [HideInInspector] public Vector3 leapDestination;
+    public float leapTolerance;
+    public float leapSpeed;
     public GameObject backLeap;
     public GameObject rightLeap;
     public GameObject leftLeap;
 
-    private void Start()
+    protected override void Awake()
     {
-        witchEnemyData = (WitchEnemyData)enemyData;
+        base.Awake();
+        interaction = this.gameObject.GetComponent<Interaction>();
+    }
+
+    public override void LightStateUpdate()
+    {
+        CheckSetWeak();
+    }
+
+    public void OnSignalReceived(GameObject source)
+    {
+        witchWeak = CheckSetWeak();
+    }
+
+    public bool CheckSetWeak()
+    {
+        if (affectedByLight.lightState == AffectedByLight.LightState.CALM) return SetWeak();
+        else foreach (string name in weakNames) if (interaction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(name)) return SetWeak();
+        return SetNotWeak();
+    }
+
+    private bool SetWeak()
+    {
+        thisNavMeshAgent.isStopped = true;
+        return true;
+    }
+
+    private bool SetNotWeak()
+    {
+        thisNavMeshAgent.isStopped = false;
+        return false;
     }
 
     public void DecideLeapObject()
     {
-        if (affectedByLight.lightState == AffectedByLight.LightState.NORMAL) leapDestination = CalculateLeapPoint(backLeap);
+        if (affectedByLight.lightState == AffectedByLight.LightState.NORMAL || witchWeak) leapDestination = CalculateLeapPoint(backLeap);
         else if (affectedByLight.lightState == AffectedByLight.LightState.BERSERK) DistanceBetweenSideLeaps();
     }
 
@@ -49,5 +84,18 @@ public class WitchEnemyController : EnemyController
             return hitPoint;
         }
         else return Vector3.zero;
+    }
+
+    public void StartLeap()
+    {
+        if (thisNavMeshAgent.speed != leapSpeed) thisNavMeshAgent.speed = leapSpeed;
+        if (thisNavMeshAgent.isStopped) thisNavMeshAgent.isStopped = false;
+        thisNavMeshAgent.SetDestination(leapDestination);
+    }
+
+    public void EndLeap()
+    {
+        attackDone = false;
+        canLeap = false;
     }
 }

@@ -19,6 +19,11 @@ public class WitchEnemyBT : EnemyBT
         {
             new Sequence(new List<Node>
             {
+                new Selector(new List<Node>
+                {
+                    new TaskWitchIsWeak(witchEnemyController),
+                    new TaskWitchWeakLeap(witchEnemyController)
+                }),
                 new TaskLeap(witchEnemyController),
                 new TaskEnemyIsNotLocked(enemyController)
             }),
@@ -36,12 +41,7 @@ public class WitchEnemyBT : EnemyBT
                     new TaskAttackPlayer(enemyController)
                 })
             }),
-            new Selector(new List<Node>
-            {
-                new TaskIsInCalmState(enemyController, enemyWeaponSwitcher),
-                new TaskStopMovement(enemyController),
-                new TaskAttackPlayer(enemyController)
-            }),
+            new TaskIsInCalmState(enemyController, enemyWeaponSwitcher),
             new Selector (new List<Node>
             {
                 new TaskIsInNormalState(enemyController, enemyWeaponSwitcher),

@@ -107,11 +107,12 @@ GameObject:
   - component: {fileID: 249166922592196662}
   - component: {fileID: 1079639170565201830}
   - component: {fileID: -651315431605669601}
+  - component: {fileID: -4231614355130030487}
   - component: {fileID: 7001282123244882244}
   - component: {fileID: 4992552886037869941}
   - component: {fileID: 4166100610456823755}
   m_Layer: 0
-  m_Name: Witch
+  m_Name: WitchEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,7 +126,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5477770951886658404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: 0, z: -23.75}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -147,22 +148,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotation: {fileID: 11400000, guid: 3a0ecedcd75d65b498584f6fa7373c60, type: 2}
-  enemyData: {fileID: 11400000, guid: 9fcc030e7b79edf4995d96865652c5f8, type: 2}
+  enemyData: {fileID: 11400000, guid: 77e5f50572146854b82fa676dd6a17a4, type: 2}
   currentWeapon: {fileID: 0}
   isAlerted: 0
+  playerRef: {fileID: 0}
   playerTarget: {fileID: 0}
   enemyCombo: {fileID: 0}
   thisNavMeshAgent: {fileID: 0}
   spawnerRef: {fileID: 0}
   spawnerEnemyInfo:
     enemy: {fileID: 0}
+    doesntRespawn: 0
+    fixedSpawn: 0
+    fixedSpawnPosition: {fileID: 0}
     maxTimer: 0
     deathTimer: 0
   affectedByLight: {fileID: 0}
   attackReceived: {fileID: 0}
+  interaction: {fileID: 0}
+  weakNames:
+  - LampPlant
+  - CorruptionPlant
+  - GuidingLightPlant
+  - DarkMistPlant
+  witchWeak: 0
   witchEnemyData: {fileID: 0}
   canLeap: 0
   leapDestination: {x: 0, y: 0, z: 0}
+  leapTolerance: 1
+  leapSpeed: 20
   backLeap: {fileID: 8081514480735923018}
   rightLeap: {fileID: 2830067356061272613}
   leftLeap: {fileID: 4618482334041846786}
@@ -261,6 +275,7 @@ MonoBehaviour:
       shakeDuration: 0
       cinemachineCameraShakerRef: {fileID: 0}
     soundParent: {fileID: 0}
+  doesntTurnOffOnDeath: 0
 --- !u!114 &8690117516297040685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,7 +325,7 @@ MonoBehaviour:
         shakeDuration: 0
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
-  frameValueTime: 0
+  comboActive: 0
   isInCombo: 0
   target: {fileID: 0}
 --- !u!114 &249166922592196662
@@ -357,7 +372,26 @@ MonoBehaviour:
   isInsideLight: 0
   isInHeartbeatState: 0
   enemyController: {fileID: 0}
-  attackInteraction: {fileID: 0}
+  interaction: {fileID: 0}
+--- !u!114 &-4231614355130030487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477770951886658404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17b331db98df9143ae63583c3486477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setOfInteractions: {fileID: 11400000, guid: f72e4616191cbc84987bb5bc93ff9867, type: 2}
+  affectedByLightRef: {fileID: 0}
+  rotator: {fileID: 0}
+  objectToSetActiveStatus: {fileID: 0}
+  despawned: 0
+  locked: 0
+  pcGrabbing: {fileID: 0}
 --- !u!65 &7001282123244882244
 BoxCollider:
   m_ObjectHideFlags: 0
