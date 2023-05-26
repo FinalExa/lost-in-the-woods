@@ -46,7 +46,7 @@ public class EnemyCombo : Combo
     public override void OnComboEnd()
     {
         isInCombo = false;
-        enemyController.attackDone = true;
+        enemyController.AttackDone = true;
     }
 
     public void Direction(Vector3 target)

@@ -14,7 +14,7 @@ public class TaskLeap : Node
     public override NodeState Evaluate()
     {
         NodeState result = NodeState.SUCCESS;
-        if (_witchEnemyController.canLeap && _witchEnemyController.attackDone) LeapAction();
+        if (_witchEnemyController.canLeap && _witchEnemyController.AttackDone) LeapAction();
         return result;
     }
 

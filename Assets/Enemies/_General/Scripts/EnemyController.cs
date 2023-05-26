@@ -13,7 +13,7 @@ public class EnemyController : MonoBehaviour
     [HideInInspector] public GameObject playerTarget;
     [HideInInspector] public EnemyCombo enemyCombo;
     [HideInInspector] public NavMeshAgent thisNavMeshAgent;
-    [HideInInspector] public bool attackDone { get; set; }
+    [HideInInspector] public bool AttackDone { get; set; }
     [HideInInspector] public Spawner spawnerRef;
     [HideInInspector] public Spawner.EnemiesToRespawn spawnerEnemyInfo;
     [HideInInspector] public AffectedByLight affectedByLight;
@@ -36,6 +36,6 @@ public class EnemyController : MonoBehaviour
     }
     public void CheckForSwitchState()
     {
-        if (affectedByLight.CheckForSwitchState()) attackDone = false;
+        if (affectedByLight.CheckForSwitchState()) AttackDone = false;
     }
 }

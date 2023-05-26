@@ -13,7 +13,7 @@ public class TaskIsAbleToLeapBack : Node
 
     public override NodeState Evaluate()
     {
-        if (_witchEnemyController.attackDone)
+        if (_witchEnemyController.AttackDone)
         {
             if (!_witchEnemyController.canLeap) SetUpLeap();
             return NodeState.FAILURE;

@@ -10,7 +10,7 @@ public class AttackReceived : MonoBehaviour
     [SerializeField] private GameTargets thisType;
     public bool ignoresDamage;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         health = this.gameObject.GetComponent<Health>();
         interaction = this.gameObject.GetComponent<Interaction>();
@@ -30,7 +30,7 @@ public class AttackReceived : MonoBehaviour
         if (interaction != null) interaction.CheckIfAttackTypeIsTheSame(weaponAttackTypes, attacker);
     }
 
-    public void DealDamage(bool invulnerable, float damage)
+    public virtual void DealDamage(bool invulnerable, float damage)
     {
         if (health != null && !invulnerable) health.HealthAddValue(-damage, true);
     }

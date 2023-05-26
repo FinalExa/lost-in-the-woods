@@ -95,7 +95,7 @@ public class WitchEnemyController : EnemyController, ISendSignalToSelf
 
     public void EndLeap()
     {
-        attackDone = false;
+        AttackDone = false;
         canLeap = false;
     }
 }
