@@ -41,9 +41,4 @@ public class EntEnemyController : EnemyController, ISendSignalToSelf
         stunTimer = stunTotalTime;
         enemyData = newData;
     }
-
-    private bool InteractionContainsName(string receivedName)
-    {
-        return interaction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(receivedName);
-    }
 }

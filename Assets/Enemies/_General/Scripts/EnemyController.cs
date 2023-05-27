@@ -38,4 +38,9 @@ public class EnemyController : MonoBehaviour
     {
         if (affectedByLight.CheckForSwitchState()) AttackDone = false;
     }
+
+    protected bool InteractionContainsName(string receivedName)
+    {
+        return interaction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(receivedName);
+    }
 }

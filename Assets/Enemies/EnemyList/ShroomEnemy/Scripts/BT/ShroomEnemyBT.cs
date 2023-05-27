@@ -9,10 +9,7 @@ public class ShroomEnemyBT : EnemyBT
     {
         Node root = new Sequence(new List<Node>
         {
-            new Selector(new List<Node>
-            {
-                new TaskEnemyIsNotLocked(enemyController)
-            }),
+            new TaskEnemyIsNotLocked(enemyController),
             new Selector(new List<Node>
             {
                 new TaskIsInBerserkState(enemyController, enemyWeaponSwitcher),

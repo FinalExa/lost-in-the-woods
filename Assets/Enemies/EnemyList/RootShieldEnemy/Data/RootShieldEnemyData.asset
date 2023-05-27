@@ -12,22 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a85e3fe686b974fbb85406426b7efc, type: 3}
   m_Name: RootShieldEnemyData
   m_EditorClassIdentifier: 
-  enemyName: 
+  enemyName: Root Shield
   maxHP: 0
   normalMovementSpeed: 0
   normalDistanceFromPlayer: 0
   normalDistanceTolerance: 0
-  hasNormalWeapon: 0
+  hasNormalWeapon: 1
   normalWeapon: {fileID: 0}
   calmMovementSpeed: 0
   calmDistanceFromPlayer: 0
   calmDistanceTolerance: 0
-  hasCalmWeapon: 0
+  hasCalmWeapon: 1
   calmWeapon: {fileID: 0}
   berserkMovementSpeed: 0
   berserkDistanceFromPlayer: 0
   berserkDistanceTolerance: 0
-  hasBerserkWeapon: 0
+  hasBerserkWeapon: 1
   berserkWeapon: {fileID: 0}
   firstAggroDistance: 0
   stopAggroDistance: 0
