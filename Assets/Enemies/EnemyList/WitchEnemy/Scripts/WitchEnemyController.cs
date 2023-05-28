@@ -6,7 +6,13 @@ using UnityEngine.AI;
 public class WitchEnemyController : EnemyController, ISendSignalToSelf
 {
     [SerializeField] private string[] weakNames;
+    [SerializeField] private float witchCryingDuration;
+    [SerializeField] private float pathInvalidDuration;
+    private float witchCryingTimer;
+    private float pathInvalidTimer;
+    private bool pathInvalid;
     [HideInInspector] public bool witchWeak;
+    [HideInInspector] public bool witchCrying;
     [HideInInspector] public EnemyData witchEnemyData;
     [HideInInspector] public bool canLeap;
     [HideInInspector] public Vector3 leapDestination;
@@ -22,17 +28,58 @@ public class WitchEnemyController : EnemyController, ISendSignalToSelf
         interaction = this.gameObject.GetComponent<Interaction>();
     }
 
+    private void Update()
+    {
+        WitchCrying();
+        PathInvalidTimer();
+    }
+
     public override void LightStateUpdate()
     {
-        CheckSetWeak();
+        WitchWeakOperations();
     }
 
     public void OnSignalReceived(GameObject source)
     {
-        witchWeak = CheckSetWeak();
+        WitchWeakOperations();
     }
 
-    public bool CheckSetWeak()
+    private void WitchWeakOperations()
+    {
+        bool status = CheckSetWeak();
+        if (status && !witchWeak)
+        {
+            witchWeak = true;
+            if (witchCrying) WitchStopCrying();
+        }
+        else if (!status && witchWeak)
+        {
+            WitchStartCrying();
+            witchWeak = false;
+        }
+    }
+
+    private void WitchCrying()
+    {
+        if (witchCrying)
+        {
+            if (witchCryingTimer > 0) witchCryingTimer -= Time.deltaTime;
+            else WitchStopCrying();
+        }
+    }
+
+    private void WitchStartCrying()
+    {
+        witchCrying = true;
+        witchCryingTimer = witchCryingDuration;
+    }
+
+    private void WitchStopCrying()
+    {
+        witchCrying = false;
+    }
+
+    private bool CheckSetWeak()
     {
         if (affectedByLight.lightState == AffectedByLight.LightState.CALM) return SetWeak();
         else foreach (string name in weakNames) if (interaction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(name)) return SetWeak();
@@ -91,6 +138,28 @@ public class WitchEnemyController : EnemyController, ISendSignalToSelf
         if (thisNavMeshAgent.speed != leapSpeed) thisNavMeshAgent.speed = leapSpeed;
         if (thisNavMeshAgent.isStopped) thisNavMeshAgent.isStopped = false;
         thisNavMeshAgent.SetDestination(leapDestination);
+        if (thisNavMeshAgent.path.status == NavMeshPathStatus.PathInvalid || thisNavMeshAgent.path.status == NavMeshPathStatus.PathPartial) SetPathInvalidTimer();
+    }
+
+    private void SetPathInvalidTimer()
+    {
+        pathInvalid = true;
+        pathInvalidTimer = pathInvalidDuration;
+    }
+
+    private void PathInvalidTimer()
+    {
+        if (pathInvalid)
+        {
+            if (pathInvalidTimer > 0) pathInvalidTimer -= Time.deltaTime;
+            else
+            {
+                Vector3 newPos = this.transform.position + (this.transform.position - backLeap.transform.position) * 2;
+                leapDestination = newPos;
+                thisNavMeshAgent.SetDestination(newPos);
+                pathInvalid = false;
+            }
+        }
     }
 
     public void EndLeap()

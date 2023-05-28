@@ -5,7 +5,7 @@ using BehaviorTree;
 
 public class WitchEnemyBT : EnemyBT
 {
-    [HideInInspector] public WitchEnemyController witchEnemyController;
+    private WitchEnemyController witchEnemyController;
 
     protected override void Awake()
     {
@@ -19,13 +19,14 @@ public class WitchEnemyBT : EnemyBT
         {
             new Sequence(new List<Node>
             {
+                new TaskEnemyIsNotLocked(enemyController),
+                new TaskWitchIsNotCrying(witchEnemyController),
                 new Selector(new List<Node>
                 {
                     new TaskWitchIsWeak(witchEnemyController),
                     new TaskWitchWeakLeap(witchEnemyController)
                 }),
-                new TaskLeap(witchEnemyController),
-                new TaskEnemyIsNotLocked(enemyController)
+                new TaskLeap(witchEnemyController)
             }),
             new Selector(new List<Node>
             {
