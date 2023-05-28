@@ -3,13 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 
-public class ShroomEnemyBT : EnemyBT
+public class EntEnemyBT : EnemyBT
 {
+    private EntEnemyController entEnemyController;
+    protected override void Awake()
+    {
+        base.Awake();
+        entEnemyController = (EntEnemyController)enemyController;
+    }
     protected override Node SetupTree()
     {
         Node root = new Sequence(new List<Node>
         {
-            new TaskEnemyIsNotLocked(enemyController),
+            new Sequence(new List<Node>
+            {
+                new TaskEntIsNotStunned(entEnemyController),
+                new TaskEnemyIsNotLocked(enemyController)
+            }),
             new Selector(new List<Node>
             {
                 new TaskIsInBerserkState(enemyController, enemyWeaponSwitcher),
@@ -26,7 +36,6 @@ public class ShroomEnemyBT : EnemyBT
             new Selector(new List<Node>
             {
                 new TaskIsInCalmState(enemyController, enemyWeaponSwitcher),
-                new TaskShroomCalmMovement(enemyController)
             }),
             new Selector (new List<Node>
             {

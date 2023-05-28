@@ -19,10 +19,10 @@ public class TaskSetRootVulnerable : Node
         }
         if (rootEnemyController.rootUnderground)
         {
-            if (rootEnemyController.attackDone && rootEnemyController.affectedByLight.lightState == AffectedByLight.LightState.NORMAL)
+            if (rootEnemyController.AttackDone && rootEnemyController.affectedByLight.lightState == AffectedByLight.LightState.NORMAL)
             {
                 rootEnemyController.SetRootOutside();
-                rootEnemyController.attackDone = false;
+                rootEnemyController.AttackDone = false;
                 return NodeState.FAILURE;
             }
             return NodeState.SUCCESS;

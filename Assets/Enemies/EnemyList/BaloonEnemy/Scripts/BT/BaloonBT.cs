@@ -17,7 +17,6 @@ public class BaloonBT : EnemyBT
         Node root = new Sequence(new List<Node>
         {
             new TaskEnemyIsNotLocked(enemyController),
-            new TaskCheckToEmptyBaloon(baloonEnemyController),
             new Selector (new List<Node>
             {
                 new TaskIsInBerserkState(enemyController, enemyWeaponSwitcher),

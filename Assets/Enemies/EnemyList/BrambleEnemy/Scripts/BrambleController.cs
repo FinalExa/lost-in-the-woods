@@ -7,7 +7,6 @@ public class BrambleController : EnemyController, ISendSignalToSelf
     [HideInInspector] public bool isRetracted;
     [HideInInspector] public BrambleData brambleData;
     [SerializeField] private GameObject brambleBallRef;
-    [SerializeField] private float brambleBallStartSpeed;
     [SerializeField] GameObject spriteColliderObject;
     private SphereCollider sphereCollider;
     private float startRadius;
