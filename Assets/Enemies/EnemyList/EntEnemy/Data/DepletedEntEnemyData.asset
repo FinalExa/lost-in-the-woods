@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Ent (Depleted)
   maxHP: 100
-  normalMovementSpeed: 0
-  normalDistanceFromPlayer: 0
-  normalDistanceTolerance: 0
-  hasNormalWeapon: 0
-  normalWeapon: {fileID: 0}
+  normalMovementSpeed: 2.5
+  normalDistanceFromPlayer: 10
+  normalDistanceTolerance: 1
+  hasNormalWeapon: 1
+  normalWeapon: {fileID: 4222045236405462924, guid: 1ff85b1b861d8c543a21ea4951a12a39, type: 3}
   calmMovementSpeed: 0
   calmDistanceFromPlayer: 0
   calmDistanceTolerance: 0
   hasCalmWeapon: 0
   calmWeapon: {fileID: 0}
-  berserkMovementSpeed: 0
-  berserkDistanceFromPlayer: 0
-  berserkDistanceTolerance: 0
-  hasBerserkWeapon: 0
-  berserkWeapon: {fileID: 0}
-  firstAggroDistance: 0
-  stopAggroDistance: 0
+  berserkMovementSpeed: 4
+  berserkDistanceFromPlayer: 10
+  berserkDistanceTolerance: 1
+  hasBerserkWeapon: 1
+  berserkWeapon: {fileID: 4222045236405462924, guid: 7f07f6812ca6cae49b24e8cfe20cf7a6, type: 3}
+  firstAggroDistance: 10
+  stopAggroDistance: 30

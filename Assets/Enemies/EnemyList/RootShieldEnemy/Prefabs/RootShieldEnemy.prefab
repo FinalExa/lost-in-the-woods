@@ -77,9 +77,10 @@ MonoBehaviour:
   attackReceived: {fileID: 0}
   interaction: {fileID: 0}
   shieldUp: 0
-  shieldExposedLightDamagePerSecond: 0
-  shieldMaxHealth: 50
-  shieldDownTime: 10
+  exposedLightDamagePerSecond: 4
+  protectedLightDamagePerSecond: 5
+  shieldMaxHealth: 100
+  shieldDownTime: 5
   lightShieldName: LightBulb
   fogShieldName: FogPlant
   randomizeShieldTypeEverytime: 0
