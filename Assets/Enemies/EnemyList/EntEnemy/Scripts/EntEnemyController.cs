@@ -11,10 +11,12 @@ public class EntEnemyController : EnemyController, ISendSignalToSelf
     [HideInInspector] public bool stunned;
     [SerializeField] private float stunTotalTime;
     private float stunTimer;
+
     private void Update()
     {
         StunTimer();
     }
+
     public void OnSignalReceived(GameObject source)
     {
         EntCheckForSwap();
@@ -40,5 +42,6 @@ public class EntEnemyController : EnemyController, ISendSignalToSelf
         stunned = true;
         stunTimer = stunTotalTime;
         enemyData = newData;
+        enemyCombo.EndCombo();
     }
 }

@@ -81,7 +81,7 @@ MonoBehaviour:
   depletedData: {fileID: 11400000, guid: afdc35802c632bb468c0812f7e6b1b6e, type: 2}
   swapToDepletedName: UrnFog
   stunned: 0
-  stunTotalTime: 10
+  stunTotalTime: 2
 --- !u!114 &-3278775245806498189
 MonoBehaviour:
   m_ObjectHideFlags: 0

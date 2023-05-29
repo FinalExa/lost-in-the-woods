@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Ent (Vigorous)
   maxHP: 100
-  normalMovementSpeed: 0
-  normalDistanceFromPlayer: 0
-  normalDistanceTolerance: 0
-  hasNormalWeapon: 0
-  normalWeapon: {fileID: 0}
+  normalMovementSpeed: 2.5
+  normalDistanceFromPlayer: 3
+  normalDistanceTolerance: 1
+  hasNormalWeapon: 1
+  normalWeapon: {fileID: 4222045236405462924, guid: 9627a99cf89b82c4f972ca2b7cf2fff0, type: 3}
   calmMovementSpeed: 0
   calmDistanceFromPlayer: 0
   calmDistanceTolerance: 0
   hasCalmWeapon: 0
   calmWeapon: {fileID: 0}
-  berserkMovementSpeed: 0
-  berserkDistanceFromPlayer: 0
-  berserkDistanceTolerance: 0
-  hasBerserkWeapon: 0
-  berserkWeapon: {fileID: 0}
-  firstAggroDistance: 0
-  stopAggroDistance: 0
+  berserkMovementSpeed: 4
+  berserkDistanceFromPlayer: 4
+  berserkDistanceTolerance: 1
+  hasBerserkWeapon: 1
+  berserkWeapon: {fileID: 4222045236405462924, guid: 6dc77e6b76628c944816cebee34ad2b5, type: 3}
+  firstAggroDistance: 10
+  stopAggroDistance: 30
