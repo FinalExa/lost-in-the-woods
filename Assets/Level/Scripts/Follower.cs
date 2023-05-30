@@ -14,6 +14,7 @@ public class Follower : MonoBehaviour
         if (objectToTrack != null)
         {
             followerTracker = objectToTrack.AddComponent<FollowerTracker>();
+            followerTracker.SetFollower(this);
         }
     }
 
