@@ -7,8 +7,6 @@ public class PCFall : MonoBehaviour
     private PCReferences pcReferences;
     private bool touchingGround;
     private Vector3 lastGroundPosition;
-    private RigidbodyConstraints playerConstraints;
-    [SerializeField] private RigidbodyConstraints fallingConstraints;
     [SerializeField] private GameObject fallTarget;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private Vector3 overlapBoxHalfExtents;
@@ -21,7 +19,6 @@ public class PCFall : MonoBehaviour
     private void Start()
     {
         lastGroundPosition = this.transform.position;
-        playerConstraints = pcReferences.rb.constraints;
     }
 
     private void FixedUpdate()
@@ -45,7 +42,8 @@ public class PCFall : MonoBehaviour
             {
                 if (ground.CompareTag("Ground"))
                 {
-                    lastGroundPosition = new Vector3(ground.gameObject.transform.position.x, 0f, ground.gameObject.transform.position.z);
+                    Vector3 groundPos = ground.gameObject.transform.position;
+                    lastGroundPosition = new Vector3(groundPos.x, groundPos.y + ground.gameObject.transform.localScale.y / 2, groundPos.z);
                     break;
                 }
             }
@@ -55,19 +53,18 @@ public class PCFall : MonoBehaviour
     private void SetOnGround()
     {
         touchingGround = true;
-        pcReferences.rb.useGravity = false;
     }
 
     private void SetNotOnGround()
     {
         touchingGround = false;
-        pcReferences.rb.useGravity = true;
     }
 
     public void ReturnToLastGroundPosition()
     {
         if (!touchingGround)
         {
+            print(lastGroundPosition);
             this.gameObject.transform.position = lastGroundPosition;
             pcReferences.attackReceived.DealDamage(false, pcReferences.pcData.damageOnFall);
             SetOnGround();
