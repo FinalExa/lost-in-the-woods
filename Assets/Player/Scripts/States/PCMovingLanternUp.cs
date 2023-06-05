@@ -8,6 +8,10 @@ public class PCMovingLanternUp : PCState
     public PCMovingLanternUp(PCStateMachine pcStateMachine) : base(pcStateMachine)
     {
     }
+    public override void Start()
+    {
+        StartWalkingSound();
+    }
     public override void Update()
     {
         CheckForLightPay();
@@ -19,8 +23,15 @@ public class PCMovingLanternUp : PCState
     {
         _pcStateMachine.pcController.pcReferences.pcLight.LightPay(_pcStateMachine.pcController.pcReferences.inputs.LeftClickInput);
     }
+    private void StartWalkingSound()
+    {
+        if (_pcStateMachine.pcController.pcReferences.uxOnWalkingLanternUp.hasSound) _pcStateMachine.pcController.pcReferences.uxOnWalkingLanternUp.sound.PlayAudio();
+    }
+    private void EndWalkingSound()
+    {
+        if (_pcStateMachine.pcController.pcReferences.uxOnWalkingLanternUp.hasSound) _pcStateMachine.pcController.pcReferences.uxOnWalkingLanternUp.sound.StopAudio();
+    }
 
-    #region Movement
     private void UpdateSpeedValue()
     {
         PCData pcData = _pcStateMachine.pcController.pcReferences.pcData;
@@ -48,25 +59,26 @@ public class PCMovingLanternUp : PCState
         Vector3 right = new Vector3(camera.transform.right.x, 0f, camera.transform.right.z).normalized;
         return (inputs.MovementInput.x * forward) + (inputs.MovementInput.z * right);
     }
-    #endregion
-    #region Transitions
     private void Transitions()
     {
         Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
         GoToIdleLanternUpState(inputs);
         GoToExitLanternUpState(inputs);
     }
-    #region ToIdleLanternUpState
     private void GoToIdleLanternUpState(Inputs inputs)
     {
-        if (inputs.MovementInput == Vector3.zero) _pcStateMachine.SetState(new PCIdleLanternUp(_pcStateMachine));
+        if (inputs.MovementInput == Vector3.zero)
+        {
+            EndWalkingSound();
+            _pcStateMachine.SetState(new PCIdleLanternUp(_pcStateMachine));
+        }
     }
-    #endregion
-    #region ToExitLanternUpState
     private void GoToExitLanternUpState(Inputs inputs)
     {
-        if (inputs.LanternInput) _pcStateMachine.SetState(new PCExitLanternUp(_pcStateMachine));
+        if (inputs.LanternInput)
+        {
+            EndWalkingSound();
+            _pcStateMachine.SetState(new PCExitLanternUp(_pcStateMachine));
+        }
     }
-    #endregion
-    #endregion
 }

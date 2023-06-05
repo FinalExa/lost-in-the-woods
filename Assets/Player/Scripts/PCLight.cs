@@ -13,7 +13,8 @@ public class PCLight : MonoBehaviour
     public List<AffectedByLight> entitiesAffectedByLight;
     public List<LightPayCombo> entitiesWithLightPayCombo;
     [HideInInspector] public bool lanternUp;
-    [SerializeField] private UXEffect uxOnLanternSwitch;
+    [SerializeField] private UXEffect uxOnLanternUp;
+    [SerializeField] private UXEffect uxOnLanternDown;
     private PCHealth pcHealth;
 
     private void Awake()
@@ -24,7 +25,8 @@ public class PCLight : MonoBehaviour
     }
     private void Start()
     {
-        uxOnLanternSwitch.UXEffectStartup();
+        uxOnLanternUp.UXEffectStartup();
+        uxOnLanternDown.UXEffectStartup();
         lightRange = new Vector3(1f, 1f, 0f);
         lightTrigger.enabled = false;
         entitiesAffectedByLight = new List<AffectedByLight>();
@@ -84,9 +86,10 @@ public class PCLight : MonoBehaviour
         return valueDiff;
     }
 
-    public void PlayLanternSound()
+    public void PlayLanternSwitchSound(bool isUp)
     {
-        if (uxOnLanternSwitch.hasSound) uxOnLanternSwitch.sound.PlayAudio();
+        if (isUp && uxOnLanternUp.hasSound) uxOnLanternUp.sound.PlayAudio();
+        if (!isUp && uxOnLanternDown.hasSound) uxOnLanternDown.sound.PlayAudio();
     }
 
     private void OnTriggerEnter(Collider other)
