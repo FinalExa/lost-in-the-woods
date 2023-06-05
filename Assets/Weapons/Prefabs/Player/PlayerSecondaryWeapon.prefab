@@ -105,9 +105,9 @@ MonoBehaviour:
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
-      hasSound: 0
+      hasSound: 1
       sound:
-        clip: {fileID: 0}
+        clip: {fileID: 8300000, guid: 4441bff8c2d50a141bbeb8c051e67ae8, type: 3}
         priority: 128
         volume: 1
         pitch: 1
@@ -116,7 +116,7 @@ MonoBehaviour:
         reverbZoneMix: 1
         loop: 0
         playOnAwake: 0
-        mixer: {fileID: 0}
+        mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
       hasSpriteColorChange: 0
       spriteColorChange:
         changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}

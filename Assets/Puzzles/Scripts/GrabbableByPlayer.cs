@@ -15,6 +15,7 @@ public class GrabbableByPlayer : MonoBehaviour
     private List<GameObject> parentOrder;
     private bool parentOrderEnabled;
     private PCGrabbing pcGrabbing;
+    [SerializeField] protected UXEffect onMainOperationUX;
     protected virtual void Awake()
     {
         ZonePuzzle.deactivatingPuzzleObject += CheckForActiveParent;
@@ -27,6 +28,7 @@ public class GrabbableByPlayer : MonoBehaviour
 
     private void Start()
     {
+        onMainOperationUX.UXEffectStartup();
         if (thisRb != null) defaultConstraints = thisRb.constraints;
         if (startParent == null) SetStartParent(this.gameObject.transform.parent);
     }
@@ -136,6 +138,7 @@ public class GrabbableByPlayer : MonoBehaviour
     public virtual void MainOperation(PCGrabbing pcGrabbing, Vector3 direction, float speed)
     {
         ReleaseFromBeingGrabbed();
+        if (onMainOperationUX.hasSound) onMainOperationUX.sound.PlayAudio();
         thisRb.velocity = direction * speed;
     }
 

@@ -175,7 +175,7 @@ MonoBehaviour:
   uxOnDodge:
     hasSound: 1
     sound:
-      clip: {fileID: 8300000, guid: 2d4f25aebcef7124b96077c4ed9828b4, type: 3}
+      clip: {fileID: 8300000, guid: 684f477bf61688d4ba3f10a647284e11, type: 3}
       priority: 128
       volume: 1
       pitch: 1
@@ -190,6 +190,56 @@ MonoBehaviour:
       changedSpriteColor: {r: 0, g: 0.49019608, b: 0.6039216, a: 1}
       spriteRef: {fileID: 8717672636991933783}
       spriteColorChangeDuration: 0.35
+    hasCameraShake: 0
+    cameraShake:
+      shakeAmplitude: 0
+      shakeFrequency: 0
+      shakeDuration: 0
+      cinemachineCameraShakerRef: {fileID: 0}
+    soundParent: {fileID: 0}
+  uxOnWalking:
+    hasSound: 1
+    sound:
+      clip: {fileID: 8300000, guid: e519c83f224c06d4fb306453090594e0, type: 3}
+      priority: 128
+      volume: 0.1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 1
+      loop: 1
+      playOnAwake: 0
+      mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
+    hasSpriteColorChange: 0
+    spriteColorChange:
+      changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+      spriteRef: {fileID: 0}
+      spriteColorChangeDuration: 0
+    hasCameraShake: 0
+    cameraShake:
+      shakeAmplitude: 0
+      shakeFrequency: 0
+      shakeDuration: 0
+      cinemachineCameraShakerRef: {fileID: 0}
+    soundParent: {fileID: 0}
+  uxOnWalkingLanternUp:
+    hasSound: 1
+    sound:
+      clip: {fileID: 8300000, guid: 0ae67a32569e8784fae942e7bc0bbb7c, type: 3}
+      priority: 128
+      volume: 0.1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 1
+      loop: 1
+      playOnAwake: 0
+      mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
+    hasSpriteColorChange: 0
+    spriteColorChange:
+      changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+      spriteRef: {fileID: 0}
+      spriteColorChangeDuration: 0
     hasCameraShake: 0
     cameraShake:
       shakeAmplitude: 0
@@ -381,7 +431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0865ad568fb17d747833fae235bcd061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallingConstraints: 112
   fallTarget: {fileID: 33830507689561493}
   groundMask:
     serializedVersion: 2
@@ -402,20 +451,20 @@ MonoBehaviour:
   heartbeatCooldown: 180
   heartbeatDuration: 30
   globalLightHeartbeatColor: {r: 1, g: 0, b: 0, a: 1}
-  anticipationTime: 5
+  anticipationTime: 10
   uxOnAnticipation:
-    hasSound: 0
+    hasSound: 1
     sound:
-      clip: {fileID: 0}
+      clip: {fileID: 8300000, guid: 870ce3678c4d7f24e8cce82aa5ac9657, type: 3}
       priority: 128
-      volume: 1
+      volume: 0.5
       pitch: 1
       stereoPan: 0
       spatialBlend: 0
       reverbZoneMix: 1
       loop: 1
       playOnAwake: 0
-      mixer: {fileID: 0}
+      mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
     hasSpriteColorChange: 0
     spriteColorChange:
       changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
@@ -431,9 +480,9 @@ MonoBehaviour:
   uxOnHeartbeat:
     hasSound: 1
     sound:
-      clip: {fileID: 8300000, guid: 1fca4af82acbb6247aad72d1db170d5e, type: 3}
+      clip: {fileID: 8300000, guid: de0b810f07474944392beb1567c7eef0, type: 3}
       priority: 128
-      volume: 1
+      volume: 0.1
       pitch: 1
       stereoPan: 0
       spatialBlend: 0

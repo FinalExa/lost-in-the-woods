@@ -196,11 +196,37 @@ MonoBehaviour:
   pcData: {fileID: 11400000, guid: 2337e969dbc55004d8d9d48208094455, type: 2}
   lightSprite: {fileID: 3923816278585104223}
   entitiesAffectedByLight: []
+  entitiesWithLightPayCombo: []
   lanternUp: 0
-  uxOnLanternSwitch:
+  uxOnLanternUp:
     hasSound: 1
     sound:
-      clip: {fileID: 8300000, guid: 9ac335f1e4eed7145990f017f460eb30, type: 3}
+      clip: {fileID: 8300000, guid: e412221b633b4124392719ef7cd1eb6c, type: 3}
+      priority: 128
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 1
+      loop: 0
+      playOnAwake: 0
+      mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
+    hasSpriteColorChange: 0
+    spriteColorChange:
+      changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+      spriteRef: {fileID: 0}
+      spriteColorChangeDuration: 0
+    hasCameraShake: 0
+    cameraShake:
+      shakeAmplitude: 0
+      shakeFrequency: 0
+      shakeDuration: 0
+      cinemachineCameraShakerRef: {fileID: 0}
+    soundParent: {fileID: 0}
+  uxOnLanternDown:
+    hasSound: 1
+    sound:
+      clip: {fileID: 8300000, guid: 428dc73a91924904cb492cfcb1202d8d, type: 3}
       priority: 128
       volume: 1
       pitch: 1

@@ -18,6 +18,7 @@ public class ConvertToGroundPlant : GrabbableByPlayer
     {
         if (CheckForGroundBelow())
         {
+            if (onMainOperationUX.hasSound) onMainOperationUX.sound.PlayAudio();
             ReleaseFromBeingGrabbed();
             interaction.ExecuteCallByCodeInteraction();
         }

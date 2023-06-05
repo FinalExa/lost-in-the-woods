@@ -176,9 +176,9 @@ MonoBehaviour:
     uxOnWeaponAttack:
       hasSound: 1
       sound:
-        clip: {fileID: 8300000, guid: a78081cb1badaf048b78b1ecca3a0898, type: 3}
+        clip: {fileID: 8300000, guid: 8e21888c7abfd8349a0e79a69e9c4271, type: 3}
         priority: 128
-        volume: 1
+        volume: 0.5
         pitch: 1
         stereoPan: 0
         spatialBlend: 0
@@ -220,9 +220,9 @@ MonoBehaviour:
     uxOnWeaponAttack:
       hasSound: 1
       sound:
-        clip: {fileID: 8300000, guid: 244fb2fca14b3e24cb7b754c21cf1979, type: 3}
+        clip: {fileID: 8300000, guid: d656f75644ed6c745b2c56fee5d1cf58, type: 3}
         priority: 128
-        volume: 1
+        volume: 0.5
         pitch: 1
         stereoPan: 0
         spatialBlend: 0
@@ -261,9 +261,9 @@ MonoBehaviour:
     uxOnWeaponAttack:
       hasSound: 1
       sound:
-        clip: {fileID: 8300000, guid: dc16683ddfc54994f839e63788e94d05, type: 3}
+        clip: {fileID: 8300000, guid: 82da8e1bda5c1ff48968c8ebc57b1e25, type: 3}
         priority: 128
-        volume: 1
+        volume: 0.5
         pitch: 1
         stereoPan: 0
         spatialBlend: 0

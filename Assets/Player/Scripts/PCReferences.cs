@@ -6,6 +6,8 @@ public class PCReferences : MonoBehaviour
 {
     public PCData pcData;
     public UXEffect uxOnDodge;
+    public UXEffect uxOnWalking;
+    public UXEffect uxOnWalkingLanternUp;
     [HideInInspector] public Camera cam;
     [HideInInspector] public Inputs inputs;
     [HideInInspector] public Rigidbody rb;
@@ -32,5 +34,7 @@ public class PCReferences : MonoBehaviour
         pcGrabbing = this.gameObject.GetComponent<PCGrabbing>();
         pcZoneManager = this.gameObject.GetComponent<PCZoneManager>();
         uxOnDodge.UXEffectStartup();
+        uxOnWalking.UXEffectStartup();
+        uxOnWalkingLanternUp.UXEffectStartup();
     }
 }

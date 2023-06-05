@@ -107,6 +107,31 @@ MonoBehaviour:
   startParent: {fileID: 0}
   needsToBeGrabbedAgainByPlayer: 0
   lockedGrabbable: 0
+  onMainOperationUX:
+    hasSound: 1
+    sound:
+      clip: {fileID: 8300000, guid: 54fb4e740a3e06a44b494db2a73ce00c, type: 3}
+      priority: 128
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 1
+      loop: 0
+      playOnAwake: 0
+      mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
+    hasSpriteColorChange: 0
+    spriteColorChange:
+      changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+      spriteRef: {fileID: 0}
+      spriteColorChangeDuration: 0
+    hasCameraShake: 0
+    cameraShake:
+      shakeAmplitude: 0
+      shakeFrequency: 0
+      shakeDuration: 0
+      cinemachineCameraShakerRef: {fileID: 0}
+    soundParent: {fileID: 0}
 --- !u!135 &2114393513771127108
 SphereCollider:
   m_ObjectHideFlags: 0

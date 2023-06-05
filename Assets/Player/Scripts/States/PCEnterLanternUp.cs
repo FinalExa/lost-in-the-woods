@@ -23,7 +23,7 @@ public class PCEnterLanternUp : PCState
         if (timer > 0f) timer -= Time.deltaTime;
         else
         {
-            _pcStateMachine.pcController.pcReferences.pcLight.PlayLanternSound();
+            _pcStateMachine.pcController.pcReferences.pcLight.PlayLanternSwitchSound(true);
             _pcStateMachine.pcController.pcReferences.pcLight.lanternUp = true;
             _pcStateMachine.pcController.pcReferences.pcLight.LightRadiusUpdate(_pcStateMachine.pcController.pcReferences.pcHealth.currentHP);
             Transitions();
