@@ -202,7 +202,7 @@ MonoBehaviour:
     sound:
       clip: {fileID: 8300000, guid: e519c83f224c06d4fb306453090594e0, type: 3}
       priority: 128
-      volume: 0.1
+      volume: 0.3
       pitch: 1
       stereoPan: 0
       spatialBlend: 0
@@ -227,7 +227,7 @@ MonoBehaviour:
     sound:
       clip: {fileID: 8300000, guid: 0ae67a32569e8784fae942e7bc0bbb7c, type: 3}
       priority: 128
-      volume: 0.1
+      volume: 0.3
       pitch: 1
       stereoPan: 0
       spatialBlend: 0
@@ -397,7 +397,7 @@ MonoBehaviour:
   uxOnHit:
     hasSound: 1
     sound:
-      clip: {fileID: 8300000, guid: 1072ed95e8d314a40ae05465aac96702, type: 3}
+      clip: {fileID: 8300000, guid: 5278164687172fb4ab5028af08274f48, type: 3}
       priority: 128
       volume: 1
       pitch: 1
