@@ -1735,10 +1735,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 180166666702332516, guid: c44e0394991c2c44597e45f504601056, type: 3}
-      propertyPath: backSprite
-      value: 
-      objectReference: {fileID: 951386845, guid: 6183e86512bc16d4aa21ee7bed71a208, type: 3}
     - target: {fileID: 7129377632901191473, guid: c44e0394991c2c44597e45f504601056, type: 3}
       propertyPath: m_RootOrder
       value: 8

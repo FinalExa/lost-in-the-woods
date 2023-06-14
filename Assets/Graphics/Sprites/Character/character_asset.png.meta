@@ -108,10 +108,10 @@ TextureImporter:
       name: character_asset_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 17
-        width: 126
-        height: 397
+        x: 54
+        y: 53
+        width: 128
+        height: 398
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,8 +119,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 936021c75fae795449c5e1199286e52e
-      internalID: 951386845
+      spriteID: 97d47cc97ddf6e442bbb5bd7c4f7fbb8
+      internalID: -1923575980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character_asset_1
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 55
+        width: 128
+        height: 398
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36be2ee0170bf4a4ba9e0957d6f986bc
+      internalID: -696989380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character_asset_2
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 48
+        width: 131
+        height: 406
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5bd19c9fcb467942af9fa7db1cf5df1
+      internalID: 1609798125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character_asset_3
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 47
+        width: 131
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d038f8db3b840384a97ed88d78b6fda1
+      internalID: -111099345
       vertices: []
       indices: 
       edges: []
@@ -136,7 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      character_asset_0: 951386845
+      character_asset_3: -111099345
+      character_asset_2: 1609798125
+      character_asset_1: -696989380
+      character_asset_0: -1923575980
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
