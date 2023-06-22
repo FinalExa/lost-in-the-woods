@@ -105,85 +105,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: character_asset_0
+      name: looking_up
       rect:
         serializedVersion: 2
-        x: 33
-        y: 31
+        x: 9
+        y: 22
         width: 130
         height: 398
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 079d3bed5de4f434680022e451aaa614
-      internalID: 667397742
+      spriteID: 6f5e141863b8e364a851f9cd179b24ef
+      internalID: -149062453
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_asset_1
+      name: looking_down
       rect:
         serializedVersion: 2
-        x: 203
-        y: 31
+        x: 179
+        y: 22
         width: 132
         height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b28f4aa6e7844664eb3ceee8541ee014
-      internalID: 944628866
+      spriteID: 06f24bcc2ed77b24885ea99737715a5a
+      internalID: 1160893721
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_asset_2
+      name: looking_right
       rect:
         serializedVersion: 2
-        x: 390
-        y: 31
+        x: 366
+        y: 22
         width: 113
         height: 408
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c4c8212b982d4b46bdc5085ab714800
-      internalID: 1919152811
+      spriteID: 254b60b8bd3f38741a855a8afc21d8ac
+      internalID: 1308751523
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_asset_3
+      name: looking_left
       rect:
         serializedVersion: 2
-        x: 572
-        y: 31
+        x: 548
+        y: 22
         width: 113
         height: 402
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5981155affa4fd74992e6844195876d3
-      internalID: -521897902
+      spriteID: 4cb737adb0f200d4091fd05b655e3f4b
+      internalID: -1599598511
       vertices: []
       indices: 
       edges: []
@@ -199,10 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      character_asset_3: -521897902
-      character_asset_2: 1919152811
-      character_asset_1: 944628866
-      character_asset_0: 667397742
+      looking_up: -149062453
+      looking_left: -1599598511
+      looking_down: 1160893721
+      looking_right: 1308751523
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
