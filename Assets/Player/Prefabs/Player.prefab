@@ -701,7 +701,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1160893721, guid: 6183e86512bc16d4aa21ee7bed71a208, type: 3}
+  m_Sprite: {fileID: 8586012, guid: 6183e86512bc16d4aa21ee7bed71a208, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -794,10 +794,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {fileID: 11400000, guid: 3a0ecedcd75d65b498584f6fa7373c60, type: 2}
   isInGraphicsMode: 1
-  frontSprite: {fileID: -149062453, guid: 6183e86512bc16d4aa21ee7bed71a208, type: 3}
-  backSprite: {fileID: 1160893721, guid: 6183e86512bc16d4aa21ee7bed71a208, type: 3}
-  faceRightSprite: {fileID: -1599598511, guid: 6183e86512bc16d4aa21ee7bed71a208, type: 3}
-  faceLeftSprite: {fileID: 1308751523, guid: 6183e86512bc16d4aa21ee7bed71a208, type: 3}
+  frontSprite: {fileID: -2074773479, guid: 6183e86512bc16d4aa21ee7bed71a208, type: 3}
+  backSprite: {fileID: 8586012, guid: 6183e86512bc16d4aa21ee7bed71a208, type: 3}
+  faceRightSprite: {fileID: -859875140, guid: 6183e86512bc16d4aa21ee7bed71a208, type: 3}
+  faceLeftSprite: {fileID: -1777517429, guid: 6183e86512bc16d4aa21ee7bed71a208, type: 3}
   spriteRef: {fileID: 8717672636991933783}
   rotationLocked: 0
 --- !u!1001 &1313772443539866196

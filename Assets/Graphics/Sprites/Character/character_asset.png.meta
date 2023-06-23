@@ -105,11 +105,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: looking_up
+      name: back_side
       rect:
         serializedVersion: 2
-        x: 9
-        y: 22
+        x: 56
+        y: 44
         width: 130
         height: 398
       alignment: 0
@@ -119,18 +119,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f5e141863b8e364a851f9cd179b24ef
-      internalID: -149062453
+      spriteID: 2854492c5d69ea64bb9f124b1c1566d6
+      internalID: -2074773479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: looking_down
+      name: front_side
       rect:
         serializedVersion: 2
-        x: 179
-        y: 22
+        x: 226
+        y: 44
         width: 132
         height: 400
       alignment: 0
@@ -140,18 +140,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06f24bcc2ed77b24885ea99737715a5a
-      internalID: 1160893721
+      spriteID: ecbed5c690b37c941aa918286310f4fb
+      internalID: 8586012
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: looking_right
+      name: right_side
       rect:
         serializedVersion: 2
-        x: 366
-        y: 22
+        x: 413
+        y: 44
         width: 113
         height: 408
       alignment: 0
@@ -161,18 +161,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 254b60b8bd3f38741a855a8afc21d8ac
-      internalID: 1308751523
+      spriteID: 67bd8bb424fdada46b979a5d97936dd6
+      internalID: -1777517429
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: looking_left
+      name: left_side
       rect:
         serializedVersion: 2
-        x: 548
-        y: 22
+        x: 595
+        y: 44
         width: 113
         height: 402
       alignment: 0
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4cb737adb0f200d4091fd05b655e3f4b
-      internalID: -1599598511
+      spriteID: 5fcaa2cd613b1d7439816405436406b8
+      internalID: -859875140
       vertices: []
       indices: 
       edges: []
@@ -199,10 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      looking_up: -149062453
-      looking_left: -1599598511
-      looking_down: 1160893721
-      looking_right: 1308751523
+      back_side: -2074773479
+      right_side: -1777517429
+      left_side: -859875140
+      front_side: 8586012
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
