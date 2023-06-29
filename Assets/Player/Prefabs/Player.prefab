@@ -654,7 +654,7 @@ Transform:
   m_GameObject: {fileID: 7142553837643217951}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.5000005, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 0.5, y: 1, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5309249015759442174}
@@ -701,12 +701,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1876262755, guid: 0c0d21bf47a4a464195a50e660919e1b, type: 3}
+  m_Sprite: {fileID: 1545025865, guid: 6183e86512bc16d4aa21ee7bed71a208, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.35, y: 3.99}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -794,10 +794,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {fileID: 11400000, guid: 3a0ecedcd75d65b498584f6fa7373c60, type: 2}
   isInGraphicsMode: 1
-  frontSprite: {fileID: 723844147, guid: 0c0d21bf47a4a464195a50e660919e1b, type: 3}
-  backSprite: {fileID: -1876262755, guid: 0c0d21bf47a4a464195a50e660919e1b, type: 3}
-  faceRightSprite: {fileID: 1246764356, guid: 0c0d21bf47a4a464195a50e660919e1b, type: 3}
-  faceLeftSprite: {fileID: 592366022, guid: 0c0d21bf47a4a464195a50e660919e1b, type: 3}
+  lookingUpSprite: {fileID: -1620282732, guid: 6183e86512bc16d4aa21ee7bed71a208, type: 3}
+  lookingDownSprite: {fileID: 1545025865, guid: 6183e86512bc16d4aa21ee7bed71a208, type: 3}
+  lookingLeftSprite: {fileID: 584352079, guid: 6183e86512bc16d4aa21ee7bed71a208, type: 3}
+  lookingRightSprite: {fileID: 1680748241, guid: 6183e86512bc16d4aa21ee7bed71a208, type: 3}
   spriteRef: {fileID: 8717672636991933783}
   rotationLocked: 0
 --- !u!1001 &1313772443539866196

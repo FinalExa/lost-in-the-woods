@@ -7,10 +7,10 @@ public class PCRotation : MonoBehaviour
     private Vector3 direction;
     private Vector3 lastInput;
     [SerializeField] private bool isInGraphicsMode;
-    [SerializeField] private Sprite frontSprite;
-    [SerializeField] private Sprite backSprite;
-    [SerializeField] private Sprite faceRightSprite;
-    [SerializeField] private Sprite faceLeftSprite;
+    [SerializeField] private Sprite lookingUpSprite;
+    [SerializeField] private Sprite lookingDownSprite;
+    [SerializeField] private Sprite lookingLeftSprite;
+    [SerializeField] private Sprite lookingRightSprite;
     [SerializeField] private SpriteRenderer spriteRef;
     private Quaternion spriteStartRotation;
     [HideInInspector] public bool rotationLocked;
@@ -25,7 +25,7 @@ public class PCRotation : MonoBehaviour
         if (isInGraphicsMode)
         {
             spriteStartRotation = spriteRef.gameObject.transform.rotation;
-            spriteRef.sprite = frontSprite;
+            spriteRef.sprite = lookingUpSprite;
         }
     }
     private void Update()
@@ -43,10 +43,10 @@ public class PCRotation : MonoBehaviour
     }
     private void SetRotation()
     {
-        if (direction.z > 0 && this.transform.eulerAngles != rotation.left) SetRotationSide(rotation.left, faceLeftSprite);
-        else if (direction.z < 0 && this.transform.eulerAngles != rotation.right) SetRotationSide(rotation.right, faceRightSprite);
-        if (direction.x > 0 && this.transform.eulerAngles != rotation.forward) SetRotationSide(rotation.forward, frontSprite);
-        else if (direction.x < 0 && this.transform.eulerAngles != rotation.back) SetRotationSide(rotation.back, backSprite);
+        if (direction.z > 0 && this.transform.eulerAngles != rotation.left) SetRotationSide(rotation.left, lookingRightSprite);
+        else if (direction.z < 0 && this.transform.eulerAngles != rotation.right) SetRotationSide(rotation.right, lookingLeftSprite);
+        if (direction.x > 0 && this.transform.eulerAngles != rotation.forward) SetRotationSide(rotation.forward, lookingUpSprite);
+        else if (direction.x < 0 && this.transform.eulerAngles != rotation.back) SetRotationSide(rotation.back, lookingDownSprite);
     }
 
     private void SetRotationSide(Vector3 rotation, Sprite spriteToApply)
