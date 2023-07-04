@@ -14,22 +14,14 @@ public class TaskLeap : Node
     public override NodeState Evaluate()
     {
         NodeState result = NodeState.SUCCESS;
-        if (_witchEnemyController.canLeap && _witchEnemyController.AttackDone) LeapAction();
+        if (_witchEnemyController.witchLeap.GetIfWitchCanLeap() && _witchEnemyController.AttackDone) result = LeapAction();
         return result;
     }
 
     private NodeState LeapAction()
     {
-        float distance = Vector3.Distance(_witchEnemyController.transform.position, _witchEnemyController.leapDestination);
-        if (distance > _witchEnemyController.leapTolerance)
-        {
-            _witchEnemyController.StartLeap();
-            return NodeState.RUNNING;
-        }
-        else
-        {
-            _witchEnemyController.EndLeap();
-            return NodeState.SUCCESS;
-        }
+        bool result = _witchEnemyController.witchLeap.CheckIfLeapIsFinishedByDistance();
+        if (result) return NodeState.SUCCESS;
+        return NodeState.RUNNING;
     }
 }

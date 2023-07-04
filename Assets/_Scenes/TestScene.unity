@@ -5582,10 +5582,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WitchEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 5477770951886658404, guid: be60f8ec6f313dd4889e2c08e5e6630c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6395110103217412864, guid: be60f8ec6f313dd4889e2c08e5e6630c, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -5629,6 +5625,10 @@ PrefabInstance:
     - target: {fileID: 6395110103217412864, guid: be60f8ec6f313dd4889e2c08e5e6630c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8682059679758461917, guid: be60f8ec6f313dd4889e2c08e5e6630c, type: 3}
+      propertyPath: witchLeap.maxLeapDuration
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be60f8ec6f313dd4889e2c08e5e6630c, type: 3}

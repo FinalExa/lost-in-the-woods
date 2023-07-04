@@ -13,8 +13,7 @@ public class TaskWitchWeakLeap : Node
 
     public override NodeState Evaluate()
     {
-        witchEnemyController.DecideLeapObject();
-        witchEnemyController.StartLeap();
+        witchEnemyController.witchLeap.SetupLeap();
         return NodeState.RUNNING;
     }
 }

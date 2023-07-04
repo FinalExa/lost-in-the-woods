@@ -20,20 +20,21 @@ public class WitchEnemyBT : EnemyBT
             new Sequence(new List<Node>
             {
                 new TaskEnemyIsNotLocked(enemyController),
-                new TaskWitchIsNotCrying(witchEnemyController),
+                new TaskWitchIsNotLocked(witchEnemyController),
+                new TaskLeap(witchEnemyController),
                 new Selector(new List<Node>
                 {
                     new TaskWitchIsWeak(witchEnemyController),
                     new TaskWitchWeakLeap(witchEnemyController)
                 }),
-                new TaskLeap(witchEnemyController)
+                new TaskIsAbleToLeap(witchEnemyController)
             }),
             new Selector(new List<Node>
             {
                 new TaskIsInBerserkState(enemyController, enemyWeaponSwitcher),
                 new Sequence (new List<Node>
                 {
-                    new TaskIsAbleToLeapBack(witchEnemyController),
+                    new TaskIsAbleToLeap(witchEnemyController),
                     new Selector(new List<Node>
                     {
                         new TaskIsCloseToPlayer(enemyController, enemyController.enemyData.berserkDistanceFromPlayer),
@@ -48,7 +49,6 @@ public class WitchEnemyBT : EnemyBT
                 new TaskIsInNormalState(enemyController, enemyWeaponSwitcher),
                 new Sequence (new List<Node>
                 {
-                    new TaskIsAbleToLeapBack(witchEnemyController),
                     new Selector(new List<Node>
                     {
                         new TaskIsCloseToPlayer(enemyController, enemyController.enemyData.normalDistanceFromPlayer),

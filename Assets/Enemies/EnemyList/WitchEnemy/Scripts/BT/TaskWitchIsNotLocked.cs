@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 
-public class TaskWitchIsNotCrying : Node
+public class TaskWitchIsNotLocked : Node
 {
     private WitchEnemyController witchEnemyController;
-    public TaskWitchIsNotCrying(WitchEnemyController _witchEnemyController)
+    public TaskWitchIsNotLocked(WitchEnemyController _witchEnemyController)
     {
         witchEnemyController = _witchEnemyController;
     }
 
     public override NodeState Evaluate()
     {
-        if (witchEnemyController.witchCrying) return NodeState.FAILURE;
+        if (witchEnemyController.witchCrying.GetIfWitchIsCrying() || witchEnemyController.witchLeap.GetIfWitchIsExecutingLeap()) return NodeState.FAILURE;
         else return NodeState.SUCCESS;
     }
 }

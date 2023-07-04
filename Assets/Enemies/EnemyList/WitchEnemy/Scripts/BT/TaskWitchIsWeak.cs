@@ -14,7 +14,7 @@ public class TaskWitchIsWeak : Node
 
     public override NodeState Evaluate()
     {
-        if (witchEnemyController.witchWeak) return NodeState.FAILURE;
+        if (witchEnemyController.witchWeak.GetIfWitchIsWeak()) return NodeState.FAILURE;
         return NodeState.SUCCESS;
     }
 }

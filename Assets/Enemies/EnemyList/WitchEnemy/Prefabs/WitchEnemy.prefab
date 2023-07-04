@@ -166,23 +166,26 @@ MonoBehaviour:
   affectedByLight: {fileID: 0}
   attackReceived: {fileID: 0}
   interaction: {fileID: 0}
-  weakNames:
-  - LampPlant
-  - CorruptionPlant
-  - GuidingLightPlant
-  - DarkMistPlant
-  witchCryingDuration: 3
-  pathInvalidDuration: 1
-  witchWeak: 0
-  witchCrying: 0
-  witchEnemyData: {fileID: 0}
-  canLeap: 0
-  leapDestination: {x: 0, y: 0, z: 0}
-  leapTolerance: 1
-  leapSpeed: 20
-  backLeap: {fileID: 8081514480735923018}
-  rightLeap: {fileID: 2830067356061272613}
-  leftLeap: {fileID: 4618482334041846786}
+  witchLeap:
+    canLeap: 0
+    executingLeap: 0
+    backLeap: {fileID: 8081514480735923018}
+    rightLeap: {fileID: 2830067356061272613}
+    leftLeap: {fileID: 4618482334041846786}
+    leapDestination: {x: 0, y: 0, z: 0}
+    leapTolerance: 1
+    leapSpeed: 20
+    maxLeapDuration: 0.5
+  witchWeak:
+    witchIsWeak: 0
+    weakNames:
+    - LampPlant
+    - CorruptionPlant
+    - GuidingLightPlant
+    - DarkMistPlant
+  witchCrying:
+    witchIsCrying: 0
+    witchCryingDuration: 3
 --- !u!114 &5814908281921240197
 MonoBehaviour:
   m_ObjectHideFlags: 0
