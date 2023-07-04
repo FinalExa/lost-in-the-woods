@@ -1,5 +1,89 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2534531413838826104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2830643146845664410}
+  - component: {fileID: 1547799683538224641}
+  m_Layer: 0
+  m_Name: CoverSprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2830643146845664410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2534531413838826104}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3703071539599798944}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1547799683538224641
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2534531413838826104}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &2830067356061272613
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,7 +114,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3703071539599798944}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &374718242880242144
 BoxCollider:
@@ -75,7 +159,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3703071539599798944}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5523191640202491706
 BoxCollider:
@@ -102,6 +186,7 @@ GameObject:
   - component: {fileID: 8682059679758461917}
   - component: {fileID: 5814908281921240197}
   - component: {fileID: 3939637572597450188}
+  - component: {fileID: 8138099241043629667}
   - component: {fileID: -57584891418013859}
   - component: {fileID: 8690117516297040685}
   - component: {fileID: 249166922592196662}
@@ -166,23 +251,32 @@ MonoBehaviour:
   affectedByLight: {fileID: 0}
   attackReceived: {fileID: 0}
   interaction: {fileID: 0}
-  weakNames:
-  - LampPlant
-  - CorruptionPlant
-  - GuidingLightPlant
-  - DarkMistPlant
-  witchCryingDuration: 3
-  pathInvalidDuration: 1
-  witchWeak: 0
-  witchCrying: 0
-  witchEnemyData: {fileID: 0}
-  canLeap: 0
-  leapDestination: {x: 0, y: 0, z: 0}
-  leapTolerance: 1
-  leapSpeed: 20
-  backLeap: {fileID: 8081514480735923018}
-  rightLeap: {fileID: 2830067356061272613}
-  leftLeap: {fileID: 4618482334041846786}
+  witchHidden:
+    possibleHiddenSprites: []
+    playerIdleDuration: 5
+    witchSpriteRenderer: {fileID: 5968671515912607088}
+    coverSpriteRenderer: {fileID: 1547799683538224641}
+  witchLeap:
+    canLeap: 0
+    executingLeap: 0
+    leapPoints:
+    - {fileID: 8081514480735923018}
+    - {fileID: 2830067356061272613}
+    - {fileID: 4618482334041846786}
+    leapDestination: {x: 0, y: 0, z: 0}
+    leapTolerance: 1
+    leapSpeed: 20
+    maxLeapDuration: 1
+  witchWeak:
+    witchIsWeak: 0
+    weakNames:
+    - LampPlant
+    - CorruptionPlant
+    - GuidingLightPlant
+    - DarkMistPlant
+  witchCrying:
+    witchIsCrying: 0
+    witchCryingDuration: 3
 --- !u!114 &5814908281921240197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,6 +307,71 @@ MonoBehaviour:
   calmStateWeapon: {fileID: 0}
   berserkStateWeapon: {fileID: 0}
   enemyWeaponsSlot: {fileID: 7032387455319947333}
+--- !u!114 &8138099241043629667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477770951886658404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef628f0f31b66140bc67ee1d74849a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHP: 0
+  maxHP: 0
+  uxOnDeath:
+    hasSound: 1
+    sound:
+      clip: {fileID: 8300000, guid: 62e6665eae50acd4ea9aefae6930823a, type: 3}
+      priority: 128
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 1
+      loop: 0
+      playOnAwake: 0
+      mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
+    hasSpriteColorChange: 0
+    spriteColorChange:
+      changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+      spriteRef: {fileID: 0}
+      spriteColorChangeDuration: 0
+    hasCameraShake: 0
+    cameraShake:
+      shakeAmplitude: 0
+      shakeFrequency: 0
+      shakeDuration: 0
+      cinemachineCameraShakerRef: {fileID: 0}
+    soundParent: {fileID: 0}
+  uxOnHit:
+    hasSound: 1
+    sound:
+      clip: {fileID: 8300000, guid: 2bcaa44bc2e9bd84ea7e9d9ea1f96f19, type: 3}
+      priority: 128
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 1
+      loop: 0
+      playOnAwake: 0
+      mixer: {fileID: 24300002, guid: e47d131f641bc7f4f8f21592285e3105, type: 2}
+    hasSpriteColorChange: 1
+    spriteColorChange:
+      changedSpriteColor: {r: 0, g: 0, b: 1, a: 1}
+      spriteRef: {fileID: 5968671515912607088}
+      spriteColorChangeDuration: 0.3
+    hasCameraShake: 0
+    cameraShake:
+      shakeAmplitude: 0
+      shakeFrequency: 0
+      shakeDuration: 0
+      cinemachineCameraShakerRef: {fileID: 0}
+    soundParent: {fileID: 0}
+  doesntTurnOffOnDeath: 0
 --- !u!114 &-57584891418013859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,6 +634,7 @@ Transform:
   m_Children:
   - {fileID: 8123433773573123154}
   - {fileID: 7447005443702111619}
+  - {fileID: 2830643146845664410}
   - {fileID: 7706018151413138531}
   - {fileID: 5527886146647556473}
   - {fileID: 4099550700551732361}
@@ -537,7 +697,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8061350211423681150}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.25}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -626,7 +786,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3703071539599798944}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4838071370792351640
 BoxCollider:

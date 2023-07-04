@@ -4438,6 +4438,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7288757662455246350, guid: 483e0f2e61aa7354995644a6d7b47553, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7288757662455246351, guid: 483e0f2e61aa7354995644a6d7b47553, type: 3}
       propertyPath: m_RootOrder
       value: 26
@@ -5582,10 +5586,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WitchEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 5477770951886658404, guid: be60f8ec6f313dd4889e2c08e5e6630c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6395110103217412864, guid: be60f8ec6f313dd4889e2c08e5e6630c, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -6648,6 +6648,10 @@ PrefabInstance:
     - target: {fileID: 7288757662455246350, guid: 483e0f2e61aa7354995644a6d7b47553, type: 3}
       propertyPath: m_Name
       value: Teleport
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288757662455246350, guid: 483e0f2e61aa7354995644a6d7b47553, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7288757662455246351, guid: 483e0f2e61aa7354995644a6d7b47553, type: 3}
       propertyPath: m_RootOrder
