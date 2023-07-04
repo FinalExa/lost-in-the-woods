@@ -19,6 +19,7 @@ public class WitchEnemyBT : EnemyBT
         {
             new Sequence(new List<Node>
             {
+                new TaskWitchIsNotHidden(witchEnemyController),
                 new TaskEnemyIsNotLocked(enemyController),
                 new TaskLeap(witchEnemyController),
                 new Selector(new List<Node>
