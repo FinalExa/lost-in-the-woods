@@ -13,7 +13,7 @@ public class TaskWitchIsNotLocked : Node
 
     public override NodeState Evaluate()
     {
-        if (witchEnemyController.witchCrying.GetIfWitchIsCrying() || witchEnemyController.witchLeap.GetIfWitchIsExecutingLeap()) return NodeState.FAILURE;
+        if (witchEnemyController.witchCrying.GetIfWitchIsCrying()) return NodeState.FAILURE;
         else return NodeState.SUCCESS;
     }
 }

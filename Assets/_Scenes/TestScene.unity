@@ -5628,7 +5628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8682059679758461917, guid: be60f8ec6f313dd4889e2c08e5e6630c, type: 3}
       propertyPath: witchLeap.maxLeapDuration
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be60f8ec6f313dd4889e2c08e5e6630c, type: 3}

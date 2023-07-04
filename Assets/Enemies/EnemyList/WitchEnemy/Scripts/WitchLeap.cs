@@ -40,7 +40,7 @@ public class WitchLeap
         }
         else
         {
-            if (executingLeap) EndLeap();
+            EndLeap();
             return true;
         }
     }
@@ -88,10 +88,13 @@ public class WitchLeap
         witchEnemyController.thisNavMeshAgent.SetDestination(leapDestination);
     }
 
-    public void LeapTimer()
+    public void LeapFinishTimer()
     {
-        if (maxLeapDurationTimer > 0) maxLeapDurationTimer -= Time.deltaTime;
-        else EndLeap();
+        if (executingLeap)
+        {
+            if (maxLeapDurationTimer > 0) maxLeapDurationTimer -= Time.deltaTime;
+            else EndLeap();
+        }
     }
 
     private void EndLeap()

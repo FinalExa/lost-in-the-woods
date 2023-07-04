@@ -21,7 +21,7 @@ public class WitchEnemyController : EnemyController, ISendSignalToSelf
     private void Update()
     {
         witchCrying.WitchCryingAction();
-        witchLeap.LeapTimer();
+        witchLeap.LeapFinishTimer();
     }
 
     public override void LightStateUpdate()

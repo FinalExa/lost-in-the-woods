@@ -20,14 +20,14 @@ public class WitchEnemyBT : EnemyBT
             new Sequence(new List<Node>
             {
                 new TaskEnemyIsNotLocked(enemyController),
-                new TaskWitchIsNotLocked(witchEnemyController),
                 new TaskLeap(witchEnemyController),
                 new Selector(new List<Node>
                 {
                     new TaskWitchIsWeak(witchEnemyController),
                     new TaskWitchWeakLeap(witchEnemyController)
                 }),
-                new TaskIsAbleToLeap(witchEnemyController)
+                new TaskIsAbleToLeap(witchEnemyController),
+                new TaskWitchIsNotLocked(witchEnemyController)
             }),
             new Selector(new List<Node>
             {

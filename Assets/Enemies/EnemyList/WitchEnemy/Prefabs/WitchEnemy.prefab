@@ -175,7 +175,7 @@ MonoBehaviour:
     leapDestination: {x: 0, y: 0, z: 0}
     leapTolerance: 1
     leapSpeed: 20
-    maxLeapDuration: 0.5
+    maxLeapDuration: 1
   witchWeak:
     witchIsWeak: 0
     weakNames:
