@@ -169,9 +169,10 @@ MonoBehaviour:
   witchLeap:
     canLeap: 0
     executingLeap: 0
-    backLeap: {fileID: 8081514480735923018}
-    rightLeap: {fileID: 2830067356061272613}
-    leftLeap: {fileID: 4618482334041846786}
+    leapPoints:
+    - {fileID: 8081514480735923018}
+    - {fileID: 2830067356061272613}
+    - {fileID: 4618482334041846786}
     leapDestination: {x: 0, y: 0, z: 0}
     leapTolerance: 1
     leapSpeed: 20

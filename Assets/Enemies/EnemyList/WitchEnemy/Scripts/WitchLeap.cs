@@ -9,9 +9,7 @@ public class WitchLeap
 
     public bool canLeap;
     public bool executingLeap;
-    public GameObject backLeap;
-    public GameObject rightLeap;
-    public GameObject leftLeap;
+    public GameObject[] leapPoints;
     [HideInInspector] public Vector3 leapDestination;
     public float leapTolerance;
     public float leapSpeed;
@@ -47,29 +45,20 @@ public class WitchLeap
 
     private void DecideLeapObject()
     {
-        if (witchEnemyController.affectedByLight.lightState == AffectedByLight.LightState.NORMAL || witchEnemyController.witchWeak.GetIfWitchIsWeak()) leapDestination = CalculateLeapPoint(backLeap);
-        else if (witchEnemyController.affectedByLight.lightState == AffectedByLight.LightState.BERSERK) DistanceBetweenSideLeaps();
-    }
-    private void DistanceBetweenSideLeaps()
-    {
-        Vector3 rightPoint = CalculateLeapPoint(rightLeap);
-        Vector3 leftPoint = CalculateLeapPoint(leftLeap);
-        float rightDistance = Vector3.Distance(witchEnemyController.transform.position, rightPoint);
-        float leftDistance = Vector3.Distance(witchEnemyController.transform.position, leftPoint);
-        if (rightDistance > leftDistance) leapDestination = rightPoint;
-        else if (rightDistance < leftDistance) leapDestination = leftPoint;
-        else RandomizeSideLeapPoint(rightPoint, leftPoint);
+        if (witchEnemyController.affectedByLight.lightState == AffectedByLight.LightState.NORMAL ||
+            witchEnemyController.affectedByLight.lightState == AffectedByLight.LightState.BERSERK ||
+            witchEnemyController.witchWeak.GetIfWitchIsWeak()) leapDestination = CalculateLeapPoint();
     }
 
-    private void RandomizeSideLeapPoint(Vector3 rightPoint, Vector3 leftPoint)
+    private GameObject RandomizeLeapPoint()
     {
-        int randomNumber = Random.Range(0, 1);
-        if (randomNumber == 0) leapDestination = rightPoint;
-        else leapDestination = leftPoint;
+        int randomNumber = Random.Range(0, leapPoints.Length - 1);
+        return leapPoints[randomNumber];
     }
 
-    private Vector3 CalculateLeapPoint(GameObject leapPoint)
+    private Vector3 CalculateLeapPoint()
     {
+        GameObject leapPoint = RandomizeLeapPoint();
         Vector3 hitDirection = (leapPoint.transform.position - witchEnemyController.transform.position);
         if (Physics.Raycast(witchEnemyController.transform.position, hitDirection, out RaycastHit hit))
         {
