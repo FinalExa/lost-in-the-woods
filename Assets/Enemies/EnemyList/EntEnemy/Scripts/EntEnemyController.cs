@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class EntEnemyController : EnemyController, ISendSignalToSelf
 {
-    [SerializeField] private EnemyData vigorousData;
+    private EntEnemyWeaponSwitcher entEnemyWeaponSwitcher;
+    public EnemyData vigorousData;
     [SerializeField] private string swapToVigorousName;
-    [SerializeField] private EnemyData depletedData;
+    public EnemyData depletedData;
     [SerializeField] private string swapToDepletedName;
     [HideInInspector] public bool stunned;
     [SerializeField] private float stunTotalTime;
     private float stunTimer;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        entEnemyWeaponSwitcher = this.gameObject.GetComponent<EntEnemyWeaponSwitcher>();
+    }
 
     private void Update()
     {
@@ -39,9 +46,10 @@ public class EntEnemyController : EnemyController, ISendSignalToSelf
 
     private void SetStunned(EnemyData newData)
     {
+        enemyCombo.EndCombo();
         stunned = true;
         stunTimer = stunTotalTime;
         enemyData = newData;
-        enemyCombo.EndCombo();
+        entEnemyWeaponSwitcher.SwitchEntWeapons();
     }
 }
