@@ -16,6 +16,8 @@ public class RootShieldEnemyController : EnemyController, ISendSignalToSelf
     [SerializeField] private string fogShieldName;
     [SerializeField] private bool randomizeShieldTypeEverytime;
     [SerializeField] private bool isFog;
+    [SerializeField] private RootShieldObjectBlocker objectBlockerRef;
+    private GameObject objectToBlock;
 
     private void OnEnable()
     {
@@ -25,6 +27,16 @@ public class RootShieldEnemyController : EnemyController, ISendSignalToSelf
     private void Update()
     {
         ShieldDown();
+    }
+
+    public void SetObjectToBlock(GameObject receivedObject)
+    {
+        objectToBlock = receivedObject;
+    }
+
+    private void RemoveObjectBlocker()
+    {
+
     }
 
     public void OnSignalReceived(GameObject source)
