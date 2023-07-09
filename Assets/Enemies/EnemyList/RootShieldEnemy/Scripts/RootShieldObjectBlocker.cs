@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class RootShieldObjectBlocker : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Interaction objectToBlock;
+
+    public void SetupObjectToBlock(Interaction receivedObj)
     {
-        
+        objectToBlock = receivedObj;
+        this.transform.position = objectToBlock.transform.position;
+        objectToBlock.locked = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SelfDestruct()
     {
-        
+        objectToBlock.locked = false;
+        GameObject.Destroy(this.gameObject);
     }
 }

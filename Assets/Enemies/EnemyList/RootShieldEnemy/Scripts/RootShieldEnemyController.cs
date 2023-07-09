@@ -17,11 +17,17 @@ public class RootShieldEnemyController : EnemyController, ISendSignalToSelf
     [SerializeField] private bool randomizeShieldTypeEverytime;
     [SerializeField] private bool isFog;
     [SerializeField] private RootShieldObjectBlocker objectBlockerRef;
-    private GameObject objectToBlock;
+    private Interaction objectToBlock;
+    private RootShieldObjectBlocker objectBlockerInstance;
 
     private void OnEnable()
     {
         SetShieldUp();
+    }
+
+    private void OnDisable()
+    {
+        RemoveObjectBlocker();
     }
 
     private void Update()
@@ -31,12 +37,20 @@ public class RootShieldEnemyController : EnemyController, ISendSignalToSelf
 
     public void SetObjectToBlock(GameObject receivedObject)
     {
-        objectToBlock = receivedObject;
+        objectToBlock = receivedObject.GetComponent<Interaction>();
+        if (objectToBlock != null)
+        {
+            objectBlockerInstance = Instantiate(objectBlockerRef);
+            objectBlockerInstance.SetupObjectToBlock(objectToBlock);
+        }
     }
 
     private void RemoveObjectBlocker()
     {
-
+        if (objectToBlock != null)
+        {
+            objectBlockerInstance.SelfDestruct();
+        }
     }
 
     public void OnSignalReceived(GameObject source)
