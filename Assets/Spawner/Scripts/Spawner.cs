@@ -15,6 +15,10 @@ public class Spawner : MonoBehaviour
         public GameObject fixedSpawnPosition;
         public bool doesntRespawn;
         public float deathCooldown;
+        public bool rootShieldObjectBlock;
+        public GameObject objectToBlock;
+        public bool witchIllusion;
+        public List<Sprite> witchSprites;
     }
     [System.Serializable]
     public struct EnemiesToRespawn
@@ -62,10 +66,21 @@ public class Spawner : MonoBehaviour
             enemyRef.spawnerRef = this;
             enemyRef.spawnerEnemyInfo = enemyToRespawn;
             enemyRef.isAlerted = false;
+            if (enemyToSpawn.rootShieldObjectBlock)
+            {
+                RootShieldEnemyController rootShieldRef = (RootShieldEnemyController)enemyRef;
+                if (rootShieldRef != null) rootShieldRef.SetObjectToBlock(enemyToSpawn.objectToBlock);
+            }
+            if (enemyToSpawn.witchIllusion)
+            {
+                WitchEnemyController witchEnemyRef = (WitchEnemyController)enemyRef;
+                if (witchEnemyRef != null) witchEnemyRef.witchHidden.UpdateWitchHiddenSpriteList(enemyToSpawn.witchSprites);
+            }
             if (enemyToSpawn.startsSpawned) SetEnemyActive(enemyToRespawn);
             else SetEnemyDead(enemyToRespawn, true);
         }
     }
+
     private EnemiesToRespawn CreateEnemyToRespawn(EnemyController enemyRef, float timer, bool _doesntRespawn, bool _fixedSpawn, GameObject fixedSpawnObj)
     {
         EnemiesToRespawn enemyToRespawn = new EnemiesToRespawn();
