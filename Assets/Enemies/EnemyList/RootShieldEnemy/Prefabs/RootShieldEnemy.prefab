@@ -85,6 +85,7 @@ MonoBehaviour:
   fogShieldName: FogPlant
   randomizeShieldTypeEverytime: 0
   isFog: 0
+  objectBlockerRef: {fileID: 6261836125030605101, guid: 2c5364187d940ac48bf2a03b4d6b464d, type: 3}
 --- !u!114 &-479192370226542774
 MonoBehaviour:
   m_ObjectHideFlags: 0
