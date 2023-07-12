@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 
-public class TaskIsAbleToLeapBack : Node
+public class TaskIsAbleToLeap : Node
 {
     WitchEnemyController _witchEnemyController;
-    public TaskIsAbleToLeapBack(WitchEnemyController witchEnemyController)
+    public TaskIsAbleToLeap(WitchEnemyController witchEnemyController)
     {
         _witchEnemyController = witchEnemyController;
     }
@@ -15,15 +15,9 @@ public class TaskIsAbleToLeapBack : Node
     {
         if (_witchEnemyController.AttackDone)
         {
-            if (!_witchEnemyController.canLeap) SetUpLeap();
+            _witchEnemyController.witchLeap.SetupLeap();
             return NodeState.FAILURE;
         }
         else return NodeState.SUCCESS;
-    }
-
-    private void SetUpLeap()
-    {
-        _witchEnemyController.DecideLeapObject();
-        _witchEnemyController.canLeap = true;
     }
 }

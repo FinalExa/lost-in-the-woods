@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 
-public class TaskWitchWeakLeap : Node
+public class TaskWitchIsNotLocked : Node
 {
     private WitchEnemyController witchEnemyController;
-    public TaskWitchWeakLeap(WitchEnemyController _witchEnemyController)
+    public TaskWitchIsNotLocked(WitchEnemyController _witchEnemyController)
     {
         witchEnemyController = _witchEnemyController;
     }
 
     public override NodeState Evaluate()
     {
-        witchEnemyController.witchLeap.SetupLeap();
-        return NodeState.RUNNING;
+        if (witchEnemyController.witchCrying.GetIfWitchIsCrying()) return NodeState.FAILURE;
+        else return NodeState.SUCCESS;
     }
 }

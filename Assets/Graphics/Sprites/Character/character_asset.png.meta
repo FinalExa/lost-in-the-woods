@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0c0d21bf47a4a464195a50e660919e1b
+guid: 6183e86512bc16d4aa21ee7bed71a208
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 175
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,85 +105,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: character_turnaround_render_0
+      name: looking_up
       rect:
         serializedVersion: 2
-        x: 84
-        y: 63
-        width: 316
-        height: 716
+        x: 45
+        y: 54
+        width: 142
+        height: 397
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ec195d057ea953449271b2e6f2df960
-      internalID: -1876262755
+      spriteID: 7a9afbf5ec75e0e438cd7855e9876936
+      internalID: -1620282732
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_turnaround_render_1
+      name: looking_down
       rect:
         serializedVersion: 2
-        x: 515
-        y: 63
-        width: 316
-        height: 716
+        x: 224
+        y: 54
+        width: 135
+        height: 399
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eeeef69109c074740bea8d6855f02216
-      internalID: 723844147
+      spriteID: e1b9a5a408f45ba408103e95f3084f14
+      internalID: 1545025865
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_turnaround_render_2
+      name: looking_right
       rect:
         serializedVersion: 2
-        x: 916
-        y: 63
-        width: 315
-        height: 716
+        x: 411
+        y: 54
+        width: 113
+        height: 406
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c920eb85bc9cac44e82c2786736f375a
-      internalID: 592366022
+      spriteID: 37b8c1f4af1c03747b5195e8730e616a
+      internalID: 1680748241
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_turnaround_render_3
+      name: looking_left
       rect:
         serializedVersion: 2
-        x: 1315
-        y: 63
-        width: 315
-        height: 716
+        x: 594
+        y: 53
+        width: 112
+        height: 398
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a92c31f27ad3b440ab9833db992f8cb
-      internalID: 1246764356
+      spriteID: cfbb7d28e8f91124ebc4c3f3bd4420fe
+      internalID: 584352079
       vertices: []
       indices: 
       edges: []
@@ -199,10 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      character_turnaround_render_1: 723844147
-      character_turnaround_render_3: 1246764356
-      character_turnaround_render_0: -1876262755
-      character_turnaround_render_2: 592366022
+      looking_up: -1620282732
+      looking_left: 584352079
+      looking_down: 1545025865
+      looking_right: 1680748241
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6395110103217412864}
   - component: {fileID: 6874013598175626813}
   - component: {fileID: -3278775245806498189}
-  - component: {fileID: 3939637572597450188}
+  - component: {fileID: 5599828935790440425}
   - component: {fileID: -5641984116718413269}
   - component: {fileID: 8690117516297040685}
   - component: {fileID: 249166922592196662}
@@ -81,7 +81,7 @@ MonoBehaviour:
   depletedData: {fileID: 11400000, guid: afdc35802c632bb468c0812f7e6b1b6e, type: 2}
   swapToDepletedName: UrnFog
   stunned: 0
-  stunTotalTime: 2
+  stunTotalTime: 10
 --- !u!114 &-3278775245806498189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyController: {fileID: 0}
   enemyWeaponSwitcher: {fileID: 0}
---- !u!114 &3939637572597450188
+--- !u!114 &5599828935790440425
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,13 +105,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 5477770951886658404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be3f20ed514613244a1e31eb0719c4ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d002f566cf3beb4eb15d2c387333515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   normalStateWeapon: {fileID: 0}
   calmStateWeapon: {fileID: 0}
   berserkStateWeapon: {fileID: 0}
   enemyWeaponsSlot: {fileID: 7032387455319947333}
+  normalVigorousWeapon: {fileID: 0}
+  calmVigorousWeapon: {fileID: 0}
+  berserkVigorousWeapon: {fileID: 0}
+  normalDepletedWeapon: {fileID: 0}
+  calmDepletedWeapon: {fileID: 0}
+  berserkDepletedWeapon: {fileID: 0}
 --- !u!114 &-5641984116718413269
 MonoBehaviour:
   m_ObjectHideFlags: 0

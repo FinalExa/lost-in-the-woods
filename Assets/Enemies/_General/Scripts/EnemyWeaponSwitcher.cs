@@ -5,9 +5,9 @@ using UnityEngine;
 public class EnemyWeaponSwitcher : MonoBehaviour
 {
     protected EnemyController enemyController;
-    [HideInInspector] public Weapon normalStateWeapon;
-    [HideInInspector] public Weapon calmStateWeapon;
-    [HideInInspector] public Weapon berserkStateWeapon;
+    public Weapon normalStateWeapon;
+    public Weapon calmStateWeapon;
+    public Weapon berserkStateWeapon;
     [SerializeField] protected GameObject enemyWeaponsSlot;
 
     private void Awake()
@@ -24,7 +24,7 @@ public class EnemyWeaponSwitcher : MonoBehaviour
         enemyController = this.gameObject.GetComponent<EnemyController>();
         GenerateEnemyWeapons();
     }
-    protected void GenerateEnemyWeapons()
+    protected virtual void GenerateEnemyWeapons()
     {
         if (enemyController.enemyData.hasNormalWeapon) normalStateWeapon = GenerateWeapon(enemyController.enemyData.normalWeapon);
         if (enemyController.enemyData.hasCalmWeapon) calmStateWeapon = GenerateWeapon(enemyController.enemyData.calmWeapon);
@@ -34,7 +34,7 @@ public class EnemyWeaponSwitcher : MonoBehaviour
     {
         return Instantiate(weaponRef, enemyWeaponsSlot.transform);
     }
-    public void SetEnemyWeaponByState()
+    public virtual void SetEnemyWeaponByState()
     {
         if (enemyController.affectedByLight.lightState == AffectedByLight.LightState.NORMAL && enemyController.enemyData.hasNormalWeapon) SetEnemyWeapon(normalStateWeapon);
         else if (enemyController.affectedByLight.lightState == AffectedByLight.LightState.CALM && enemyController.enemyData.hasCalmWeapon) SetEnemyWeapon(calmStateWeapon);
