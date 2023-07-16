@@ -46,7 +46,7 @@ public class PCAttack : PCState
     #region ToIdleState
     private void GoToIdleState(Inputs inputs)
     {
-        if (inputs.MovementInput == Vector3.zero) _pcStateMachine.SetState(new PCIdleGrab(_pcStateMachine));
+        if (inputs.MovementInput == Vector3.zero) _pcStateMachine.SetState(new PCIdle(_pcStateMachine));
     }
     #endregion
     #region ToMovementState
