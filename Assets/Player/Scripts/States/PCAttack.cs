@@ -14,13 +14,22 @@ public class PCAttack : PCState
 
     public override void Start()
     {
-        if (!playerCombo.pcLockedAttack) playerCombo.StartHitOnWeapon(secondary);
+        if (!playerCombo.pcLockedAttack)
+        {
+            RigidbodyStop();
+            playerCombo.StartHitOnWeapon(secondary);
+        }
         else Transitions();
     }
 
     public override void Update()
     {
         if (playerCombo.GetHitOver()) Transitions();
+    }
+
+    private void RigidbodyStop()
+    {
+        if (_pcStateMachine.pcController.pcReferences.rb.velocity != Vector3.zero) _pcStateMachine.pcController.pcReferences.rb.velocity = new Vector3(0f, _pcStateMachine.pcController.pcReferences.rb.velocity.y, 0f);
     }
 
     #region Transitions
@@ -46,7 +55,7 @@ public class PCAttack : PCState
     #region ToIdleState
     private void GoToIdleState(Inputs inputs)
     {
-        if (inputs.MovementInput == Vector3.zero) _pcStateMachine.SetState(new PCIdleGrab(_pcStateMachine));
+        if (inputs.MovementInput == Vector3.zero) _pcStateMachine.SetState(new PCIdle(_pcStateMachine));
     }
     #endregion
     #region ToMovementState

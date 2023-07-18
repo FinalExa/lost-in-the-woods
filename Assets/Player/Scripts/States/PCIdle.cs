@@ -6,11 +6,11 @@ public class PCIdle : PCState
     }
     public override void Update()
     {
-        IdleSpeedStop();
+        RigidbodyStop();
         Transitions();
     }
 
-    private void IdleSpeedStop()
+    private void RigidbodyStop()
     {
         if (_pcStateMachine.pcController.pcReferences.rb.velocity != Vector3.zero) _pcStateMachine.pcController.pcReferences.rb.velocity = new Vector3(0f, _pcStateMachine.pcController.pcReferences.rb.velocity.y, 0f);
     }
