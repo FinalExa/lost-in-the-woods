@@ -37,7 +37,7 @@ public class WitchHidden
         ResetPlayerIdleTimer();
         if (possibleHiddenSprites.Count > 0)
         {
-            Sprite chosenSprite = possibleHiddenSprites[Random.Range(0, possibleHiddenSprites.Count - 1)];
+            Sprite chosenSprite = possibleHiddenSprites[Random.Range(0, possibleHiddenSprites.Count)];
             coverSpriteRenderer.sprite = chosenSprite;
             witchSpriteRenderer.enabled = false;
             coverSpriteRenderer.enabled = true;
