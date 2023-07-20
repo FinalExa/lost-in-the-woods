@@ -10,7 +10,11 @@ public class RootShieldObjectBlocker : MonoBehaviour
     {
         objectToBlock = receivedObj;
         this.transform.position = objectToBlock.transform.position;
-        objectToBlock.locked = true;
+    }
+
+    private void Update()
+    {
+        if (!objectToBlock.locked) objectToBlock.locked = true;
     }
 
     public void SelfDestruct()
