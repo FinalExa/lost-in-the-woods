@@ -35,12 +35,17 @@ public class RootShieldEnemyController : EnemyController, ISendSignalToSelf
         ShieldDown();
     }
 
-    public void SetObjectToBlock(GameObject receivedObject)
+    public void SetObjectToBlock(Interaction receivedObject)
     {
-        objectToBlock = receivedObject.GetComponent<Interaction>();
-        if (objectToBlock != null)
+        objectToBlock = receivedObject;
+        StartObjectBlocker();
+    }
+
+    private void StartObjectBlocker()
+    {
+        if (objectToBlock != null && objectBlockerInstance == null)
         {
-            objectBlockerInstance = Instantiate(objectBlockerRef);
+            objectBlockerInstance = Instantiate(objectBlockerRef, objectToBlock.transform);
             objectBlockerInstance.SetupObjectToBlock(objectToBlock);
         }
     }
