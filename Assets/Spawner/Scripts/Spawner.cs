@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour
         public bool doesntRespawn;
         public float deathCooldown;
         public bool rootShieldObjectBlock;
-        public GameObject objectToBlock;
+        public Interaction objectToBlock;
         public bool witchIllusion;
         public List<Sprite> witchSprites;
     }
