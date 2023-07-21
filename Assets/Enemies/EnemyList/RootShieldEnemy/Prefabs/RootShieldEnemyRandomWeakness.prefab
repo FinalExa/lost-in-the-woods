@@ -9,20 +9,20 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6395110103217412864}
-  - component: {fileID: 6874013598175626813}
-  - component: {fileID: -3278775245806498189}
-  - component: {fileID: 5599828935790440425}
+  - component: {fileID: -2295486159168618230}
+  - component: {fileID: -479192370226542774}
+  - component: {fileID: 3939637572597450188}
   - component: {fileID: -5641984116718413269}
+  - component: {fileID: -5577761954899460001}
   - component: {fileID: 8690117516297040685}
   - component: {fileID: 249166922592196662}
   - component: {fileID: 1499536932708734254}
   - component: {fileID: 8595883062675126321}
-  - component: {fileID: 1932854277283922040}
   - component: {fileID: 870482475112301395}
   - component: {fileID: 4166100610456823755}
   - component: {fileID: 4992552886037869941}
   m_Layer: 0
-  m_Name: EntEnemy
+  m_Name: RootShieldEnemyRandomWeakness
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6874013598175626813
+--- !u!114 &-2295486159168618230
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,11 +54,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5477770951886658404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f992eaff190586d4cbb4f1ceddd3d328, type: 3}
+  m_Script: {fileID: 11500000, guid: 8aa08cc2849e56c49ab91b9d3252b182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rotation: {fileID: 11400000, guid: 3a0ecedcd75d65b498584f6fa7373c60, type: 2}
-  enemyData: {fileID: 11400000, guid: 1c2dd07e236eb0e46977b50694f6eb0a, type: 2}
+  enemyData: {fileID: 11400000, guid: 79ba79a27efe59f4a8402427cc6efab5, type: 2}
   currentWeapon: {fileID: 0}
   isAlerted: 0
   playerRef: {fileID: 0}
@@ -76,13 +76,17 @@ MonoBehaviour:
   affectedByLight: {fileID: 0}
   attackReceived: {fileID: 0}
   interaction: {fileID: 0}
-  vigorousData: {fileID: 11400000, guid: 1c2dd07e236eb0e46977b50694f6eb0a, type: 2}
-  swapToVigorousName: UrnLight
-  depletedData: {fileID: 11400000, guid: afdc35802c632bb468c0812f7e6b1b6e, type: 2}
-  swapToDepletedName: UrnFog
-  stunned: 0
-  stunTotalTime: 10
---- !u!114 &-3278775245806498189
+  shieldUp: 0
+  exposedLightDamagePerSecond: 4
+  protectedLightDamagePerSecond: 5
+  shieldMaxHealth: 100
+  shieldDownTime: 5
+  lightShieldName: LightBulb
+  fogShieldName: FogPlant
+  randomizeShieldTypeEverytime: 1
+  isFog: 0
+  objectBlockerRef: {fileID: 6261836125030605101, guid: 2c5364187d940ac48bf2a03b4d6b464d, type: 3}
+--- !u!114 &-479192370226542774
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,12 +95,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5477770951886658404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac8d780fd435bcb42808a1252e977578, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d83ca5b63ab17449865804e8a06c4d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyController: {fileID: 0}
   enemyWeaponSwitcher: {fileID: 0}
---- !u!114 &5599828935790440425
+--- !u!114 &3939637572597450188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,19 +109,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5477770951886658404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d002f566cf3beb4eb15d2c387333515, type: 3}
+  m_Script: {fileID: 11500000, guid: be3f20ed514613244a1e31eb0719c4ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   normalStateWeapon: {fileID: 0}
   calmStateWeapon: {fileID: 0}
   berserkStateWeapon: {fileID: 0}
   enemyWeaponsSlot: {fileID: 7032387455319947333}
-  normalVigorousWeapon: {fileID: 0}
-  calmVigorousWeapon: {fileID: 0}
-  berserkVigorousWeapon: {fileID: 0}
-  normalDepletedWeapon: {fileID: 0}
-  calmDepletedWeapon: {fileID: 0}
-  berserkDepletedWeapon: {fileID: 0}
 --- !u!114 &-5641984116718413269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +181,20 @@ MonoBehaviour:
       cinemachineCameraShakerRef: {fileID: 0}
     soundParent: {fileID: 0}
   doesntTurnOffOnDeath: 0
+--- !u!114 &-5577761954899460001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477770951886658404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae2827904ce38840965ed8c639c24bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisType: 1
+  ignoresDamage: 0
 --- !u!114 &8690117516297040685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17b331db98df9143ae63583c3486477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setOfInteractions: {fileID: 11400000, guid: 6785863fc79b179428357d4630295f37, type: 2}
+  setOfInteractions: {fileID: 11400000, guid: 0bd2d670f54cc6c438e77948c23a27ae, type: 2}
   affectedByLightRef: {fileID: 0}
   rotator: {fileID: 0}
   objectToSetActiveStatus: {fileID: 0}
@@ -285,21 +297,6 @@ MonoBehaviour:
   isInHeartbeatState: 0
   enemyController: {fileID: 0}
   interaction: {fileID: 0}
---- !u!114 &1932854277283922040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5477770951886658404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c88b460fb0002940bf563a767b52b6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisType: 1
-  ignoresDamage: 0
-  damageMultOnStun: 5
 --- !u!136 &870482475112301395
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -442,7 +439,7 @@ Transform:
   m_GameObject: {fileID: 8061350211423681150}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3703071539599798944}
