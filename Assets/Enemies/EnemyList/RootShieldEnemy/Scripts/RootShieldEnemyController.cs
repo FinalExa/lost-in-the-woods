@@ -33,6 +33,7 @@ public class RootShieldEnemyController : EnemyController, ISendSignalToSelf
     private void Update()
     {
         ShieldDown();
+        StartObjectBlocker();
     }
 
     public void SetObjectToBlock(Interaction receivedObject)
