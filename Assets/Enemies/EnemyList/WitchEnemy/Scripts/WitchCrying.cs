@@ -8,6 +8,7 @@ public class WitchCrying
     private WitchEnemyController witchEnemyController;
     public bool witchIsCrying;
     [SerializeField] private float witchCryingDuration;
+    [SerializeField] private GameObject witchCryingSprite;
     private float witchCryingTimer;
     public void SetController(WitchEnemyController controller)
     {
@@ -25,11 +26,13 @@ public class WitchCrying
     public void WitchStartCryingAction()
     {
         witchIsCrying = true;
+        witchCryingSprite.SetActive(true);
         witchCryingTimer = witchCryingDuration;
     }
 
     public void WitchStopCryingAction()
     {
+        witchCryingSprite.SetActive(false);
         witchIsCrying = false;
     }
 

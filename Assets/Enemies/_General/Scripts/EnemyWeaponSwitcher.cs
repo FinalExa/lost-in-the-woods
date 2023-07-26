@@ -5,9 +5,9 @@ using UnityEngine;
 public class EnemyWeaponSwitcher : MonoBehaviour
 {
     protected EnemyController enemyController;
-    public Weapon normalStateWeapon;
-    public Weapon calmStateWeapon;
-    public Weapon berserkStateWeapon;
+    [HideInInspector] public Weapon normalStateWeapon;
+    [HideInInspector] public Weapon calmStateWeapon;
+    [HideInInspector] public Weapon berserkStateWeapon;
     [SerializeField] protected GameObject enemyWeaponsSlot;
 
     private void Awake()
