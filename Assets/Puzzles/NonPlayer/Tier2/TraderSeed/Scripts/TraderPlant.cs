@@ -11,6 +11,12 @@ public class TraderPlant : MonoBehaviour, ISendSignalToSelf
     [SerializeField] private string explorationNameNegative;
     [HideInInspector] public int signalSetState;
     [HideInInspector] public int explorationSetState;
+    [SerializeField] private SpriteRenderer signalFeedback;
+    [SerializeField] private Color signalPositiveColor;
+    [SerializeField] private Color signalNegativeColor;
+    [SerializeField] private SpriteRenderer explorationFeedback;
+    [SerializeField] private Color explorationPositiveColor;
+    [SerializeField] private Color explorationNegativeColor;
 
     private void Awake()
     {
@@ -38,6 +44,13 @@ public class TraderPlant : MonoBehaviour, ISendSignalToSelf
         signalSetState = 0;
         if (namedOps.ActiveNamedInteractions.ContainsKey(signalNamePositive)) signalSetState++;
         if (namedOps.ActiveNamedInteractions.ContainsKey(signalNameNegative)) signalSetState--;
+        if (signalSetState == 0) signalFeedback.gameObject.SetActive(false);
+        else
+        {
+            signalFeedback.gameObject.SetActive(true);
+            if (signalSetState == 1) signalFeedback.color = signalPositiveColor;
+            else if (signalSetState == -1) signalFeedback.color = signalNegativeColor;
+        }
     }
 
     private void SetExploration(NamedInteractionOperations namedOps)
@@ -45,6 +58,13 @@ public class TraderPlant : MonoBehaviour, ISendSignalToSelf
         explorationSetState = 0;
         if (namedOps.ActiveNamedInteractions.ContainsKey(explorationNamePositive)) explorationSetState++;
         if (namedOps.ActiveNamedInteractions.ContainsKey(explorationNameNegative)) explorationSetState--;
+        if (explorationSetState == 0) explorationFeedback.gameObject.SetActive(false);
+        else
+        {
+            explorationFeedback.gameObject.SetActive(true);
+            if (explorationSetState == 1) explorationFeedback.color = explorationPositiveColor;
+            else if (explorationSetState == -1) explorationFeedback.color = explorationNegativeColor;
+        }
     }
 
 }

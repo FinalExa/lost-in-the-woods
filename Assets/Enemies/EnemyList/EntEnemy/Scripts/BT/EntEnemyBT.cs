@@ -36,6 +36,7 @@ public class EntEnemyBT : EnemyBT
             new Selector(new List<Node>
             {
                 new TaskIsInCalmState(enemyController, enemyWeaponSwitcher),
+                new TaskStopMovement(enemyController)
             }),
             new Selector (new List<Node>
             {

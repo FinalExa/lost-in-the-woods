@@ -19,6 +19,13 @@ public class RootShieldEnemyController : EnemyController, ISendSignalToSelf
     [SerializeField] private RootShieldObjectBlocker objectBlockerRef;
     private Interaction objectToBlock;
     private RootShieldObjectBlocker objectBlockerInstance;
+    [SerializeField] private GameObject shieldObject;
+    [SerializeField] private UXEffect uxOnShieldHit;
+
+    private void Start()
+    {
+        uxOnShieldHit.UXEffectStartup();
+    }
 
     private void OnEnable()
     {
@@ -67,12 +74,14 @@ public class RootShieldEnemyController : EnemyController, ISendSignalToSelf
     public void ShieldAddValue(float valueToAdd)
     {
         shieldCurrentHealth = Mathf.Clamp(shieldCurrentHealth + valueToAdd, 0f, shieldMaxHealth);
+        if (valueToAdd < 0 && uxOnShieldHit.hasSpriteColorChange && uxOnShieldHit.spriteColorChange.spriteRef != null) uxOnShieldHit.spriteColorChange.StartColorChange();
         if (shieldCurrentHealth == 0) SetShieldDown();
     }
 
     private void SetShieldUp()
     {
         shieldUp = true;
+        shieldObject.SetActive(true);
         ShieldAddValue(shieldMaxHealth);
         SetShieldName();
     }
@@ -95,6 +104,7 @@ public class RootShieldEnemyController : EnemyController, ISendSignalToSelf
     {
         shieldCurrentHealth = 0;
         shieldDownTimer = shieldDownTime;
+        shieldObject.SetActive(false);
         shieldUp = false;
     }
 

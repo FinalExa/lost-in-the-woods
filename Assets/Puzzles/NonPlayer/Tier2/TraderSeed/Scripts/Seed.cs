@@ -14,6 +14,12 @@ public class Seed : MonoBehaviour, ISendSignalToSelf
     [SerializeField] private string explorationNegativeName;
     private Rigidbody thisRb;
     private RigidbodyConstraints savedConstraints;
+    [SerializeField] private SpriteRenderer signalFeedback;
+    [SerializeField] private Color signalPositiveColor;
+    [SerializeField] private Color signalNegativeColor;
+    [SerializeField] private SpriteRenderer explorationFeedback;
+    [SerializeField] private Color explorationPositiveColor;
+    [SerializeField] private Color explorationNegativeColor;
 
     private void Awake()
     {
@@ -37,16 +43,21 @@ public class Seed : MonoBehaviour, ISendSignalToSelf
         signalState = traderPlant.signalSetState;
         if (signalState == 0)
         {
+            signalFeedback.gameObject.SetActive(false);
             signalNamedInteractionExecutor.thisName = string.Empty;
             signalNamedInteractionExecutor.active = false;
         }
         else if (signalState == 1)
         {
+            signalFeedback.gameObject.SetActive(true);
+            signalFeedback.color = signalPositiveColor;
             signalNamedInteractionExecutor.thisName = signalPositiveName;
             signalNamedInteractionExecutor.active = true;
         }
         else if (signalState == -1)
         {
+            signalFeedback.gameObject.SetActive(true);
+            signalFeedback.color = signalNegativeColor;
             signalNamedInteractionExecutor.thisName = signalNegativeName;
             signalNamedInteractionExecutor.active = true;
         }
@@ -57,16 +68,21 @@ public class Seed : MonoBehaviour, ISendSignalToSelf
         explorationState = traderPlant.explorationSetState;
         if (explorationState == 0)
         {
+            explorationFeedback.gameObject.SetActive(false);
             explorationNamedInteractionExecutor.thisName = string.Empty;
             explorationNamedInteractionExecutor.active = false;
         }
         else if (explorationState == 1)
         {
+            explorationFeedback.gameObject.SetActive(true);
+            explorationFeedback.color = explorationPositiveColor;
             explorationNamedInteractionExecutor.thisName = explorationPositiveName;
             explorationNamedInteractionExecutor.active = true;
         }
         else if (explorationState == -1)
         {
+            explorationFeedback.gameObject.SetActive(true);
+            explorationFeedback.color = explorationNegativeColor;
             explorationNamedInteractionExecutor.thisName = explorationNegativeName;
             explorationNamedInteractionExecutor.active = true;
         }
