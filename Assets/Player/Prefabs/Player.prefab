@@ -431,6 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0865ad568fb17d747833fae235bcd061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCapsuleCollider: {fileID: 6423773216003442677}
   fallTarget: {fileID: 33830507689561493}
   groundMask:
     serializedVersion: 2

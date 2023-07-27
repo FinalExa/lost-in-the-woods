@@ -7,6 +7,7 @@ public class PCFall : MonoBehaviour
     private PCReferences pcReferences;
     private bool touchingGround;
     private Vector3 lastGroundPosition;
+    [SerializeField] private CapsuleCollider playerCapsuleCollider;
     [SerializeField] private GameObject fallTarget;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private Vector3 overlapBoxHalfExtents;
@@ -52,11 +53,15 @@ public class PCFall : MonoBehaviour
 
     private void SetOnGround()
     {
+        if (!pcReferences.inputs.enabled) pcReferences.inputs.enabled = true;
+        if (!playerCapsuleCollider.enabled) playerCapsuleCollider.enabled = true;
         touchingGround = true;
     }
 
     private void SetNotOnGround()
     {
+        if (pcReferences.inputs.enabled) pcReferences.inputs.enabled = false;
+        if (playerCapsuleCollider.enabled) playerCapsuleCollider.enabled = false;
         touchingGround = false;
     }
 
