@@ -4372,6 +4372,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sprout
       objectReference: {fileID: 0}
+    - target: {fileID: 6454512075622090767, guid: 2c4174d8789757741a7c1a8bef536810, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c4174d8789757741a7c1a8bef536810, type: 3}
 --- !u!1001 &1422489717
