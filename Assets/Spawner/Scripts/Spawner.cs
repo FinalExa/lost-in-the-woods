@@ -97,6 +97,7 @@ public class Spawner : MonoBehaviour
     {
         if (deadEnemies.Contains(enemyRef)) deadEnemies.Remove(enemyRef);
         if (!activeEnemies.Contains(enemyRef)) activeEnemies.Add(enemyRef);
+        enemyRef.enemy.isAlerted = false;
         enemyRef.enemy.gameObject.SetActive(true);
     }
 
