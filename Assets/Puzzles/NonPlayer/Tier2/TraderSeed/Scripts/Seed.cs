@@ -43,23 +43,34 @@ public class Seed : MonoBehaviour, ISendSignalToSelf
         signalState = traderPlant.signalSetState;
         if (signalState == 0)
         {
-            signalFeedback.gameObject.SetActive(false);
             signalNamedInteractionExecutor.thisName = string.Empty;
             signalNamedInteractionExecutor.active = false;
         }
         else if (signalState == 1)
         {
-            signalFeedback.gameObject.SetActive(true);
-            signalFeedback.color = signalPositiveColor;
             signalNamedInteractionExecutor.thisName = signalPositiveName;
             signalNamedInteractionExecutor.active = true;
         }
         else if (signalState == -1)
         {
-            signalFeedback.gameObject.SetActive(true);
-            signalFeedback.color = signalNegativeColor;
             signalNamedInteractionExecutor.thisName = signalNegativeName;
             signalNamedInteractionExecutor.active = true;
+        }
+        SetSignalGraphics();
+    }
+
+    private void SetSignalGraphics()
+    {
+        if (signalState == 0) signalFeedback.gameObject.SetActive(false);
+        else if (signalState == 1)
+        {
+            signalFeedback.gameObject.SetActive(true);
+            signalFeedback.color = signalPositiveColor;
+        }
+        else if (signalState == -1)
+        {
+            signalFeedback.gameObject.SetActive(true);
+            signalFeedback.color = signalNegativeColor;
         }
     }
 
@@ -68,23 +79,34 @@ public class Seed : MonoBehaviour, ISendSignalToSelf
         explorationState = traderPlant.explorationSetState;
         if (explorationState == 0)
         {
-            explorationFeedback.gameObject.SetActive(false);
             explorationNamedInteractionExecutor.thisName = string.Empty;
             explorationNamedInteractionExecutor.active = false;
         }
         else if (explorationState == 1)
         {
-            explorationFeedback.gameObject.SetActive(true);
-            explorationFeedback.color = explorationPositiveColor;
             explorationNamedInteractionExecutor.thisName = explorationPositiveName;
             explorationNamedInteractionExecutor.active = true;
         }
         else if (explorationState == -1)
         {
-            explorationFeedback.gameObject.SetActive(true);
-            explorationFeedback.color = explorationNegativeColor;
             explorationNamedInteractionExecutor.thisName = explorationNegativeName;
             explorationNamedInteractionExecutor.active = true;
+        }
+        SetExplorationGraphics();
+    }
+
+    private void SetExplorationGraphics()
+    {
+        if (explorationState == 0) explorationFeedback.gameObject.SetActive(false);
+        else if (explorationState == 1)
+        {
+            explorationFeedback.gameObject.SetActive(true);
+            explorationFeedback.color = explorationPositiveColor;
+        }
+        else if (explorationState == -1)
+        {
+            explorationFeedback.gameObject.SetActive(true);
+            explorationFeedback.color = explorationNegativeColor;
         }
     }
 
@@ -96,5 +118,13 @@ public class Seed : MonoBehaviour, ISendSignalToSelf
     public void UnlockRb()
     {
         thisRb.constraints = savedConstraints;
+    }
+
+    public void ResetSeed()
+    {
+        signalState = 0;
+        explorationState = 0;
+        SetSignalGraphics();
+        SetExplorationGraphics();
     }
 }
