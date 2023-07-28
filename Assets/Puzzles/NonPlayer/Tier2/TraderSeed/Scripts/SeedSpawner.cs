@@ -26,7 +26,7 @@ public class SeedSpawner : MonoBehaviour, ISendSignalToSelf
 
     private void InstantiateSeed()
     {
-        seedInstance = Instantiate(seedRef, seedPosition.transform.position, Quaternion.identity);
+        seedInstance = Instantiate(seedRef, seedPosition.transform.position, Quaternion.identity, this.transform);
     }
 
     private void ResetSeed()
