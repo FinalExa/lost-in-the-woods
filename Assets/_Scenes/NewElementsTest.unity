@@ -4437,6 +4437,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RestorativeObject
       objectReference: {fileID: 0}
+    - target: {fileID: 3674943899930952365, guid: 4ade526af26fe5c44823ee2244ef4425, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6486217225651833716, guid: 4ade526af26fe5c44823ee2244ef4425, type: 3}
       propertyPath: startsDestroyed
       value: 1
