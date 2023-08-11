@@ -122,10 +122,10 @@ MonoBehaviour:
   comboEndFramesDelay: 300
   comboCancelEnabled: 0
   comboCancelFrames: 0
-  possibleTargets: 0000000001000000
+  possibleTargets: 00000000
   weaponAttacks:
   - damage: 25
-    frameDuration: 66
+    frameDuration: 100
     framesOfDelay: 6
     movementDistance: 0
     ignoresWalls: 0
@@ -134,22 +134,22 @@ MonoBehaviour:
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 6654631832715134272}
       activationFrame: 0
-      deactivationFrame: 24
+      deactivationFrame: 55
     - attackRef: {fileID: 366035016614358744}
-      activationFrame: 24
-      deactivationFrame: 30
-    - attackRef: {fileID: 6683376727879917316}
-      activationFrame: 30
-      deactivationFrame: 40
-    - attackRef: {fileID: 2917106316172707920}
-      activationFrame: 40
-      deactivationFrame: 50
-    - attackRef: {fileID: 3755998350179901173}
-      activationFrame: 50
+      activationFrame: 55
       deactivationFrame: 60
-    - attackRef: {fileID: 4737181245437712581}
+    - attackRef: {fileID: 6683376727879917316}
       activationFrame: 60
-      deactivationFrame: 66
+      deactivationFrame: 70
+    - attackRef: {fileID: 2917106316172707920}
+      activationFrame: 70
+      deactivationFrame: 80
+    - attackRef: {fileID: 3755998350179901173}
+      activationFrame: 80
+      deactivationFrame: 90
+    - attackRef: {fileID: 4737181245437712581}
+      activationFrame: 90
+      deactivationFrame: 100
     weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:

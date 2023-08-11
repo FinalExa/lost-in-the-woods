@@ -240,12 +240,7 @@ MonoBehaviour:
     - attackRef: {fileID: 3805721757383102869}
       activationFrame: 0
       deactivationFrame: 30
-    weaponSpawnsObjectDuringThisAttack:
-    - objectRef: {fileID: 4985850856629122337, guid: 660c68e138b85404494a2770e8d22301, type: 3}
-      objectStartPosition: {fileID: 5260338369164934152}
-      launchFrame: 30
-      launchSpeed: 0
-      spawned: 0
+    weaponSpawnsObjectDuringThisAttack: []
     hasAnimation: 0
     uxOnWeaponAttack:
       hasSound: 1
@@ -434,17 +429,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 33525169902638111, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
   m_PrefabInstance: {fileID: 3794204829943809418}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5260338369164934152}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 122280257fdbf8d43b11ffac583ce4eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &5260338369164934152 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9054417579223923074, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
-  m_PrefabInstance: {fileID: 3794204829943809418}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9045267864507793951 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5269358908780119957, guid: 88a954293a3408e4d966bce56bc14fe8, type: 3}
