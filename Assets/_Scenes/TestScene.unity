@@ -678,6 +678,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RootShieldEnemyRandomWeakness
       objectReference: {fileID: 0}
+    - target: {fileID: 1388454718970644231, guid: beab5dfb32c10b9449269daefa251773, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: beab5dfb32c10b9449269daefa251773, type: 3}
 --- !u!4 &295977059 stripped
@@ -757,6 +761,10 @@ PrefabInstance:
     - target: {fileID: 3276869775336561206, guid: 20877ee4e1d86ab4a8b86c290e6239ef, type: 3}
       propertyPath: m_Name
       value: EntEnemyDepleted
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276869775336561206, guid: 20877ee4e1d86ab4a8b86c290e6239ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4162112051411884626, guid: 20877ee4e1d86ab4a8b86c290e6239ef, type: 3}
       propertyPath: m_RootOrder
@@ -5909,6 +5917,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RootShieldEnemyLightWeakness
       objectReference: {fileID: 0}
+    - target: {fileID: 5477770951886658404, guid: f3a4b2a9dfc0eb74d92d46c31394d277, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6395110103217412864, guid: f3a4b2a9dfc0eb74d92d46c31394d277, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -6015,6 +6027,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RootShieldEnemyFogWeakness
       objectReference: {fileID: 0}
+    - target: {fileID: 4071876394789068637, guid: 8ac3c9a2a3d1da3449ebd6695e4070ca, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ac3c9a2a3d1da3449ebd6695e4070ca, type: 3}
 --- !u!4 &1967679619 stripped
@@ -6032,6 +6048,10 @@ PrefabInstance:
     - target: {fileID: 5477770951886658404, guid: 55d9d3680399edc41a27711c7a802102, type: 3}
       propertyPath: m_Name
       value: EntEnemyVigorous
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477770951886658404, guid: 55d9d3680399edc41a27711c7a802102, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6395110103217412864, guid: 55d9d3680399edc41a27711c7a802102, type: 3}
       propertyPath: m_RootOrder
@@ -6747,6 +6767,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SeedSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 1823214814192552752, guid: b6eeb80635f149d4aae2f6442516672e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1823214814192552758, guid: b6eeb80635f149d4aae2f6442516672e, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -7099,7 +7123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3979584667147977306, guid: fd55fecce8ffb744ca6a60ed09e7e998, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd55fecce8ffb744ca6a60ed09e7e998, type: 3}
