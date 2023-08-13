@@ -13,7 +13,6 @@ public class InteractionOptions
     }
     public void Interact(SetOfInteractions.Options options, GameObject source, bool turnsOff)
     {
-        Debug.Log(interaction.locked);
         if (!interaction.locked && (!options.hasSpecialCondition || SpecialConditionsCheck(options)))
         {
             UXEffectExecute(options);
