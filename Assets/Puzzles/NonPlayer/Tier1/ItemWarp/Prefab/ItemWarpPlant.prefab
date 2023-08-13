@@ -377,7 +377,7 @@ MonoBehaviour:
   - {r: 0.3255162, g: 0.48687023, b: 0.7264151, a: 1}
   positiveName: UrnLight
   negativeName: UrnFog
-  warpableName: Warpable
+  warpableName: WarpSource
   coreSprite: {fileID: 7719006983412920432}
   areaSprite: {fileID: 7719006983347653784}
   outputPosition: {fileID: 2966222398235121677}
@@ -431,7 +431,7 @@ MonoBehaviour:
   thisName: 
   active: 0
   inLoop: 0
-  refObject: {fileID: 0}
+  refObject: {fileID: 7719006983626753184}
 --- !u!135 &7719006983626753186
 SphereCollider:
   m_ObjectHideFlags: 0
