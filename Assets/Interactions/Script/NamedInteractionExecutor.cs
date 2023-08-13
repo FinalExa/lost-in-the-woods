@@ -8,6 +8,7 @@ public class NamedInteractionExecutor : MonoBehaviour
     public bool active;
     private List<Interaction> interactingWith;
     [SerializeField] private bool inLoop;
+    public GameObject refObject;
     private BoxCollider thisBoxCollider;
     private SphereCollider thisSphereCollider;
 
