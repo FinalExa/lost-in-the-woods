@@ -7,7 +7,7 @@ public class ItemWarpPlant : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttack
     private Color[] availableColors;
     public int currentColorIndex;
     private bool colorWarpAvailable;
-    [SerializeField] private int currentStatus;
+    public int currentStatus;
     [SerializeField] private Color[] statusColors;
     [SerializeField] private string positiveName;
     [SerializeField] private string negativeName;
@@ -17,9 +17,11 @@ public class ItemWarpPlant : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttack
     public GameObject outputPosition;
     private ItemWarpPlant connectedPlant;
     private bool warpActive;
+    [SerializeField] private GameObject activateWhenWarpActive;
     public WeaponAttack.WeaponAttackType ReceivedWeaponAttackType { get; set; }
     private Interaction interaction;
     private NamedInteractionExecutor namedInteractionExecutor;
+    [HideInInspector] public ItemWarpPlantMaster itemWarpPlantMaster;
 
     private void Awake()
     {
@@ -38,6 +40,7 @@ public class ItemWarpPlant : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttack
         else if (interaction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(negativeName)) UpdateCurrentStatus(-1);
         if (ReceivedWeaponAttackType == WeaponAttack.WeaponAttackType.PLAYER) UpdateCurrentStatus(0);
         else if (ReceivedWeaponAttackType == WeaponAttack.WeaponAttackType.PLAYER_SECONDARY) GoToNextCoreColor();
+        itemWarpPlantMaster.UpdateCurrentPlantStatus();
     }
 
     private void UpdateCurrentStatus(int receivedValue)
@@ -69,6 +72,7 @@ public class ItemWarpPlant : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttack
         namedInteractionExecutor.thisName = warpableName;
         namedInteractionExecutor.active = true;
         warpActive = true;
+        activateWhenWarpActive.SetActive(true);
         connectedPlant = itemWarpPlantToConnect;
     }
 
@@ -77,6 +81,7 @@ public class ItemWarpPlant : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttack
         namedInteractionExecutor.thisName = string.Empty;
         namedInteractionExecutor.active = false;
         warpActive = false;
+        activateWhenWarpActive.SetActive(false);
         connectedPlant = null;
     }
 

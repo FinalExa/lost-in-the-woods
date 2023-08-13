@@ -32,8 +32,8 @@ MonoBehaviour:
       isMoved: 0
       movementDistance: 0
       movementTime: 0
-      sendsSignalToSelf: 0
-      hasSpecialCondition: 1
+      sendsSignalToSelf: 1
+      hasSpecialCondition: 0
       secondaryAttackInteraction: 0
       hasPlantId: 0
       plantId: 0
@@ -79,8 +79,8 @@ MonoBehaviour:
       isMoved: 0
       movementDistance: 0
       movementTime: 0
-      sendsSignalToSelf: 0
-      hasSpecialCondition: 1
+      sendsSignalToSelf: 1
+      hasSpecialCondition: 0
       secondaryAttackInteraction: 0
       hasPlantId: 0
       plantId: 0

@@ -44,3 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ccc0460387cf644a9241a4bcbb9edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemWarpPlants: []
+  availableColors: []
+  colorCount: 
+  plantsOfTheSameColor: 2
