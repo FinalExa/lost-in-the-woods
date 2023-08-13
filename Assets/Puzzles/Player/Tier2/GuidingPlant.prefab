@@ -646,6 +646,7 @@ MonoBehaviour:
   thisName: 
   active: 0
   inLoop: 0
+  refObject: {fileID: 5659667328879375948}
 --- !u!212 &3355772087932517414
 SpriteRenderer:
   m_ObjectHideFlags: 0
