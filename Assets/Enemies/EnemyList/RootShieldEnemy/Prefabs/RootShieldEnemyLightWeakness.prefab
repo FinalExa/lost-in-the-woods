@@ -196,6 +196,9 @@ MonoBehaviour:
       shakeDuration: 0
       cinemachineCameraShakerRef: {fileID: 0}
     soundParent: {fileID: 0}
+  rootShieldWallManagement:
+    normalCalmMaxWalls: 3
+    berserkMaxWalls: 5
 --- !u!114 &-479192370226542774
 MonoBehaviour:
   m_ObjectHideFlags: 0

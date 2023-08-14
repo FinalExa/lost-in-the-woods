@@ -16,7 +16,6 @@ public class ItemWarpPlant : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttack
     [SerializeField] private SpriteRenderer areaSprite;
     public GameObject outputPosition;
     private ItemWarpPlant connectedPlant;
-    private bool warpActive;
     [SerializeField] private GameObject activateWhenWarpActive;
     public WeaponAttack.WeaponAttackType ReceivedWeaponAttackType { get; set; }
     private Interaction interaction;
@@ -71,7 +70,6 @@ public class ItemWarpPlant : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttack
     {
         namedInteractionExecutor.thisName = warpableName;
         namedInteractionExecutor.active = true;
-        warpActive = true;
         activateWhenWarpActive.SetActive(true);
         connectedPlant = itemWarpPlantToConnect;
     }
@@ -80,7 +78,6 @@ public class ItemWarpPlant : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttack
     {
         namedInteractionExecutor.thisName = string.Empty;
         namedInteractionExecutor.active = false;
-        warpActive = false;
         activateWhenWarpActive.SetActive(false);
         connectedPlant = null;
     }

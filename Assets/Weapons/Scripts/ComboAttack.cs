@@ -61,7 +61,7 @@ public class ComboAttack
 
     private void AttackMovement()
     {
-        if (currentAttack.movementDistance != 0 && combo!=null) combo.transform.position += (attackDirection * movementSpeed);
+        if (currentAttack.movementDistance != 0 && combo != null) combo.transform.position += (attackDirection * movementSpeed);
     }
     private void CheckActivatingHitboxes()
     {
