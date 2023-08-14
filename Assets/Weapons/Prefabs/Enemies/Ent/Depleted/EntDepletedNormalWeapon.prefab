@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4585282783213072919
 Transform:
   m_ObjectHideFlags: 0
@@ -48,7 +48,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6484911658124812781
 Transform:
   m_ObjectHideFlags: 0
@@ -174,16 +174,19 @@ MonoBehaviour:
       objectStartPosition: {fileID: 9001951350886455469}
       launchFrame: 0
       launchSpeed: 0
+      needsSpawnedObjectRef: 0
       spawned: 0
     - objectRef: {fileID: 4985850856629122337, guid: 7e4dcf51ca871fd4786bd1984337f367, type: 3}
       objectStartPosition: {fileID: 9001951350886455469}
       launchFrame: 10
       launchSpeed: 0
+      needsSpawnedObjectRef: 0
       spawned: 0
     - objectRef: {fileID: 4985850856629122337, guid: 7e4dcf51ca871fd4786bd1984337f367, type: 3}
       objectStartPosition: {fileID: 9001951350886455469}
       launchFrame: 20
       launchSpeed: 0
+      needsSpawnedObjectRef: 0
       spawned: 0
     hasAnimation: 0
     uxOnWeaponAttack:

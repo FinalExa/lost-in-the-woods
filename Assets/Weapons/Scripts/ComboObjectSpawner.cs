@@ -27,6 +27,11 @@ public class ComboObjectSpawner
         WeaponAttack.WeaponSpawnsObjectDuringThisAttack currentObjectToSpawn = currentAttack.weaponSpawnsObjectDuringThisAttack[currentIndex];
         currentObjectToSpawn.spawned = true;
         GameObject objectToLaunch = GameObject.Instantiate(currentObjectToSpawn.objectRef, currentObjectToSpawn.objectStartPosition.transform.position, Quaternion.identity, combo.gameObject.transform.parent);
+        if (currentObjectToSpawn.needsSpawnedObjectRef)
+        {
+            INeedRefFromCreator needRefFromCreator = objectToLaunch.GetComponent<INeedRefFromCreator>();
+            if (needRefFromCreator != null) needRefFromCreator.SetRef(combo.gameObject);
+        }
         CheckForGrabbable(objectToLaunch);
         IHaveSettableDirection haveSettableDirection = objectToLaunch.GetComponent<IHaveSettableDirection>();
         Rigidbody objectToLaunchRb = objectToLaunch.GetComponent<Rigidbody>();

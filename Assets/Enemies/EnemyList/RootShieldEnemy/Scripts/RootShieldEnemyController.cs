@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,16 +15,19 @@ public class RootShieldEnemyController : EnemyController, ISendSignalToSelf
     private float shieldDownTimer;
     [SerializeField] private string lightShieldName;
     [SerializeField] private string fogShieldName;
-    [SerializeField] private bool randomizeShieldTypeEverytime;
-    [SerializeField] private bool isFog;
+    public bool randomizeShieldTypeEverytime;
+    public bool isFog;
     [SerializeField] private RootShieldObjectBlocker objectBlockerRef;
     private Interaction objectToBlock;
     private RootShieldObjectBlocker objectBlockerInstance;
     [SerializeField] private GameObject shieldObject;
     [SerializeField] private UXEffect uxOnShieldHit;
+    public RootShieldWallManagement rootShieldWallManagement;
 
     private void Start()
     {
+        rootShieldWallManagement.Startup(this);
+        rootShieldWallManagement.UpdateMaxWallsValue();
         uxOnShieldHit.UXEffectStartup();
     }
 
@@ -120,5 +124,6 @@ public class RootShieldEnemyController : EnemyController, ISendSignalToSelf
     public override void LightStateUpdate()
     {
         if (affectedByLight.lightState == AffectedByLight.LightState.BERSERK) SetShieldUp();
+        rootShieldWallManagement.UpdateMaxWallsValue();
     }
 }
