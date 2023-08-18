@@ -6,7 +6,7 @@ public class ItemWarpPlantMaster : MonoBehaviour
 {
     [SerializeField] private ItemWarpPlant[] itemWarpPlants;
     [SerializeField] private Color[] availableColors;
-    [SerializeField] private int[] colorCount;
+    private int[] colorCount;
 
 
     private void Start()
