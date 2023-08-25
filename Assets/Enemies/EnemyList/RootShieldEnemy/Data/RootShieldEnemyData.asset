@@ -15,8 +15,8 @@ MonoBehaviour:
   enemyName: Root Shield
   maxHP: 20
   normalMovementSpeed: 5
-  normalDistanceFromPlayer: 15
-  normalDistanceTolerance: 1
+  normalDistanceFromPlayer: 7
+  normalDistanceTolerance: 3
   hasNormalWeapon: 1
   normalWeapon: {fileID: 4222045236405462924, guid: ab3d1a6ac69efb44181d7d68ca06db1c, type: 3}
   calmMovementSpeed: 3
@@ -28,6 +28,6 @@ MonoBehaviour:
   berserkDistanceFromPlayer: 4
   berserkDistanceTolerance: 1
   hasBerserkWeapon: 1
-  berserkWeapon: {fileID: 4222045236405462924, guid: f30fa488ab6d73f4a9a72e6052170ce5, type: 3}
+  berserkWeapon: {fileID: 4222045236405462924, guid: 77e6bc450ffe3d248baaa8252c57fe74, type: 3}
   firstAggroDistance: 10
   stopAggroDistance: 40

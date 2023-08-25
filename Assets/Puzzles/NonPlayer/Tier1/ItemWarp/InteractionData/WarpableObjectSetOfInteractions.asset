@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f17a2fc026ebd8040acf9f11d5d67083, type: 3}
-  m_Name: UnstableFertileTerrainSetOfInteractions
+  m_Name: WarpableObjectSetOfInteractions
   m_EditorClassIdentifier: 
   turnsOff: 0
   startsLocked: 0
   lockedTime: 0
   attackTypeInteractions: []
   namedInteractions:
-  - name: UrnFog
-    destroyNamedObjectOnInteraction: 1
+  - name: WarpSource
+    destroyNamedObjectOnInteraction: 0
     turnOffNamedObjectInsteadOfDestroy: 0
     options:
       isDestroyed: 0
@@ -37,6 +37,8 @@ MonoBehaviour:
       sendsSignalToSelf: 1
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
+      hasPlantId: 0
+      plantId: 0
       uxOnInteraction:
         hasSound: 0
         sound:
@@ -82,6 +84,8 @@ MonoBehaviour:
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
+      hasPlantId: 0
+      plantId: 0
       uxOnInteraction:
         hasSound: 0
         sound:
@@ -126,6 +130,8 @@ MonoBehaviour:
     sendsSignalToSelf: 0
     hasSpecialCondition: 0
     secondaryAttackInteraction: 0
+    hasPlantId: 0
+    plantId: 0
     uxOnInteraction:
       hasSound: 0
       sound:
@@ -172,6 +178,8 @@ MonoBehaviour:
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
+      hasPlantId: 0
+      plantId: 0
       uxOnInteraction:
         hasSound: 0
         sound:
@@ -216,6 +224,8 @@ MonoBehaviour:
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
+      hasPlantId: 0
+      plantId: 0
       uxOnInteraction:
         hasSound: 0
         sound:
@@ -260,6 +270,8 @@ MonoBehaviour:
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
+      hasPlantId: 0
+      plantId: 0
       uxOnInteraction:
         hasSound: 0
         sound:
@@ -307,6 +319,8 @@ MonoBehaviour:
       sendsSignalToSelf: 0
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
+      hasPlantId: 0
+      plantId: 0
       uxOnInteraction:
         hasSound: 0
         sound:
@@ -350,6 +364,8 @@ MonoBehaviour:
     sendsSignalToSelf: 0
     hasSpecialCondition: 0
     secondaryAttackInteraction: 0
+    hasPlantId: 0
+    plantId: 0
     uxOnInteraction:
       hasSound: 0
       sound:

@@ -20,9 +20,18 @@ public class NamedInteractionOperations
             {
                 if (!ActiveNamedInteractions.ContainsKey(interactionExecutor.thisName))
                 {
-                    if (interaction.destroyNamedObjectOnInteraction) DestroyObjectAfterInteraction(interaction.turnOffNamedObjectInsteadOfDestroy, interactionExecutor.gameObject);
-                    else ActiveNamedInteractions.Add(interactionExecutor.thisName, 1);
-                    interactionRef.interactionOptions.Interact(interaction.options, sourceObject, interactionRef.setOfInteractions.turnsOff);
+                    if (interaction.destroyNamedObjectOnInteraction)
+                    {
+                        ActiveNamedInteractions.Add(interactionExecutor.thisName, 1);
+                        interactionRef.interactionOptions.Interact(interaction.options, sourceObject, interactionRef.setOfInteractions.turnsOff);
+                        RemoveOrReduceNamedInteractionFromList(interaction, interactionExecutor, sourceObject);
+                        DestroyObjectAfterInteraction(interaction.turnOffNamedObjectInsteadOfDestroy, interactionExecutor.gameObject);
+                    }
+                    else
+                    {
+                        ActiveNamedInteractions.Add(interactionExecutor.thisName, 1);
+                        interactionRef.interactionOptions.Interact(interaction.options, sourceObject, interactionRef.setOfInteractions.turnsOff);
+                    }
                 }
                 else ActiveNamedInteractions[interactionExecutor.thisName]++;
                 break;
@@ -36,8 +45,9 @@ public class NamedInteractionOperations
         if (health != null) health.OnDeath(true);
         else
         {
-            if (turnOff) objectToDestroy.SetActive(false);
-            else GameObject.Destroy(objectToDestroy);
+            NamedInteractionExecutor namedInteractionExecutor = objectToDestroy.GetComponent<NamedInteractionExecutor>();
+            if (turnOff) namedInteractionExecutor.refObject.SetActive(false);
+            else GameObject.Destroy(namedInteractionExecutor.refObject);
         }
     }
 
@@ -47,13 +57,18 @@ public class NamedInteractionOperations
         {
             if (interaction.name == interactionExecutor.thisName && ActiveNamedInteractions.ContainsKey(interactionExecutor.thisName))
             {
-                if (ActiveNamedInteractions[interactionExecutor.thisName] > 1) ActiveNamedInteractions[interactionExecutor.thisName]--;
-                else
-                {
-                    ActiveNamedInteractions.Remove(interactionExecutor.thisName);
-                    if (interaction.hasNamedInteractionExitOptions) interactionRef.interactionOptions.Interact(interaction.exitNamedInteractionOptions, sourceObject, interactionRef.setOfInteractions.turnsOff);
-                }
+                RemoveOrReduceNamedInteractionFromList(interaction, interactionExecutor, sourceObject);
             }
+        }
+    }
+
+    private void RemoveOrReduceNamedInteractionFromList(SetOfInteractions.NamedInteraction interaction, NamedInteractionExecutor interactionExecutor, GameObject sourceObject)
+    {
+        if (ActiveNamedInteractions[interactionExecutor.thisName] > 1) ActiveNamedInteractions[interactionExecutor.thisName]--;
+        else
+        {
+            ActiveNamedInteractions.Remove(interactionExecutor.thisName);
+            if (interaction.hasNamedInteractionExitOptions) interactionRef.interactionOptions.Interact(interaction.exitNamedInteractionOptions, sourceObject, interactionRef.setOfInteractions.turnsOff);
         }
     }
 }
