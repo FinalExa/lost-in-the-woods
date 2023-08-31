@@ -702,12 +702,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1545025865, guid: 6183e86512bc16d4aa21ee7bed71a208, type: 3}
+  m_Sprite: {fileID: -21758283, guid: 2df83eb4ebe39764982e354fdc52475a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.35, y: 3.99}
+  m_Size: {x: 1.35, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -795,10 +795,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {fileID: 11400000, guid: 3a0ecedcd75d65b498584f6fa7373c60, type: 2}
   isInGraphicsMode: 1
-  lookingUpSprite: {fileID: -1620282732, guid: 6183e86512bc16d4aa21ee7bed71a208, type: 3}
-  lookingDownSprite: {fileID: 1545025865, guid: 6183e86512bc16d4aa21ee7bed71a208, type: 3}
-  lookingLeftSprite: {fileID: 584352079, guid: 6183e86512bc16d4aa21ee7bed71a208, type: 3}
-  lookingRightSprite: {fileID: 1680748241, guid: 6183e86512bc16d4aa21ee7bed71a208, type: 3}
+  lookingUpSprite: {fileID: 470586393, guid: 2df83eb4ebe39764982e354fdc52475a, type: 3}
+  lookingDownSprite: {fileID: -21758283, guid: 2df83eb4ebe39764982e354fdc52475a, type: 3}
+  lookingLeftSprite: {fileID: -1000384298, guid: 2df83eb4ebe39764982e354fdc52475a, type: 3}
+  lookingRightSprite: {fileID: -1604636347, guid: 2df83eb4ebe39764982e354fdc52475a, type: 3}
   spriteRef: {fileID: 8717672636991933783}
   rotationLocked: 0
 --- !u!1001 &1313772443539866196
