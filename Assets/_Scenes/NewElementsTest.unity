@@ -4712,6 +4712,104 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4811315696665080915, guid: 93cdbb12265c2b843af9eefb20df693f, type: 3}
   m_PrefabInstance: {fileID: 501284599}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &508591188
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1145380996}
+    m_Modifications:
+    - target: {fileID: 5580641072103865535, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: needsStates
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580641072103865535, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: textToDisplay
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580641072103865535, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: adaptiveTextPlayerStates.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580641072103865535, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: adaptiveTextPlayerStates.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580641072103865535, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: adaptiveTextPlayerStates.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580641072103865535, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: adaptiveTextPlayerStates.Array.data[2]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580641072103865535, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: adaptiveTextPlayerStates.Array.data[3]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582558636729466997, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: m_Radius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582558636729466998, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: m_Name
+      value: AdaptiveTextTrigger (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582558636729467003, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582558636729467003, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.4999905
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582558636729467003, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582558636729467003, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.250003
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582558636729467003, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.0000028461216
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582558636729467003, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582558636729467003, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582558636729467003, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582558636729467003, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582558636729467003, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582558636729467003, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582558636961486746, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: m_text
+      value: SPACE
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+--- !u!4 &508591189 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8582558636729467003, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+  m_PrefabInstance: {fileID: 508591188}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &509413087
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9396,6 +9494,7 @@ Transform:
   - {fileID: 1225081076}
   - {fileID: 530620198}
   - {fileID: 1404432383}
+  - {fileID: 508591189}
   m_Father: {fileID: 1978974697}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11711,8 +11810,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 1145380996}
     m_Modifications:
     - target: {fileID: 5580641072103865535, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: needsStates
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580641072103865535, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
       propertyPath: textToDisplay
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580641072103865535, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: adaptiveTextPlayerStates.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580641072103865535, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: adaptiveTextPlayerStates.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580641072103865535, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: adaptiveTextPlayerStates.Array.data[2]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580641072103865535, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
+      propertyPath: adaptiveTextPlayerStates.Array.data[3]
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8582558636729466997, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
       propertyPath: m_Radius
@@ -11768,10 +11887,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8582558636961486746, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
       propertyPath: m_text
-      value: 'To dash in the direction
-
-        you are moving, press "Shift" while
-        moving'
+      value: SHIFT
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14e927a03e7fdf2408581870b1f583a3, type: 3}
