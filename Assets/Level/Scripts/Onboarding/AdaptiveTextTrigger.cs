@@ -8,6 +8,7 @@ public class AdaptiveTextTrigger : MonoBehaviour
     private bool playerIsInside;
     private bool currentlyActive;
     private PCStateMachine pcStateMachine;
+    private SphereCollider thisCollider;
     [SerializeField] private TMP_Text textRef;
     [SerializeField] private bool needsStates;
     private enum AdaptiveTextPlayerStates { PCAttack, PCDodge, PCEnterLanternUp, PCExitLanternUp, PCIdle, PCIdleGrab, PCIdleLanternUp, PCMoving, PCMovingGrab, PCMovingLanternUp }
@@ -16,6 +17,7 @@ public class AdaptiveTextTrigger : MonoBehaviour
     private void Awake()
     {
         PCStateMachine.onPlayerStateChange += CheckForState;
+        thisCollider = this.gameObject.GetComponent<SphereCollider>();
         pcStateMachine = FindObjectOfType<PCStateMachine>();
     }
 
@@ -27,6 +29,7 @@ public class AdaptiveTextTrigger : MonoBehaviour
     private void Update()
     {
         CheckForReactivation();
+        CheckForPlayerDodge();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -88,5 +91,43 @@ public class AdaptiveTextTrigger : MonoBehaviour
         }
         else match = true;
         return match;
+    }
+
+    private void CheckForPlayerDodge()
+    {
+        if (playerIsInside && pcStateMachine.thisStateName == AdaptiveTextPlayerStates.PCDodge.ToString())
+        {
+            if (!CheckForPlayerInside())
+            {
+                playerIsInside = false;
+                DectivateText();
+            }
+        }
+        else if (!playerIsInside && pcStateMachine.thisStateName == AdaptiveTextPlayerStates.PCDodge.ToString())
+        {
+            if (!needsStates || (needsStates && CheckIfStateMatches(pcStateMachine.thisStateName)))
+            {
+                if (CheckForPlayerInside())
+                {
+                    playerIsInside = true;
+                    ActivateText();
+                }
+            }
+        }
+    }
+
+    private bool CheckForPlayerInside()
+    {
+        Collider[] colliders = Physics.OverlapSphere(this.transform.position, thisCollider.radius);
+        bool check = false;
+        foreach (Collider collider in colliders)
+        {
+            if (collider.gameObject.name == pcStateMachine.gameObject.name)
+            {
+                check = true;
+                break;
+            }
+        }
+        return check;
     }
 }
