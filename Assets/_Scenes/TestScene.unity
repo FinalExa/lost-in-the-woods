@@ -6518,7 +6518,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7078496811487950680, guid: ef086b8b0be83784c999b582d559237f, type: 3}
       propertyPath: m_Name
-      value: _TEMPLATEZONE
+      value: TestZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078496811487950682, guid: ef086b8b0be83784c999b582d559237f, type: 3}
+      propertyPath: zoneName
+      value: TestZone
       objectReference: {fileID: 0}
     - target: {fileID: 7078496811487950683, guid: ef086b8b0be83784c999b582d559237f, type: 3}
       propertyPath: m_RootOrder

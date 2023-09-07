@@ -9,10 +9,11 @@ public class ZoneImportantObject : MonoBehaviour
     [HideInInspector] public bool destroyedByZone;
     [HideInInspector] public int id = -1;
     [HideInInspector] public Zone thisZone;
-    public PlantSignalSet plantSignalSet;
+    public ISaveIntValuesForSaveSystem saveIntValuesForSaveSystem;
 
     private void Awake()
     {
+        saveIntValuesForSaveSystem = this.gameObject.GetComponent<ISaveIntValuesForSaveSystem>();
         thisZone = this.gameObject.transform.GetComponentInParent<Zone>();
     }
 
