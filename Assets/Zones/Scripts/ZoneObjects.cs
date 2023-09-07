@@ -16,6 +16,9 @@ public class ZoneObjects
         public Vector3 objectPosition;
         public Vector3 objectRotatorEulerAngles;
         public int valueToSave;
+        public bool savesParent;
+        public List<string> parentPath;
+        public bool savedWithNoZone;
     }
 
     public ZoneObjects(Zone zone)
@@ -46,6 +49,7 @@ public class ZoneObjects
                 GameObject spawnedObjectRef = GameObject.Instantiate(objectToSpawn, importantObjectData.objectPosition, Quaternion.identity, zoneRef.transform);
                 ZoneImportantObject zoneImportantObject = spawnedObjectRef.GetComponent<ZoneImportantObject>();
                 zoneImportantObject.rotator.transform.eulerAngles = importantObjectData.objectRotatorEulerAngles;
+                if (importantObjectData.savesParent) spawnedObjectRef.transform.parent = LoadParent(importantObjectData.parentPath, importantObjectData).transform;
                 if (zoneImportantObject.saveIntValuesForSaveSystem != null)
                 {
                     zoneImportantObject.saveIntValuesForSaveSystem.ValueToSave = importantObjectData.valueToSave;
@@ -91,10 +95,54 @@ public class ZoneObjects
             importantObjectData.spawnDataName = zoneImportantObject.spawnDataName;
             importantObjectData.objectPosition = zoneImportantObject.gameObject.transform.position;
             importantObjectData.objectRotatorEulerAngles = zoneImportantObject.rotator.transform.eulerAngles;
+            if (zoneImportantObject.saveParent)
+            {
+                importantObjectData.savesParent = true;
+                importantObjectData.parentPath = new List<string>();
+                importantObjectData.parentPath = GenerateParentPath(zoneImportantObject.gameObject, importantObjectData);
+            }
             if (zoneImportantObject.saveIntValuesForSaveSystem != null) importantObjectData.valueToSave = zoneImportantObject.saveIntValuesForSaveSystem.ValueToSave;
             else importantObjectData.valueToSave = -100;
             importantObjectsData.Add(importantObjectData);
         }
         return importantObjectsData;
+    }
+
+    private List<string> GenerateParentPath(GameObject receivedObject, ImportantObjectData importantObjectData)
+    {
+        List<string> resultPath = new List<string>();
+        GameObject currentTarget = receivedObject.transform.parent.gameObject;
+        bool isFinished = false;
+        while (!isFinished)
+        {
+            if (currentTarget.GetComponent<Zone>() == null && currentTarget.transform.parent != null)
+            {
+                resultPath.Add(currentTarget.name);
+                currentTarget = currentTarget.transform.parent.gameObject;
+            }
+            else
+            {
+                if (currentTarget.transform.parent == null) importantObjectData.savedWithNoZone = true;
+                else importantObjectData.savedWithNoZone = false;
+                isFinished = true;
+            }
+        }
+        return resultPath;
+    }
+    private GameObject LoadParent(List<string> receivedLoadList, ImportantObjectData importantObjectData)
+    {
+        GameObject target = null;
+        int index = receivedLoadList.Count - 1;
+        if (!importantObjectData.savedWithNoZone) target = zoneRef.gameObject;
+        else
+        {
+            target = GameObject.Find(receivedLoadList[index]);
+            index--;
+        }
+        for (int i = index; i >= 0; i--)
+        {
+            target = target.gameObject.transform.Find(receivedLoadList[i]).gameObject;
+        }
+        return target;
     }
 }

@@ -112,7 +112,7 @@ MonoBehaviour:
       uxOnInteractionInitialized: 0
   namedInteractions:
   - name: UrnLight
-    destroyNamedObjectOnInteraction: 1
+    destroyNamedObjectOnInteraction: 0
     turnOffNamedObjectInsteadOfDestroy: 0
     options:
       isDestroyed: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
           cinemachineCameraShakerRef: {fileID: 0}
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
-    hasNamedInteractionExitOptions: 0
+    hasNamedInteractionExitOptions: 1
     destroyNamedObjectOnInteractionExit: 0
     exitNamedInteractionOptions:
       isDestroyed: 0
@@ -175,7 +175,7 @@ MonoBehaviour:
       isMoved: 0
       movementDistance: 0
       movementTime: 0
-      sendsSignalToSelf: 0
+      sendsSignalToSelf: 1
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
       hasPlantId: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
   - name: UrnFog
-    destroyNamedObjectOnInteraction: 1
+    destroyNamedObjectOnInteraction: 0
     turnOffNamedObjectInsteadOfDestroy: 0
     options:
       isDestroyed: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
           cinemachineCameraShakerRef: {fileID: 0}
         soundParent: {fileID: 0}
       uxOnInteractionInitialized: 0
-    hasNamedInteractionExitOptions: 0
+    hasNamedInteractionExitOptions: 1
     destroyNamedObjectOnInteractionExit: 0
     exitNamedInteractionOptions:
       isDestroyed: 0
@@ -270,7 +270,7 @@ MonoBehaviour:
       isMoved: 0
       movementDistance: 0
       movementTime: 0
-      sendsSignalToSelf: 0
+      sendsSignalToSelf: 1
       hasSpecialCondition: 0
       secondaryAttackInteraction: 0
       hasPlantId: 0

@@ -722,12 +722,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17c23234d0e5434c8a38588de7ffee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnDataName: ShroomBulb
+  spawnDataName: SpikedUrn
   rotator: {fileID: 796220788007259571}
+  saveParent: 0
   destroyedByZone: 0
   id: -1
   thisZone: {fileID: 0}
-  plantSignalSet: {fileID: 8744801258281481636}
 --- !u!54 &6552628957484814742
 Rigidbody:
   m_ObjectHideFlags: 0

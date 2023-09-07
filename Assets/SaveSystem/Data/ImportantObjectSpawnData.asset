@@ -23,9 +23,13 @@ MonoBehaviour:
     spawnDataRef: {fileID: 5659667328879375948, guid: 52d2f9558fbbacc46a85f4225d8b7826, type: 3}
   - spawnDataName: ShroomBulb
     spawnDataRef: {fileID: 6552628957484814741, guid: 32a28184350f49a4da7af54d294e555f, type: 3}
+  - spawnDataName: SpikedUrn
+    spawnDataRef: {fileID: 6552628957484814741, guid: 29565127ba803e44582269c3c6b9b3bf, type: 3}
   - spawnDataName: RestorativeObject
     spawnDataRef: {fileID: 2808389217281501171, guid: 4ade526af26fe5c44823ee2244ef4425, type: 3}
   - spawnDataName: InfestationSource
     spawnDataRef: {fileID: 6114181717978539228, guid: 7a34ba8dbe3a1764f9f300ef02268980, type: 3}
   - spawnDataName: LightSource
     spawnDataRef: {fileID: 3941403088353230800, guid: 8619e3b9233b4944fb877f2d1ae2a0e1, type: 3}
+  - spawnDataName: ItemWarpPlant
+    spawnDataRef: {fileID: 7719006983626753184, guid: a956480f12076314fbd5383f69be6ddd, type: 3}
