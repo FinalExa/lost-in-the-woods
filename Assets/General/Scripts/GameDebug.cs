@@ -5,16 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class GameDebug : MonoBehaviour
 {
-    [SerializeField] private GameData gameData;
     private GameSaveSystem gameSave;
     private PCController pcController;
-    private ZoneTracker zoneTracker;
+    [SerializeField] private Canvas debugUIOff;
+    [SerializeField] private Canvas debugUIOn;
 
     private void Awake()
     {
         pcController = FindObjectOfType<PCController>();
         gameSave = this.gameObject.GetComponent<GameSaveSystem>();
-        zoneTracker = this.gameObject.GetComponent<ZoneTracker>();
+    }
+
+    private void Start()
+    {
+        debugUIOff.gameObject.SetActive(true);
+        debugUIOn.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -27,5 +32,10 @@ public class GameDebug : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L)) gameSave.LoadData();
         if (Input.GetKeyDown(KeyCode.K)) pcController.pcReferences.pcHealth.OnDeath(true);
         if (Input.GetKeyDown(KeyCode.P)) gameSave.DeleteLoadedData();
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            debugUIOff.gameObject.SetActive(!debugUIOff.gameObject.activeInHierarchy);
+            debugUIOn.gameObject.SetActive(!debugUIOn.gameObject.activeInHierarchy);
+        }
     }
 }
