@@ -13,7 +13,7 @@ public class GameDebug : MonoBehaviour
     private void Awake()
     {
         pcController = FindObjectOfType<PCController>();
-        gameSave = this.gameObject.GetComponent<GameSaveSystem>();
+        gameSave = FindObjectOfType<GameSaveSystem>();
     }
 
     private void Start()
