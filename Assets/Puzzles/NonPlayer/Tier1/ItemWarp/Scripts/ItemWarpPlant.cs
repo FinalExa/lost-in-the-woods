@@ -6,7 +6,6 @@ public class ItemWarpPlant : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttack
 {
     private Color[] availableColors;
     public int currentColorIndex;
-    private bool colorWarpAvailable;
     public int currentStatus;
     [SerializeField] private Color[] statusColors;
     [SerializeField] private string positiveName;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlantSignalSet : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttackType
+public class PlantSignalSet : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttackType, ISaveIntValuesForSaveSystem
 {
     public int startingState;
     [SerializeField] private bool interactAfterSet;
@@ -21,6 +21,7 @@ public class PlantSignalSet : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttac
     [SerializeField] private SpriteRenderer spriteRenderer;
     private Interaction interaction;
     public WeaponAttack.WeaponAttackType ReceivedWeaponAttackType { get; set; }
+    public int ValueToSave { get; set; }
 
     private void Awake()
     {
