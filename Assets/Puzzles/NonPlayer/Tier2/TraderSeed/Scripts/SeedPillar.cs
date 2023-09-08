@@ -32,17 +32,17 @@ public class SeedPillar : MonoBehaviour
     public void RemoveSeed()
     {
         seedRef.signalState = savedSignal;
-        savedSignal = 0;
+        savedSignal = 1;
         seedRef.explorationState = savedExploration;
-        savedExploration = 0;
+        savedExploration = 1;
         SetSignals();
         seedRef.UnlockRb();
     }
 
     private void SetSignals()
     {
-        if (savedSignal == 1) SetObjects(true, false);
-        else if (savedSignal == -1) SetObjects(false, true);
+        if (savedSignal == 2) SetObjects(true, false);
+        else if (savedSignal == 0) SetObjects(false, true);
         else SetObjects(false, false);
     }
 

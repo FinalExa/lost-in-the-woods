@@ -33,3 +33,5 @@ MonoBehaviour:
     spawnDataRef: {fileID: 3941403088353230800, guid: 8619e3b9233b4944fb877f2d1ae2a0e1, type: 3}
   - spawnDataName: ItemWarpPlant
     spawnDataRef: {fileID: 7719006983626753184, guid: a956480f12076314fbd5383f69be6ddd, type: 3}
+  - spawnDataName: Seed
+    spawnDataRef: {fileID: 1837314321013049996, guid: a411b8c6844ad4649a462c168248ad9f, type: 3}
