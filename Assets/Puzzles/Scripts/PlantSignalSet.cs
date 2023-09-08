@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlantSignalSet : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttackType
+public class PlantSignalSet : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttackType, ISaveIntValuesForSaveSystem
 {
     public int startingState;
     [SerializeField] private bool interactAfterSet;
-    [HideInInspector] public int currentState;
+    private bool ignoreStartSet;
+    public int currentState;
     [System.Serializable]
     public struct PlantSignalState
     {
@@ -21,6 +22,7 @@ public class PlantSignalSet : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttac
     [SerializeField] private SpriteRenderer spriteRenderer;
     private Interaction interaction;
     public WeaponAttack.WeaponAttackType ReceivedWeaponAttackType { get; set; }
+    public int ValueToSave { get; set; }
 
     private void Awake()
     {
@@ -30,7 +32,7 @@ public class PlantSignalSet : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttac
     private void Start()
     {
         startingState = Mathf.Clamp(startingState, 0, plantSignalStates.Length - 1);
-        SetPlantState(startingState);
+        if (!ignoreStartSet) SetPlantState(startingState);
     }
 
     public void OnSignalReceived(GameObject source)
@@ -49,5 +51,12 @@ public class PlantSignalSet : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttac
         interaction.objectToSetActiveStatus.SetActive(false);
         interaction.objectToSetActiveStatus.SetActive(true);
         if (interactAfterSet) interaction.ExecuteCallByCodeInteraction();
+        ValueToSave = currentState;
+    }
+
+    public void SetValue()
+    {
+        ignoreStartSet = true;
+        SetPlantState(ValueToSave);
     }
 }

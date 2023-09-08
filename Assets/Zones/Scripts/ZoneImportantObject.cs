@@ -6,13 +6,15 @@ public class ZoneImportantObject : MonoBehaviour
 {
     public string spawnDataName;
     public GameObject rotator;
+    public bool saveParent;
     [HideInInspector] public bool destroyedByZone;
     [HideInInspector] public int id = -1;
     [HideInInspector] public Zone thisZone;
-    public PlantSignalSet plantSignalSet;
+    public ISaveIntValuesForSaveSystem saveIntValuesForSaveSystem;
 
     private void Awake()
     {
+        saveIntValuesForSaveSystem = this.gameObject.GetComponent<ISaveIntValuesForSaveSystem>();
         thisZone = this.gameObject.transform.GetComponentInParent<Zone>();
     }
 

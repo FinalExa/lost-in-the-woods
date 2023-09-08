@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemWarpPlant : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttackType
+public class ItemWarpPlant : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttackType, ISaveIntValuesForSaveSystem
 {
     private Color[] availableColors;
     public int currentColorIndex;
-    private bool colorWarpAvailable;
     public int currentStatus;
     [SerializeField] private Color[] statusColors;
     [SerializeField] private string positiveName;
@@ -21,6 +20,8 @@ public class ItemWarpPlant : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttack
     private Interaction interaction;
     private NamedInteractionExecutor namedInteractionExecutor;
     [HideInInspector] public ItemWarpPlantMaster itemWarpPlantMaster;
+    public int ValueToSave { get; set; }
+    private bool skipInitialize;
 
     private void Awake()
     {
@@ -37,8 +38,8 @@ public class ItemWarpPlant : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttack
     {
         if (interaction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(positiveName)) UpdateCurrentStatus(1);
         else if (interaction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(negativeName)) UpdateCurrentStatus(-1);
-        if (ReceivedWeaponAttackType == WeaponAttack.WeaponAttackType.PLAYER) UpdateCurrentStatus(0);
-        else if (ReceivedWeaponAttackType == WeaponAttack.WeaponAttackType.PLAYER_SECONDARY) GoToNextCoreColor();
+        else UpdateCurrentStatus(0);
+        if (ReceivedWeaponAttackType == WeaponAttack.WeaponAttackType.PLAYER_SECONDARY) GoToNextCoreColor();
         itemWarpPlantMaster.UpdateCurrentPlantStatus();
     }
 
@@ -58,12 +59,16 @@ public class ItemWarpPlant : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttack
     public void InitializeColors(Color[] receivedColors)
     {
         availableColors = receivedColors;
-        SetCoreColor();
+        if (!skipInitialize)
+        {
+            SetCoreColor();
+        }
     }
 
     private void SetCoreColor()
     {
         coreSprite.color = availableColors[currentColorIndex];
+        ValueToSave = currentColorIndex;
     }
 
     public void SetWarpActive(ItemWarpPlant itemWarpPlantToConnect)
@@ -78,12 +83,22 @@ public class ItemWarpPlant : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttack
     {
         namedInteractionExecutor.thisName = string.Empty;
         namedInteractionExecutor.active = false;
-        activateWhenWarpActive.SetActive(false);
+        if (activateWhenWarpActive != null) activateWhenWarpActive.SetActive(false);
         connectedPlant = null;
     }
 
     public void Warp(GameObject objectToWarp)
     {
         if (connectedPlant != null) objectToWarp.transform.position = connectedPlant.outputPosition.transform.position;
+    }
+
+    public void SetValue()
+    {
+        skipInitialize = true;
+        itemWarpPlantMaster = this.transform.parent.gameObject.GetComponent<ItemWarpPlantMaster>();
+        itemWarpPlantMaster.SetupWarpPlants();
+        currentColorIndex = ValueToSave;
+        SetCoreColor();
+        itemWarpPlantMaster.UpdateCurrentPlantStatus();
     }
 }
