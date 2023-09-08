@@ -155,7 +155,6 @@ public class Seed : MonoBehaviour, ISendSignalToSelf, ISaveIntValuesForSaveSyste
         int bothStates = (ValueToSave - ((ValueToSave / 100) * 100));
         SetSignal(bothStates / 10);
         SetExploration(bothStates - ((bothStates / 10) * 10));
-        print("id: " + spawnerId + ", signal: " + signalState + ", exploration: " + explorationState);
         SeedSpawner[] seedSpawners = zoneRef.GetComponentsInChildren<SeedSpawner>();
         foreach (SeedSpawner seedSpawner in seedSpawners)
         {
