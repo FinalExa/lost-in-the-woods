@@ -39,8 +39,7 @@ public class ItemWarpPlant : MonoBehaviour, ISendSignalToSelf, ISendWeaponAttack
         if (interaction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(positiveName)) UpdateCurrentStatus(1);
         else if (interaction.namedInteractionOperations.ActiveNamedInteractions.ContainsKey(negativeName)) UpdateCurrentStatus(-1);
         else UpdateCurrentStatus(0);
-        if (ReceivedWeaponAttackType == WeaponAttack.WeaponAttackType.PLAYER) UpdateCurrentStatus(0);
-        else if (ReceivedWeaponAttackType == WeaponAttack.WeaponAttackType.PLAYER_SECONDARY) GoToNextCoreColor();
+        if (ReceivedWeaponAttackType == WeaponAttack.WeaponAttackType.PLAYER_SECONDARY) GoToNextCoreColor();
         itemWarpPlantMaster.UpdateCurrentPlantStatus();
     }
 
