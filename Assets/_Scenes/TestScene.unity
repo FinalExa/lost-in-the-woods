@@ -3053,17 +3053,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d139de3dad10e0b4e80d53ebcdff097c, type: 3}
---- !u!114 &1005286355 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3379657792285341694, guid: d139de3dad10e0b4e80d53ebcdff097c, type: 3}
-  m_PrefabInstance: {fileID: 1005286354}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e17b331db98df9143ae63583c3486477, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1008428414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3267,25 +3256,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1051971502567804650, guid: 45752b2250b792843ac7118297f57143, type: 3}
     - target: {fileID: -6262136790749942028, guid: ed4aac8be66338d46a77bcd49d5e76fb, type: 3}
+      propertyPath: enemiesToSpawnInThisZone.Array.data[0].deathCooldown
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6262136790749942028, guid: ed4aac8be66338d46a77bcd49d5e76fb, type: 3}
       propertyPath: enemiesToSpawnInThisZone.Array.data[0].doesntRespawn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6262136790749942028, guid: ed4aac8be66338d46a77bcd49d5e76fb, type: 3}
       propertyPath: enemiesToSpawnInThisZone.Array.data[0].objectToBlock
       value: 
-      objectReference: {fileID: 1005286355}
+      objectReference: {fileID: 0}
     - target: {fileID: -6262136790749942028, guid: ed4aac8be66338d46a77bcd49d5e76fb, type: 3}
       propertyPath: enemiesToSpawnInThisZone.Array.data[0].startsSpawned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -6262136790749942028, guid: ed4aac8be66338d46a77bcd49d5e76fb, type: 3}
+      propertyPath: enemiesToSpawnInThisZone.Array.data[1].deathCooldown
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6262136790749942028, guid: ed4aac8be66338d46a77bcd49d5e76fb, type: 3}
       propertyPath: enemiesToSpawnInThisZone.Array.data[1].doesntRespawn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6262136790749942028, guid: ed4aac8be66338d46a77bcd49d5e76fb, type: 3}
       propertyPath: enemiesToSpawnInThisZone.Array.data[1].objectToBlock
       value: 
-      objectReference: {fileID: 1005286355}
+      objectReference: {fileID: 0}
     - target: {fileID: -6262136790749942028, guid: ed4aac8be66338d46a77bcd49d5e76fb, type: 3}
       propertyPath: enemiesToSpawnInThisZone.Array.data[1].startsSpawned
       value: 1
