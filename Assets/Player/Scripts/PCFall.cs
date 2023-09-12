@@ -32,23 +32,11 @@ public class PCFall : MonoBehaviour
         Collider[] grounds = Physics.OverlapBox(fallTarget.transform.position, overlapBoxHalfExtents, Quaternion.identity, groundMask);
         if (grounds.Length > 0) SetOnGround();
         else SetNotOnGround();
-        SetLastGround(grounds);
     }
 
-    private void SetLastGround(Collider[] grounds)
+    public void SetLastGround(Vector3 newPosition)
     {
-        if (touchingGround)
-        {
-            foreach (Collider ground in grounds)
-            {
-                if (ground.CompareTag("Ground"))
-                {
-                    Vector3 groundPos = ground.gameObject.transform.position;
-                    lastGroundPosition = new Vector3(groundPos.x, groundPos.y + ground.gameObject.transform.localScale.y / 2, groundPos.z);
-                    break;
-                }
-            }
-        }
+        lastGroundPosition = newPosition;
     }
 
     private void SetOnGround()
