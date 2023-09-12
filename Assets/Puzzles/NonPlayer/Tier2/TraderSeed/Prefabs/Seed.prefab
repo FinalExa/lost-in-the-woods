@@ -314,6 +314,7 @@ GameObject:
   - component: {fileID: 6287875380912956973}
   - component: {fileID: 7908682251196293909}
   - component: {fileID: -3260798718088982154}
+  - component: {fileID: -4734783847984305704}
   - component: {fileID: 3719969183109441263}
   - component: {fileID: 1837314321013049998}
   - component: {fileID: 9219195652249742145}
@@ -356,6 +357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   signalState: 0
   explorationState: 0
+  spawnerId: 0
   signalNamedInteractionExecutor: {fileID: 4127695392448808083}
   signalPositiveName: SeedPositiveSignal
   signalNegativeName: SeedNegativeSignal
@@ -461,6 +463,24 @@ MonoBehaviour:
       shakeDuration: 0
       cinemachineCameraShakerRef: {fileID: 0}
     soundParent: {fileID: 0}
+--- !u!114 &-4734783847984305704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837314321013049996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17c23234d0e5434c8a38588de7ffee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnDataName: Seed
+  rotator: {fileID: 1837314319417166637}
+  saveParent: 1
+  destroyedByZone: 0
+  id: -1
+  thisZone: {fileID: 0}
 --- !u!135 &3719969183109441263
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -555,6 +575,7 @@ MonoBehaviour:
   thisName: 
   active: 0
   inLoop: 0
+  refObject: {fileID: 0}
 --- !u!135 &5930650648713287022
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -785,6 +806,7 @@ MonoBehaviour:
   thisName: 
   active: 0
   inLoop: 0
+  refObject: {fileID: 0}
 --- !u!135 &5515288593584740799
 SphereCollider:
   m_ObjectHideFlags: 0

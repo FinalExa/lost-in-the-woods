@@ -19,11 +19,13 @@ public class Zone : MonoBehaviour
     private PCController playerRef;
     public ZoneObjects zoneObjects;
     private Spawner[] zoneSpawners;
+    private SeedSpawnerIDAssign seedSpawnerIDAssign;
 
     private void Awake()
     {
         zoneSpawners = this.gameObject.transform.GetComponentsInChildren<Spawner>();
         zoneObjects = new ZoneObjects(this);
+        seedSpawnerIDAssign = new SeedSpawnerIDAssign(this.gameObject);
     }
 
     private void Start()

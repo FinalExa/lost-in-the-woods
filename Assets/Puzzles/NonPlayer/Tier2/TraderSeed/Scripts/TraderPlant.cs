@@ -41,29 +41,29 @@ public class TraderPlant : MonoBehaviour, ISendSignalToSelf
 
     private void SetSignals(NamedInteractionOperations namedOps)
     {
-        signalSetState = 0;
+        signalSetState = 1;
         if (namedOps.ActiveNamedInteractions.ContainsKey(signalNamePositive)) signalSetState++;
         if (namedOps.ActiveNamedInteractions.ContainsKey(signalNameNegative)) signalSetState--;
-        if (signalSetState == 0) signalFeedback.gameObject.SetActive(false);
+        if (signalSetState == 1) signalFeedback.gameObject.SetActive(false);
         else
         {
             signalFeedback.gameObject.SetActive(true);
-            if (signalSetState == 1) signalFeedback.color = signalPositiveColor;
-            else if (signalSetState == -1) signalFeedback.color = signalNegativeColor;
+            if (signalSetState == 2) signalFeedback.color = signalPositiveColor;
+            else if (signalSetState == 0) signalFeedback.color = signalNegativeColor;
         }
     }
 
     private void SetExploration(NamedInteractionOperations namedOps)
     {
-        explorationSetState = 0;
+        explorationSetState = 1;
         if (namedOps.ActiveNamedInteractions.ContainsKey(explorationNamePositive)) explorationSetState++;
         if (namedOps.ActiveNamedInteractions.ContainsKey(explorationNameNegative)) explorationSetState--;
-        if (explorationSetState == 0) explorationFeedback.gameObject.SetActive(false);
+        if (explorationSetState == 1) explorationFeedback.gameObject.SetActive(false);
         else
         {
             explorationFeedback.gameObject.SetActive(true);
-            if (explorationSetState == 1) explorationFeedback.color = explorationPositiveColor;
-            else if (explorationSetState == -1) explorationFeedback.color = explorationNegativeColor;
+            if (explorationSetState == 2) explorationFeedback.color = explorationPositiveColor;
+            else if (explorationSetState == 0) explorationFeedback.color = explorationNegativeColor;
         }
     }
 

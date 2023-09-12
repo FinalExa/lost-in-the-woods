@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PCHealth : Health
 {
     private PCReferences pcReferences;
+    private GameSaveSystem gameSaveSystem;
     private PCLight pcLight;
     private bool regenWait;
     private float regenWaitTimer;
@@ -14,6 +15,7 @@ public class PCHealth : Health
     private void Awake()
     {
         pcReferences = this.gameObject.GetComponent<PCReferences>();
+        gameSaveSystem = FindObjectOfType<GameSaveSystem>();
         pcLight = this.gameObject.GetComponentInChildren<PCLight>();
     }
 
@@ -38,7 +40,7 @@ public class PCHealth : Health
     public override void OnDeath(bool skipOnDeathInteraction)
     {
         if (uxOnDeath.hasSound) uxOnDeath.sound.PlayAudio();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        gameSaveSystem.LoadData();
     }
 
     public override void OnHitReceived(bool feedbackActive)

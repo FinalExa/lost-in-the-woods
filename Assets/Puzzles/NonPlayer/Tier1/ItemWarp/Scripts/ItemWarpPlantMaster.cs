@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemWarpPlantMaster : MonoBehaviour
 {
-    [SerializeField] private ItemWarpPlant[] itemWarpPlants;
+    private ItemWarpPlant[] itemWarpPlants;
     [SerializeField] private Color[] availableColors;
     private int[] colorCount;
 
@@ -15,8 +15,9 @@ public class ItemWarpPlantMaster : MonoBehaviour
         UpdateCurrentPlantStatus();
     }
 
-    private void SetupWarpPlants()
+    public void SetupWarpPlants()
     {
+        itemWarpPlants = this.gameObject.GetComponentsInChildren<ItemWarpPlant>();
         foreach (ItemWarpPlant itemWarpPlant in itemWarpPlants)
         {
             itemWarpPlant.InitializeColors(availableColors);

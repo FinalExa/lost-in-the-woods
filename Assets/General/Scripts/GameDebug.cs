@@ -30,7 +30,6 @@ public class GameDebug : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.N) && pcController != null) pcController.pcReferences.heartbeat.SetHeartbeatTimer(false);
         if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
         if (Input.GetKeyDown(KeyCode.L)) gameSave.LoadData();
-        if (Input.GetKeyDown(KeyCode.K)) pcController.pcReferences.pcHealth.OnDeath(true);
         if (Input.GetKeyDown(KeyCode.P)) gameSave.DeleteLoadedData();
         if (Input.GetKeyDown(KeyCode.T))
         {
